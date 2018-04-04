@@ -1,0 +1,202 @@
+/*
+ 		HEADERS AND BACKGROUND
+*/
+
+.charsheet {
+	background-color: #EEE5CE;
+}
+
+.charsheet h1, .charsheet h2, .charsheet h3, .charsheet h4{
+    margin-top:         .2em;               
+    margin-bottom:      .2em;
+    font-family:        MrJeeves;
+    font-weight:        800;
+    color:              #58180D;
+}
+
+.charsheet h2{
+    font-size:          .705cm;             
+}
+
+.charsheet h3{
+    font-size:          .529cm;
+    border-bottom:      2px solid #c9ad6a   
+}
+
+.charsheet h4{
+    margin-bottom:      0;                  
+    font-size:          .458cm
+}
+
+/**********************************************
+*				INPUTS
+**********************************************/
+
+.sheet-AttSelect select{
+    width:      90px;
+}
+
+.sheet-DefSelect select{
+	width: 		70px;
+}
+
+.sheet-raceclass input{
+    width:      150px;
+}
+
+.sheet-wepDamSelect select{
+    width:      70px;
+}
+
+input.sheet-diceInput {
+	width: 140px;
+}
+
+input.sheet-arrow:not(:checked) ~ div.sheet-body {
+    display: none;
+}
+
+select.sheet-ActionType{
+    width: 105px;
+}
+
+select.sheet-AccesorySelect{
+	width: 120px;
+}
+
+.sheet-AttSelect-AC select{
+	width: 160px;
+}
+
+.sheet-tab3 input{
+    width: 350px;
+}
+
+input.sheet-Item{
+    width: 187px;
+}
+
+/**********************************************
+*				TABS
+**********************************************/
+
+div.sheet-tab-content { display: none; }
+input.sheet-tab1:checked ~ div.sheet-tab1,
+input.sheet-tab2:checked ~ div.sheet-tab2,
+input.sheet-tab3:checked ~ div.sheet-tab3,
+input.sheet-tab4:checked ~ div.sheet-tab4 { display: block; }
+
+input.sheet-tab {
+    width: 150px;
+    height: 30px;
+    position: relative;
+    top: 5px;
+    left: 6px;
+    margin: -1.5px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+}
+
+input.sheet-tab + span::before {
+    content: attr(title);
+    border: solid 1px #a8a8a8;
+    border-bottom-color: black;
+    text-align: center;
+    display: inline-block;
+    background: #846c2e;
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+    position: absolute;
+    top: 70px;
+    left: 30px;
+}
+
+input.sheet-tab:checked + span::before {
+    background: #bd9a42;
+    border-bottom-color: #000;
+}
+
+input.sheet-tab:not(:first-child) + span::before { border-left: none; }
+
+input.sheet-tab2 + span::before {
+    left: 180px;
+}
+
+input.sheet-tab3 + span::before { 
+    left: 330px;
+}
+
+input.sheet-tab4 + span::before { 
+    left: 480px; 
+}
+
+div.sheet-tab-content {
+    border: 1px solid #a8a8a8;
+    border-top-color: #000;
+    margin: 5px 0 0 5px;
+    padding: 5px;
+}
+
+
+/**********************************************
+*			ROLLTEMPLATES
+**********************************************/
+
+.sheet-rolltemplate-attack table {
+    width: 189px;
+    padding: 2px;
+	border: 1px solid;
+    background-color: #EEE5CE;
+}
+ 
+.sheet-rolltemplate-attack th {
+	color: rgb(126, 45, 64);
+    padding-left: 5px;
+	line-height: 1.6em;
+	font-size: 1.2em;
+    text-align: left;
+	font-family: "Times New Roman", Times, serif;
+    font-variant: small-caps;
+}
+ 
+.sheet-rolltemplate-attack .sheet-subheader {
+    color: #000;
+    font-size: 1em;
+    font-style: italic;
+}
+ 
+.sheet-rolltemplate-attack .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+	border-left: 180px solid rgb(126, 45, 64);
+}
+ 
+.sheet-rolltemplate-attack .sheet-tcat {
+    font-style: italic;
+}
+ 
+.sheet-rolltemplate-attack td {
+    padding-left: 5px;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult  {
+    background-color: #ffffff;
+    border: none;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult.fullcrit {
+	color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult.fullfail {
+	color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-attack .inlinerollresult.importantroll {
+	color: #4A57ED;
+    border: none;
+}

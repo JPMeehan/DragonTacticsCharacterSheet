@@ -1,0 +1,701 @@
+
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"><span title="General Info"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"><span title="Combat"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"><span title="Character Details"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"><span title="Equipment"></span>
+
+<!--General Info-->
+<div class="sheet-tab-content sheet-tab1">
+    <div class='sheet-3colrow'>
+        <h2>Basic Info</h2>
+        <div class='sheet-BasicInfo'>
+            <div class='sheet-col'>
+                <label> Character Name </label> <input type="text" name="attr_character_name" />
+            </div>
+
+            <div class='sheet-col'>
+                <div class='sheet-raceclass'>
+                    <input type="text" name="attr_Race" /> Character Race <br>
+                    <input type="text" name="attr_Class" /> Character Class <br>
+                </div>
+            </div>
+
+            <div class='sheet-col'>
+            <input type="number" name="attr_level" value=1 min=1 max=30> Level 
+			<input type="hidden" name="attr_Level-half" value=0>
+			<!-- <input type="hidden" name="attr_Level-half" value=0>  -->
+			<br>
+            <input type="number" name="attr_Quest" value=0 /> Quest Bonus <br>
+        </div>
+        </div>
+		<!--Attributes, Skills, Competencies-->
+        <div class='sheet-3colrow'>
+			<!--Attributes-->
+            <div class='sheet-col'>
+                <h2>Attributes</h2>
+                <input type="number" name="attr_Strength" value=10 /> Strength 
+					<!--<input type="hidden" name="attr_foo_strmod" value=0> -->
+                <input name="attr_strmod" type="hidden" value=0>
+				<br>
+
+                <input type="number" name="attr_Constitution" value=10 /> Constitution 
+					<!-- <input type="hidden" name="attr_foo_conmod" value=0> -->
+                <input name="attr_conmod" type="hidden" value=0>
+				<br>
+				
+                <input type="number" name="attr_Dexterity" value=10 /> Dexterity 
+					<!-- <input type="hidden" name="attr_foo_dexmod" value=0> -->
+                <input name="attr_dexmod" type="hidden" value=0>
+				<br>
+
+                <input type="number" name="attr_Intelligence" value=10 /> Intelligence 
+					<!-- <input type="hidden" name="attr_foo_intmod" value=0> -->
+                <input name="attr_intmod" type="hidden" value=0>
+				<br>
+
+                <input type="number" name="attr_Wisdom" value=10 /> Wisdom 
+					<!-- <input type="hidden" name="attr_foo_wismod" value=0> -->
+                <input name="attr_wismod" type="hidden" value=0>
+				<br>
+
+                <input type="number" name="attr_Charisma" value=10 /> Charisma 
+					<!-- <input type="hidden" name="attr_foo_chamod" value=0> -->
+                <input name="attr_chamod" type="hidden" value=0>
+				<br>
+            </div>
+			<!--Skills--> 
+            <div class='sheet-col'>
+                <h2>Skills</h2>
+                <input type='checkbox' name='attr_Acrobatics-Train' value=5 /> <input type="number" name="attr_Acrobatics-MiscBonus" value=0> Acrobatics (Dex) 
+				<button type='roll' value='&{template:default} {{name=Acrobatics Check}} {{roll=[[1d20 + @{Acrobatics-Train} + @{Acrobatics-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}]]}}' name='roll_AcrobaticsCheck'></button><br>
+                <input type='checkbox' name='attr_Appeal-Train' value=5 /> <input type="number" name="attr_Appeal-MiscBonus" value=0> Appeal (Cha)
+				<button type='roll' value='&{template:default} {{name=Appeal Check}} {{roll=[[1d20 + @{Appeal-Train} + @{Appeal-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AppealCheck'></button><br>
+                <input type='checkbox' name='attr_Arcana-Train' value=5 /> <input type="number" name="attr_Arcana-MiscBonus" value=0> Arcana (Int)
+				<button type='roll' value='&{template:default} {{name=Arcana Check}} {{roll=[[1d20 + @{Arcana-Train} + @{Arcana-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ArcanaCheck'></button><br>
+                <input type='checkbox' name='attr_Athletics-Train' value=5 />  <input type="number" name="attr_Athletics-MiscBonus" value=0> Athletics (Str)
+				<button type='roll' value='&{template:default} {{name=Athletics Check}} {{roll=[[1d20 + @{Athletics-Train} + @{Athletics-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AthleticsCheck'></button><br>
+                <input type='checkbox' name='attr_Debate-Train' value=5 />  <input type="number" name="attr_Debate-MiscBonus" value=0> Debate (Int)
+				<button type='roll' value='&{template:default} {{name=Debate Check}} {{roll=[[1d20 + @{Debate-Train} + @{Debate-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_DebateCheck'></button><br>
+                <input type='checkbox' name='attr_Endurance-Train' value=5 />  <input type="number" name="attr_Endurance-MiscBonus" value=0> Endurance (Con)
+				<button type='roll' value='&{template:default} {{name=Endurance Check}} {{roll=[[1d20 + @{Endurance-Train} + @{Endurance-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_EnduranceCheck'></button><br>
+                <input type='checkbox' name='attr_HandleAnimal-Train' value=5 /> <input type="number" name="attr_HandleAnimal-MiscBonus" value=0> Handle Animal (Wis)
+				<button type='roll' value='&{template:default} {{name=Handle Animal Check}} {{roll=[[1d20 + @{HandleAnimal-Train} + @{HandleAnimal-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_HandleAnimalCheck'></button><br>
+                <input type='checkbox' name='attr_Insight-Train' value=5 /> <input type="number" name="attr_Insight-MiscBonus" value=0> Insight (Wis)
+				<button type='roll' value='&{template:default} {{name=Insight Check}} {{roll=[[1d20 + @{Insight-Train} + @{Insight-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_InsightCheck'></button><br>
+                <input type='checkbox' name='attr_Impress-Train' value=5 /> <input type="number" name="attr_Impress-MiscBonus" value=0> Impress (Cha)
+				<button type='roll' value='&{template:default} {{name=Impress Check}} {{roll=[[1d20 + @{Impress-Train} + @{Impress-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ImpressCheck'></button><br>
+                <input type='checkbox' name='attr_Medicine-Train' value=5 />  <input type="number" name="attr_Medicine-MiscBonus" value=0> Medicine (Wis)
+				<button type='roll' value='&{template:default} {{name=Medicine Check}} {{roll=[[1d20 + @{Medicine-Train} + @{Medicine-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_MedicineCheck'></button><br>
+                <input type='checkbox' name='attr_Perception-Train' value=5 /> <input type="number" name="attr_Perception-MiscBonus" value=0> Perception (Wis)
+				<button type='roll' value='&{template:default} {{name=Perception Check}} {{roll=[[1d20 + @{Perception-Train} + @{Perception-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_PerceptionCheck'></button><br>
+                <input type='checkbox' name='attr_Repair-Train' value=5 /> <input type="number" name="attr_Repair-MiscBonus" value=0> Repair (Int) 
+				<button type='roll' value='&{template:default} {{name=Repair Check}} {{roll=[[1d20 + @{Repair-Train} + @{Repair-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_RepairCheck'></button><br>
+                <input type='checkbox' name='attr_Research-Train' value=5 /> <input type="number" name="attr_Research-MiscBonus" value=0> Research (Int)
+				<button type='roll' value='&{template:default} {{name=Research Check}} {{roll=[[1d20 + @{Research-Train} + @{Research-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ResearchCheck'></button><br>
+                <input type='checkbox' name='attr_SleightofHand-Train' value=5 /> <input type="number" name="attr_SleightofHand-MiscBonus" value=0> Sleight of Hand (Dex)
+				<button type='roll' value='&{template:default} {{name=Sleight of Hand Check}} {{roll=[[1d20 + @{SleightofHand-Train} + @{SleightofHand-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SleightofHandCheck'></button><br>
+                <input type='checkbox' name='attr_Socialize-Train' value=5 /> <input type="number" name="attr_Socialize-MiscBonus" value=0> Socialize (Cha)
+				<button type='roll' value='&{template:default} {{name=Socialize Check}} {{roll=[[1d20 + @{Socialize-Train} + @{Socialize-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SocializeCheck'></button><br>
+                <input type='checkbox' name='attr_Stealth-Train' value=5 /> <input type="number" name="attr_Stealth-MiscBonus" value=0> Stealth (Dex)
+				<button type='roll' value='&{template:default} {{name=Stealth Check}} {{roll=[[1d20 + @{Stealth-Train} + @{Stealth-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_StealthCheck'></button><br>
+                <input type='checkbox' name='attr_Survival-Train' value=5 /> <input type="number" name="attr_Survival-MiscBonus" value=0> Survival (Wis) 
+				<button type='roll' value='&{template:default} {{name=Survival Check}} {{roll=[[1d20 + @{Survival-Train} + @{Survival-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SurvivalCheck'></button><br>
+                <label title="Jack of All Trades"><input type='checkbox' name='attr_JackOfAllTrades' value=2 /> Jack of All Trades</label> 
+				<label title="Bard"><input type='checkbox' name='attr_BardJack' value=1 /> Bard </label> 
+            </div>
+			<!--Competencies-->
+            <div class='sheet-col'>
+                <h2>Competencies</h2>
+                <fieldset class="repeating_competencies">            
+                      <input type="text" name="attr_competency" />        
+                </fieldset>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<!--Combat-->
+<div class="sheet-tab-content sheet-tab2">
+    <div class='sheet-2colrow'>
+    <!--Key Numbers-->
+        <div class='sheet-col'>
+            <h2>Health</h2>
+			<label title="Movement Speed"><input type="number" name="attr_speed" value=30> Movement Speed</label>
+            <label title="HP"><input type="number" name="attr_HP" value=20> / <input type="number" name="attr_HP_max" value=20> HP</label>
+            <input type="number" name="attr_HP-Bloodied" disabled value=10> Bloodied value <input type="number" name="attr_HP-surgeValue" value=5> Surge Value <br>
+			<label title="Surges"><input type="number" name="attr_surges" value=6> / <input type="number" name="attr_surges_max" value=6> Surges</label>
+			<br>
+        </div>
+		<div class='sheet-col'>
+            <h2>Defenses</h2>
+			<input type="number" name="attr_AC" value=10 readonly> Armor Class 
+				<!-- <input type="hidden" name="attr_foo_AC" value=10> -->
+			<br>
+            <input type="number" name="attr_Fort" value=10 readonly> Fortitude 
+				<!-- <input type="hidden" name="attr_foo_Fort" value=10> -->
+			<br>
+            <input type="number" name="attr_Ref" value=10 readonly> Reflex 
+				<!-- <input type="hidden" name="attr_foo_Ref" value=10> -->
+			<br>
+            <input type="number" name="attr_Will" value=10 readonly> Will 
+				<!-- <input type="hidden" name="attr_foo_Will" value=10> -->
+			<br>
+        </div>
+    </div>
+    <h2>Powers</h2>
+	<label title="Striker Dice"><input type="text" name="attr_strikerdice" value="" class="sheet-diceInput"> Striker dice</label>
+    <div class='sheet-3colrow'>
+		<!-- AtWills -->
+        <div class='sheet-col'>
+            <h3>At-Will Powers</h3>
+            <fieldset class="repeating_AtWills">
+				<label title="Name">Name<input name="attr_AtWill-Name" type="text"></label> 
+                <label title="Action">Action<select name="attr_AtWill-ActionType" class="sheet-ActionType">
+                    <option value="1">Standard</option>
+                    <option value="2">Move</option>
+                    <option value="3">Minor</option>
+                    <option value="4">Free</option>
+                    <option value="5">Opportunity</option>
+                    <option value="6">Immediate</option>
+                </select></label> 
+                <label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
+				<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect1"></textarea></label>
+				<div>
+					Attack? <input type="checkbox" value=1 checked="true" name="attr_AtWill-IsAttack" class="sheet-arrow">
+					<div class="sheet-body">
+						<button type='roll' name="roll_AtWill-Attack" value='@{AtWillRollContent}' > </button>
+						<input type="hidden" name="attr_AtWillRollContent">
+						<span class='sheet-AttSelect'>
+							<select name="attr_AtWillAtt-Attack">
+								<option value="@{strmod}">Strength</option>
+								<option value="@{conmod}">Constitution</option>
+								<option value="@{dexmod}">Dexterity</option>
+								<option value="@{intmod}">Intelligence</option>
+								<option value="@{wismod}">Wisdom</option>
+								<option value="@{chamod}">Charisma</option>
+							</select> 
+						</span> 
+						vs. 
+						<span class='sheet-DefSelect'>
+							<select class='attr_AtWillDef-Select'>
+								<option value="AC">AC</option>
+								<option value="Fort">Fortitude</option>
+								<option value="Ref">Reflex</option>
+								<option value="Will">Will</option>
+							</select>
+						</span>
+						<select name="attr_AtWill-Accessory" class="sheet-AccesorySelect">
+								<option value="@{wep1-Damage}"> Weapon 1 </option>
+								<option value="@{wep2-Damage}"> Weapon 2 </option>
+								<option value="@{wep3-Damage}"> Weapon 3 </option>
+								<option value="@{imp1-Damage}"> Implement 1 </option>
+								<option value="@{imp1-Damage}"> Implement 2 </option>
+						</select>
+						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_AtWill-MiscAttackBonus"></label>
+						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_AtWill-dicebase" class="sheet-diceInput"></label>
+						<input type="hidden" value=0 name="attr_AtWill-HitBonus">
+						<input type="hidden" value="" name="attr_AtWill-damagedice">
+						<input type="hidden" value=0 name="attr_AtWill-flatdamage">
+						<input type="hidden" value="" name="attr_AtWill-critdice">
+						<input type="hidden" value=0 name="attr_AtWill-critflat">
+						<label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label>
+						<label title="Miss">Miss: <textarea name="attr_AtWill-Power-Miss"></textarea></label>
+						<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect2"></textarea></label>
+					</div>
+				</div>
+            </fieldset>
+        </div>
+		<!-- Encounters -->
+        <div class='sheet-col'>
+            <h3>Encounter Powers</h3>
+			
+			<div>
+				Psionic? <input type="checkbox" class="sheet-arrow">
+				<div class="sheet-body"> 
+					<label title="PowerPoints">Power Points <input type="number" value=2 name="attr_PowerPoints"> / <input type="number" value=2 name="attr_PowerPoints_max"></label>
+				</div>
+			</div>
+			<fieldset class="repeating_Encounters">
+				<label title="Name">Name<input name="attr_Encounter-Name" type="text"></label> 
+                <label title="Action">Action<select name="attr_Encounter-ActionType" class="sheet-ActionType">
+                    <option value="1">Standard</option>
+                    <option value="2">Move</option>
+                    <option value="3">Minor</option>
+                    <option value="4">Free</option>
+                    <option value="5">Opportunity</option>
+                    <option value="6">Immediate</option>
+                </select></label> 
+                <label title="Range and Targets">Range and Targets: <input type="text" name="attr_Encounter-RangeTargets"></label> 
+				<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect1"></textarea></label>
+				<div>
+					Attack? <input type="checkbox" value=1 checked="true" name="attr_Encounter-IsAttack" class="sheet-arrow">
+					<div class="sheet-body">
+						<button type='roll' name="roll_Encounter-Attack" value='@{EncounterRollContent}' > </button>
+						<input type="hidden" name="attr_EncounterRollContent">
+						<span class='sheet-AttSelect'>
+							<select name="attr_EncounterAtt-Attack">
+								<option value="@{strmod}">Strength</option>
+								<option value="@{conmod}">Constitution</option>
+								<option value="@{dexmod}">Dexterity</option>
+								<option value="@{intmod}">Intelligence</option>
+								<option value="@{wismod}">Wisdom</option>
+								<option value="@{chamod}">Charisma</option>
+							</select> 
+						</span> 
+						vs. 
+						<span class='sheet-DefSelect'>
+							<select class='attr_EncounterDef-Select'>
+								<option value="AC">AC</option>
+								<option value="Fort">Fortitude</option>
+								<option value="Ref">Reflex</option>
+								<option value="Will">Will</option>
+							</select>
+						</span>
+						<select name="attr_Encounter-Accessory" class="sheet-AccesorySelect">
+								<option value="@{wep1-Damage}"> Weapon 1 </option>
+								<option value="@{wep2-Damage}"> Weapon 2 </option>
+								<option value="@{wep3-Damage}"> Weapon 3 </option>
+								<option value="@{imp1-Damage}"> Implement 1 </option>
+								<option value="@{imp1-Damage}"> Implement 2 </option>
+						</select>
+						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Encounter-MiscAttackBonus"></label>
+						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Encounter-dicebase" class="sheet-diceInput"></label>
+						<input type="hidden" value=0 name="attr_Encounter-HitBonus">
+						<input type="hidden" value="" name="attr_Encounter-damagedice">
+						<input type="hidden" value=0 name="attr_Encounter-flatdamage">
+						<input type="hidden" value="" name="attr_Encounter-critdice">
+						<input type="hidden" value=0 name="attr_Encounter-critflat">
+						<label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label>
+						<label title="Miss">Miss: <textarea name="attr_Encounter-Power-Miss"></textarea></label>
+						<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect2"></textarea></label>
+					</div>
+				</div>
+            </fieldset>
+        </div>
+		<!-- Dailies -->
+        <div class='sheet-col'>
+            <h3>Daily Powers</h3>
+			<fieldset class="repeating_Dailies">
+				<label title="Name">Name<input name="attr_Daily-Name" type="text"></label> 
+                <label title="Action">Action<select name="attr_Daily-ActionType" class="sheet-ActionType">
+                    <option value="1">Standard</option>
+                    <option value="2">Move</option>
+                    <option value="3">Minor</option>
+                    <option value="4">Free</option>
+                    <option value="5">Opportunity</option>
+                    <option value="6">Immediate</option>
+                </select></label> 
+                <label title="Range and Targets">Range and Targets: <input type="text" name="attr_Daily-RangeTargets"></label> 
+				<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect1"></textarea></label>
+				<div>
+					Attack? <input type="checkbox" value=1 checked="true" name="attr_Daily-IsAttack" class="sheet-arrow">
+					<div class="sheet-body">
+						<button type='roll' name="roll_Daily-Attack" value='@{DailyRollContent}' > </button>
+						<input type="hidden" name="attr_DailyRollContent">
+						<span class='sheet-AttSelect'>
+							<select name="attr_DailyAtt-Attack">
+								<option value="@{strmod}">Strength</option>
+								<option value="@{conmod}">Constitution</option>
+								<option value="@{dexmod}">Dexterity</option>
+								<option value="@{intmod}">Intelligence</option>
+								<option value="@{wismod}">Wisdom</option>
+								<option value="@{chamod}">Charisma</option>
+							</select> 
+						</span> 
+						vs. 
+						<span class='sheet-DefSelect'>
+							<select class='attr_DailyDef-Select'>
+								<option value="AC">AC</option>
+								<option value="Fort">Fortitude</option>
+								<option value="Ref">Reflex</option>
+								<option value="Will">Will</option>
+							</select>
+						</span>
+						<select name="attr_Daily-Accessory" class="sheet-AccesorySelect">
+								<option value="@{wep1-Damage}"> Weapon 1 </option>
+								<option value="@{wep2-Damage}"> Weapon 2 </option>
+								<option value="@{wep3-Damage}"> Weapon 3 </option>
+								<option value="@{imp1-Damage}"> Implement 1 </option>
+								<option value="@{imp1-Damage}"> Implement 2 </option>
+							</select>
+						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Daily-MiscAttackBonus"></label>
+						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Daily-dicebase" class="sheet-diceInput"></label>
+						<input type="hidden" value=0 name="attr_Daily-HitBonus">
+						<input type="hidden" value="" name="attr_Daily-damagedice">
+						<input type="hidden" value=0 name="attr_Daily-flatdamage">
+						<input type="hidden" value="" name="attr_Daily-critdice">
+						<input type="hidden" value=0 name="attr_Daily-critflat">
+						<label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label>
+						<label title="Miss">Miss: <textarea name="attr_Daily-Power-Miss"></textarea></label>
+						<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect2"></textarea></label>
+					</div>
+				</div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<!--Character Details-->
+<div class="sheet-tab-content sheet-tab3">
+    <div class="sheet-2colrow">
+        <div class='sheet-col'>
+            <h2>Race Features</h2>
+            <fieldset class="repeating_RaceFeatures">
+                <input type="text" name="attr_RaceFeature" />
+            </fieldset>
+        </div>
+		
+        <div class='sheet-col'>
+            <h2>Class Features</h2>
+            <fieldset class="repeating_ClassFeatures">
+                <input type="text" name="attr_ClassFeature" />
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="sheet-2colrow">
+        <div class='sheet-col'>
+            <h2>Feats</h2>
+            <fieldset class="repeating_Feats">
+                <input type="text" name="attr_Feat" />
+            </fieldset>
+        </div>
+
+        <div class='sheet-col'>
+            <h2>Flaws and Longterm Conditions</h2>
+			<fieldset class="repeating_Flaws-LongtermConditions">
+                <input type="text" name="attr_Flaw-LongtermCondition">
+            </fieldset>
+        </div>
+    </div>
+
+    <div class="sheet-2colrow">
+        <div class='sheet-col'>
+            <h2>Backstory</h2>
+            <textarea name="attr_Backstory"></textarea>
+        </div>
+
+        <div class='sheet-col'>
+            <h2>Personality</h2>
+            <textarea name="attr_Personality"></textarea>
+        </div>
+    </div>
+</div>
+
+<!--Equipment-->
+<div class="sheet-tab-content sheet-tab4">
+    <h1>On Person</h1>
+		<h2>Combat Items</h2>
+		<!-- Weapons -->
+		<div class='sheet-3colrow'>
+			<!-- Weapon 1 -->
+			<div class='sheet-col'>
+				<h3>Weapon 1</h3>
+				<input type="text" name="attr_wep1-Name" class="sheet-Item"> Name <br>
+				<input type="number" name="attr_wep1-Prof" value='2' /> Weapon Proficiency <br>
+				<div class='sheet-wepDamSelect'>
+					<select name="attr_wep1-Damage">
+							<option value="1d4">1d4 </option>
+							<option value="1d6">1d6 </option>
+							<option value="1d8">1d8 </option>
+							<option value="1d10">1d10</option>
+							<option value="1d12">1d12</option>
+							<option value="2d4">2d4 </option>
+							<option value="2d6">2d6 </option>
+					</select> Weapon Damage <br>
+					<input type="checkbox" name="attr_wep1-Brutal" value="r<@{wep1-BrutN}"> Brutal <input type="number" name="attr_wep1-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep1-HighCrit" value="@{wep1-Damage}"> High Crit
+				</div>
+			</div>
+			<!-- Weapon 2 -->
+			<div class='sheet-col'>
+				<h3>Weapon 2</h3>
+				<input type="text" name="attr_wep2-Name" class="sheet-Item"> Name <br>
+				<input type="number" name="attr_wep2-Prof" value='2' /> Weapon Proficiency <br>
+				<div class='sheet-wepDamSelect'>
+					<select name="attr_wep2-Damage">
+							<option value="1d4">1d4 </option>
+							<option value="1d6">1d6 </option>
+							<option value="1d8">1d8 </option>
+							<option value="1d10">1d10</option>
+							<option value="1d12">1d12</option>
+							<option value="2d4">2d4 </option>
+							<option value="2d6">2d6 </option>
+					</select> Weapon Damage <br>
+					<input type="checkbox" name="attr_wep2-Brutal" value="r<@{wep2-BrutN}"> Brutal <input type="number" name="attr_wep2-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep2-HighCrit" value="@{wep2-Damage}"> High Crit
+				</div>
+			</div>
+			<!-- Weapon 3 -->
+			<div class='sheet-col'>
+				<h3>Weapon 3</h3>
+				<input type="text" name="attr_wep3-Name" class="sheet-Item"> Name <br>
+				<input type="number" name="attr_wep3-Prof" value='2' /> Weapon Proficiency <br>
+				<div class='sheet-wepDamSelect'>
+					<select name="attr_wep3-Damage">
+							<option value="1d4">1d4 </option>
+							<option value="1d6">1d6 </option>
+							<option value="1d8">1d8 </option>
+							<option value="1d10">1d10</option>
+							<option value="1d12">1d12</option>
+							<option value="2d4">2d4 </option>
+							<option value="2d6">2d6 </option>
+					</select> Weapon Damage <br>
+					<input type="checkbox" name="attr_wep3-Brutal" value="r<@{wep3-BrutN}"> Brutal <input type="number" name="attr_wep3-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep3-HighCrit" value="@{wep3-Damage}"> High Crit
+				</div>
+			</div>
+		</div>
+		<!-- Armor and Implements -->
+		<div class='sheet-3colrow'>
+			<div class="sheet-col">
+				<h3>Armor</h3>
+				<input type="text" name="attr_ArmorItem-Name" value="Cloth" class="sheet-Item"> Name<br>
+				<span class='sheet-AttSelect-AC'>
+						<select name="attr_AC-Att" value=0>
+							<option value=0>None (Heavy Armor)</option>
+							<option value=1>Dexterity</option>
+							<option value=2>Intelligence</option>
+								<!--<option value="1">Strength</option>-->
+							<option value=3>Constitution</option>
+								<!--<option value="5">Wisdom</option>-->
+								<!--<option value="6">Charisma</option>-->
+						</select> Attribute
+				</span>
+				<label title="Armor Bonus"> Armor Bonus <input type="number" name="attr_AC-Armor" value=0></label>
+			</div>
+			<div class="sheet-col">
+				<h3>Implement 1</h3>
+				<input type="text" name="attr_imp1-Name" class="sheet-Item"> Name <br>
+				<input type="number" name="attr_imp1-Attack"> Attack Bonus <br>
+				<input type="hidden" name="attr_imp1-Damage" value="">
+			</div>
+			<div class="sheet-col">
+				<h3>Implement 2</h3>
+				<input type="text" name="attr_imp2-Name" class="sheet-Item"> Name <br>
+				<input type="number" name="attr_imp2-Attack"> Attack Bonus <br>
+				<input type="hidden" name="attr_imp2-Damage" value="">
+			</div>
+		</div>
+		<div class="sheet-3colrow">
+			<!-- Worn -->
+			<div class="sheet-col">
+				<h2>Worn</h2>
+				<input type="text" name="attr_HeadItem" value="A simple cowl"> Head<br>
+				<input type="text" name="attr_NeckItem" value="Nothing"> Neck<br>
+				<input type="text" name="attr_ArmsItem" value="Sleevies"> Arms<br>
+				<input type="text" name="attr_HandsItem" value="Leather gloves"> Hands
+				<input type="text" name="attr_FingerItem" value="Nothing"> Fingers<br>
+				<input type="text" name="attr_WaistItem" value="Belt with pouches"> Waist<br>
+				<input type="text" name="attr_FeetItem" value="Worn shoes"> Feet<br>
+			</div>
+			<!-- Backpack -->
+			<div class="sheet-col">
+				<h2>Backpack</h2>
+				<label title="Backpack Space Used"> <input type="number" name="attr_BackpackSpace" value=0> / <input type="number" name="attr_BackpackSpace_max" value=75> Space Used</label>
+				<br>
+				<fieldset class="repeating_BackpackItems">
+					<input type="text" name="attr_BackpackItem" class="sheet-Item"> <input type="number" name="attr_BackpackItemSpace">
+				</fieldset>
+			</div>
+			<!-- Other Places -->
+			<div class="sheet-col">
+				<h2>Other Places</h2>
+				<fieldset class="repeating_OnPersonItems">
+					<input type="text" name="attr_OnPersonItem" class="sheet-Item"> <input type="number" name="attr_OnPersonItemSpace">
+				</fieldset>
+			</div>
+		</div>
+    <h1>Left at Home</h1>
+		<textarea name="attr_ItemsAtHome"></textarea>
+</div>
+
+<!--Roll Templates-->
+<div class="sheet-rolltemplates">
+	<!-- &{template:attack} {{name=@{AtWill-Name}}} 
+	{{subtags=@{AtWill-RangeTargets}}} 
+	{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} 
+	{{defense=@{AtWillDef-Select}}}
+	{{damage=[[@{meleedmg1}+@{meleedmgbonus1}]]}} {{dmgcrit=[[@{meleedmg1}]]}} {{striker=[[@{strikerdice}]]}} -->
+	<rolltemplate class="sheet-rolltemplate-attack">
+		<table>
+			<tr><th>{{name}}</th></tr>
+			<tr><td class="subheader">{{subtags}}</td></tr>
+			<tr class="arrow-container"><td><div class="arrow-right"></div></td></tr>
+				<tr class="rowcolor"><td><span class="tcat">Attack: </span>{{attack}} | {{attackadv}} vs {{Defense}}</td></tr>
+				{{#damage}}
+					<tr>
+						<td>
+							 <span class="tcat">Damage: </span>{{damage}} 
+							 <span class="tcat">Crit: </span>{{dmgcrit}}
+						</td>
+					</tr>
+				{{/damage}}
+				{{#striker}}
+					<tr>
+						<td>
+							<span class="tcat">Striker: </span>{{strikerdmg}}
+						</td>
+					</tr>
+				{{/striker}}
+		</table>
+	</rolltemplate>
+</div>
+
+<!-- WORKERS -->
+<script type="text/worker">
+	on('sheet:opened',function(){
+		console.log("The quick brown fox jumped over the lazy dog");
+	});
+	
+    on("change:level change:level_max", function() {
+		console.log("JoeConsoleTest");
+        getAttrs(["level"], function(values) {
+			console.log("Adjusting Level-half based on level " +  values.level);
+            var finalattr = Math.floor(parseInt(values.level) / 2);
+			setAttrs({
+                "level-half": finalattr
+            });
+			console.log("SetAttrs Success?");
+        });
+	});
+
+    on("change:level-half", function() {
+		update_AC();
+		update_Fort();
+		update_Ref();
+		update_Will();
+	});
+
+    // Abilities
+	on("change:strength", function() {
+		console.log("JoeConsoleTest");
+		getAttrs(["Strength"], function(values){
+			setAttrs({
+				strmod: Math.floor(values.Strength/2-5)
+			});
+		});
+	});
+
+	on("change:constitution", function() {
+		getAttrs(["Constitution"], function(values){
+			setAttrs({
+				conmod: Math.floor(values.Constitution/2-5)
+			});
+		});
+	});
+
+	on("change:dexterity", function() {
+		getAttrs(["Dexterity"], function(values){
+			setAttrs({
+				dexmod: Math.floor(values.Dexterity/2-5)
+			});
+		});
+	});
+
+	on("change:intelligence", function() {
+		getAttrs(["Intelligence"], function(values){
+			setAttrs({
+				intmod: Math.floor(values.Intelligence/2-5)
+			});
+		});
+	});
+
+	on("change:wisdom", function() {
+		getAttrs(["Wisdom"], function(values){
+			setAttrs({
+				wismod: Math.floor(values.Wisdom/2-5)
+			});
+		});
+	});
+
+	on("change:charisma", function() {
+		getAttrs(["Charisma"], function(values){
+			setAttrs({
+				chamod: Math.floor(values.Charisma/2-5)
+			});
+		});
+	});
+
+	// Ability Modifiers
+	on("change:strmod", function() {
+		update_Fort();
+	});
+	on("change:conmod", function() {
+		update_Fort();
+		update_AC();
+	});
+	on("change:dexmod", function() {
+		update_Ref();
+		update_AC();
+	});	
+	on("change:intmod", function() {
+		update_Ref();
+		update_AC();
+	}
+	on("change:wismod", function() {
+		update_Will();
+	});
+	on("change:chamod", function() {
+		update_Will();
+	});
+
+    var update_AC = function(){
+        getAttrs(["ACAtt", "conmod","dexmod","intmod","Level-half","Quest", "AC-Armor"], function(values) {
+            var abimod = 0;
+            switch(values.AC-Att) {
+				case 0:
+					abimod = 0;
+                case 1:
+                    abimod = values.dexmod;
+                    break;
+                case 2:
+                    abimod = values.intmod;
+                    break;
+                case 3:
+                    abimod = values.conmod;
+                    break;
+            }
+            var finalattr = (10 + abimod + values.Quest + values.Level-half + values.AC-Armor);
+            setAttrs({
+                AC: finalattr
+            });
+        });
+    };
+    var update_Fort = function(attr){
+        getAttrs(["strmod","conmod","Quest", "Level-half"], function(values) {
+			var finalattr = 10;
+            finalattr = (10 + Math.max(values.strmod, values.conmod) + values.Quest + values.Level-half);
+            setAttrs({
+                Fort: finalattr
+            });
+        });
+    };
+    var update_Ref = function(attr){
+        getAttrs(["dexmod","intmod","Quest", "Level-half"], function(values) {
+            var finalattr = (10 + Math.max(values.dexmod, values.intmod) + values.Quest + values.Level-half);
+            setAttrs({
+                Ref: finalattr
+            });
+        });
+    };
+    var update_Will = function(attr){
+        getAttrs(["wismod","chamod","Quest", "Level-half"], function(values) {
+            var finalattr = (10 + Math.max(values.wismod, values.chamod) + values.Quest + values.Level-half);
+            setAttrs({
+                Will: finalattr
+            });
+        });
+    };
+
+	on("change:repeating_backpackitems", function() {
+	   getSectionIDs("BackpackItems", function(idarray) {
+			var spaceUsed = 0;
+			for(var i=0; i < idarray.length; i++) {
+				getAttrs(["repeating_BackpackItems_" + idarray[i] + "_BackpackItemSpace"], function(value){
+					spaceUsed = (spaceUsed + value["repeating_BackpackItems_" + idarray[i] + "_BackpackItemSpace"])
+				});
+			}
+			setAttrs({
+				BackpackSpace: spaceUsed
+			});
+		});
+	});
+</script>
