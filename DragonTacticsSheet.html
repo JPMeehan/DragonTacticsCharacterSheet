@@ -22,8 +22,7 @@
 
             <div class='sheet-col'>
             <input type="number" name="attr_level" value=1 min=1 max=30> Level 
-			<input type="hidden" name="attr_Level-half" value=0>
-			<!-- <input type="hidden" name="attr_Level-half" value=0>  -->
+			<input type="hidden" name="attr_level-half" value=0>
 			<br>
             <input type="number" name="attr_Quest" value=0 /> Quest Bonus <br>
         </div>
@@ -34,32 +33,26 @@
             <div class='sheet-col'>
                 <h2>Attributes</h2>
                 <input type="number" name="attr_Strength" value=10 /> Strength 
-					<!--<input type="hidden" name="attr_foo_strmod" value=0> -->
                 <input name="attr_strmod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Constitution" value=10 /> Constitution 
-					<!-- <input type="hidden" name="attr_foo_conmod" value=0> -->
                 <input name="attr_conmod" type="hidden" value=0>
 				<br>
 				
                 <input type="number" name="attr_Dexterity" value=10 /> Dexterity 
-					<!-- <input type="hidden" name="attr_foo_dexmod" value=0> -->
                 <input name="attr_dexmod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Intelligence" value=10 /> Intelligence 
-					<!-- <input type="hidden" name="attr_foo_intmod" value=0> -->
                 <input name="attr_intmod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Wisdom" value=10 /> Wisdom 
-					<!-- <input type="hidden" name="attr_foo_wismod" value=0> -->
                 <input name="attr_wismod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Charisma" value=10 /> Charisma 
-					<!-- <input type="hidden" name="attr_foo_chamod" value=0> -->
                 <input name="attr_chamod" type="hidden" value=0>
 				<br>
             </div>
@@ -67,39 +60,39 @@
             <div class='sheet-col'>
                 <h2>Skills</h2>
                 <input type='checkbox' name='attr_Acrobatics-Train' value=5 /> <input type="number" name="attr_Acrobatics-MiscBonus" value=0> Acrobatics (Dex) 
-				<button type='roll' value='&{template:default} {{name=Acrobatics Check}} {{roll=[[1d20 + @{Acrobatics-Train} + @{Acrobatics-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}]]}}' name='roll_AcrobaticsCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Acrobatics Check}} {{roll=[[1d20 + @{Acrobatics-Train} + @{Acrobatics-MiscBonus} + @{dexmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}]]}}' name='roll_AcrobaticsCheck'></button><br>
                 <input type='checkbox' name='attr_Appeal-Train' value=5 /> <input type="number" name="attr_Appeal-MiscBonus" value=0> Appeal (Cha)
-				<button type='roll' value='&{template:default} {{name=Appeal Check}} {{roll=[[1d20 + @{Appeal-Train} + @{Appeal-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AppealCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Appeal Check}} {{roll=[[1d20 + @{Appeal-Train} + @{Appeal-MiscBonus} + @{chamod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AppealCheck'></button><br>
                 <input type='checkbox' name='attr_Arcana-Train' value=5 /> <input type="number" name="attr_Arcana-MiscBonus" value=0> Arcana (Int)
-				<button type='roll' value='&{template:default} {{name=Arcana Check}} {{roll=[[1d20 + @{Arcana-Train} + @{Arcana-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ArcanaCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Arcana Check}} {{roll=[[1d20 + @{Arcana-Train} + @{Arcana-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ArcanaCheck'></button><br>
                 <input type='checkbox' name='attr_Athletics-Train' value=5 />  <input type="number" name="attr_Athletics-MiscBonus" value=0> Athletics (Str)
-				<button type='roll' value='&{template:default} {{name=Athletics Check}} {{roll=[[1d20 + @{Athletics-Train} + @{Athletics-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AthleticsCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Athletics Check}} {{roll=[[1d20 + @{Athletics-Train} + @{Athletics-MiscBonus} + @{strmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AthleticsCheck'></button><br>
                 <input type='checkbox' name='attr_Debate-Train' value=5 />  <input type="number" name="attr_Debate-MiscBonus" value=0> Debate (Int)
-				<button type='roll' value='&{template:default} {{name=Debate Check}} {{roll=[[1d20 + @{Debate-Train} + @{Debate-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_DebateCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Debate Check}} {{roll=[[1d20 + @{Debate-Train} + @{Debate-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_DebateCheck'></button><br>
                 <input type='checkbox' name='attr_Endurance-Train' value=5 />  <input type="number" name="attr_Endurance-MiscBonus" value=0> Endurance (Con)
-				<button type='roll' value='&{template:default} {{name=Endurance Check}} {{roll=[[1d20 + @{Endurance-Train} + @{Endurance-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_EnduranceCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Endurance Check}} {{roll=[[1d20 + @{Endurance-Train} + @{Endurance-MiscBonus} + @{conmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_EnduranceCheck'></button><br>
                 <input type='checkbox' name='attr_HandleAnimal-Train' value=5 /> <input type="number" name="attr_HandleAnimal-MiscBonus" value=0> Handle Animal (Wis)
-				<button type='roll' value='&{template:default} {{name=Handle Animal Check}} {{roll=[[1d20 + @{HandleAnimal-Train} + @{HandleAnimal-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_HandleAnimalCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Handle Animal Check}} {{roll=[[1d20 + @{HandleAnimal-Train} + @{HandleAnimal-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_HandleAnimalCheck'></button><br>
                 <input type='checkbox' name='attr_Insight-Train' value=5 /> <input type="number" name="attr_Insight-MiscBonus" value=0> Insight (Wis)
-				<button type='roll' value='&{template:default} {{name=Insight Check}} {{roll=[[1d20 + @{Insight-Train} + @{Insight-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_InsightCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Insight Check}} {{roll=[[1d20 + @{Insight-Train} + @{Insight-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_InsightCheck'></button><br>
                 <input type='checkbox' name='attr_Impress-Train' value=5 /> <input type="number" name="attr_Impress-MiscBonus" value=0> Impress (Cha)
-				<button type='roll' value='&{template:default} {{name=Impress Check}} {{roll=[[1d20 + @{Impress-Train} + @{Impress-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ImpressCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Impress Check}} {{roll=[[1d20 + @{Impress-Train} + @{Impress-MiscBonus} + @{chamod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ImpressCheck'></button><br>
                 <input type='checkbox' name='attr_Medicine-Train' value=5 />  <input type="number" name="attr_Medicine-MiscBonus" value=0> Medicine (Wis)
-				<button type='roll' value='&{template:default} {{name=Medicine Check}} {{roll=[[1d20 + @{Medicine-Train} + @{Medicine-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_MedicineCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Medicine Check}} {{roll=[[1d20 + @{Medicine-Train} + @{Medicine-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_MedicineCheck'></button><br>
                 <input type='checkbox' name='attr_Perception-Train' value=5 /> <input type="number" name="attr_Perception-MiscBonus" value=0> Perception (Wis)
-				<button type='roll' value='&{template:default} {{name=Perception Check}} {{roll=[[1d20 + @{Perception-Train} + @{Perception-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_PerceptionCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Perception Check}} {{roll=[[1d20 + @{Perception-Train} + @{Perception-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_PerceptionCheck'></button><br>
                 <input type='checkbox' name='attr_Repair-Train' value=5 /> <input type="number" name="attr_Repair-MiscBonus" value=0> Repair (Int) 
-				<button type='roll' value='&{template:default} {{name=Repair Check}} {{roll=[[1d20 + @{Repair-Train} + @{Repair-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_RepairCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Repair Check}} {{roll=[[1d20 + @{Repair-Train} + @{Repair-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_RepairCheck'></button><br>
                 <input type='checkbox' name='attr_Research-Train' value=5 /> <input type="number" name="attr_Research-MiscBonus" value=0> Research (Int)
-				<button type='roll' value='&{template:default} {{name=Research Check}} {{roll=[[1d20 + @{Research-Train} + @{Research-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ResearchCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Research Check}} {{roll=[[1d20 + @{Research-Train} + @{Research-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ResearchCheck'></button><br>
                 <input type='checkbox' name='attr_SleightofHand-Train' value=5 /> <input type="number" name="attr_SleightofHand-MiscBonus" value=0> Sleight of Hand (Dex)
-				<button type='roll' value='&{template:default} {{name=Sleight of Hand Check}} {{roll=[[1d20 + @{SleightofHand-Train} + @{SleightofHand-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SleightofHandCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Sleight of Hand Check}} {{roll=[[1d20 + @{SleightofHand-Train} + @{dexmod} + @{SleightofHand-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SleightofHandCheck'></button><br>
                 <input type='checkbox' name='attr_Socialize-Train' value=5 /> <input type="number" name="attr_Socialize-MiscBonus" value=0> Socialize (Cha)
-				<button type='roll' value='&{template:default} {{name=Socialize Check}} {{roll=[[1d20 + @{Socialize-Train} + @{Socialize-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SocializeCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Socialize Check}} {{roll=[[1d20 + @{Socialize-Train} + @{Socialize-MiscBonus} + @{chamod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SocializeCheck'></button><br>
                 <input type='checkbox' name='attr_Stealth-Train' value=5 /> <input type="number" name="attr_Stealth-MiscBonus" value=0> Stealth (Dex)
-				<button type='roll' value='&{template:default} {{name=Stealth Check}} {{roll=[[1d20 + @{Stealth-Train} + @{Stealth-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_StealthCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Stealth Check}} {{roll=[[1d20 + @{Stealth-Train} + @{Stealth-MiscBonus} + @{dexmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_StealthCheck'></button><br>
                 <input type='checkbox' name='attr_Survival-Train' value=5 /> <input type="number" name="attr_Survival-MiscBonus" value=0> Survival (Wis) 
-				<button type='roll' value='&{template:default} {{name=Survival Check}} {{roll=[[1d20 + @{Survival-Train} + @{Survival-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SurvivalCheck'></button><br>
+				<button type='roll' value='&{template:default} {{name=Survival Check}} {{roll=[[1d20 + @{Survival-Train} + @{Survival-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SurvivalCheck'></button><br>
                 <label title="Jack of All Trades"><input type='checkbox' name='attr_JackOfAllTrades' value=2 /> Jack of All Trades</label> 
 				<label title="Bard"><input type='checkbox' name='attr_BardJack' value=1 /> Bard </label> 
             </div>
@@ -128,17 +121,13 @@
         </div>
 		<div class='sheet-col'>
             <h2>Defenses</h2>
-			<input type="number" name="attr_AC" value=10 readonly> Armor Class 
-				<!-- <input type="hidden" name="attr_foo_AC" value=10> -->
+			<input type="number" name="attr_AC" value=10 class='sheet-defense'> Armor Class (misc bonus: <input type="number" name="attr_AC-Misc" value=0> )
 			<br>
-            <input type="number" name="attr_Fort" value=10 readonly> Fortitude 
-				<!-- <input type="hidden" name="attr_foo_Fort" value=10> -->
+            <input type="number" name="attr_Fort" value=10 class='sheet-defense'> Fortitude (class/misc bonus: <input type="number" name="attr_Fort-Misc" value=0> )
 			<br>
-            <input type="number" name="attr_Ref" value=10 readonly> Reflex 
-				<!-- <input type="hidden" name="attr_foo_Ref" value=10> -->
+            <input type="number" name="attr_Ref" value=10 class='sheet-defense'> Reflex (class/misc bonus: <input type="number" name="attr_Ref-Misc" value=0> )
 			<br>
-            <input type="number" name="attr_Will" value=10 readonly> Will 
-				<!-- <input type="hidden" name="attr_foo_Will" value=10> -->
+            <input type="number" name="attr_Will" value=10 class='sheet-defense'> Will (class/misc bonus: <input type="number" name="attr_Will-Misc" value=0> )
 			<br>
         </div>
     </div>
@@ -449,7 +438,7 @@
 				<h3>Armor</h3>
 				<input type="text" name="attr_ArmorItem-Name" value="Cloth" class="sheet-Item"> Name<br>
 				<span class='sheet-AttSelect-AC'>
-						<select name="attr_AC-Att" value=0>
+						<select name="attr_AC-Att">
 							<option value=0>None (Heavy Armor)</option>
 							<option value=1>Dexterity</option>
 							<option value=2>Intelligence</option>
@@ -541,32 +530,16 @@
 
 <!-- WORKERS -->
 <script type="text/worker">
-	on('sheet:opened',function(){
-		console.log("The quick brown fox jumped over the lazy dog");
-	});
 	
-    on("change:level change:level_max", function() {
-		console.log("JoeConsoleTest");
+    on("change:level", function() {
         getAttrs(["level"], function(values) {
-			console.log("Adjusting Level-half based on level " +  values.level);
-            var finalattr = Math.floor(parseInt(values.level) / 2);
 			setAttrs({
-                "level-half": finalattr
+                "level-half": Math.floor(parseInt(values.level) / 2)
             });
-			console.log("SetAttrs Success?");
         });
 	});
-
-    on("change:level-half", function() {
-		update_AC();
-		update_Fort();
-		update_Ref();
-		update_Will();
-	});
-
-    // Abilities
+	
 	on("change:strength", function() {
-		console.log("JoeConsoleTest");
 		getAttrs(["Strength"], function(values){
 			setAttrs({
 				strmod: Math.floor(values.Strength/2-5)
@@ -613,89 +586,55 @@
 			});
 		});
 	});
-
-	// Ability Modifiers
-	on("change:strmod", function() {
-		update_Fort();
-	});
-	on("change:conmod", function() {
-		update_Fort();
-		update_AC();
-	});
-	on("change:dexmod", function() {
-		update_Ref();
-		update_AC();
-	});	
-	on("change:intmod", function() {
-		update_Ref();
-		update_AC();
-	}
-	on("change:wismod", function() {
-		update_Will();
-	});
-	on("change:chamod", function() {
-		update_Will();
-	});
-
-    var update_AC = function(){
-        getAttrs(["ACAtt", "conmod","dexmod","intmod","Level-half","Quest", "AC-Armor"], function(values) {
-            var abimod = 0;
-            switch(values.AC-Att) {
+	
+	on("change:ac-att change:conmod change:dexmod change:intmod change:level-half change:quest change:ac-armor change:ac-misc", function() {
+		getAttrs(["AC-Att", "conmod","dexmod","intmod","level-half","Quest", "AC-Armor", "AC-Misc"], function(values) {
+			var abimod = 0;
+			switch(parseInt(values['AC-Att'])) {
 				case 0:
 					abimod = 0;
-                case 1:
-                    abimod = values.dexmod;
-                    break;
-                case 2:
-                    abimod = values.intmod;
-                    break;
-                case 3:
-                    abimod = values.conmod;
-                    break;
-            }
-            var finalattr = (10 + abimod + values.Quest + values.Level-half + values.AC-Armor);
-            setAttrs({
-                AC: finalattr
-            });
-        });
-    };
-    var update_Fort = function(attr){
-        getAttrs(["strmod","conmod","Quest", "Level-half"], function(values) {
-			var finalattr = 10;
-            finalattr = (10 + Math.max(values.strmod, values.conmod) + values.Quest + values.Level-half);
-            setAttrs({
-                Fort: finalattr
-            });
-        });
-    };
-    var update_Ref = function(attr){
-        getAttrs(["dexmod","intmod","Quest", "Level-half"], function(values) {
-            var finalattr = (10 + Math.max(values.dexmod, values.intmod) + values.Quest + values.Level-half);
-            setAttrs({
-                Ref: finalattr
-            });
-        });
-    };
-    var update_Will = function(attr){
-        getAttrs(["wismod","chamod","Quest", "Level-half"], function(values) {
-            var finalattr = (10 + Math.max(values.wismod, values.chamod) + values.Quest + values.Level-half);
-            setAttrs({
-                Will: finalattr
-            });
-        });
-    };
-
-	on("change:repeating_backpackitems", function() {
-	   getSectionIDs("BackpackItems", function(idarray) {
-			var spaceUsed = 0;
-			for(var i=0; i < idarray.length; i++) {
-				getAttrs(["repeating_BackpackItems_" + idarray[i] + "_BackpackItemSpace"], function(value){
-					spaceUsed = (spaceUsed + value["repeating_BackpackItems_" + idarray[i] + "_BackpackItemSpace"])
-				});
+					break;
+				case 1:
+					abimod = values.dexmod;
+					break;
+				case 2:
+					abimod = values.intmod;
+					break;
+				case 3:
+					abimod = values.conmod;
 			}
+			var finalattr = (10 + parseInt(abimod) + parseInt(values.Quest) + parseInt(values['level-half']) + parseInt(values['AC-Armor']) + parseInt(values['AC-Misc']));
 			setAttrs({
-				BackpackSpace: spaceUsed
+				AC: finalattr
 			});
 		});
 	});
+	
+	on("change:strmod change:conmod change:level-half change:quest change:fort-misc", function() {
+		getAttrs(["strmod","conmod","level-half","Quest", "Fort-Misc"], function(values) {
+			var finalattr = (10 + Math.max(parseInt(values.strmod), parseInt(values.conmod)) + parseInt(values.Quest) + parseInt(values['level-half']) + parseInt(values['Fort-Misc']));
+			setAttrs({
+				Fort: finalattr
+			});
+		});
+	});
+	
+	on("change:dexmod change:intmod change:level-half change:quest change:ref-misc", function() {
+		getAttrs(["dexmod","intmod","level-half","Quest", "Ref-Misc"], function(values) {
+			var finalattr = (10 + Math.max(parseInt(values.dexmod), parseInt(values.intmod)) + parseInt(values.Quest) + parseInt(values['level-half']) + parseInt(values['Ref-Misc']));
+			setAttrs({
+				Ref: finalattr
+			});
+		});
+	});
+	
+	on("change:wismod change:chamod change:level-half change:quest change:will-misc", function() {
+		getAttrs(["wismod","chamod","level-half","Quest", "Will-Misc"], function(values) {
+			var finalattr = (10 + Math.max(parseInt(values.wismod), parseInt(values.chamod)) + parseInt(values.Quest) + parseInt(values['level-half']) + parseInt(values['Will-Misc']));
+			setAttrs({
+				Will: finalattr
+			});
+		});
+	});
+	
 </script>
