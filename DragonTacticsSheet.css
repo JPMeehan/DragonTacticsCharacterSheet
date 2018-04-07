@@ -33,7 +33,7 @@
 */
 
 .sheet-AttSelect select{
-    width:      90px;
+    width:      120px;
 }
 
 .sheet-DefSelect select{
@@ -74,6 +74,10 @@ select.sheet-AccesorySelect{
 
 input.sheet-Item{
     width: 187px;
+}
+
+label.sheet-inlineLabel {
+	display: inline;
 }
 
 /*
