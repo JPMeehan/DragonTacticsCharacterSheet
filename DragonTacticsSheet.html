@@ -21,18 +21,18 @@
             </div>
 
             <div class='sheet-col'>
-            <input type="number" name="attr_level" value=1 min=1 max=30> Level 
-			<input type="hidden" name="attr_level-half" value=0>
-			<br>
-            <input type="number" name="attr_Quest" value=0 /> Quest Bonus <br>
-			<input type="hidden" name="attr_actionpoints" value=1>
-			<input type="hidden" name="attr_actionpoints_max" value=1>
-        </div>
+				<input type="number" name="attr_level" value=1 min=1 max=30> Level 
+				<input type="hidden" name="attr_level-half" value=0>
+				<br>
+				<input type="number" name="attr_Quest" value=0 /> Quest Bonus <br>
+				<input type="hidden" name="attr_actionpoints" value=1>
+				<input type="hidden" name="attr_actionpoints_max" value=1>
+			</div>
         </div>
 		<!--Attributes, Skills, Competencies-->
-        <div class='sheet-3colrow'>
+		<div class='sheet-3colrow'>
 			<!--Attributes-->
-            <div class='sheet-col'>
+            <div class='sheet-col' style="width: 25%">
                 <h2>Attributes</h2>
                 <input type="number" name="attr_Strength" value=10 /> Strength 
                 <input name="attr_strmod" type="hidden" value=0>
@@ -59,47 +59,106 @@
 				<br>
             </div>
 			<!--Skills--> 
-            <div class='sheet-col'>
+            <div class='sheet-col' style="width: 40%">
                 <h2>Skills</h2>
-                <input type='checkbox' name='attr_Acrobatics-Train' value=5 /> <input type="number" name="attr_Acrobatics-MiscBonus" value=0> Acrobatics (Dex) 
-				<button type='roll' value='&{template:default} {{name=Acrobatics Check}} {{roll=[[1d20 + @{Acrobatics-Train} + @{Acrobatics-MiscBonus} + @{dexmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}]]}}' name='roll_AcrobaticsCheck'></button><br>
-                <input type='checkbox' name='attr_Appeal-Train' value=5 /> <input type="number" name="attr_Appeal-MiscBonus" value=0> Appeal (Cha)
-				<button type='roll' value='&{template:default} {{name=Appeal Check}} {{roll=[[1d20 + @{Appeal-Train} + @{Appeal-MiscBonus} + @{chamod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AppealCheck'></button><br>
-                <input type='checkbox' name='attr_Arcana-Train' value=5 /> <input type="number" name="attr_Arcana-MiscBonus" value=0> Arcana (Int)
-				<button type='roll' value='&{template:default} {{name=Arcana Check}} {{roll=[[1d20 + @{Arcana-Train} + @{Arcana-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ArcanaCheck'></button><br>
-                <input type='checkbox' name='attr_Athletics-Train' value=5 />  <input type="number" name="attr_Athletics-MiscBonus" value=0> Athletics (Str)
-				<button type='roll' value='&{template:default} {{name=Athletics Check}} {{roll=[[1d20 + @{Athletics-Train} + @{Athletics-MiscBonus} + @{strmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_AthleticsCheck'></button><br>
-                <input type='checkbox' name='attr_Debate-Train' value=5 />  <input type="number" name="attr_Debate-MiscBonus" value=0> Debate (Int)
-				<button type='roll' value='&{template:default} {{name=Debate Check}} {{roll=[[1d20 + @{Debate-Train} + @{Debate-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_DebateCheck'></button><br>
-                <input type='checkbox' name='attr_Endurance-Train' value=5 />  <input type="number" name="attr_Endurance-MiscBonus" value=0> Endurance (Con)
-				<button type='roll' value='&{template:default} {{name=Endurance Check}} {{roll=[[1d20 + @{Endurance-Train} + @{Endurance-MiscBonus} + @{conmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_EnduranceCheck'></button><br>
-                <input type='checkbox' name='attr_HandleAnimal-Train' value=5 /> <input type="number" name="attr_HandleAnimal-MiscBonus" value=0> Handle Animal (Wis)
-				<button type='roll' value='&{template:default} {{name=Handle Animal Check}} {{roll=[[1d20 + @{HandleAnimal-Train} + @{HandleAnimal-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_HandleAnimalCheck'></button><br>
-                <input type='checkbox' name='attr_Insight-Train' value=5 /> <input type="number" name="attr_Insight-MiscBonus" value=0> Insight (Wis)
-				<button type='roll' value='&{template:default} {{name=Insight Check}} {{roll=[[1d20 + @{Insight-Train} + @{Insight-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_InsightCheck'></button><br>
-                <input type='checkbox' name='attr_Impress-Train' value=5 /> <input type="number" name="attr_Impress-MiscBonus" value=0> Impress (Cha)
-				<button type='roll' value='&{template:default} {{name=Impress Check}} {{roll=[[1d20 + @{Impress-Train} + @{Impress-MiscBonus} + @{chamod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ImpressCheck'></button><br>
-                <input type='checkbox' name='attr_Medicine-Train' value=5 />  <input type="number" name="attr_Medicine-MiscBonus" value=0> Medicine (Wis)
-				<button type='roll' value='&{template:default} {{name=Medicine Check}} {{roll=[[1d20 + @{Medicine-Train} + @{Medicine-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_MedicineCheck'></button><br>
-                <input type='checkbox' name='attr_Perception-Train' value=5 /> <input type="number" name="attr_Perception-MiscBonus" value=0> Perception (Wis)
-				<button type='roll' value='&{template:default} {{name=Perception Check}} {{roll=[[1d20 + @{Perception-Train} + @{Perception-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_PerceptionCheck'></button><br>
-                <input type='checkbox' name='attr_Repair-Train' value=5 /> <input type="number" name="attr_Repair-MiscBonus" value=0> Repair (Int) 
-				<button type='roll' value='&{template:default} {{name=Repair Check}} {{roll=[[1d20 + @{Repair-Train} + @{Repair-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_RepairCheck'></button><br>
-                <input type='checkbox' name='attr_Research-Train' value=5 /> <input type="number" name="attr_Research-MiscBonus" value=0> Research (Int)
-				<button type='roll' value='&{template:default} {{name=Research Check}} {{roll=[[1d20 + @{Research-Train} + @{Research-MiscBonus} + @{intmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_ResearchCheck'></button><br>
-                <input type='checkbox' name='attr_SleightofHand-Train' value=5 /> <input type="number" name="attr_SleightofHand-MiscBonus" value=0> Sleight of Hand (Dex)
-				<button type='roll' value='&{template:default} {{name=Sleight of Hand Check}} {{roll=[[1d20 + @{SleightofHand-Train} + @{dexmod} + @{SleightofHand-MiscBonus} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SleightofHandCheck'></button><br>
-                <input type='checkbox' name='attr_Socialize-Train' value=5 /> <input type="number" name="attr_Socialize-MiscBonus" value=0> Socialize (Cha)
-				<button type='roll' value='&{template:default} {{name=Socialize Check}} {{roll=[[1d20 + @{Socialize-Train} + @{Socialize-MiscBonus} + @{chamod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SocializeCheck'></button><br>
-                <input type='checkbox' name='attr_Stealth-Train' value=5 /> <input type="number" name="attr_Stealth-MiscBonus" value=0> Stealth (Dex)
-				<button type='roll' value='&{template:default} {{name=Stealth Check}} {{roll=[[1d20 + @{Stealth-Train} + @{Stealth-MiscBonus} + @{dexmod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_StealthCheck'></button><br>
-                <input type='checkbox' name='attr_Survival-Train' value=5 /> <input type="number" name="attr_Survival-MiscBonus" value=0> Survival (Wis) 
-				<button type='roll' value='&{template:default} {{name=Survival Check}} {{roll=[[1d20 + @{Survival-Train} + @{Survival-MiscBonus} + @{wismod} + @{level-half} + @{Quest} + @{JackOfAllTrades} + @{BardJack}]]}}' name='roll_SurvivalCheck'></button><br>
+				<table class="sheet-skilltable" style="width:100%">
+					<tr>
+						<th>Trained, Misc.</th>
+						<th>Bonus</th>
+						<th>Skill</th>
+					</tr>
+					<tr> 
+						<td><input type='checkbox' name='attr_Acrobatics-Train' value=5 /> <input type="number" name="attr_Acrobatics-MiscBonus" value=0> <input type='hidden' name='attr_Acrobatics-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{Acrobatics-Trained}}} {{check=[[1d20 @{Acrobatics}]]}} {{checkadv=[[1d20 @{Acrobatics}]]}}' name='roll_AcrobaticsCheck'></button><span name="attr_Acrobatics" value="+0"></span></td>
+						<td>Acrobatics (Dex)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Appeal-Train' value=5 /> <input type="number" name="attr_Appeal-MiscBonus" value=0><input type='hidden' name='attr_Appeal-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{Appeal-Trained}}} {{check=[[1d20 @{Appeal}]]}} {{checkadv=[[1d20 @{Appeal}]]}}' name='roll_AppealCheck'></button><span name="attr_Appeal" value="+0"></span></td>
+						<td>Appeal (Cha)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Arcana-Train' value=5 /> <input type="number" name="attr_Arcana-MiscBonus" value=0><input type='hidden' name='attr_Arcana-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{Arcana-Trained}}} {{check=[[1d20 @{Arcana}]]}} {{checkadv=[[1d20 @{Arcana}]]}}' name='roll_ArcanaCheck'></button><span name="attr_Arcana" value="+0"></span></td>
+						<td>Arcana (Int)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Athletics-Train' value=5 />  <input type="number" name="attr_Athletics-MiscBonus" value=0><input type='hidden' name='attr_Athletics-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{Athletics-Trained}}} {{check=[[1d20 @{Athletics}]]}} {{checkadv=[[1d20 @{Athletics}]]}}' name='roll_AthleticsCheck'></button><span name="attr_Athletics" value="+0"></span></td>
+						<td>Athletics (Str)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Debate-Train' value=5 />  <input type="number" name="attr_Debate-MiscBonus" value=0><input type='hidden' name='attr_Debate-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Debate Check}} {{Trained=@{Debate-Trained}}} {{check=[[1d20 @{Debate}]]}} {{checkadv=[[1d20 @{Debate}]]}}' name='roll_DebateCheck'></button><span name="attr_Debate" value="+0"></span></td>
+						<td>Debate (Int)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Endurance-Train' value=5 />  <input type="number" name="attr_Endurance-MiscBonus" value=0><input type='hidden' name='attr_Endurance-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{Endurance-Trained}}} {{check=[[1d20 @{Endurance}]]}} {{checkadv=[[1d20 @{Endurance}]]}}' name='roll_EnduranceCheck'></button><span name="attr_Endurance" value="+0"></span></td>
+						<td>Endurance (Con)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_HandleAnimal-Train' value=5 /> <input type="number" name="attr_HandleAnimal-MiscBonus" value=0><input type='hidden' name='attr_HandleAnimal-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{HandleAnimal-Trained}}} {{check=[[1d20 @{HandleAnimal}]]}} {{checkadv=[[1d20 @{HandleAnimal}]]}}' name='roll_HandleAnimalCheck'></button><span name="attr_HandleAnimal" value="+0"></span></td>
+						<td>Handle Animal (Wis)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Insight-Train' value=5 /> <input type="number" name="attr_Insight-MiscBonus" value=0><input type='hidden' name='attr_Insight-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Insight Check}} {{Trained=@{Insight-Trained}}} {{check=[[1d20 @{Insight}]]}} {{checkadv=[[1d20 @{Insight}]]}}' name='roll_InsightCheck'></button><span name="attr_Insight" value="+0"></span></td>
+						<td>Insight (Wis)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Impress-Train' value=5 /> <input type="number" name="attr_Impress-MiscBonus" value=0><input type='hidden' name='attr_Impress-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Impress Check}} {{Trained=@{Impress-Trained}}} {{check=[[1d20 @{Impress}]]}} {{checkadv=[[1d20 @{Impress}]]}}' name='roll_ImpressCheck'></button><span name="attr_Impress" value="+0"></span></td>
+						<td>Impress (Cha)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Medicine-Train' value=5 />  <input type="number" name="attr_Medicine-MiscBonus" value=0><input type='hidden' name='attr_Medicine-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{Medicine-Trained}}} {{check=[[1d20 @{Medicine}]]}} {{checkadv=[[1d20 @{Medicine}]]}}' name='roll_MedicineCheck'></button><span name="attr_Medicine" value="+0"></span></td>
+						<td>Medicine (Wis)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Perception-Train' value=5 /> <input type="number" name="attr_Perception-MiscBonus" value=0><input type='hidden' name='attr_Perception-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Perception Check}} {{Trained=@{Perception-Trained}}} {{check=[[1d20 @{Perception}]]}} {{checkadv=[[1d20 @{Perception}]]}}' name='roll_PerceptionCheck'></button><span name="attr_Perception" value="+0"></span></td>
+						<td>Perception (Wis)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Repair-Train' value=5 /> <input type="number" name="attr_Repair-MiscBonus" value=0><input type='hidden' name='attr_Repair-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Repair Check}} {{Trained=@{Repair-Trained}}} {{check=[[1d20 @{Repair}]]}} {{checkadv=[[1d20 @{Repair}]]}}' name='roll_RepairCheck'></button><span name="attr_Repair" value="+0"></span></td>
+						<td>Repair (Int)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Research-Train' value=5 /> <input type="number" name="attr_Research-MiscBonus" value=0><input type='hidden' name='attr_Research-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Research Check}} {{Trained=@{Research-Trained}}} {{check=[[1d20 @{Research}]]}} {{checkadv=[[1d20 @{Research}]]}}' name='roll_ResearchCheck'></button><span name="attr_Research" value="+0"></span></td>
+						<td>Research (Int)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_SleightofHand-Train' value=5 /> <input type="number" name="attr_SleightofHand-MiscBonus" value=0><input type='hidden' name='attr_SleightofHand-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{SleightofHand-Trained}}} {{check=[[1d20 @{SleightofHand}]]}} {{checkadv=[[1d20 @{SleightofHand}]]}}' name='roll_SleightofHandCheck'></button><span name="attr_SleightofHand" value="+0"></span></td>
+						<td>Sleight of Hand (Dex)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Socialize-Train' value=5 /> <input type="number" name="attr_Socialize-MiscBonus" value=0><input type='hidden' name='attr_Socialize-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}' name='roll_StealthCheck'></button><span name="attr_Socialize" value="+0"></span></td>
+						<td>Stealth (Dex)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Stealth-Train' value=5 /> <input type="number" name="attr_Stealth-MiscBonus" value=0><input type='hidden' name='attr_Stealth-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}' name='roll_SocializeCheck'></button><span name="attr_Stealth" value="+0"></span></td>
+						<td>Socialize (Cha)</td>
+					</tr>
+					<tr>
+						<td><input type='checkbox' name='attr_Survival-Train' value=5 /> <input type="number" name="attr_Survival-MiscBonus" value=0><input type='hidden' name='attr_Survival-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Survival Check}} {{Trained=@{Survival-Trained}}} {{check=[[1d20 @{Survival}]]}} {{checkadv=[[1d20 @{Survival}]]}}' name='roll_SurvivalCheck'></button><span name="attr_Survival" value="+0"></span></td>
+						<td>Survival (Wis)</td>
+					</tr>
+				</table>
+				
                 <label title="Jack of All Trades"><input type='checkbox' name='attr_JackOfAllTrades' value=2 /> Jack of All Trades</label> 
 				<label title="Bard"><input type='checkbox' name='attr_BardJack' value=1 /> Bard </label> 
             </div>
 			<!--Competencies-->
-            <div class='sheet-col'>
+            <div class='sheet-col' style="width: 25%">
                 <h2>Competencies</h2>
                 <fieldset class="repeating_competencies">            
                       <input type="text" name="attr_competency" />        
@@ -141,61 +200,63 @@
         <div class='sheet-col'>
             <h3>At-Will Powers</h3>
             <fieldset class="repeating_AtWills">
-				<label title="Name">Name<input name="attr_AtWill-Name" type="text"></label> 
-                <label title="Action">Action<select name="attr_AtWill-ActionType" class="sheet-ActionType">
-                    <option value="1">Standard</option>
-                    <option value="2">Move</option>
-                    <option value="3">Minor</option>
-                    <option value="4">Free</option>
-                    <option value="5">Opportunity</option>
-                    <option value="6">Immediate</option>
-                </select></label> 
-                <label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
-				<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect1"></textarea></label>
-				<div>
-					Attack? <input type="checkbox" value=1 checked="true" name="attr_AtWill-IsAttack" class="sheet-arrow">
-					<div class="sheet-body">
-						<span class='sheet-AttSelect'>
-							<select name="attr_AtWill-Ability">
-								<option value="strmod">Strength</option>
-								<option value="conmod">Constitution</option>
-								<option value="dexmod">Dexterity</option>
-								<option value="intmod">Intelligence</option>
-								<option value="wismod">Wisdom</option>
-								<option value="chamod">Charisma</option>
-							</select> 
-						</span> 
-						vs. 
-						<span class='sheet-DefSelect'>
-							<select name='attr_AtWill-DefSelect'>
-								<option value="AC">AC</option>
-								<option value="Fort">Fortitude</option>
-								<option value="Ref">Reflex</option>
-								<option value="Will">Will</option>
+				<label title="Name" class="inlineLabel">Name<input name="attr_AtWill-Name" type="text"></label> <input type="checkbox" value=1 checked="true" name="attr_AtWill-display" class="sheet-arrow">
+				<div class="sheet-body">
+					<label title="Action">Action<select name="attr_AtWill-ActionType" class="sheet-ActionType">
+						<option value="1">Standard</option>
+						<option value="2">Move</option>
+						<option value="3">Minor</option>
+						<option value="4">Free</option>
+						<option value="5">Opportunity</option>
+						<option value="6">Immediate</option>
+					</select></label> 
+					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
+					<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect1"></textarea></label>
+					<div>
+						Attack? <input type="checkbox" value=1 checked="true" name="attr_AtWill-IsAttack" class="sheet-arrow">
+						<div class="sheet-body">
+							<span class='sheet-AttSelect'>
+								<select name="attr_AtWill-Ability">
+									<option value="strmod">Strength</option>
+									<option value="conmod">Constitution</option>
+									<option value="dexmod">Dexterity</option>
+									<option value="intmod">Intelligence</option>
+									<option value="wismod">Wisdom</option>
+									<option value="chamod">Charisma</option>
+								</select> 
+							</span> 
+							vs. 
+							<span class='sheet-DefSelect'>
+								<select name='attr_AtWill-DefSelect'>
+									<option value="AC">AC</option>
+									<option value="Fort">Fortitude</option>
+									<option value="Ref">Reflex</option>
+									<option value="Will">Will</option>
+								</select>
+							</span> 
+							<br>
+							<select name="attr_AtWill-Accessory" class="sheet-AccesorySelect">
+									<option value="wep1"> Weapon 1 </option>
+									<option value="wep2"> Weapon 2 </option>
+									<option value="wep3"> Weapon 3 </option>
+									<option value="imp1"> Implement 1 </option>
+									<option value="imp2"> Implement 2 </option>
 							</select>
-						</span> 
-						<br>
-						<select name="attr_AtWill-Accessory" class="sheet-AccesorySelect">
-								<option value="wep1"> Weapon 1 </option>
-								<option value="wep2"> Weapon 2 </option>
-								<option value="wep3"> Weapon 3 </option>
-								<option value="imp1"> Implement 1 </option>
-								<option value="imp2"> Implement 2 </option>
-						</select>
-						<input type="number" value=0 name="attr_AtWill-HitBonus">
-						<button type='roll' name="roll_AtWill-Attack" value='&{template:attack} {{name=@{AtWill-Name}}} {{RangeTargets=@{AtWill-RangeTargets}}}{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} {{defense=@{AtWill-DefSelect}}}'> </button>
-						<br> Damage roll: <button type='roll' name="roll_AtWill-Damage" value='&{template:damage} {{name=@{AtWill-Name}}} {{damage=[[@{AtWill-damagedice} + @{AtWill-flatdamage}]]}} {{dmgcrit=[[@{AtWill-critdice} + @{AtWill-critflat}]]}}'> </button>
-						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_AtWill-damagedice" class="sheet-diceInput" value="1d4"></label>
-						<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_AtWill-flatdamage"> </label>
-						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_AtWill-MiscAttackBonus"></label>
-						<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_AtWill-miscdamage" value=0></label>
-						<input type="hidden" value=0 name="attr_AtWill-HitBonus-accessory">
-						<input type="hidden" value="1d4" name="attr_AtWill-critdice">
-						<input type="hidden" value=0 name="attr_AtWill-abimod">
-						<input type="hidden" value=0 name="attr_AtWill-critflat">
-						<label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label>
-						<label title="Miss">Miss: <textarea name="attr_AtWill-Power-Miss"></textarea></label>
-						<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect2"></textarea></label>
+							<input type="number" value=0 name="attr_AtWill-HitBonus">
+							<button type='roll' name="roll_AtWill-Attack" value='&{template:attack} {{name=@{AtWill-Name}}} {{RangeTargets=@{AtWill-RangeTargets}}}{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} {{defense=@{AtWill-DefSelect}}}'> </button>
+							<br> Damage roll: <button type='roll' name="roll_AtWill-Damage" value='&{template:damage} {{name=@{AtWill-Name}}} {{damage=[[@{AtWill-damagedice} + @{AtWill-flatdamage}]]}} {{dmgcrit=[[@{AtWill-critdice} + @{AtWill-critflat}]]}}'> </button>
+							<label title="Damage Dice"> Damage Dice <input type="text" name="attr_AtWill-damagedice" class="sheet-diceInput" value="1d4"></label>
+							<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_AtWill-flatdamage"> </label>
+							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_AtWill-MiscAttackBonus"></label>
+							<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_AtWill-miscdamage" value=0></label>
+							<input type="hidden" value=0 name="attr_AtWill-HitBonus-accessory">
+							<input type="hidden" value="1d4" name="attr_AtWill-critdice">
+							<input type="hidden" value=0 name="attr_AtWill-abimod">
+							<input type="hidden" value=0 name="attr_AtWill-critflat">
+							<label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label>
+							<label title="Miss">Miss: <textarea name="attr_AtWill-Power-Miss"></textarea></label>
+							<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect2"></textarea></label>
+						</div>
 					</div>
 				</div>
             </fieldset>
@@ -211,61 +272,63 @@
 				</div>
 			</div>
 			<fieldset class="repeating_Encounters">
-				<label title="Name">Name<input name="attr_Encounter-Name" type="text"></label> 
-                <label title="Action">Action<select name="attr_Encounter-ActionType" class="sheet-ActionType">
-                    <option value="1">Standard</option>
-                    <option value="2">Move</option>
-                    <option value="3">Minor</option>
-                    <option value="4">Free</option>
-                    <option value="5">Opportunity</option>
-                    <option value="6">Immediate</option>
-                </select></label> 
-                <label title="Range and Targets">Range and Targets: <input type="text" name="attr_Encounter-RangeTargets"></label> 
-				<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect1"></textarea></label>
-				<div>
-					Attack? <input type="checkbox" value=1 checked="true" name="attr_Encounter-IsAttack" class="sheet-arrow">
-					<div class="sheet-body">
-						<span class='sheet-AttSelect'>
-							<select name="attr_Encounter-Ability">
-								<option value="strmod">Strength</option>
-								<option value="conmod">Constitution</option>
-								<option value="dexmod">Dexterity</option>
-								<option value="intmod">Intelligence</option>
-								<option value="wismod">Wisdom</option>
-								<option value="chamod">Charisma</option>
-							</select> 
-						</span> 
-						vs. 
-						<span class='sheet-DefSelect'>
-							<select name='attr_Encounter-DefSelect'>
-								<option value="AC">AC</option>
-								<option value="Fort">Fortitude</option>
-								<option value="Ref">Reflex</option>
-								<option value="Will">Will</option>
+				<label title="Name" class="inlineLabel">Name<input name="attr_Encounter-Name" type="text"></label> <input type="checkbox" value=1 checked="true" name="attr_Encounter-display" class="sheet-arrow">
+                <div class="sheet-body"> 
+					<label title="Action">Action<select name="attr_Encounter-ActionType" class="sheet-ActionType">
+						<option value="1">Standard</option>
+						<option value="2">Move</option>
+						<option value="3">Minor</option>
+						<option value="4">Free</option>
+						<option value="5">Opportunity</option>
+						<option value="6">Immediate</option>
+					</select></label> 
+					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Encounter-RangeTargets"></label> 
+					<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect1"></textarea></label>
+					<div>
+						Attack? <input type="checkbox" value=1 checked="true" name="attr_Encounter-IsAttack" class="sheet-arrow">
+						<div class="sheet-body">
+							<span class='sheet-AttSelect'>
+								<select name="attr_Encounter-Ability">
+									<option value="strmod">Strength</option>
+									<option value="conmod">Constitution</option>
+									<option value="dexmod">Dexterity</option>
+									<option value="intmod">Intelligence</option>
+									<option value="wismod">Wisdom</option>
+									<option value="chamod">Charisma</option>
+								</select> 
+							</span> 
+							vs. 
+							<span class='sheet-DefSelect'>
+								<select name='attr_Encounter-DefSelect'>
+									<option value="AC">AC</option>
+									<option value="Fort">Fortitude</option>
+									<option value="Ref">Reflex</option>
+									<option value="Will">Will</option>
+								</select>
+							</span> 
+							<br>
+							<select name="attr_Encounter-Accessory" class="sheet-AccesorySelect">
+									<option value="wep1"> Weapon 1 </option>
+									<option value="wep2"> Weapon 2 </option>
+									<option value="wep3"> Weapon 3 </option>
+									<option value="imp1"> Implement 1 </option>
+									<option value="imp2"> Implement 2 </option>
 							</select>
-						</span> 
-						<br>
-						<select name="attr_Encounter-Accessory" class="sheet-AccesorySelect">
-								<option value="wep1"> Weapon 1 </option>
-								<option value="wep2"> Weapon 2 </option>
-								<option value="wep3"> Weapon 3 </option>
-								<option value="imp1"> Implement 1 </option>
-								<option value="imp2"> Implement 2 </option>
-						</select>
-						<input type="number" value=0 name="attr_Encounter-HitBonus">
-						<button type='roll' name="roll_Encounter-Attack" value='&{template:attack} {{name=@{Encounter-Name}}} {{RangeTargets=@{Encounter-RangeTargets}}}{{attack=[[1d20+@{Encounter-HitBonus}]]}} {{attackadv=[[1d20+@{Encounter-HitBonus}]]}} {{defense=@{Encounter-DefSelect}}}'> </button>
-						<br> Damage roll: <button type='roll' name="roll_Encounter-Damage" value='&{template:damage} {{name=@{Encounter-Name}}} {{damage=[[@{Encounter-damagedice} + @{Encounter-flatdamage}]]}} {{dmgcrit=[[@{Encounter-critdice} + @{Encounter-critflat}]]}}'> </button>
-						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Encounter-damagedice" class="sheet-diceInput" value="1d4"></label>
-						<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_Encounter-flatdamage"> </label>
-						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Encounter-MiscAttackBonus"></label>
-						<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_Encounter-miscdamage" value=0></label>
-						<input type="hidden" value=0 name="attr_Encounter-HitBonus-accessory">
-						<input type="hidden" value="1d4" name="attr_Encounter-critdice">
-						<input type="hidden" value=0 name="attr_Encounter-abimod">
-						<input type="hidden" value=0 name="attr_Encounter-critflat">
-						<label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label>
-						<label title="Miss">Miss: <textarea name="attr_Encounter-Power-Miss"></textarea></label>
-						<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect2"></textarea></label>
+							<input type="number" value=0 name="attr_Encounter-HitBonus">
+							<button type='roll' name="roll_Encounter-Attack" value='&{template:attack} {{name=@{Encounter-Name}}} {{RangeTargets=@{Encounter-RangeTargets}}}{{attack=[[1d20+@{Encounter-HitBonus}]]}} {{attackadv=[[1d20+@{Encounter-HitBonus}]]}} {{defense=@{Encounter-DefSelect}}}'> </button>
+							<br> Damage roll: <button type='roll' name="roll_Encounter-Damage" value='&{template:damage} {{name=@{Encounter-Name}}} {{damage=[[@{Encounter-damagedice} + @{Encounter-flatdamage}]]}} {{dmgcrit=[[@{Encounter-critdice} + @{Encounter-critflat}]]}}'> </button>
+							<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Encounter-damagedice" class="sheet-diceInput" value="1d4"></label>
+							<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_Encounter-flatdamage"> </label>
+							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Encounter-MiscAttackBonus"></label>
+							<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_Encounter-miscdamage" value=0></label>
+							<input type="hidden" value=0 name="attr_Encounter-HitBonus-accessory">
+							<input type="hidden" value="1d4" name="attr_Encounter-critdice">
+							<input type="hidden" value=0 name="attr_Encounter-abimod">
+							<input type="hidden" value=0 name="attr_Encounter-critflat">
+							<label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label>
+							<label title="Miss">Miss: <textarea name="attr_Encounter-Power-Miss"></textarea></label>
+							<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect2"></textarea></label>
+						</div>
 					</div>
 				</div>
             </fieldset>
@@ -274,61 +337,63 @@
         <div class='sheet-col'>
             <h3>Daily Powers</h3>
 			<fieldset class="repeating_Dailies">
-				<label title="Name">Name<input name="attr_Daily-Name" type="text"></label> 
-                <label title="Action">Action<select name="attr_Daily-ActionType" class="sheet-ActionType">
-                    <option value="1">Standard</option>
-                    <option value="2">Move</option>
-                    <option value="3">Minor</option>
-                    <option value="4">Free</option>
-                    <option value="5">Opportunity</option>
-                    <option value="6">Immediate</option>
-                </select></label> 
-                <label title="Range and Targets">Range and Targets: <input type="text" name="attr_Daily-RangeTargets"></label> 
-				<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect1"></textarea></label>
-				<div>
-					Attack? <input type="checkbox" value=1 checked="true" name="attr_Daily-IsAttack" class="sheet-arrow">
-					<div class="sheet-body">
-						<span class='sheet-AttSelect'>
-							<select name="attr_Daily-Ability">
-								<option value="strmod">Strength</option>
-								<option value="conmod">Constitution</option>
-								<option value="dexmod">Dexterity</option>
-								<option value="intmod">Intelligence</option>
-								<option value="wismod">Wisdom</option>
-								<option value="chamod">Charisma</option>
-							</select> 
-						</span> 
-						vs. 
-						<span class='sheet-DefSelect'>
-							<select name='attr_Daily-DefSelect'>
-								<option value="AC">AC</option>
-								<option value="Fort">Fortitude</option>
-								<option value="Ref">Reflex</option>
-								<option value="Will">Will</option>
+				<label title="Name" class="inlineLabel">Name<input name="attr_Daily-Name" type="text"></label> <input type="checkbox" value=1 checked="true" name="attr_Daily-display" class="sheet-arrow">
+				<div class="sheet-body"> 
+					<label title="Action">Action<select name="attr_Daily-ActionType" class="sheet-ActionType">
+						<option value="1">Standard</option>
+						<option value="2">Move</option>
+						<option value="3">Minor</option>
+						<option value="4">Free</option>
+						<option value="5">Opportunity</option>
+						<option value="6">Immediate</option>
+					</select></label> 
+					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Daily-RangeTargets"></label> 
+					<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect1"></textarea></label>
+					<div>
+						Attack? <input type="checkbox" value=1 checked="true" name="attr_Daily-IsAttack" class="sheet-arrow">
+						<div class="sheet-body">
+							<span class='sheet-AttSelect'>
+								<select name="attr_Daily-Ability">
+									<option value="strmod">Strength</option>
+									<option value="conmod">Constitution</option>
+									<option value="dexmod">Dexterity</option>
+									<option value="intmod">Intelligence</option>
+									<option value="wismod">Wisdom</option>
+									<option value="chamod">Charisma</option>
+								</select> 
+							</span> 
+							vs. 
+							<span class='sheet-DefSelect'>
+								<select name='attr_Daily-DefSelect'>
+									<option value="AC">AC</option>
+									<option value="Fort">Fortitude</option>
+									<option value="Ref">Reflex</option>
+									<option value="Will">Will</option>
+								</select>
+							</span> 
+							<br>
+							<select name="attr_Daily-Accessory" class="sheet-AccesorySelect">
+									<option value="wep1"> Weapon 1 </option>
+									<option value="wep2"> Weapon 2 </option>
+									<option value="wep3"> Weapon 3 </option>
+									<option value="imp1"> Implement 1 </option>
+									<option value="imp2"> Implement 2 </option>
 							</select>
-						</span> 
-						<br>
-						<select name="attr_Daily-Accessory" class="sheet-AccesorySelect">
-								<option value="wep1"> Weapon 1 </option>
-								<option value="wep2"> Weapon 2 </option>
-								<option value="wep3"> Weapon 3 </option>
-								<option value="imp1"> Implement 1 </option>
-								<option value="imp2"> Implement 2 </option>
-						</select>
-						<input type="number" value=0 name="attr_Daily-HitBonus">
-						<button type='roll' name="roll_Daily-Attack" value='&{template:attack} {{name=@{Daily-Name}}} {{RangeTargets=@{Daily-RangeTargets}}}{{attack=[[1d20+@{Daily-HitBonus}]]}} {{attackadv=[[1d20+@{Daily-HitBonus}]]}} {{defense=@{Daily-DefSelect}}}'> </button>
-						<br> Damage roll: <button type='roll' name="roll_Daily-Damage" value='&{template:damage} {{name=@{Daily-Name}}} {{damage=[[@{Daily-damagedice} + @{Daily-flatdamage}]]}} {{dmgcrit=[[@{Daily-critdice} + @{Daily-critflat}]]}}'> </button>
-						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Daily-damagedice" class="sheet-diceInput" value="1d4"></label>
-						<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_Daily-flatdamage"> </label>
-						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Daily-MiscAttackBonus"></label>
-						<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_Daily-miscdamage" value=0></label>
-						<input type="hidden" value=0 name="attr_Daily-HitBonus-accessory">
-						<input type="hidden" value="1d4" name="attr_Daily-critdice">
-						<input type="hidden" value=0 name="attr_Daily-abimod">
-						<input type="hidden" value=0 name="attr_Daily-critflat">
-						<label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label>
-						<label title="Miss">Miss: <textarea name="attr_Daily-Power-Miss"></textarea></label>
-						<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect2"></textarea></label>
+							<input type="number" value=0 name="attr_Daily-HitBonus">
+							<button type='roll' name="roll_Daily-Attack" value='&{template:attack} {{name=@{Daily-Name}}} {{RangeTargets=@{Daily-RangeTargets}}}{{attack=[[1d20+@{Daily-HitBonus}]]}} {{attackadv=[[1d20+@{Daily-HitBonus}]]}} {{defense=@{Daily-DefSelect}}}'> </button>
+							<br> Damage roll: <button type='roll' name="roll_Daily-Damage" value='&{template:damage} {{name=@{Daily-Name}}} {{damage=[[@{Daily-damagedice} + @{Daily-flatdamage}]]}} {{dmgcrit=[[@{Daily-critdice} + @{Daily-critflat}]]}}'> </button>
+							<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Daily-damagedice" class="sheet-diceInput" value="1d4"></label>
+							<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_Daily-flatdamage"> </label>
+							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Daily-MiscAttackBonus"></label>
+							<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_Daily-miscdamage" value=0></label>
+							<input type="hidden" value=0 name="attr_Daily-HitBonus-accessory">
+							<input type="hidden" value="1d4" name="attr_Daily-critdice">
+							<input type="hidden" value=0 name="attr_Daily-abimod">
+							<input type="hidden" value=0 name="attr_Daily-critflat">
+							<label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label>
+							<label title="Miss">Miss: <textarea name="attr_Daily-Power-Miss"></textarea></label>
+							<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect2"></textarea></label>
+						</div>
 					</div>
 				</div>
             </fieldset>
@@ -467,15 +532,15 @@
 			<div class="sheet-col">
 				<h3>Implement 1</h3>
 				<input type="text" name="attr_imp1-Name" class="sheet-Item"> Name <br>
-				<input type="number" name="attr_imp1-Attack"> Attack Bonus <br>
-				<input type="hidden" name="attr_imp1-Damage" value="">
+				<input type="number" name="attr_imp1-Attack" value=0> Attack Bonus <br>
+				<input type="hidden" name="attr_imp1-Damage" value="1d8">
 			</div>
 			<!-- Implement 2 -->
 			<div class="sheet-col">
 				<h3>Implement 2</h3>
 				<input type="text" name="attr_imp2-Name" class="sheet-Item"> Name <br>
-				<input type="number" name="attr_imp2-Attack"> Attack Bonus <br>
-				<input type="hidden" name="attr_imp2-Damage" value="">
+				<input type="number" name="attr_imp2-Attack" value=0> Attack Bonus <br>
+				<input type="hidden" name="attr_imp2-Damage" value="1d8">
 			</div>
 		</div>
 		<div class="sheet-3colrow">
@@ -512,8 +577,8 @@
 </div>
 
 <!--Roll Templates-->
-	<rolltemplate class="sheet-rolltemplate-attack">
 <div class="sheet-rolltemplates">
+	<rolltemplate class="sheet-rolltemplate-attack">
 		<table>
 			<tr><th>{{name}}</th></tr>
 			<tr><td class="sheet-subheader">{{RangeTargets}}</td></tr>
@@ -531,6 +596,15 @@
 					 <span class="sheet-tcat">Crit: </span>{{dmgcrit}}
 				</td>
 			</tr>
+		</table>
+	</rolltemplate>
+	
+	<rolltemplate class="sheet-rolltemplate-skillcheck">
+		<table>
+			<tr><th>{{name}}</th></tr>
+			<tr><td class="sheet-subheader">{{Trained}}</td></tr>
+			<tr class="sheet-arrow-container"><td><div class="arrow-right"></div></td></tr>
+			<tr class="sheet-rowcolor"><td><span class="sheet-tcat">Check: </span>{{check}} | {{checkadv}}</td></tr>
 		</table>
 	</rolltemplate>
 </div>
@@ -726,7 +800,7 @@
 	
 	on("change:repeating_atwills:atwill-miscdamage change:repeating_atwills:atwill-abimod", function () {
 		getAttrs(["repeating_AtWills_AtWill-miscdamage", "repeating_AtWills_AtWill-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			var finalattr = (parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
 				"repeating_AtWills_AtWill-flatdamage": finalattr
 			});
@@ -806,7 +880,7 @@
 	
 	on("change:repeating_encounters:encounter-miscdamage change:repeating_encounters:encounter-abimod", function () {
 		getAttrs(["repeating_Encounters_Encounter-miscdamage", "repeating_Encounters_Encounter-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
 				"repeating_Encounters_Encounter-flatdamage": finalattr
 			});
@@ -830,7 +904,7 @@
 		});
 	});
 	
-	on("change:repeating_dalies:daily-accessory", function(eventinfo) {
+	on("change:repeating_dailies:daily-accessory", function(eventinfo) {
 		var accessory = eventinfo.newValue;
 		var attack = (accessory + "-Attack");
 		var damage = (accessory + "-Damage");
@@ -848,9 +922,9 @@
 					critdice = (critdice + ' + ' + (parseInt(damagedice.substring(0,1)) * Math.ceil(parseInt(values["level"])/5)) + damagedice.substring(1));
 				}	
 				setAttrs({
-					"repeating_Dalies_Daily-HitBonus-accessory": parseInt(values[attack]),
-					"repeating_Dalies_Daily-damagedice": damagedice,
-					"repeating_Dalies_Daily-critdice": critdice
+					"repeating_Dailies_Daily-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_Dailies_Daily-damagedice": damagedice,
+					"repeating_Dailies_Daily-critdice": critdice
 				});
 			});
 		}
@@ -858,9 +932,9 @@
 			getAttrs([attack,damage,"quest"], function(values) {
 				var critdice = (values['quest'] + "d6");
 				setAttrs({
-					"repeating_Dalies_Daily-HitBonus-accessory": parseInt(values[attack]),
-					"repeating_Dalies_Daily-damagedice": values[damage],
-					"repeating_Dalies_Daily-critdice": values[critdice]
+					"repeating_Dailies_Daily-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_Dailies_Daily-damagedice": values[damage],
+					"repeating_Dailies_Daily-critdice": values[critdice]
 				});
 			});
 		}
@@ -875,37 +949,37 @@
 		});
 	});
 	
-	on("change:repeating_dalies:daily-miscattackbonus change:repeating_dalies:daily-abimod change:repeating_dalies:daily-hitbonus-accessory", function () {
-		getAttrs(["repeating_dalies_Daily-MiscAttackBonus", "repeating_dalies_Daily-abimod", "repeating_dalies_Daily-HitBonus-accessory", "level-half", "Quest"], function(values){
-			var finalattr = (parseInt(values["repeating_dalies_Daily-MiscAttackBonus"]) + parseInt(values["repeating_dalies_Daily-abimod"]) + parseInt(values["repeating_dalies_Daily-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+	on("change:repeating_dailies:daily-miscattackbonus change:repeating_dailies:daily-abimod change:repeating_dailies:daily-hitbonus-accessory", function () {
+		getAttrs(["repeating_dailies_Daily-MiscAttackBonus", "repeating_dailies_Daily-abimod", "repeating_dailies_Daily-HitBonus-accessory", "level-half", "Quest"], function(values){
+			var finalattr = (parseInt(values["repeating_dailies_Daily-MiscAttackBonus"]) + parseInt(values["repeating_dailies_Daily-abimod"]) + parseInt(values["repeating_dailies_Daily-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
-				"repeating_Dalies_Daily-HitBonus": finalattr
+				"repeating_Dailies_Daily-HitBonus": finalattr
 			});
 		});
 	});
 	
-	on("change:repeating_dalies:daily-miscdamage change:repeating_dalies:daily-abimod", function () {
-		getAttrs(["repeating_Dalies_Daily-miscdamage", "repeating_Dalies_Daily-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_Dalies_Daily-abimod"]) + parseInt(values["repeating_Dalies_Daily-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+	on("change:repeating_dailies:daily-miscdamage change:repeating_dailies:daily-abimod", function () {
+		getAttrs(["repeating_Dailies_Daily-miscdamage", "repeating_Dailies_Daily-abimod", "level-half", "Quest"], function (values){
+			var finalattr = (parseInt(values["repeating_Dailies_Daily-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
-				"repeating_Dalies_Daily-flatdamage": finalattr
+				"repeating_Dailies_Daily-flatdamage": finalattr
 			});
 		});
 	});
 	
-	on("change:repeating_dalies:daily-damagedice", function () {
-		getAttrs(["repeating_Dalies_Daily-damagedice"], function (values){
-			var numdice = parseInt(values["repeating_Dalies_Daily-damagedice"]);
+	on("change:repeating_dailies:daily-damagedice", function () {
+		getAttrs(["repeating_Dailies_Daily-damagedice"], function (values){
+			var numdice = parseInt(values["repeating_Dailies_Daily-damagedice"]);
 			var size = 4;
 			if (numdice<10) {
-				size = parseInt(values["repeating_Dalies_Daily-damagedice"].substring(2));
+				size = parseInt(values["repeating_Dailies_Daily-damagedice"].substring(2));
 			}
 			else {
-				size = parseInt(values["repeating_Dalies_Daily-damagedice"].substring(3));
+				size = parseInt(values["repeating_Dailies_Daily-damagedice"].substring(3));
 			}
 			var finalattr = (numdice * size);
 			setAttrs({
-				"repeating_Dalies_Daily-critflat": finalattr
+				"repeating_Dailies_Daily-critflat": finalattr
 			});
 		});
 	});
@@ -927,5 +1001,413 @@
             });
         });
     });
+		
+	on("change:acrobatics-train change:acrobatics-miscbonus change:dexmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Acrobatics-Train", "Acrobatics-MiscBonus", "dexmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Acrobatics-Train"]) + parseInt(values["Acrobatics-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Acrobatics: finalattr
+			});
+		});
+	});
+
+	on("change:appeal-train change:appeal-miscbonus change:chamod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Appeal-Train", "Appeal-MiscBonus", "chamod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Appeal-Train"]) + parseInt(values["Appeal-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Appeal: finalattr
+			});
+		});
+	});
+
+	on("change:arcana-train change:arcana-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Arcana-Train", "Arcana-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Arcana-Train"]) + parseInt(values["Arcana-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Arcana: finalattr
+			});
+		});
+	});
+
+	on("change:athletics-train change:athletics-miscbonus change:strmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Athletics-Train", "Athletics-MiscBonus", "strmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Athletics-Train"]) + parseInt(values["Athletics-MiscBonus"]) + parseInt(values["strmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Athletics: finalattr
+			});
+		});
+	});
+
+	on("change:debate-train change:debate-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Debate-Train", "Debate-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Debate-Train"]) + parseInt(values["Debate-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Debate: finalattr
+			});
+		});
+	});
+
+	on("change:endurance-train change:endurance-miscbonus change:conmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Endurance-Train", "Endurance-MiscBonus", "conmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Endurance-Train"]) + parseInt(values["Endurance-MiscBonus"]) + parseInt(values["conmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Endurance: finalattr
+			});
+		});
+	});
+
+	on("change:handleanimal-train change:handleanimal-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["HandleAnimal-Train", "HandleAnimal-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["HandleAnimal-Train"]) + parseInt(values["HandleAnimal-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				HandleAnimal: finalattr
+			});
+		});
+	});
+
+	on("change:insight-train change:insight-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Insight-Train", "Insight-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Insight-Train"]) + parseInt(values["Insight-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Insight: finalattr
+			});
+		});
+	});
+
+	on("change:impress-train change:impress-miscbonus change:chamod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened sheet:opened", function() {
+		getAttrs(["Impress-Train", "Impress-MiscBonus", "chamod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Impress-Train"]) + parseInt(values["Impress-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Impress: finalattr
+			});
+		});
+	});
+
+	on("change:medicine-train change:medicine-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Medicine-Train", "Medicine-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Medicine-Train"]) + parseInt(values["Medicine-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Medicine: finalattr
+			});
+		});
+	});
+
+	on("change:perception-train change:perception-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Perception-Train", "Perception-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Perception-Train"]) + parseInt(values["Perception-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Perception: finalattr
+			});
+		});
+	});
+
+	on("change:repair-train change:repair-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Repair-Train", "Repair-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Repair-Train"]) + parseInt(values["Repair-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Repair: finalattr
+			});
+		});
+	});
+
+	on("change:research-train change:research-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Research-Train", "Research-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Research-Train"]) + parseInt(values["Research-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Research: finalattr
+			});
+		});
+	});
+
+	on("change:sleightofhand-train change:sleightofhand-miscbonus change:dexmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["SleightofHand-Train", "SleightofHand-MiscBonus", "dexmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["SleightofHand-Train"]) + parseInt(values["SleightofHand-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				SleightofHand: finalattr
+			});
+		});
+	});
+
+	on("change:stealth-train change:stealth-miscbonus change:dexmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Stealth-Train", "Stealth-MiscBonus", "dexmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Stealth-Train"]) + parseInt(values["Stealth-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Stealth: finalattr
+			});
+		});
+	});
+
+	on("change:socialize-train change:socialize-miscbonus change:chamod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Socialize-Train", "Socialize-MiscBonus", "chamod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Socialize-Train"]) + parseInt(values["Socialize-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Socialize: finalattr
+			});
+		});
+	});
+
+	on("change:survival-train change:survival-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
+		getAttrs(["Survival-Train", "Survival-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
+			var finalattr = (parseInt(values["Survival-Train"]) + parseInt(values["Survival-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			if (finalattr >0) {
+				finalattr = ("+" + finalattr);
+			}
+			setAttrs({
+				Survival: finalattr
+			});
+		});
+	});
 	
+	
+	on("change:acrobatics-train", function() {
+		getAttrs(["Acrobatics-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Acrobatics-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Acrobatics-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:appeal-train", function() {
+		getAttrs(["Appeal-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Appeal-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Appeal-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:arcana-train", function() {
+		getAttrs(["Arcana-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Arcana-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Arcana-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:athletics-train", function() {
+		getAttrs(["Athletics-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Athletics-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Athletics-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:debate-train", function() {
+		getAttrs(["Debate-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Debate-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Debate-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:endurance-train", function() {
+		getAttrs(["Endurance-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Endurance-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Endurance-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:handleanimal-train", function() {
+		getAttrs(["HandleAnimal-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["HandleAnimal-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"HandleAnimal-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:insight-train", function() {
+		getAttrs(["Insight-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Insight-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Insight-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:impress-train", function() {
+		getAttrs(["Impress-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Impress-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Impress-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:medicine-train", function() {
+		getAttrs(["Medicine-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Medicine-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Medicine-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:perception-train", function() {
+		getAttrs(["Perception-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Perception-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Perception-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:repair-train", function() {
+		getAttrs(["Repair-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Repair-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Repair-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:research-train", function() {
+		getAttrs(["Research-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Research-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Research-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:sleightofhand-train", function() {
+		getAttrs(["SleightofHand-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["SleightofHand-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"SleightofHand-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:stealth-train", function() {
+		getAttrs(["Stealth-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Stealth-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Stealth-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:socialize-train", function() {
+		getAttrs(["Socialize-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Socialize-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Socialize-Trained": finalattr
+			});
+		});
+	});
+
+	on("change:survival-train", function() {
+		getAttrs(["Survival-Train"], function(values) {
+			var finalattr = "Untrained";
+			if (values["Survival-Train"] >0) {
+				finalattr = ("Trained");
+			}
+			setAttrs({
+				"Survival-Trained": finalattr
+			});
+		});
+	});
 </script>
