@@ -25,6 +25,8 @@
 			<input type="hidden" name="attr_level-half" value=0>
 			<br>
             <input type="number" name="attr_Quest" value=0 /> Quest Bonus <br>
+			<input type="hidden" name="attr_actionpoints" value=1>
+			<input type="hidden" name="attr_actionpoints_max" value=1>
         </div>
         </div>
 		<!--Attributes, Skills, Competencies-->
@@ -132,8 +134,9 @@
         </div>
     </div>
     <h2>Powers</h2>
-	<label title="Striker Dice"><input type="text" name="attr_strikerdice" value="" class="sheet-diceInput"> Striker dice</label>
-    <div class='sheet-3colrow'>
+	<button type='roll' name="roll_Striker_Damage" value='&{template:damage} {{name=Striker Dice}} {{damage=[[@{strikerdice}]]}} {{dmgcrit=[[@{strikercrit}]]}}'> </button> <label title="Striker Dice"> <input type="text" name="attr_strikerdice" value="" class="sheet-diceInput"> Striker dice</label> 
+    <input type="hidden" value="1d4" name="attr_strikercrit">
+	<div class='sheet-3colrow'>
 		<!-- AtWills -->
         <div class='sheet-col'>
             <h3>At-Will Powers</h3>
@@ -152,40 +155,42 @@
 				<div>
 					Attack? <input type="checkbox" value=1 checked="true" name="attr_AtWill-IsAttack" class="sheet-arrow">
 					<div class="sheet-body">
-						<button type='roll' name="roll_AtWill-Attack" value='@{AtWillRollContent}' > </button>
-						<input type="hidden" name="attr_AtWillRollContent">
+						<button type='roll' name="roll_AtWill-Attack" value='&{template:attack} {{name=@{AtWill-Name}}} {{RangeTargets=@{AtWill-RangeTargets}}}{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} {{defense=@{AtWill-DefSelect}}}'> </button>
 						<span class='sheet-AttSelect'>
-							<select name="attr_AtWillAtt-Attack">
-								<option value="@{strmod}">Strength</option>
-								<option value="@{conmod}">Constitution</option>
-								<option value="@{dexmod}">Dexterity</option>
-								<option value="@{intmod}">Intelligence</option>
-								<option value="@{wismod}">Wisdom</option>
-								<option value="@{chamod}">Charisma</option>
+							<select name="attr_AtWill-Ability">
+								<option value="strmod">Strength</option>
+								<option value="conmod">Constitution</option>
+								<option value="dexmod">Dexterity</option>
+								<option value="intmod">Intelligence</option>
+								<option value="wismod">Wisdom</option>
+								<option value="chamod">Charisma</option>
 							</select> 
 						</span> 
 						vs. 
 						<span class='sheet-DefSelect'>
-							<select class='attr_AtWillDef-Select'>
+							<select name='attr_AtWill-DefSelect'>
 								<option value="AC">AC</option>
 								<option value="Fort">Fortitude</option>
 								<option value="Ref">Reflex</option>
 								<option value="Will">Will</option>
 							</select>
 						</span>
+						<br> Damage roll: <button type='roll' name="roll_AtWill-Damage" value='&{template:damage} {{name=@{AtWill-Name}}} {{damage=[[@{AtWill-damagedice} + @{AtWill-flatdamage}]]}} {{dmgcrit=[[@{AtWill-critdice} + @{AtWill-critflat}]]}}'> </button>
 						<select name="attr_AtWill-Accessory" class="sheet-AccesorySelect">
-								<option value="@{wep1-Damage}"> Weapon 1 </option>
-								<option value="@{wep2-Damage}"> Weapon 2 </option>
-								<option value="@{wep3-Damage}"> Weapon 3 </option>
-								<option value="@{imp1-Damage}"> Implement 1 </option>
-								<option value="@{imp1-Damage}"> Implement 2 </option>
+								<option value="wep1"> Weapon 1 </option>
+								<option value="wep2"> Weapon 2 </option>
+								<option value="wep3"> Weapon 3 </option>
+								<option value="imp1"> Implement 1 </option>
+								<option value="imp2"> Implement 2 </option>
 						</select>
 						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_AtWill-MiscAttackBonus"></label>
-						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_AtWill-dicebase" class="sheet-diceInput"></label>
+						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_AtWill-damagedice" class="sheet-diceInput" value="1d4"></label>
+						<label title="Flat Damage"> Misc Flat Damage <input type="number" name="attr_AtWill-miscdamage" value=0></label>
+						<input type="hidden" value=0 name="attr_AtWill-HitBonus-accessory">
+						<input type="hidden" value="1d4" name="attr_AtWill-critdice">
+						<input type="hidden" value=0 name="attr_AtWill-abimod">
 						<input type="hidden" value=0 name="attr_AtWill-HitBonus">
-						<input type="hidden" value="" name="attr_AtWill-damagedice">
 						<input type="hidden" value=0 name="attr_AtWill-flatdamage">
-						<input type="hidden" value="" name="attr_AtWill-critdice">
 						<input type="hidden" value=0 name="attr_AtWill-critflat">
 						<label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label>
 						<label title="Miss">Miss: <textarea name="attr_AtWill-Power-Miss"></textarea></label>
@@ -219,40 +224,42 @@
 				<div>
 					Attack? <input type="checkbox" value=1 checked="true" name="attr_Encounter-IsAttack" class="sheet-arrow">
 					<div class="sheet-body">
-						<button type='roll' name="roll_Encounter-Attack" value='@{EncounterRollContent}' > </button>
-						<input type="hidden" name="attr_EncounterRollContent">
+						<button type='roll' name="roll_Encounter-Attack" value='&{template:attack} {{name=@{Encounter-Name}}} {{RangeTargets=@{Encounter-RangeTargets}}}{{attack=[[1d20+@{Encounter-HitBonus}]]}} {{attackadv=[[1d20+@{Encounter-HitBonus}]]}} {{defense=@{Encounter-DefSelect}}}'> </button>
 						<span class='sheet-AttSelect'>
-							<select name="attr_EncounterAtt-Attack">
-								<option value="@{strmod}">Strength</option>
-								<option value="@{conmod}">Constitution</option>
-								<option value="@{dexmod}">Dexterity</option>
-								<option value="@{intmod}">Intelligence</option>
-								<option value="@{wismod}">Wisdom</option>
-								<option value="@{chamod}">Charisma</option>
+							<select name="attr_Encounter-Ability">
+								<option value="strmod">Strength</option>
+								<option value="conmod">Constitution</option>
+								<option value="dexmod">Dexterity</option>
+								<option value="intmod">Intelligence</option>
+								<option value="wismod">Wisdom</option>
+								<option value="chamod">Charisma</option>
 							</select> 
 						</span> 
 						vs. 
 						<span class='sheet-DefSelect'>
-							<select class='attr_EncounterDef-Select'>
+							<select name='attr_Encounter-DefSelect'>
 								<option value="AC">AC</option>
 								<option value="Fort">Fortitude</option>
 								<option value="Ref">Reflex</option>
 								<option value="Will">Will</option>
 							</select>
 						</span>
+						<br> Damage roll: <button type='roll' name="roll_Encounter-Damage" value='&{template:damage} {{name=@{Encounter-Name}}} {{damage=[[@{Encounter-damagedice} + @{Encounter-flatdamage}]]}} {{dmgcrit=[[@{Encounter-critdice} + @{Encounter-critflat}]]}}'> </button>
 						<select name="attr_Encounter-Accessory" class="sheet-AccesorySelect">
-								<option value="@{wep1-Damage}"> Weapon 1 </option>
-								<option value="@{wep2-Damage}"> Weapon 2 </option>
-								<option value="@{wep3-Damage}"> Weapon 3 </option>
-								<option value="@{imp1-Damage}"> Implement 1 </option>
-								<option value="@{imp1-Damage}"> Implement 2 </option>
+								<option value="wep1"> Weapon 1 </option>
+								<option value="wep2"> Weapon 2 </option>
+								<option value="wep3"> Weapon 3 </option>
+								<option value="imp1"> Implement 1 </option>
+								<option value="imp2"> Implement 2 </option>
 						</select>
 						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Encounter-MiscAttackBonus"></label>
-						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Encounter-dicebase" class="sheet-diceInput"></label>
+						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Encounter-damagedice" class="sheet-diceInput" value="1d4"></label>
+						<label title="Flat Damage"> Misc Flat Damage <input type="number" name="attr_Encounter-miscdamage" value=0></label>
+						<input type="hidden" value=0 name="attr_Encounter-HitBonus-accessory">
+						<input type="hidden" value="1d4" name="attr_Encounter-critdice">
+						<input type="hidden" value=0 name="attr_Encounter-abimod">
 						<input type="hidden" value=0 name="attr_Encounter-HitBonus">
-						<input type="hidden" value="" name="attr_Encounter-damagedice">
 						<input type="hidden" value=0 name="attr_Encounter-flatdamage">
-						<input type="hidden" value="" name="attr_Encounter-critdice">
 						<input type="hidden" value=0 name="attr_Encounter-critflat">
 						<label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label>
 						<label title="Miss">Miss: <textarea name="attr_Encounter-Power-Miss"></textarea></label>
@@ -279,40 +286,42 @@
 				<div>
 					Attack? <input type="checkbox" value=1 checked="true" name="attr_Daily-IsAttack" class="sheet-arrow">
 					<div class="sheet-body">
-						<button type='roll' name="roll_Daily-Attack" value='@{DailyRollContent}' > </button>
-						<input type="hidden" name="attr_DailyRollContent">
+						<button type='roll' name="roll_Daily-Attack" value='&{template:attack} {{name=@{Daily-Name}}} {{RangeTargets=@{Daily-RangeTargets}}}{{attack=[[1d20+@{Daily-HitBonus}]]}} {{attackadv=[[1d20+@{Daily-HitBonus}]]}} {{defense=@{Daily-DefSelect}}}'> </button>
 						<span class='sheet-AttSelect'>
-							<select name="attr_DailyAtt-Attack">
-								<option value="@{strmod}">Strength</option>
-								<option value="@{conmod}">Constitution</option>
-								<option value="@{dexmod}">Dexterity</option>
-								<option value="@{intmod}">Intelligence</option>
-								<option value="@{wismod}">Wisdom</option>
-								<option value="@{chamod}">Charisma</option>
+							<select name="attr_Daily-Ability">
+								<option value="strmod">Strength</option>
+								<option value="conmod">Constitution</option>
+								<option value="dexmod">Dexterity</option>
+								<option value="intmod">Intelligence</option>
+								<option value="wismod">Wisdom</option>
+								<option value="chamod">Charisma</option>
 							</select> 
 						</span> 
 						vs. 
 						<span class='sheet-DefSelect'>
-							<select class='attr_DailyDef-Select'>
+							<select name='attr_Daily-DefSelect'>
 								<option value="AC">AC</option>
 								<option value="Fort">Fortitude</option>
 								<option value="Ref">Reflex</option>
 								<option value="Will">Will</option>
 							</select>
 						</span>
+						<br> Damage roll: <button type='roll' name="roll_Daily-Damage" value='&{template:damage} {{name=@{Daily-Name}}} {{damage=[[@{Daily-damagedice} + @{Daily-flatdamage}]]}} {{dmgcrit=[[@{Daily-critdice} + @{Daily-critflat}]]}}'> </button>
 						<select name="attr_Daily-Accessory" class="sheet-AccesorySelect">
-								<option value="@{wep1-Damage}"> Weapon 1 </option>
-								<option value="@{wep2-Damage}"> Weapon 2 </option>
-								<option value="@{wep3-Damage}"> Weapon 3 </option>
-								<option value="@{imp1-Damage}"> Implement 1 </option>
-								<option value="@{imp1-Damage}"> Implement 2 </option>
-							</select>
+								<option value="wep1"> Weapon 1 </option>
+								<option value="wep2"> Weapon 2 </option>
+								<option value="wep3"> Weapon 3 </option>
+								<option value="imp1"> Implement 1 </option>
+								<option value="imp2"> Implement 2 </option>
+						</select>
 						<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Daily-MiscAttackBonus"></label>
-						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Daily-dicebase" class="sheet-diceInput"></label>
+						<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Daily-damagedice" class="sheet-diceInput" value="1d4"></label>
+						<label title="Flat Damage"> Misc Flat Damage <input type="number" name="attr_Daily-miscdamage" value=0></label>
+						<input type="hidden" value=0 name="attr_Daily-HitBonus-accessory">
+						<input type="hidden" value="1d4" name="attr_Daily-critdice">
+						<input type="hidden" value=0 name="attr_Daily-abimod">
 						<input type="hidden" value=0 name="attr_Daily-HitBonus">
-						<input type="hidden" value="" name="attr_Daily-damagedice">
 						<input type="hidden" value=0 name="attr_Daily-flatdamage">
-						<input type="hidden" value="" name="attr_Daily-critdice">
 						<input type="hidden" value=0 name="attr_Daily-critflat">
 						<label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label>
 						<label title="Miss">Miss: <textarea name="attr_Daily-Power-Miss"></textarea></label>
@@ -381,7 +390,7 @@
 			<div class='sheet-col'>
 				<h3>Weapon 1</h3>
 				<input type="text" name="attr_wep1-Name" class="sheet-Item"> Name <br>
-				<input type="number" name="attr_wep1-Prof" value='2' /> Weapon Proficiency <br>
+				<input type="number" name="attr_wep1-Attack" value='2' /> Weapon Proficiency <br>
 				<div class='sheet-wepDamSelect'>
 					<select name="attr_wep1-Damage">
 							<option value="1d4">1d4 </option>
@@ -392,14 +401,14 @@
 							<option value="2d4">2d4 </option>
 							<option value="2d6">2d6 </option>
 					</select> Weapon Damage <br>
-					<input type="checkbox" name="attr_wep1-Brutal" value="r<@{wep1-BrutN}"> Brutal <input type="number" name="attr_wep1-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep1-HighCrit" value="@{wep1-Damage}"> High Crit
+					<input type="checkbox" name="attr_wep1-Brutal" value="r<"> Brutal <input type="number" name="attr_wep1-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep1-HighCrit" value="true"> High Crit
 				</div>
 			</div>
 			<!-- Weapon 2 -->
 			<div class='sheet-col'>
 				<h3>Weapon 2</h3>
 				<input type="text" name="attr_wep2-Name" class="sheet-Item"> Name <br>
-				<input type="number" name="attr_wep2-Prof" value='2' /> Weapon Proficiency <br>
+				<input type="number" name="attr_wep2-Attack" value='2' /> Weapon Proficiency <br>
 				<div class='sheet-wepDamSelect'>
 					<select name="attr_wep2-Damage">
 							<option value="1d4">1d4 </option>
@@ -410,14 +419,14 @@
 							<option value="2d4">2d4 </option>
 							<option value="2d6">2d6 </option>
 					</select> Weapon Damage <br>
-					<input type="checkbox" name="attr_wep2-Brutal" value="r<@{wep2-BrutN}"> Brutal <input type="number" name="attr_wep2-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep2-HighCrit" value="@{wep2-Damage}"> High Crit
+					<input type="checkbox" name="attr_wep2-Brutal" value="r<"> Brutal <input type="number" name="attr_wep2-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep2-HighCrit" value="true"> High Crit
 				</div>
 			</div>
 			<!-- Weapon 3 -->
 			<div class='sheet-col'>
 				<h3>Weapon 3</h3>
 				<input type="text" name="attr_wep3-Name" class="sheet-Item"> Name <br>
-				<input type="number" name="attr_wep3-Prof" value='2' /> Weapon Proficiency <br>
+				<input type="number" name="attr_wep3-Attack" value='2' /> Weapon Proficiency <br>
 				<div class='sheet-wepDamSelect'>
 					<select name="attr_wep3-Damage">
 							<option value="1d4">1d4 </option>
@@ -428,12 +437,13 @@
 							<option value="2d4">2d4 </option>
 							<option value="2d6">2d6 </option>
 					</select> Weapon Damage <br>
-					<input type="checkbox" name="attr_wep3-Brutal" value="r<@{wep3-BrutN}"> Brutal <input type="number" name="attr_wep3-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep3-HighCrit" value="@{wep3-Damage}"> High Crit
+					<input type="checkbox" name="attr_wep3-Brutal" value="r<"> Brutal <input type="number" name="attr_wep3-BrutN" min=1 max=2 value=1> <input type="checkbox" name="attr_wep3-HighCrit" value="true"> High Crit
 				</div>
 			</div>
 		</div>
 		<!-- Armor and Implements -->
 		<div class='sheet-3colrow'>
+			<!-- Armor -->
 			<div class="sheet-col">
 				<h3>Armor</h3>
 				<input type="text" name="attr_ArmorItem-Name" value="Cloth" class="sheet-Item"> Name<br>
@@ -450,12 +460,14 @@
 				</span>
 				<label title="Armor Bonus"> Armor Bonus <input type="number" name="attr_AC-Armor" value=0></label>
 			</div>
+			<!-- Implement 1 -->
 			<div class="sheet-col">
 				<h3>Implement 1</h3>
 				<input type="text" name="attr_imp1-Name" class="sheet-Item"> Name <br>
 				<input type="number" name="attr_imp1-Attack"> Attack Bonus <br>
 				<input type="hidden" name="attr_imp1-Damage" value="">
 			</div>
+			<!-- Implement 2 -->
 			<div class="sheet-col">
 				<h3>Implement 2</h3>
 				<input type="text" name="attr_imp2-Name" class="sheet-Item"> Name <br>
@@ -481,7 +493,7 @@
 				<label title="Backpack Space Used"> <input type="number" name="attr_BackpackSpace" value=0> / <input type="number" name="attr_BackpackSpace_max" value=75> Space Used</label>
 				<br>
 				<fieldset class="repeating_BackpackItems">
-					<input type="text" name="attr_BackpackItem" class="sheet-Item"> <input type="number" name="attr_BackpackItemSpace">
+					<input type="text" name="attr_BackpackItem" class="sheet-Item"> <input type="number" name="attr_BackpackItem-Space" value=0 min=0>
 				</fieldset>
 			</div>
 			<!-- Other Places -->
@@ -497,40 +509,31 @@
 </div>
 
 <!--Roll Templates-->
-<div class="sheet-rolltemplates">
-	<!-- &{template:attack} {{name=@{AtWill-Name}}} 
-	{{subtags=@{AtWill-RangeTargets}}} 
-	{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} 
-	{{defense=@{AtWillDef-Select}}}
-	{{damage=[[@{meleedmg1}+@{meleedmgbonus1}]]}} {{dmgcrit=[[@{meleedmg1}]]}} {{striker=[[@{strikerdice}]]}} -->
 	<rolltemplate class="sheet-rolltemplate-attack">
+<div class="sheet-rolltemplates">
 		<table>
 			<tr><th>{{name}}</th></tr>
-			<tr><td class="subheader">{{subtags}}</td></tr>
-			<tr class="arrow-container"><td><div class="arrow-right"></div></td></tr>
-				<tr class="rowcolor"><td><span class="tcat">Attack: </span>{{attack}} | {{attackadv}} vs {{Defense}}</td></tr>
-				{{#damage}}
-					<tr>
-						<td>
-							 <span class="tcat">Damage: </span>{{damage}} 
-							 <span class="tcat">Crit: </span>{{dmgcrit}}
-						</td>
-					</tr>
-				{{/damage}}
-				{{#striker}}
-					<tr>
-						<td>
-							<span class="tcat">Striker: </span>{{strikerdmg}}
-						</td>
-					</tr>
-				{{/striker}}
+			<tr><td class="sheet-subheader">{{RangeTargets}}</td></tr>
+			<tr class="sheet-arrow-container"><td><div class="arrow-right"></div></td></tr>
+			<tr class="sheet-rowcolor"><td><span class="sheet-tcat">Attack: </span>{{attack}} | {{attackadv}} vs {{defense}}</td></tr>
+		</table>
+	</rolltemplate>
+	
+	<rolltemplate class="sheet-rolltemplate-damage">
+		<table>
+			<tr><th>{{name}}</th></tr>
+			<tr>
+				<td>
+					 <span class="sheet-tcat">Damage: </span>{{damage}} 
+					 <span class="sheet-tcat">Crit: </span>{{dmgcrit}}
+				</td>
+			</tr>
 		</table>
 	</rolltemplate>
 </div>
 
 <!-- WORKERS -->
 <script type="text/worker">
-	
     on("change:level", function() {
         getAttrs(["level"], function(values) {
 			setAttrs({
@@ -636,5 +639,281 @@
 			});
 		});
 	});
+	
+	on("change:strikerdice", function() {
+		getAttrs(["strikerdice"], function(values) {
+			var numdice = parseInt(values.strikerdice);
+			var size = 4;
+			if (numdice < 10) {
+				size = parseInt(values.strikerdice.substring(2));
+			}
+			else {
+				size = parseInt(values.strikerdice.substring(3));
+			}
+			var finalattr = (numdice * size);
+			setAttrs({
+				strikercrit: finalattr
+			});
+		});
+	});
+	
+	
+	on("change:repeating_atwills:atwill-accessory", function(eventinfo) {
+		var accessory = eventinfo.newValue;
+		var attack = (accessory + "-Attack");
+		var damage = (accessory + "-Damage");
+		var brutal = (accessory + "-Brutal");
+		var brutN = (accessory + "-BrutN");
+		var crit = (accessory + "-HighCrit");
+		if (accessory.substring(0,3) == "wep") {
+			getAttrs([attack,damage,brutal,brutN,crit,"level","quest"], function(values) {
+				var damagedice = (values[damage]);
+				if (values[brutal] == "r<") {
+					damagedice = (damagedice + values[brutal] + values[brutN]);
+				}
+				var critdice = (values['quest'] + "d6");
+				if (values[crit] == "true"){
+					critdice = (critdice + ' + ' + (parseInt(damagedice.substring(0,1)) * Math.ceil(parseInt(values["level"])/5)) + damagedice.substring(1));
+				}	
+				setAttrs({
+					"repeating_AtWills_AtWill-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_AtWills_AtWill-damagedice": damagedice,
+					"repeating_AtWills_AtWill-critdice": critdice
+				});
+			});
+		}
+		else {
+			getAttrs([attack,damage,"quest"], function(values) {
+				var critdice = (values['quest'] + "d6");
+				setAttrs({
+					"repeating_AtWills_AtWill-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_AtWills_AtWill-damagedice": values[damage],
+					"repeating_AtWills_AtWill-critdice": values[critdice]
+				});
+			});
+		}
+	});
+	
+	on("change:repeating_atwills:atwill-ability", function(eventInfo) {
+		var abimod = eventInfo.newValue;
+		getAttrs([abimod], function(values){
+			setAttrs({
+				"repeating_AtWills_AtWill-abimod": parseInt(values.abimod)
+			});
+		});
+	});
+	
+	on("change:repeating_atwills:atwill-miscattackbonus change:repeating_atwills:atwill-abimod change:repeating_atwills:atwill-hitbonus-accessory", function () {
+		getAttrs(["repeating_atwills_AtWill-MiscAttackBonus", "repeating_atwills_AtWill-abimod", "repeating_atwills_AtWill-HitBonus-accessory", "level-half", "Quest"], function(values){
+			var finalattr = (parseInt(values["repeating_atwills_AtWill-MiscAttackBonus"]) + parseInt(values["repeating_atwills_AtWill-abimod"]) + parseInt(values["repeating_atwills_AtWill-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			setAttrs({
+				"repeating_AtWills_AtWill-HitBonus": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_atwills:atwill-miscdamage change:repeating_atwills:atwill-abimod", function () {
+		getAttrs(["repeating_AtWills_AtWill-miscdamage", "repeating_AtWills_AtWill-abimod", "level-half", "Quest"], function (values){
+			var finalattr = (parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			setAttrs({
+				"repeating_AtWills_AtWill-flatdamage": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_atwills:atwill-damagedice", function () {
+		getAttrs(["repeating_AtWills_AtWill-damagedice"], function (values){
+			var numdice = parseInt(values["repeating_AtWills_AtWill-damagedice"]);
+			var size = 4;
+			if (numdice<10) {
+				size = parseInt(values["repeating_AtWills_AtWill-damagedice"].substring(2));
+			}
+			else {
+				size = parseInt(values["repeating_AtWills_AtWill-damagedice"].substring(3));
+			}
+			var finalattr = (numdice * size);
+			setAttrs({
+				"repeating_AtWills_AtWill-critflat": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_encounters:encounter-accessory", function(eventinfo) {
+		var accessory = eventinfo.newValue;
+		var attack = (accessory + "-Attack");
+		var damage = (accessory + "-Damage");
+		var brutal = (accessory + "-Brutal");
+		var brutN = (accessory + "-BrutN");
+		var crit = (accessory + "-HighCrit");
+		if (accessory.substring(0,3) == "wep") {
+			getAttrs([attack,damage,brutal,brutN,crit,"level","quest"], function(values) {
+				var damagedice = (values[damage]);
+				if (values[brutal] == "r<") {
+					damagedice = (damagedice + values[brutal] + values[brutN]);
+				}
+				var critdice = (values['quest'] + "d6");
+				if (values[crit] == "true"){
+					critdice = (critdice + ' + ' + (parseInt(damagedice.substring(0,1)) * Math.ceil(parseInt(values["level"])/5)) + damagedice.substring(1));
+				}	
+				setAttrs({
+					"repeating_Encounters_Encounter-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_Encounters_Encounter-damagedice": damagedice,
+					"repeating_Encounters_Encounter-critdice": critdice
+				});
+			});
+		}
+		else {
+			getAttrs([attack,damage,"quest"], function(values) {
+				var critdice = (values['quest'] + "d6");
+				setAttrs({
+					"repeating_Encounters_Encounter-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_Encounters_Encounter-damagedice": values[damage],
+					"repeating_Encounters_Encounter-critdice": values[critdice]
+				});
+			});
+		}
+	});
+	
+	on("change:repeating_encounters:encounter-ability", function(eventInfo) {
+		var abimod = eventInfo.newValue;
+		getAttrs([abimod], function(values){
+			setAttrs({
+				"repeating_Encounters_Encounter-abimod": parseInt(values.abimod)
+			});
+		});
+	});
+	
+	on("change:repeating_encounters:encounter-miscattackbonus change:repeating_encounters:encounter-abimod change:repeating_encounters:encounter-hitbonus-accessory", function () {
+		getAttrs(["repeating_encounters_Encounter-MiscAttackBonus", "repeating_encounters_Encounter-abimod", "repeating_encounters_Encounter-HitBonus-accessory", "level-half", "Quest"], function(values){
+			var finalattr = (parseInt(values["repeating_encounters_Encounter-MiscAttackBonus"]) + parseInt(values["repeating_encounters_Encounter-abimod"]) + parseInt(values["repeating_encounters_Encounter-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			setAttrs({
+				"repeating_Encounters_Encounter-HitBonus": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_encounters:encounter-miscdamage change:repeating_encounters:encounter-abimod", function () {
+		getAttrs(["repeating_Encounters_Encounter-miscdamage", "repeating_Encounters_Encounter-abimod", "level-half", "Quest"], function (values){
+			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			setAttrs({
+				"repeating_Encounters_Encounter-flatdamage": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_encounters:encounter-damagedice", function () {
+		getAttrs(["repeating_Encounters_Encounter-damagedice"], function (values){
+			var numdice = parseInt(values["repeating_Encounters_Encounter-damagedice"]);
+			var size = 4;
+			if (numdice<10) {
+				size = parseInt(values["repeating_Encounters_Encounter-damagedice"].substring(2));
+			}
+			else {
+				size = parseInt(values["repeating_Encounters_Encounter-damagedice"].substring(3));
+			}
+			var finalattr = (numdice * size);
+			setAttrs({
+				"repeating_Encounters_Encounter-critflat": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_dailys:daily-accessory", function(eventinfo) {
+		var accessory = eventinfo.newValue;
+		var attack = (accessory + "-Attack");
+		var damage = (accessory + "-Damage");
+		var brutal = (accessory + "-Brutal");
+		var brutN = (accessory + "-BrutN");
+		var crit = (accessory + "-HighCrit");
+		if (accessory.substring(0,3) == "wep") {
+			getAttrs([attack,damage,brutal,brutN,crit,"level","quest"], function(values) {
+				var damagedice = (values[damage]);
+				if (values[brutal] == "r<") {
+					damagedice = (damagedice + values[brutal] + values[brutN]);
+				}
+				var critdice = (values['quest'] + "d6");
+				if (values[crit] == "true"){
+					critdice = (critdice + ' + ' + (parseInt(damagedice.substring(0,1)) * Math.ceil(parseInt(values["level"])/5)) + damagedice.substring(1));
+				}	
+				setAttrs({
+					"repeating_Dailys_Daily-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_Dailys_Daily-damagedice": damagedice,
+					"repeating_Dailys_Daily-critdice": critdice
+				});
+			});
+		}
+		else {
+			getAttrs([attack,damage,"quest"], function(values) {
+				var critdice = (values['quest'] + "d6");
+				setAttrs({
+					"repeating_Dailys_Daily-HitBonus-accessory": parseInt(values[attack]),
+					"repeating_Dailys_Daily-damagedice": values[damage],
+					"repeating_Dailys_Daily-critdice": values[critdice]
+				});
+			});
+		}
+	});
+	
+	on("change:repeating_dailys:daily-ability", function(eventInfo) {
+		var abimod = eventInfo.newValue;
+		getAttrs([abimod], function(values){
+			setAttrs({
+				"repeating_Dailys_Daily-abimod": parseInt(values.abimod)
+			});
+		});
+	});
+	
+	on("change:repeating_dailys:daily-miscattackbonus change:repeating_dailys:daily-abimod change:repeating_dailys:daily-hitbonus-accessory", function () {
+		getAttrs(["repeating_dailys_Daily-MiscAttackBonus", "repeating_dailys_Daily-abimod", "repeating_dailys_Daily-HitBonus-accessory", "level-half", "Quest"], function(values){
+			var finalattr = (parseInt(values["repeating_dailys_Daily-MiscAttackBonus"]) + parseInt(values["repeating_dailys_Daily-abimod"]) + parseInt(values["repeating_dailys_Daily-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			setAttrs({
+				"repeating_Dailys_Daily-HitBonus": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_dailys:daily-miscdamage change:repeating_dailys:daily-abimod", function () {
+		getAttrs(["repeating_Dailys_Daily-miscdamage", "repeating_Dailys_Daily-abimod", "level-half", "Quest"], function (values){
+			var finalattr = (parseInt(values["repeating_Dailys_Daily-abimod"]) + parseInt(values["repeating_Dailys_Daily-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			setAttrs({
+				"repeating_Dailys_Daily-flatdamage": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_dailys:daily-damagedice", function () {
+		getAttrs(["repeating_Dailys_Daily-damagedice"], function (values){
+			var numdice = parseInt(values["repeating_Dailys_Daily-damagedice"]);
+			var size = 4;
+			if (numdice<10) {
+				size = parseInt(values["repeating_Dailys_Daily-damagedice"].substring(2));
+			}
+			else {
+				size = parseInt(values["repeating_Dailys_Daily-damagedice"].substring(3));
+			}
+			var finalattr = (numdice * size);
+			setAttrs({
+				"repeating_Dailys_Daily-critflat": finalattr
+			});
+		});
+	});
+	
+	on("change:repeating_backpackitems", function() {
+       getSectionIDs("BackpackItems", function(idarray) {
+            var fieldNames  = [];
+            for(var i=0; i < idarray.length; i++) {
+				fieldNames.push("repeating_BackpackItems_" + idarray[i] + "_BackpackItem-Space");
+            }
+            getAttrs(fieldNames, function(value){
+				var spaceUsed = 0;
+				for(var i=0; i < idarray.length; i++) {
+					spaceUsed = spaceUsed + (parseInt(value["repeating_BackpackItems_" + idarray[i] + "_BackpackItem-Space"]));
+				}
+				setAttrs({
+                    BackpackSpace: spaceUsed
+                });
+            });
+        });
+    });
 	
 </script>

@@ -28,9 +28,9 @@
     font-size:          .458cm
 }
 
-/**********************************************
-*				INPUTS
-**********************************************/
+/*
+				INPUTS
+*/
 
 .sheet-AttSelect select{
     width:      90px;
@@ -76,9 +76,9 @@ input.sheet-Item{
     width: 187px;
 }
 
-/**********************************************
-*				TABS
-**********************************************/
+/*
+				TABS
+*/
 
 div.sheet-tab-content { display: none; }
 input.sheet-tab1:checked ~ div.sheet-tab1,
@@ -140,24 +140,41 @@ div.sheet-tab-content {
 }
 
 
-/**********************************************
-*			ROLLTEMPLATES
-**********************************************/
+/*
+			ROLLTEMPLATES
+*/
 
 .sheet-rolltemplate-attack table {
     width: 189px;
     padding: 2px;
-	border: 1px solid;
-    background-color: #EEE5CE;
+		border: 1px solid;
+    background-color: #ffffff;
+}
+
+.sheet-rolltemplate-damage table {
+    width: 189px;
+    padding: 2px;
+		border: 1px solid;
+    background-color: #ffffff;
 }
  
 .sheet-rolltemplate-attack th {
-	color: rgb(126, 45, 64);
+		color: rgb(126, 45, 64);
     padding-left: 5px;
-	line-height: 1.6em;
-	font-size: 1.2em;
+		line-height: 1.6em;
+		font-size: 1.2em;
     text-align: left;
-	font-family: "Times New Roman", Times, serif;
+		font-family: "Times New Roman", Times, serif;
+    font-variant: small-caps;
+}
+
+.sheet-rolltemplate-damage th {
+		color: rgb(126, 45, 64);
+    padding-left: 5px;
+		line-height: 1.6em;
+		font-size: 1.2em;
+    text-align: left;
+		font-family: "Times New Roman", Times, serif;
     font-variant: small-caps;
 }
  
@@ -170,10 +187,14 @@ div.sheet-tab-content {
 .sheet-rolltemplate-attack .sheet-arrow-right {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
-	border-left: 180px solid rgb(126, 45, 64);
+		border-left: 180px solid rgb(126, 45, 64);
 }
  
 .sheet-rolltemplate-attack .sheet-tcat {
+    font-style: italic;
+}
+
+.sheet-rolltemplate-damage .sheet-tcat {
     font-style: italic;
 }
  
@@ -187,16 +208,40 @@ div.sheet-tab-content {
 }
  
 .sheet-rolltemplate-attack .inlinerollresult.fullcrit {
-	color: #3FB315;
+		color: #3FB315;
     border: none;
 }
  
 .sheet-rolltemplate-attack .inlinerollresult.fullfail {
-	color: #B31515;
+		color: #B31515;
     border: none;
 }
  
-.sheet-rolltemplate-attack .inlinerollresult.importantroll {
-	color: #4A57ED;
+.sheet-rolltemplate-attack .sheet-rolltemplate-damage .inlinerollresult.importantroll {
+		color: #4A57ED;
+    border: none;
+}
+
+.sheet-rolltemplate-damage td {
+    padding-left: 5px;
+}
+ 
+.sheet-rolltemplate-damage .inlinerollresult  {
+    background-color: #ffffff;
+    border: none;
+}
+ 
+.sheet-rolltemplate-damage .inlinerollresult.fullcrit {
+		color: #3FB315;
+    border: none;
+}
+ 
+.sheet-rolltemplate-damage .inlinerollresult.fullfail {
+		color: #B31515;
+    border: none;
+}
+ 
+.sheet-rolltemplate-damage .sheet-rolltemplate-damage .inlinerollresult.importantroll {
+		color: #4A57ED;
     border: none;
 }
