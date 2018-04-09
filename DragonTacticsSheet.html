@@ -139,13 +139,13 @@
 					</tr>
 					<tr>
 						<td><input type='checkbox' name='attr_Socialize-Train' value=5 /> <input type="number" name="attr_Socialize-MiscBonus" value=0><input type='hidden' name='attr_Socialize-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}' name='roll_StealthCheck'></button><span name="attr_Socialize" value="+0"></span></td>
-						<td>Stealth (Dex)</td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}' name='roll_SocializeCheck'></button><span name="attr_Socialize" value="+0"></span></td>
+						<td>Socialize (Cha)</td>
 					</tr>
 					<tr>
 						<td><input type='checkbox' name='attr_Stealth-Train' value=5 /> <input type="number" name="attr_Stealth-MiscBonus" value=0><input type='hidden' name='attr_Stealth-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}' name='roll_SocializeCheck'></button><span name="attr_Stealth" value="+0"></span></td>
-						<td>Socialize (Cha)</td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}' name='roll_StealthCheck'></button><span name="attr_Stealth" value="+0"></span></td>
+						<td>Stealth (Dex)</td>
 					</tr>
 					<tr>
 						<td><input type='checkbox' name='attr_Survival-Train' value=5 /> <input type="number" name="attr_Survival-MiscBonus" value=0><input type='hidden' name='attr_Survival-Trained' value="Untrained" /></td>
@@ -807,8 +807,8 @@
 		});
 	});
 	
-	on("change:repeating_atwills:atwill-damagedice", function () {
-		getAttrs(["repeating_AtWills_AtWill-damagedice"], function (values){
+	on("change:repeating_atwills:atwill-damagedice change:repeating_atwills:atwill-flatdamage", function () {
+		getAttrs(["repeating_AtWills_AtWill-damagedice", "repeating_AtWills_AtWill-flatdamage"], function (values){
 			var numdice = parseInt(values["repeating_AtWills_AtWill-damagedice"]);
 			var size = 4;
 			if (numdice<10) {
@@ -817,7 +817,7 @@
 			else {
 				size = parseInt(values["repeating_AtWills_AtWill-damagedice"].substring(3));
 			}
-			var finalattr = (numdice * size);
+			var finalattr = (numdice * size + parseInt(values["repeating_AtWills_AtWill-flatdamage"]));
 			setAttrs({
 				"repeating_AtWills_AtWill-critflat": finalattr
 			});
@@ -887,8 +887,8 @@
 		});
 	});
 	
-	on("change:repeating_encounters:encounter-damagedice", function () {
-		getAttrs(["repeating_Encounters_Encounter-damagedice"], function (values){
+	on("change:repeating_encounters:encounter-damagedice change:repeating_encounters:encounter-flatdamage", function () {
+		getAttrs(["repeating_Encounters_Encounter-damagedice", "repeating_Encounters_Encounter-flatdamage"], function (values){
 			var numdice = parseInt(values["repeating_Encounters_Encounter-damagedice"]);
 			var size = 4;
 			if (numdice<10) {
@@ -897,7 +897,7 @@
 			else {
 				size = parseInt(values["repeating_Encounters_Encounter-damagedice"].substring(3));
 			}
-			var finalattr = (numdice * size);
+			var finalattr = (numdice * size + parseInt(values["repeating_Encounters_Encounter-flatdamage"]));
 			setAttrs({
 				"repeating_Encounters_Encounter-critflat": finalattr
 			});
@@ -967,8 +967,8 @@
 		});
 	});
 	
-	on("change:repeating_dailies:daily-damagedice", function () {
-		getAttrs(["repeating_Dailies_Daily-damagedice"], function (values){
+	on("change:repeating_dailies:daily-damagedice change:repeating_dailies:daily-flatdamage", function () {
+		getAttrs(["repeating_Dailies_Daily-damagedice", "repeating_Dailies_Daily-flatdamage"], function (values){
 			var numdice = parseInt(values["repeating_Dailies_Daily-damagedice"]);
 			var size = 4;
 			if (numdice<10) {
@@ -977,7 +977,7 @@
 			else {
 				size = parseInt(values["repeating_Dailies_Daily-damagedice"].substring(3));
 			}
-			var finalattr = (numdice * size);
+			var finalattr = (numdice * size + parseInt(values["repeating_Dailies_Daily-flatdamage"]));
 			setAttrs({
 				"repeating_Dailies_Daily-critflat": finalattr
 			});
@@ -1004,7 +1004,10 @@
 		
 	on("change:acrobatics-train change:acrobatics-miscbonus change:dexmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Acrobatics-Train", "Acrobatics-MiscBonus", "dexmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Acrobatics-Train"]) + parseInt(values["Acrobatics-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Acrobatics-Train"]) + parseInt(values["Acrobatics-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Acrobatics-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1016,7 +1019,10 @@
 
 	on("change:appeal-train change:appeal-miscbonus change:chamod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Appeal-Train", "Appeal-MiscBonus", "chamod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Appeal-Train"]) + parseInt(values["Appeal-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Appeal-Train"]) + parseInt(values["Appeal-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Appeal-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1028,7 +1034,10 @@
 
 	on("change:arcana-train change:arcana-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Arcana-Train", "Arcana-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Arcana-Train"]) + parseInt(values["Arcana-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Arcana-Train"]) + parseInt(values["Arcana-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Arcana-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1040,7 +1049,10 @@
 
 	on("change:athletics-train change:athletics-miscbonus change:strmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Athletics-Train", "Athletics-MiscBonus", "strmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Athletics-Train"]) + parseInt(values["Athletics-MiscBonus"]) + parseInt(values["strmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Athletics-Train"]) + parseInt(values["Athletics-MiscBonus"]) + parseInt(values["strmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Athletics-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1052,7 +1064,10 @@
 
 	on("change:debate-train change:debate-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Debate-Train", "Debate-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Debate-Train"]) + parseInt(values["Debate-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Debate-Train"]) + parseInt(values["Debate-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Debate-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1064,7 +1079,10 @@
 
 	on("change:endurance-train change:endurance-miscbonus change:conmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Endurance-Train", "Endurance-MiscBonus", "conmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Endurance-Train"]) + parseInt(values["Endurance-MiscBonus"]) + parseInt(values["conmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Endurance-Train"]) + parseInt(values["Endurance-MiscBonus"]) + parseInt(values["conmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Endurance-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1076,7 +1094,10 @@
 
 	on("change:handleanimal-train change:handleanimal-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["HandleAnimal-Train", "HandleAnimal-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["HandleAnimal-Train"]) + parseInt(values["HandleAnimal-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["HandleAnimal-Train"]) + parseInt(values["HandleAnimal-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["HandleAnimal-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1088,7 +1109,10 @@
 
 	on("change:insight-train change:insight-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Insight-Train", "Insight-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Insight-Train"]) + parseInt(values["Insight-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Insight-Train"]) + parseInt(values["Insight-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Insight-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1100,7 +1124,10 @@
 
 	on("change:impress-train change:impress-miscbonus change:chamod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened sheet:opened", function() {
 		getAttrs(["Impress-Train", "Impress-MiscBonus", "chamod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Impress-Train"]) + parseInt(values["Impress-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Impress-Train"]) + parseInt(values["Impress-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Impress-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1112,7 +1139,10 @@
 
 	on("change:medicine-train change:medicine-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Medicine-Train", "Medicine-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Medicine-Train"]) + parseInt(values["Medicine-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Medicine-Train"]) + parseInt(values["Medicine-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Medicine-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1124,7 +1154,10 @@
 
 	on("change:perception-train change:perception-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Perception-Train", "Perception-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Perception-Train"]) + parseInt(values["Perception-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Perception-Train"]) + parseInt(values["Perception-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Perception-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1136,7 +1169,10 @@
 
 	on("change:repair-train change:repair-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Repair-Train", "Repair-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Repair-Train"]) + parseInt(values["Repair-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Repair-Train"]) + parseInt(values["Repair-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Repair-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1148,7 +1184,10 @@
 
 	on("change:research-train change:research-miscbonus change:intmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Research-Train", "Research-MiscBonus", "intmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Research-Train"]) + parseInt(values["Research-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Research-Train"]) + parseInt(values["Research-MiscBonus"]) + parseInt(values["intmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Research-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1160,7 +1199,10 @@
 
 	on("change:sleightofhand-train change:sleightofhand-miscbonus change:dexmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["SleightofHand-Train", "SleightofHand-MiscBonus", "dexmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["SleightofHand-Train"]) + parseInt(values["SleightofHand-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["SleightofHand-Train"]) + parseInt(values["SleightofHand-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["SleightofHand-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1172,7 +1214,10 @@
 
 	on("change:stealth-train change:stealth-miscbonus change:dexmod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Stealth-Train", "Stealth-MiscBonus", "dexmod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Stealth-Train"]) + parseInt(values["Stealth-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Stealth-Train"]) + parseInt(values["Stealth-MiscBonus"]) + parseInt(values["dexmod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Stealth-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1184,7 +1229,10 @@
 
 	on("change:socialize-train change:socialize-miscbonus change:chamod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Socialize-Train", "Socialize-MiscBonus", "chamod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Socialize-Train"]) + parseInt(values["Socialize-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Socialize-Train"]) + parseInt(values["Socialize-MiscBonus"]) + parseInt(values["chamod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Socialize-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1196,7 +1244,10 @@
 
 	on("change:survival-train change:survival-miscbonus change:wismod change:level-half change:quest change:jackofalltrades change:bardjack sheet:opened", function() {
 		getAttrs(["Survival-Train", "Survival-MiscBonus", "wismod", "level-half", "Quest", "JackOfAllTrades", "BardJack",], function(values) {
-			var finalattr = (parseInt(values["Survival-Train"]) + parseInt(values["Survival-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			var finalattr = (parseInt(values["Survival-Train"]) + parseInt(values["Survival-MiscBonus"]) + parseInt(values["wismod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			if (parseInt(values["Survival-Train"]) == 0) {
+				finalattr = (finalattr + parseInt(values["JackOfAllTrades"]) + parseInt(values["BardJack"]));
+			}
 			if (finalattr >0) {
 				finalattr = ("+" + finalattr);
 			}
@@ -1205,6 +1256,8 @@
 			});
 		});
 	});
+
+
 	
 	
 	on("change:acrobatics-train", function() {
