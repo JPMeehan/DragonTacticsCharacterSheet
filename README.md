@@ -1,7 +1,7 @@
 # DragonTacticsCharacterSheet
 
-WIP
+Version 1.0
 
-To do
-- Get javascript working
-- Put together scripts for attack rolls
+Features
+- Javascript calculated attack and damage rolls
+- Options for writing class features
