@@ -1,6 +1,6 @@
 # DragonTacticsCharacterSheet
 
-Version 1.0
+Version 1.1
 
 Features
 - Javascript calculated attack and damage rolls
