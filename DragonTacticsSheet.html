@@ -35,26 +35,32 @@
             <div class='sheet-col' style="width: 25%">
                 <h2>Attributes</h2>
                 <input type="number" name="attr_Strength" value=10 /> Strength 
-                <input name="attr_strmod" type="hidden" value=0>
+                <button type='roll' value='&{template:skillcheck} {{name=Strength Check}} {{check=[[1d20 + @{strmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{strmod} + @{level-half} + @{Quest}]]}}' name='roll_StrengthCheck'></button>
+				<input name="attr_strmod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Constitution" value=10 /> Constitution 
+				<button type='roll' value='&{template:skillcheck} {{name=Constitution Check}} {{check=[[1d20 + @{conmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{conmod} + @{level-half} + @{Quest}]]}}' name='roll_ConstitutionCheck'></button>
                 <input name="attr_conmod" type="hidden" value=0>
 				<br>
 				
                 <input type="number" name="attr_Dexterity" value=10 /> Dexterity 
+				<button type='roll' value='&{template:skillcheck} {{name=Dexterity Check}} {{check=[[1d20 + @{dexmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{dexmod} + @{level-half} + @{Quest}]]}}' name='roll_DexterityCheck'></button>
                 <input name="attr_dexmod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Intelligence" value=10 /> Intelligence 
+				<button type='roll' value='&{template:skillcheck} {{name=Intelligence Check}} {{check=[[1d20 + @{intmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{intmod} + @{level-half} + @{Quest}]]}}' name='roll_IntelligenceCheck'></button>
                 <input name="attr_intmod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Wisdom" value=10 /> Wisdom 
+				<button type='roll' value='&{template:skillcheck} {{name=Wisdom Check}} {{check=[[1d20 + @{wismod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{wismod} + @{level-half} + @{Quest}]]}}' name='roll_WisdomCheck'></button>
                 <input name="attr_wismod" type="hidden" value=0>
 				<br>
 
                 <input type="number" name="attr_Charisma" value=10 /> Charisma 
+				<button type='roll' value='&{template:skillcheck} {{name=Charisma Check}} {{check=[[1d20 + @{chamod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{chamod} + @{level-half} + @{Quest}]]}}' name='roll_CharismaCheck'></button>
                 <input name="attr_chamod" type="hidden" value=0>
 				<br>
             </div>
@@ -250,7 +256,7 @@
 							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_AtWill-MiscAttackBonus"></label>
 							<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_AtWill-miscdamage" value=0></label>
 							<input type="hidden" value=0 name="attr_AtWill-HitBonus-accessory">
-							<input type="hidden" value="1d4" name="attr_AtWill-critdice">
+							<label title="Crit dice"> Crit Dice <input type="text" value="1d4" class="sheet-diceInput" name="attr_AtWill-critdice"></label>
 							<input type="hidden" value=0 name="attr_AtWill-abimod">
 							<input type="hidden" value=0 name="attr_AtWill-critflat">
 							<label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label>
@@ -322,7 +328,7 @@
 							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Encounter-MiscAttackBonus"></label>
 							<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_Encounter-miscdamage" value=0></label>
 							<input type="hidden" value=0 name="attr_Encounter-HitBonus-accessory">
-							<input type="hidden" value="1d4" name="attr_Encounter-critdice">
+							<label title="Crit dice"> Crit Dice <input type="text" value="1d4" class="sheet-diceInput" name="attr_Encounter-critdice"></label>
 							<input type="hidden" value=0 name="attr_Encounter-abimod">
 							<input type="hidden" value=0 name="attr_Encounter-critflat">
 							<label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label>
@@ -387,7 +393,7 @@
 							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Daily-MiscAttackBonus"></label>
 							<label title="Other damage bonus"> Misc Flat Damage <input type="number" name="attr_Daily-miscdamage" value=0></label>
 							<input type="hidden" value=0 name="attr_Daily-HitBonus-accessory">
-							<input type="hidden" value="1d4" name="attr_Daily-critdice">
+							<label title="Crit dice"> Crit Dice <input type="text" value="1d4" class="sheet-diceInput" name="attr_Daily-critdice"></label>
 							<input type="hidden" value=0 name="attr_Daily-abimod">
 							<input type="hidden" value=0 name="attr_Daily-critflat">
 							<label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label>
@@ -550,8 +556,7 @@
 				<input type="text" name="attr_HeadItem" value="A simple cowl"> Head<br>
 				<input type="text" name="attr_NeckItem" value="Nothing"> Neck<br>
 				<input type="text" name="attr_ArmsItem" value="Sleevies"> Arms<br>
-				<input type="text" name="attr_HandsItem" value="Leather gloves"> Hands
-				<input type="text" name="attr_FingerItem" value="Nothing"> Fingers<br>
+				<input type="text" name="attr_HandsItem" value="Leather gloves"> Hands<br>
 				<input type="text" name="attr_WaistItem" value="Belt with pouches"> Waist<br>
 				<input type="text" name="attr_FeetItem" value="Worn shoes"> Feet<br>
 			</div>
