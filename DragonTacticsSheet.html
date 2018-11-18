@@ -217,7 +217,7 @@
 						<option value="6">Immediate</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
-					<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect1"></textarea></label>
+					<label title="Power Text">Power Text: <textarea name="attr_AtWill-Power-Text"></textarea></label>
 					<div>
 						Attack? <input type="checkbox" value=1 checked="true" name="attr_AtWill-IsAttack" class="sheet-arrow">
 						<div class="sheet-body">
@@ -259,9 +259,9 @@
 							<label title="Crit dice"> Crit Dice <input type="text" value="1d4" class="sheet-diceInput" name="attr_AtWill-critdice"></label>
 							<input type="hidden" value=0 name="attr_AtWill-abimod">
 							<input type="hidden" value=0 name="attr_AtWill-critflat">
-							<label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label>
-							<label title="Miss">Miss: <textarea name="attr_AtWill-Power-Miss"></textarea></label>
-							<label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect2"></textarea></label>
+							<!-- <label title="Hit">Hit: <textarea name="attr_AtWill-Power-Hit"></textarea></label> -->
+							<!-- <label title="Miss">Miss: <textarea name="attr_AtWill-Power-Miss"></textarea></label> -->
+							<!-- <label title="Effect">Effect: <textarea name="attr_AtWill-Power-Effect2"></textarea></label> -->
 						</div>
 					</div>
 				</div>
@@ -289,7 +289,7 @@
 						<option value="6">Immediate</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Encounter-RangeTargets"></label> 
-					<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect1"></textarea></label>
+					<label title="Power Text">Power Text: <textarea name="attr_Encounter-Power-Text"></textarea></label>
 					<div>
 						Attack? <input type="checkbox" value=1 checked="true" name="attr_Encounter-IsAttack" class="sheet-arrow">
 						<div class="sheet-body">
@@ -331,9 +331,9 @@
 							<label title="Crit dice"> Crit Dice <input type="text" value="1d4" class="sheet-diceInput" name="attr_Encounter-critdice"></label>
 							<input type="hidden" value=0 name="attr_Encounter-abimod">
 							<input type="hidden" value=0 name="attr_Encounter-critflat">
-							<label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label>
-							<label title="Miss">Miss: <textarea name="attr_Encounter-Power-Miss"></textarea></label>
-							<label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect2"></textarea></label>
+							<!-- <label title="Hit">Hit: <textarea name="attr_Encounter-Power-Hit"></textarea></label> -->
+							<!-- <label title="Miss">Miss: <textarea name="attr_Encounter-Power-Miss"></textarea></label> -->
+							<!-- <label title="Effect">Effect: <textarea name="attr_Encounter-Power-Effect2"></textarea></label> -->
 						</div>
 					</div>
 				</div>
@@ -354,7 +354,7 @@
 						<option value="6">Immediate</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Daily-RangeTargets"></label> 
-					<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect1"></textarea></label>
+					<label title="Power Text">Power Text: <textarea name="attr_Daily-Power-Text"></textarea></label>
 					<div>
 						Attack? <input type="checkbox" value=1 checked="true" name="attr_Daily-IsAttack" class="sheet-arrow">
 						<div class="sheet-body">
@@ -396,9 +396,9 @@
 							<label title="Crit dice"> Crit Dice <input type="text" value="1d4" class="sheet-diceInput" name="attr_Daily-critdice"></label>
 							<input type="hidden" value=0 name="attr_Daily-abimod">
 							<input type="hidden" value=0 name="attr_Daily-critflat">
-							<label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label>
-							<label title="Miss">Miss: <textarea name="attr_Daily-Power-Miss"></textarea></label>
-							<label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect2"></textarea></label>
+							<!-- <label title="Hit">Hit: <textarea name="attr_Daily-Power-Hit"></textarea></label> -->
+							<!-- <label title="Miss">Miss: <textarea name="attr_Daily-Power-Miss"></textarea></label> -->
+							<!-- <label title="Effect">Effect: <textarea name="attr_Daily-Power-Effect2"></textarea></label> -->
 						</div>
 					</div>
 				</div>
@@ -526,8 +526,8 @@
 							<option value=0>None (Heavy Armor)</option>
 							<option value=1>Dexterity</option>
 							<option value=2>Intelligence</option>
-								<!--<option value="1">Strength</option>-->
 							<option value=3>Constitution</option>
+							<option value=4>Strength</option>
 								<!--<option value="5">Wisdom</option>-->
 								<!--<option value="6">Charisma</option>-->
 						</select> Attribute
@@ -682,7 +682,7 @@
 	});
 	
 	on("change:ac-att change:conmod change:dexmod change:intmod change:level-half change:quest change:ac-armor change:ac-misc", function() {
-		getAttrs(["AC-Att", "conmod","dexmod","intmod","level-half","Quest", "AC-Armor", "AC-Misc"], function(values) {
+		getAttrs(["AC-Att","strmod","conmod","dexmod","intmod","level-half","Quest", "AC-Armor", "AC-Misc"], function(values) {
 			var abimod = 0;
 			switch(parseInt(values['AC-Att'])) {
 				case 0:
@@ -696,6 +696,8 @@
 					break;
 				case 3:
 					abimod = values.conmod;
+				case 4:
+					abimod = values.strmod;
 			}
 			var finalattr = (10 + parseInt(abimod) + parseInt(values.Quest) + parseInt(values['level-half']) + parseInt(values['AC-Armor']) + parseInt(values['AC-Misc']));
 			setAttrs({
@@ -805,7 +807,7 @@
 	
 	on("change:repeating_atwills:atwill-miscdamage change:repeating_atwills:atwill-abimod", function () {
 		getAttrs(["repeating_AtWills_AtWill-miscdamage", "repeating_AtWills_AtWill-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			var finalattr = (parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["repeating_AtWills_AtWill-miscdamage"]));
 			setAttrs({
 				"repeating_AtWills_AtWill-flatdamage": finalattr
 			});
@@ -885,7 +887,7 @@
 	
 	on("change:repeating_encounters:encounter-miscdamage change:repeating_encounters:encounter-abimod", function () {
 		getAttrs(["repeating_Encounters_Encounter-miscdamage", "repeating_Encounters_Encounter-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"] + parseInt(values["repeating_Encounters_Encounter-miscdamage"])));
 			setAttrs({
 				"repeating_Encounters_Encounter-flatdamage": finalattr
 			});
@@ -965,7 +967,7 @@
 	
 	on("change:repeating_dailies:daily-miscdamage change:repeating_dailies:daily-abimod", function () {
 		getAttrs(["repeating_Dailies_Daily-miscdamage", "repeating_Dailies_Daily-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_Dailies_Daily-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
+			var finalattr = (parseInt(values["repeating_Dailies_Daily-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["repeating_Dailies_Daily-miscdamage"]));
 			setAttrs({
 				"repeating_Dailies_Daily-flatdamage": finalattr
 			});
