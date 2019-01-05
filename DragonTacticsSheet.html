@@ -1,4 +1,4 @@
-
+<input type="hidden" name="attr_Version" value=2>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"><span title="General Info"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"><span title="Combat"></span>
 <input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"><span title="Character Details"></span>
@@ -180,7 +180,7 @@
     <!--Key Numbers-->
         <div class='sheet-col'>
             <h2>Health</h2>
-			<label title="Movement Speed"><input type="number" name="attr_speed" value=30> Movement Speed</label>
+			<label title="Movement Speed"><input type="text" name="attr_speed" value="30'"> Movement</label>
             <label title="HP"><input type="number" name="attr_HP" value=20> / <input type="number" name="attr_HP_max" value=20> HP</label>
             <input type="number" name="attr_HP-Bloodied" value=10> Bloodied value <input type="number" name="attr_HP-surgeValue" value=5> Surge Value <br>
 			<label title="Surges"><input type="number" name="attr_surges" value=6> / <input type="number" name="attr_surges_max" value=6> Surges</label>
@@ -196,6 +196,7 @@
 			<br>
             <input type="number" name="attr_Will" value=10 class='sheet-defense'> Will (class/misc bonus: <input type="number" name="attr_Will-Misc" value=0> )
 			<br>
+			<label title="Persistent Effects">Persistent Effects: <textarea name="attr_Persistent-Effect-Text"></textarea></label>
         </div>
     </div>
     <h2>Powers</h2>
@@ -215,6 +216,7 @@
 						<option value="4">Free</option>
 						<option value="5">Opportunity</option>
 						<option value="6">Immediate</option>
+						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
 					<label title="Power Text">Power Text: <textarea name="attr_AtWill-Power-Text"></textarea></label>
@@ -287,6 +289,7 @@
 						<option value="4">Free</option>
 						<option value="5">Opportunity</option>
 						<option value="6">Immediate</option>
+						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Encounter-RangeTargets"></label> 
 					<label title="Power Text">Power Text: <textarea name="attr_Encounter-Power-Text"></textarea></label>
@@ -352,6 +355,7 @@
 						<option value="4">Free</option>
 						<option value="5">Opportunity</option>
 						<option value="6">Immediate</option>
+						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Daily-RangeTargets"></label> 
 					<label title="Power Text">Power Text: <textarea name="attr_Daily-Power-Text"></textarea></label>
@@ -528,8 +532,8 @@
 							<option value=2>Intelligence</option>
 							<option value=3>Constitution</option>
 							<option value=4>Strength</option>
-								<!--<option value="5">Wisdom</option>-->
-								<!--<option value="6">Charisma</option>-->
+							<option value=5>Wisdom</option>
+							<option value=6>Charisma</option>
 						</select> Attribute
 				</span>
 				<label title="Armor Bonus"> Armor Bonus <input type="number" name="attr_AC-Armor" value=0></label>
@@ -616,14 +620,6 @@
 
 <!-- WORKERS -->
 <script type="text/worker">
-    on("change:level", function() {
-        getAttrs(["level"], function(values) {
-			setAttrs({
-                "level-half": Math.floor(parseInt(values.level) / 2)
-            });
-        });
-	});
-	
 	on("change:hp_max", function() {
 		getAttrs(["HP_max"], function(values){
 			setAttrs({
@@ -681,8 +677,8 @@
 		});
 	});
 	
-	on("change:ac-att change:conmod change:dexmod change:intmod change:level-half change:quest change:ac-armor change:ac-misc", function() {
-		getAttrs(["AC-Att","strmod","conmod","dexmod","intmod","level-half","Quest", "AC-Armor", "AC-Misc"], function(values) {
+	on("change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod change:level-half change:quest change:ac-armor change:ac-misc", function() {
+		getAttrs(["AC-Att","strmod","conmod","dexmod","intmod", "wismod", "chamod","level-half","Quest", "AC-Armor", "AC-Misc"], function(values) {
 			var abimod = 0;
 			switch(parseInt(values['AC-Att'])) {
 				case 0:
@@ -696,8 +692,16 @@
 					break;
 				case 3:
 					abimod = values.conmod;
+					break;
 				case 4:
 					abimod = values.strmod;
+					break;
+				case 5:
+					abimod = values.wismod;
+					break;
+				case 6:
+					abimod = values.chamod;
+					break;
 			}
 			var finalattr = (10 + parseInt(abimod) + parseInt(values.Quest) + parseInt(values['level-half']) + parseInt(values['AC-Armor']) + parseInt(values['AC-Misc']));
 			setAttrs({
@@ -751,8 +755,8 @@
 	});
 	
 	
-	on("change:repeating_atwills:atwill-accessory", function(eventinfo) {
-		var accessory = eventinfo.newValue;
+	on("change:repeating_atwills:atwill-accessory", function(eventInfo) {
+		var accessory = eventInfo.newValue;
 		var attack = (accessory + "-Attack");
 		var damage = (accessory + "-Damage");
 		var brutal = (accessory + "-Brutal");
@@ -787,16 +791,18 @@
 		}
 	});
 	
-	on("change:repeating_atwills:atwill-ability", function(eventInfo) {
-		var modname = eventInfo.newValue;
-		getAttrs([modname], function(values){
-			setAttrs({
-				"repeating_AtWills_AtWill-abimod": parseInt(values[modname])
+	on("change:repeating_atwills:atwill-ability change:repeating_atwills:atwill-display", function(eventInfo) {
+		getAttrs(["repeating_AtWills_AtWill-Ability"], function(values) {
+			var modname = values["repeating_AtWills_AtWill-Ability"];
+			getAttrs([modname], function(values){
+				setAttrs({
+					"repeating_AtWills_AtWill-abimod": parseInt(values[modname])
+				});
 			});
 		});
 	});
 	
-	on("change:repeating_atwills:atwill-miscattackbonus change:repeating_atwills:atwill-abimod change:repeating_atwills:atwill-hitbonus-accessory", function () {
+	on("change:repeating_atwills:atwill-miscattackbonus change:repeating_atwills:atwill-abimod change:repeating_atwills:atwill-hitbonus-accessory change:repeating_atwills:atwill-display", function () {
 		getAttrs(["repeating_atwills_AtWill-MiscAttackBonus", "repeating_atwills_AtWill-abimod", "repeating_atwills_AtWill-HitBonus-accessory", "level-half", "Quest"], function(values){
 			var finalattr = (parseInt(values["repeating_atwills_AtWill-MiscAttackBonus"]) + parseInt(values["repeating_atwills_AtWill-abimod"]) + parseInt(values["repeating_atwills_AtWill-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
@@ -805,7 +811,7 @@
 		});
 	});
 	
-	on("change:repeating_atwills:atwill-miscdamage change:repeating_atwills:atwill-abimod", function () {
+	on("change:repeating_atwills:atwill-miscdamage change:repeating_atwills:atwill-abimod change:repeating_atwills:atwill-display", function () {
 		getAttrs(["repeating_AtWills_AtWill-miscdamage", "repeating_AtWills_AtWill-abimod", "level-half", "Quest"], function (values){
 			var finalattr = (parseInt(values["repeating_AtWills_AtWill-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["repeating_AtWills_AtWill-miscdamage"]));
 			setAttrs({
@@ -867,16 +873,18 @@
 		}
 	});
 	
-	on("change:repeating_encounters:encounter-ability", function(eventInfo) {
-		var modname = eventInfo.newValue;
-		getAttrs([modname], function(values){
-			setAttrs({
-				"repeating_Encounters_Encounter-abimod": parseInt(values[modname])
+	on("change:repeating_encounters:encounter-ability change:repeating_encounters:encounter-display", function(eventInfo) {
+		getAttrs(["repeating_Encounters_Encounter-Ability"], function(values) {
+			var modname = values["repeating_encounters_Encounter-Ability"];
+			getAttrs([modname], function(values){
+				setAttrs({
+					"repeating_Encounters_Encounter-abimod": parseInt(values[modname])
+				});
 			});
 		});
 	});
 	
-	on("change:repeating_encounters:encounter-miscattackbonus change:repeating_encounters:encounter-abimod change:repeating_encounters:encounter-hitbonus-accessory", function () {
+	on("change:repeating_encounters:encounter-miscattackbonus change:repeating_encounters:encounter-abimod change:repeating_encounters:encounter-hitbonus-accessory change:repeating_encounters:encounter-display", function () {
 		getAttrs(["repeating_encounters_Encounter-MiscAttackBonus", "repeating_encounters_Encounter-abimod", "repeating_encounters_Encounter-HitBonus-accessory", "level-half", "Quest"], function(values){
 			var finalattr = (parseInt(values["repeating_encounters_Encounter-MiscAttackBonus"]) + parseInt(values["repeating_encounters_Encounter-abimod"]) + parseInt(values["repeating_encounters_Encounter-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
@@ -885,9 +893,9 @@
 		});
 	});
 	
-	on("change:repeating_encounters:encounter-miscdamage change:repeating_encounters:encounter-abimod", function () {
+	on("change:repeating_encounters:encounter-miscdamage change:repeating_encounters:encounter-abimod change:repeating_encounters:encounter-display", function () {
 		getAttrs(["repeating_Encounters_Encounter-miscdamage", "repeating_Encounters_Encounter-abimod", "level-half", "Quest"], function (values){
-			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"] + parseInt(values["repeating_Encounters_Encounter-miscdamage"])));
+			var finalattr = (parseInt(values["repeating_Encounters_Encounter-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["repeating_Encounters_Encounter-miscdamage"]));
 			setAttrs({
 				"repeating_Encounters_Encounter-flatdamage": finalattr
 			});
@@ -947,16 +955,18 @@
 		}
 	});
 	
-	on("change:repeating_dailies:daily-ability", function(eventInfo) {
-		var modname = eventInfo.newValue;
-		getAttrs([modname], function(values){
-			setAttrs({
-				"repeating_Dailies_Daily-abimod": parseInt(values[modname])
+	on("change:repeating_dailies:daily-ability change:repeating_dailies:daily-display", function(eventInfo) {
+		getAttrs(["repeating_Dailies_Daily-Ability"], function(values) {
+			var modname = values["repeating_Dailies_Daily-Ability"];
+			getAttrs([modname], function(values){
+				setAttrs({
+					"repeating_Dailies_Daily-abimod": parseInt(values[modname])
+				});
 			});
 		});
 	});
 	
-	on("change:repeating_dailies:daily-miscattackbonus change:repeating_dailies:daily-abimod change:repeating_dailies:daily-hitbonus-accessory", function () {
+	on("change:repeating_dailies:daily-miscattackbonus change:repeating_dailies:daily-abimod change:repeating_dailies:daily-hitbonus-accessory change:repeating_dailies:daily-display", function () {
 		getAttrs(["repeating_dailies_Daily-MiscAttackBonus", "repeating_dailies_Daily-abimod", "repeating_dailies_Daily-HitBonus-accessory", "level-half", "Quest"], function(values){
 			var finalattr = (parseInt(values["repeating_dailies_Daily-MiscAttackBonus"]) + parseInt(values["repeating_dailies_Daily-abimod"]) + parseInt(values["repeating_dailies_Daily-HitBonus-accessory"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]));
 			setAttrs({
@@ -965,7 +975,7 @@
 		});
 	});
 	
-	on("change:repeating_dailies:daily-miscdamage change:repeating_dailies:daily-abimod", function () {
+	on("change:repeating_dailies:daily-miscdamage change:repeating_dailies:daily-abimod change:repeating_dailies:daily-display", function () {
 		getAttrs(["repeating_Dailies_Daily-miscdamage", "repeating_Dailies_Daily-abimod", "level-half", "Quest"], function (values){
 			var finalattr = (parseInt(values["repeating_Dailies_Daily-abimod"]) + parseInt(values["level-half"]) + parseInt(values["Quest"]) + parseInt(values["repeating_Dailies_Daily-miscdamage"]));
 			setAttrs({
