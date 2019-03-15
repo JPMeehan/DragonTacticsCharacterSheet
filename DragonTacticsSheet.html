@@ -1,8 +1,8 @@
 <input type="hidden" name="attr_Version" value=2>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"><span title="General Info"></span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"><span title="Combat"></span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"><span title="Character Details"></span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"><span title="Equipment"></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"><span title="General Info" ></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"><span title="Combat" ></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"><span title="Character Details" ></span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"><span title="Equipment" ></span>
 
 <!--General Info-->
 <div class="sheet-tab-content sheet-tab1">
@@ -74,88 +74,88 @@
 						<th>Skill</th>
 					</tr>
 					<tr> 
-						<td><input type='checkbox' name='attr_Acrobatics-Train' value=5 /> <input type="number" name="attr_Acrobatics-MiscBonus" value=0> <input type='hidden' name='attr_Acrobatics-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{Acrobatics-Trained}}} {{check=[[1d20 @{Acrobatics}]]}} {{checkadv=[[1d20 @{Acrobatics}]]}}' name='roll_AcrobaticsCheck'></button><span name="attr_Acrobatics" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Acrobatics-Train' value=4 /> <input type="number" name="attr_Acrobatics-MiscBonus" value=0> <input type='hidden' name='attr_Acrobatics-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{Acrobatics-Trained}}} {{check=[[1d20 @{Acrobatics}]]}} {{checkadv=[[1d20 @{Acrobatics}]]}}' name='roll_AcrobaticsCheck'></button><span name="attr_Acrobatics" value="+0" style="font-size:140%;"></span></td>
 						<td>Acrobatics (Dex)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Appeal-Train' value=5 /> <input type="number" name="attr_Appeal-MiscBonus" value=0><input type='hidden' name='attr_Appeal-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{Appeal-Trained}}} {{check=[[1d20 @{Appeal}]]}} {{checkadv=[[1d20 @{Appeal}]]}}' name='roll_AppealCheck'></button><span name="attr_Appeal" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Appeal-Train' value=4 /> <input type="number" name="attr_Appeal-MiscBonus" value=0><input type='hidden' name='attr_Appeal-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{Appeal-Trained}}} {{check=[[1d20 @{Appeal}]]}} {{checkadv=[[1d20 @{Appeal}]]}}' name='roll_AppealCheck'></button><span name="attr_Appeal" value="+0" style="font-size:140%;"></span></td>
 						<td>Appeal (Cha)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Arcana-Train' value=5 /> <input type="number" name="attr_Arcana-MiscBonus" value=0><input type='hidden' name='attr_Arcana-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{Arcana-Trained}}} {{check=[[1d20 @{Arcana}]]}} {{checkadv=[[1d20 @{Arcana}]]}}' name='roll_ArcanaCheck'></button><span name="attr_Arcana" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Arcana-Train' value=4 /> <input type="number" name="attr_Arcana-MiscBonus" value=0><input type='hidden' name='attr_Arcana-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{Arcana-Trained}}} {{check=[[1d20 @{Arcana}]]}} {{checkadv=[[1d20 @{Arcana}]]}}' name='roll_ArcanaCheck'></button><span name="attr_Arcana" value="+0" style="font-size:140%;"></span></td>
 						<td>Arcana (Int)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Athletics-Train' value=5 />  <input type="number" name="attr_Athletics-MiscBonus" value=0><input type='hidden' name='attr_Athletics-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{Athletics-Trained}}} {{check=[[1d20 @{Athletics}]]}} {{checkadv=[[1d20 @{Athletics}]]}}' name='roll_AthleticsCheck'></button><span name="attr_Athletics" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Athletics-Train' value=4 />  <input type="number" name="attr_Athletics-MiscBonus" value=0><input type='hidden' name='attr_Athletics-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{Athletics-Trained}}} {{check=[[1d20 @{Athletics}]]}} {{checkadv=[[1d20 @{Athletics}]]}}' name='roll_AthleticsCheck'></button><span name="attr_Athletics" value="+0" style="font-size:140%;"></span></td>
 						<td>Athletics (Str)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Debate-Train' value=5 />  <input type="number" name="attr_Debate-MiscBonus" value=0><input type='hidden' name='attr_Debate-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Debate Check}} {{Trained=@{Debate-Trained}}} {{check=[[1d20 @{Debate}]]}} {{checkadv=[[1d20 @{Debate}]]}}' name='roll_DebateCheck'></button><span name="attr_Debate" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Debate-Train' value=4 />  <input type="number" name="attr_Debate-MiscBonus" value=0><input type='hidden' name='attr_Debate-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Debate Check}} {{Trained=@{Debate-Trained}}} {{check=[[1d20 @{Debate}]]}} {{checkadv=[[1d20 @{Debate}]]}}' name='roll_DebateCheck'></button><span name="attr_Debate" value="+0" style="font-size:140%;"></span></td>
 						<td>Debate (Int)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Endurance-Train' value=5 />  <input type="number" name="attr_Endurance-MiscBonus" value=0><input type='hidden' name='attr_Endurance-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{Endurance-Trained}}} {{check=[[1d20 @{Endurance}]]}} {{checkadv=[[1d20 @{Endurance}]]}}' name='roll_EnduranceCheck'></button><span name="attr_Endurance" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Endurance-Train' value=4 />  <input type="number" name="attr_Endurance-MiscBonus" value=0><input type='hidden' name='attr_Endurance-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{Endurance-Trained}}} {{check=[[1d20 @{Endurance}]]}} {{checkadv=[[1d20 @{Endurance}]]}}' name='roll_EnduranceCheck'></button><span name="attr_Endurance" value="+0" style="font-size:140%;"></span></td>
 						<td>Endurance (Con)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_HandleAnimal-Train' value=5 /> <input type="number" name="attr_HandleAnimal-MiscBonus" value=0><input type='hidden' name='attr_HandleAnimal-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{HandleAnimal-Trained}}} {{check=[[1d20 @{HandleAnimal}]]}} {{checkadv=[[1d20 @{HandleAnimal}]]}}' name='roll_HandleAnimalCheck'></button><span name="attr_HandleAnimal" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_HandleAnimal-Train' value=4 /> <input type="number" name="attr_HandleAnimal-MiscBonus" value=0><input type='hidden' name='attr_HandleAnimal-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{HandleAnimal-Trained}}} {{check=[[1d20 @{HandleAnimal}]]}} {{checkadv=[[1d20 @{HandleAnimal}]]}}' name='roll_HandleAnimalCheck'></button><span name="attr_HandleAnimal" value="+0" style="font-size:140%;"></span></td>
 						<td>Handle Animal (Wis)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Insight-Train' value=5 /> <input type="number" name="attr_Insight-MiscBonus" value=0><input type='hidden' name='attr_Insight-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Insight Check}} {{Trained=@{Insight-Trained}}} {{check=[[1d20 @{Insight}]]}} {{checkadv=[[1d20 @{Insight}]]}}' name='roll_InsightCheck'></button><span name="attr_Insight" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Insight-Train' value=4 /> <input type="number" name="attr_Insight-MiscBonus" value=0><input type='hidden' name='attr_Insight-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Insight Check}} {{Trained=@{Insight-Trained}}} {{check=[[1d20 @{Insight}]]}} {{checkadv=[[1d20 @{Insight}]]}}' name='roll_InsightCheck'></button><span name="attr_Insight" value="+0" style="font-size:140%;"></span></td>
 						<td>Insight (Wis)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Impress-Train' value=5 /> <input type="number" name="attr_Impress-MiscBonus" value=0><input type='hidden' name='attr_Impress-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Impress Check}} {{Trained=@{Impress-Trained}}} {{check=[[1d20 @{Impress}]]}} {{checkadv=[[1d20 @{Impress}]]}}' name='roll_ImpressCheck'></button><span name="attr_Impress" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Impress-Train' value=4 /> <input type="number" name="attr_Impress-MiscBonus" value=0><input type='hidden' name='attr_Impress-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Impress Check}} {{Trained=@{Impress-Trained}}} {{check=[[1d20 @{Impress}]]}} {{checkadv=[[1d20 @{Impress}]]}}' name='roll_ImpressCheck'></button><span name="attr_Impress" value="+0" style="font-size:140%;"></span></td>
 						<td>Impress (Cha)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Medicine-Train' value=5 />  <input type="number" name="attr_Medicine-MiscBonus" value=0><input type='hidden' name='attr_Medicine-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{Medicine-Trained}}} {{check=[[1d20 @{Medicine}]]}} {{checkadv=[[1d20 @{Medicine}]]}}' name='roll_MedicineCheck'></button><span name="attr_Medicine" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Medicine-Train' value=4 />  <input type="number" name="attr_Medicine-MiscBonus" value=0><input type='hidden' name='attr_Medicine-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{Medicine-Trained}}} {{check=[[1d20 @{Medicine}]]}} {{checkadv=[[1d20 @{Medicine}]]}}' name='roll_MedicineCheck'></button><span name="attr_Medicine" value="+0" style="font-size:140%;"></span></td>
 						<td>Medicine (Wis)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Perception-Train' value=5 /> <input type="number" name="attr_Perception-MiscBonus" value=0><input type='hidden' name='attr_Perception-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Perception Check}} {{Trained=@{Perception-Trained}}} {{check=[[1d20 @{Perception}]]}} {{checkadv=[[1d20 @{Perception}]]}}' name='roll_PerceptionCheck'></button><span name="attr_Perception" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Perception-Train' value=4 /> <input type="number" name="attr_Perception-MiscBonus" value=0><input type='hidden' name='attr_Perception-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Perception Check}} {{Trained=@{Perception-Trained}}} {{check=[[1d20 @{Perception}]]}} {{checkadv=[[1d20 @{Perception}]]}}' name='roll_PerceptionCheck'></button><span name="attr_Perception" value="+0" style="font-size:140%;"></span></td>
 						<td>Perception (Wis)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Repair-Train' value=5 /> <input type="number" name="attr_Repair-MiscBonus" value=0><input type='hidden' name='attr_Repair-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Repair Check}} {{Trained=@{Repair-Trained}}} {{check=[[1d20 @{Repair}]]}} {{checkadv=[[1d20 @{Repair}]]}}' name='roll_RepairCheck'></button><span name="attr_Repair" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Repair-Train' value=4 /> <input type="number" name="attr_Repair-MiscBonus" value=0><input type='hidden' name='attr_Repair-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Repair Check}} {{Trained=@{Repair-Trained}}} {{check=[[1d20 @{Repair}]]}} {{checkadv=[[1d20 @{Repair}]]}}' name='roll_RepairCheck'></button><span name="attr_Repair" value="+0" style="font-size:140%;"></span></td>
 						<td>Repair (Int)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Research-Train' value=5 /> <input type="number" name="attr_Research-MiscBonus" value=0><input type='hidden' name='attr_Research-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Research Check}} {{Trained=@{Research-Trained}}} {{check=[[1d20 @{Research}]]}} {{checkadv=[[1d20 @{Research}]]}}' name='roll_ResearchCheck'></button><span name="attr_Research" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Research-Train' value=4 /> <input type="number" name="attr_Research-MiscBonus" value=0><input type='hidden' name='attr_Research-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Research Check}} {{Trained=@{Research-Trained}}} {{check=[[1d20 @{Research}]]}} {{checkadv=[[1d20 @{Research}]]}}' name='roll_ResearchCheck'></button><span name="attr_Research" value="+0" style="font-size:140%;"></span></td>
 						<td>Research (Int)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_SleightofHand-Train' value=5 /> <input type="number" name="attr_SleightofHand-MiscBonus" value=0><input type='hidden' name='attr_SleightofHand-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{SleightofHand-Trained}}} {{check=[[1d20 @{SleightofHand}]]}} {{checkadv=[[1d20 @{SleightofHand}]]}}' name='roll_SleightofHandCheck'></button><span name="attr_SleightofHand" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_SleightofHand-Train' value=4 /> <input type="number" name="attr_SleightofHand-MiscBonus" value=0><input type='hidden' name='attr_SleightofHand-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{SleightofHand-Trained}}} {{check=[[1d20 @{SleightofHand}]]}} {{checkadv=[[1d20 @{SleightofHand}]]}}' name='roll_SleightofHandCheck'></button><span name="attr_SleightofHand" value="+0" style="font-size:140%;"></span></td>
 						<td>Sleight of Hand (Dex)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Socialize-Train' value=5 /> <input type="number" name="attr_Socialize-MiscBonus" value=0><input type='hidden' name='attr_Socialize-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}' name='roll_SocializeCheck'></button><span name="attr_Socialize" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Socialize-Train' value=4 /> <input type="number" name="attr_Socialize-MiscBonus" value=0><input type='hidden' name='attr_Socialize-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}' name='roll_SocializeCheck'></button><span name="attr_Socialize" value="+0" style="font-size:140%;"></span></td>
 						<td>Socialize (Cha)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Stealth-Train' value=5 /> <input type="number" name="attr_Stealth-MiscBonus" value=0><input type='hidden' name='attr_Stealth-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}' name='roll_StealthCheck'></button><span name="attr_Stealth" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Stealth-Train' value=4 /> <input type="number" name="attr_Stealth-MiscBonus" value=0><input type='hidden' name='attr_Stealth-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}' name='roll_StealthCheck'></button><span name="attr_Stealth" value="+0" style="font-size:140%;"></span></td>
 						<td>Stealth (Dex)</td>
 					</tr>
 					<tr>
-						<td><input type='checkbox' name='attr_Survival-Train' value=5 /> <input type="number" name="attr_Survival-MiscBonus" value=0><input type='hidden' name='attr_Survival-Trained' value="Untrained" /></td>
-						<td><button type='roll' value='&{template:skillcheck} {{name=Survival Check}} {{Trained=@{Survival-Trained}}} {{check=[[1d20 @{Survival}]]}} {{checkadv=[[1d20 @{Survival}]]}}' name='roll_SurvivalCheck'></button><span name="attr_Survival" value="+0"></span></td>
+						<td><input type='checkbox' name='attr_Survival-Train' value=4 /> <input type="number" name="attr_Survival-MiscBonus" value=0><input type='hidden' name='attr_Survival-Trained' value="Untrained" /></td>
+						<td><button type='roll' value='&{template:skillcheck} {{name=Survival Check}} {{Trained=@{Survival-Trained}}} {{check=[[1d20 @{Survival}]]}} {{checkadv=[[1d20 @{Survival}]]}}' name='roll_SurvivalCheck'></button><span name="attr_Survival" value="+0" style="font-size:140%;"></span></td>
 						<td>Survival (Wis)</td>
 					</tr>
 				</table>
@@ -180,7 +180,7 @@
     <!--Key Numbers-->
         <div class='sheet-col'>
             <h2>Health</h2>
-			<label title="Movement Speed"><input type="text" name="attr_speed" value="30'"> Movement</label>
+			<label title="Movement Speed"><input type="text" name="attr_speed" value="12m"> Movement</label>
             <label title="HP"><input type="number" name="attr_HP" value=20> / <input type="number" name="attr_HP_max" value=20> HP</label>
             <input type="number" name="attr_HP-Bloodied" value=10> Bloodied value <input type="number" name="attr_HP-surgeValue" value=5> Surge Value <br>
 			<label title="Surges"><input type="number" name="attr_surges" value=6> / <input type="number" name="attr_surges_max" value=6> Surges</label>
@@ -214,8 +214,8 @@
 						<option value="2">Move</option>
 						<option value="3">Minor</option>
 						<option value="4">Free</option>
-						<option value="5">Opportunity</option>
-						<option value="6">Immediate</option>
+						<option value="5">Immediate Interrupt</option>
+						<option value="6">Immediate Reaction</option>
 						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
@@ -252,7 +252,8 @@
 							</select>
 							<input type="number" value=0 name="attr_AtWill-HitBonus">
 							<button type='roll' name="roll_AtWill-Attack" value='&{template:attack} {{name=@{AtWill-Name}}} {{RangeTargets=@{AtWill-RangeTargets}}}{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} {{defense=@{AtWill-DefSelect}}}'> </button>
-							<br> Damage roll: <button type='roll' name="roll_AtWill-Damage" value='&{template:damage} {{name=@{AtWill-Name}}} {{damage=[[@{AtWill-damagedice} + @{AtWill-flatdamage}]]}} {{dmgcrit=[[@{AtWill-critdice} + @{AtWill-critflat}]]}}'> </button>
+							<br> Damage roll: <button type='roll' name="roll_AtWill-Damage" value='&{template:damage} {{name=@{AtWill-Name}}} {{damage=[[@{AtWill-damagedice} + @{AtWill-flatdamage}]]}} {{dmgcrit=[[@{AtWill-critdice} + @{AtWill-critflat}]]}} {{dmgtype=@{AtWill-damagetype}}}'> </button>
+							<label title="Damage Type"> Damage Type <input type="text" name="attr_AtWill-damagetype" class="sheet-diceInput" value="Fire"></label>
 							<label title="Damage Dice"> Damage Dice <input type="text" name="attr_AtWill-damagedice" class="sheet-diceInput" value="1d4"></label>
 							<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_AtWill-flatdamage"> </label>
 							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_AtWill-MiscAttackBonus"></label>
@@ -287,8 +288,8 @@
 						<option value="2">Move</option>
 						<option value="3">Minor</option>
 						<option value="4">Free</option>
-						<option value="5">Opportunity</option>
-						<option value="6">Immediate</option>
+						<option value="5">Immediate Interrupt</option>
+						<option value="6">Immediate Reaction</option>
 						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Ready">Ready: <input name="attr_Encounter-Ready" type="checkbox" value=1></label>
@@ -326,7 +327,8 @@
 							</select>
 							<input type="number" value=0 name="attr_Encounter-HitBonus">
 							<button type='roll' name="roll_Encounter-Attack" value='&{template:attack} {{name=@{Encounter-Name}}} {{RangeTargets=@{Encounter-RangeTargets}}}{{attack=[[1d20+@{Encounter-HitBonus}]]}} {{attackadv=[[1d20+@{Encounter-HitBonus}]]}} {{defense=@{Encounter-DefSelect}}}'> </button>
-							<br> Damage roll: <button type='roll' name="roll_Encounter-Damage" value='&{template:damage} {{name=@{Encounter-Name}}} {{damage=[[@{Encounter-damagedice} + @{Encounter-flatdamage}]]}} {{dmgcrit=[[@{Encounter-critdice} + @{Encounter-critflat}]]}}'> </button>
+							<br> Damage roll: <button type='roll' name="roll_Encounter-Damage" value='&{template:damage} {{name=@{Encounter-Name}}} {{damage=[[@{Encounter-damagedice} + @{Encounter-flatdamage}]]}} {{dmgcrit=[[@{Encounter-critdice} + @{Encounter-critflat}]]}} {{dmgtype=@{Encounter-damagetype}}}'> </button>
+							<label title="Damage Type"> Damage Type <input type="text" name="attr_Encounter-damagetype" class="sheet-diceInput" value="Fire"></label>
 							<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Encounter-damagedice" class="sheet-diceInput" value="1d4"></label>
 							<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_Encounter-flatdamage"> </label>
 							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Encounter-MiscAttackBonus"></label>
@@ -354,8 +356,8 @@
 						<option value="2">Move</option>
 						<option value="3">Minor</option>
 						<option value="4">Free</option>
-						<option value="5">Opportunity</option>
-						<option value="6">Immediate</option>
+						<option value="5">Immediate Interrupt</option>
+						<option value="6">Immediate Reaction</option>
 						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Ready">Ready: <input name="attr_Daily-Ready" type="checkbox" value=1></label>
@@ -393,7 +395,8 @@
 							</select>
 							<input type="number" value=0 name="attr_Daily-HitBonus">
 							<button type='roll' name="roll_Daily-Attack" value='&{template:attack} {{name=@{Daily-Name}}} {{RangeTargets=@{Daily-RangeTargets}}}{{attack=[[1d20+@{Daily-HitBonus}]]}} {{attackadv=[[1d20+@{Daily-HitBonus}]]}} {{defense=@{Daily-DefSelect}}}'> </button>
-							<br> Damage roll: <button type='roll' name="roll_Daily-Damage" value='&{template:damage} {{name=@{Daily-Name}}} {{damage=[[@{Daily-damagedice} + @{Daily-flatdamage}]]}} {{dmgcrit=[[@{Daily-critdice} + @{Daily-critflat}]]}}'> </button>
+							<br> Damage roll: <button type='roll' name="roll_Daily-Damage" value='&{template:damage} {{name=@{Daily-Name}}} {{damage=[[@{Daily-damagedice} + @{Daily-flatdamage}]]}} {{dmgcrit=[[@{Daily-critdice} + @{Daily-critflat}]]}} {{dmgtype=@{Daily-damagetype}}}'> </button>
+							<label title="Damage Type"> Damage Type <input type="text" name="attr_Daily-damagetype" class="sheet-diceInput" value="Fire"></label>
 							<label title="Damage Dice"> Damage Dice <input type="text" name="attr_Daily-damagedice" class="sheet-diceInput" value="1d4"></label>
 							<label title="Damage Bonus">Damage bonus: <input type="number" value=0 name="attr_Daily-flatdamage"> </label>
 							<label title="Misc. Bonus to hit"> Misc Bonus to Hit <input type="number" value=0 name="attr_Daily-MiscAttackBonus"></label>
@@ -530,10 +533,10 @@
 				<span class='sheet-AttSelect-AC'>
 						<select name="attr_AC-Att">
 							<option value=0>None (Heavy Armor)</option>
-							<option value=1>Dexterity</option>
-							<option value=2>Intelligence</option>
-							<option value=3>Constitution</option>
-							<option value=4>Strength</option>
+							<option value=1>Strength</option>
+							<option value=2>Constitution</option>
+							<option value=3>Dexterity</option>
+							<option value=4>Intelligence</option>
 							<option value=5>Wisdom</option>
 							<option value=6>Charisma</option>
 						</select> Attribute
@@ -605,6 +608,11 @@
 				<td>
 					 <span class="sheet-tcat">Damage: </span>{{damage}} 
 					 <span class="sheet-tcat">Crit: </span>{{dmgcrit}}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span class="sheet-tcat">Type: </span>{{dmgtype}}
 				</td>
 			</tr>
 		</table>
@@ -687,16 +695,16 @@
 					abimod = 0;
 					break;
 				case 1:
-					abimod = values.dexmod;
+					abimod = values.strmod;
 					break;
 				case 2:
-					abimod = values.intmod;
-					break;
-				case 3:
 					abimod = values.conmod;
 					break;
+				case 3:
+					abimod = values.dexmod;
+					break;
 				case 4:
-					abimod = values.strmod;
+					abimod = values.intmod;
 					break;
 				case 5:
 					abimod = values.wismod;
