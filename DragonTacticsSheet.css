@@ -308,3 +308,43 @@ div.sheet-tab-content {
 		color: #4A57ED;
     border: none;
 }
+
+/* Power Text */
+
+
+.sheet-rolltemplate-powertext table {
+    width: 189px;
+    padding: 2px;
+		border: 1px solid;
+    background-color: #ffffff;
+}
+
+.sheet-rolltemplate-powertext th {
+		color: rgb(126, 45, 64);
+    padding-left: 5px;
+		line-height: 1.6em;
+		font-size: 1.2em;
+    text-align: left;
+		font-family: "Times New Roman", Times, serif;
+    font-variant: small-caps;
+}
+
+.sheet-rolltemplate-powertext .sheet-subheader {
+    color: #000;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.sheet-rolltemplate-powertext .sheet-tcat {
+    font-style: italic;
+}
+ 
+.sheet-rolltemplate-powertext td {
+    padding-left: 5px;
+}
+ 
+.sheet-rolltemplate-powertext .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+		border-left: 180px solid rgb(126, 45, 64);
+}

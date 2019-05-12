@@ -180,7 +180,7 @@
     <!--Key Numbers-->
         <div class='sheet-col'>
             <h2>Health</h2>
-			<label title="Movement Speed"><input type="text" name="attr_speed" value="12m"> Movement</label>
+			<label title="Movement Speed"><input type="text" name="attr_speed" value="30 feet"> Movement</label>
             <label title="HP"><input type="number" name="attr_HP" value=20> / <input type="number" name="attr_HP_max" value=20> HP</label>
             <input type="number" name="attr_HP-Bloodied" value=10> Bloodied value <input type="number" name="attr_HP-surgeValue" value=5> Surge Value <br>
 			<label title="Surges"><input type="number" name="attr_surges" value=6> / <input type="number" name="attr_surges_max" value=6> Surges</label>
@@ -219,7 +219,7 @@
 						<option value="7">No Action</option>
 					</select></label> 
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_AtWill-RangeTargets"></label> 
-					<label title="Power Text">Power Text: <textarea name="attr_AtWill-Power-Text"></textarea></label>
+					<label title="Power Text">Power Text: <button type='roll' name="roll_AtWill-TextOut" value='&{template:powertext} {{name=@{AtWill-Name}}} {{powertext=@{AtWill-Power-Text}}}'></button><textarea name="attr_AtWill-Power-Text"></textarea></label>
 					<div>
 						Attack? <input type="checkbox" value=1 checked="true" name="attr_AtWill-IsAttack" class="sheet-arrow">
 						<div class="sheet-body">
@@ -244,11 +244,11 @@
 							</span> 
 							<br>
 							<select name="attr_AtWill-Accessory" class="sheet-AccesorySelect">
+									<option value="imp1"> Implement 1 </option>
+									<option value="imp2"> Implement 2 </option>
 									<option value="wep1"> Weapon 1 </option>
 									<option value="wep2"> Weapon 2 </option>
 									<option value="wep3"> Weapon 3 </option>
-									<option value="imp1"> Implement 1 </option>
-									<option value="imp2"> Implement 2 </option>
 							</select>
 							<input type="number" value=0 name="attr_AtWill-HitBonus">
 							<button type='roll' name="roll_AtWill-Attack" value='&{template:attack} {{name=@{AtWill-Name}}} {{RangeTargets=@{AtWill-RangeTargets}}}{{attack=[[1d20+@{AtWill-HitBonus}]]}} {{attackadv=[[1d20+@{AtWill-HitBonus}]]}} {{defense=@{AtWill-DefSelect}}}'> </button>
@@ -294,7 +294,7 @@
 					</select></label> 
 					<label title="Ready">Ready: <input name="attr_Encounter-Ready" type="checkbox" value=1></label>
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Encounter-RangeTargets"></label> 
-					<label title="Power Text">Power Text: <textarea name="attr_Encounter-Power-Text"></textarea></label>
+					<label title="Power Text">Power Text: <button type='roll' name="roll_Encounter-TextOut" value='&{template:powertext} {{name=@{Encounter-Name}}} {{powertext=@{Encounter-Power-Text}}}'></button><textarea name="attr_Encounter-Power-Text"></textarea></label>
 					<div>
 						Attack? <input type="checkbox" value=1 checked="true" name="attr_Encounter-IsAttack" class="sheet-arrow">
 						<div class="sheet-body">
@@ -319,11 +319,11 @@
 							</span> 
 							<br>
 							<select name="attr_Encounter-Accessory" class="sheet-AccesorySelect">
+									<option value="imp1"> Implement 1 </option>
+									<option value="imp2"> Implement 2 </option>
 									<option value="wep1"> Weapon 1 </option>
 									<option value="wep2"> Weapon 2 </option>
 									<option value="wep3"> Weapon 3 </option>
-									<option value="imp1"> Implement 1 </option>
-									<option value="imp2"> Implement 2 </option>
 							</select>
 							<input type="number" value=0 name="attr_Encounter-HitBonus">
 							<button type='roll' name="roll_Encounter-Attack" value='&{template:attack} {{name=@{Encounter-Name}}} {{RangeTargets=@{Encounter-RangeTargets}}}{{attack=[[1d20+@{Encounter-HitBonus}]]}} {{attackadv=[[1d20+@{Encounter-HitBonus}]]}} {{defense=@{Encounter-DefSelect}}}'> </button>
@@ -362,7 +362,7 @@
 					</select></label> 
 					<label title="Ready">Ready: <input name="attr_Daily-Ready" type="checkbox" value=1></label>
 					<label title="Range and Targets">Range and Targets: <input type="text" name="attr_Daily-RangeTargets"></label> 
-					<label title="Power Text">Power Text: <textarea name="attr_Daily-Power-Text"></textarea></label>
+					<label title="Power Text">Power Text: <button type='roll' name="roll_Daily-TextOut" value='&{template:powertext} {{name=@{Daily-Name}}} {{powertext=@{Daily-Power-Text}}}'></button><textarea name="attr_Daily-Power-Text"></textarea></label>
 					<div>
 						Attack? <input type="checkbox" value=1 checked="true" name="attr_Daily-IsAttack" class="sheet-arrow">
 						<div class="sheet-body">
@@ -387,11 +387,11 @@
 							</span> 
 							<br>
 							<select name="attr_Daily-Accessory" class="sheet-AccesorySelect">
+									<option value="imp1"> Implement 1 </option>
+									<option value="imp2"> Implement 2 </option>
 									<option value="wep1"> Weapon 1 </option>
 									<option value="wep2"> Weapon 2 </option>
 									<option value="wep3"> Weapon 3 </option>
-									<option value="imp1"> Implement 1 </option>
-									<option value="imp2"> Implement 2 </option>
 							</select>
 							<input type="number" value=0 name="attr_Daily-HitBonus">
 							<button type='roll' name="roll_Daily-Attack" value='&{template:attack} {{name=@{Daily-Name}}} {{RangeTargets=@{Daily-RangeTargets}}}{{attack=[[1d20+@{Daily-HitBonus}]]}} {{attackadv=[[1d20+@{Daily-HitBonus}]]}} {{defense=@{Daily-DefSelect}}}'> </button>
@@ -624,6 +624,14 @@
 			<tr><td class="sheet-subheader">{{Trained}}</td></tr>
 			<tr class="sheet-arrow-container"><td><div class="arrow-right"></div></td></tr>
 			<tr class="sheet-rowcolor"><td><span class="sheet-tcat">Check: </span>{{check}} | {{checkadv}}</td></tr>
+		</table>
+	</rolltemplate>
+		
+	<rolltemplate class="sheet-rolltemplate-powertext">
+		<table>
+			<tr><th>{{name}}</th></tr>
+			<tr class="sheet-arrow-container"><td><div class="arrow-right"></div></td></tr>
+			<tr class="sheet-rowcolor"><td><span class="sheet-tcat">Text: </span>{{powertext}}</td></tr>
 		</table>
 	</rolltemplate>
 </div>
@@ -885,7 +893,7 @@
 	
 	on("change:repeating_encounters:encounter-ability change:repeating_encounters:encounter-display", function(eventInfo) {
 		getAttrs(["repeating_Encounters_Encounter-Ability"], function(values) {
-			var modname = values["repeating_encounters_Encounter-Ability"];
+			var modname = values["repeating_Encounters_Encounter-Ability"];
 			getAttrs([modname], function(values){
 				setAttrs({
 					"repeating_Encounters_Encounter-abimod": parseInt(values[modname])
