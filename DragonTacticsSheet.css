@@ -45,7 +45,7 @@ GRID
         "standard   minor       reaction"
         "mve        minor       reaction"
         "worn       backpack    features";
-    min-width: 9.25;
+    min-width: 8.5in;
 }
 
 input.sheet-arrow:not(:checked)~div.sheet-body {
