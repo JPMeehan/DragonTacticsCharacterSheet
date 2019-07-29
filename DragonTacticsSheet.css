@@ -37,14 +37,18 @@ GRID
 
 .sheet-main {
     display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50px 220px 240px auto auto auto auto auto auto;
     grid-gap: 4px;
     grid-template-areas: "header header header"
-        "common  abilities  competencies"
-        "standard   abilities  competencies"
-        "standard   defense     effects"
-        "standard   minor       reaction"
-        "mve        minor       reaction"
-        "worn       backpack    features";
+        "common     defense     features"
+        "abilities  defense     features"
+        "abilities  standard    features"
+        "effects    standard    competencies"
+        "effects    reaction    worn"
+        "mve        backpack    worn"
+        "minor      backpack    worn"
+        "minor      money       worn";
     min-width: 8.5in;
 }
 
@@ -103,6 +107,7 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
 
 .sheet-defense {
     grid-area: defense;
+    
 }
 
 .sheet-effects {
@@ -135,6 +140,10 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
 
 .sheet-backpack {
     grid-area: backpack;
+}
+
+.sheet-money {
+    grid-area: money;
 }
 
 /******
@@ -193,6 +202,10 @@ select.sheet-AccesorySelect {
 .sheet-DamageRoll,
 .sheet-AttackRoll {
     font-size: 140%;
+}
+
+.sheet-Training {
+    width: 100px;
 }
 
 /*****
@@ -254,7 +267,7 @@ ROLL TEMPLATES
 }
 
 /* damage */
-
+.sheet-rolltemplate-attack,
 .sheet-rolltemplate-damage table {
     width: 189px;
     padding: 2px;
