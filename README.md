@@ -1,7 +1,9 @@
 # DragonTacticsCharacterSheet
 
-Version 1.1
+This is a character sheet for my homebrew 4e-derivative system, Dragon Tactics
+
+Version 3.2
 
 Features
-- Javascript calculated attack and damage rolls
-- Options for writing class features
+- Updated visuals
+- Organization by action type rather than usage
