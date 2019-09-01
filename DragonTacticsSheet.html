@@ -1,4 +1,4 @@
-<input type="hidden" name="attr_Version" value="3.2" />
+<input type="hidden" name="attr_Version" value="3.3" />
 
 <div class="main">
     <div class="header section">
@@ -948,7 +948,7 @@
             />
             <div class="sheet-body">
                 <label class="inlineLabel">
-                    Usage
+                    Recharge
                     <select name="attr_Standard-usage" class="Usage">
                         <option value="At-Will">At-Will</option>
                         <option value="Encounter">Encounter</option>
@@ -973,7 +973,7 @@
                     <button
                         type="roll"
                         name="roll_Standard-Attack"
-                        value="&{template:attack} {{name=@{Standard-Name}}} {{RangeTargets=@{Standard-RangeTargets}}} {{attack=[[1d20 @{Standard-HitBonus}]]}} {{attackadv=[[1d20 @{Standard-HitBonus}]]}} {{defense=@{Standard-DefSelect}}}"
+                        value="&{template:attack} {{name=@{Standard-Name}}} {{RangeTargets=@{Standard-RangeTargets}}} {{attack=[[1d20 @{Standard-HitBonus}]]}} {{attackadv=[[1d20 @{Standard-HitBonus}]]} {{edge=[[1d4}}} {{defense=@{Standard-DefSelect}}}"
                     ></button>
                     <span name="attr_Standard-HitBonus" value="+0"></span>
                     vs.
@@ -1105,7 +1105,7 @@
             />
             <div class="sheet-body">
                 <label class="inlineLabel">
-                    Usage
+                    Recharge
                     <select name="attr_Move-usage" class="Usage">
                         <option value="At-Will">At-Will</option>
                         <option value="Encounter">Encounter</option>
@@ -1130,7 +1130,7 @@
                     <button
                         type="roll"
                         name="roll_Move-Attack"
-                        value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}}}"
+                        value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}} {{edge=[[1d4}}}"
                     ></button>
                     <span name="attr_Move-HitBonus" value="+0"></span>
                     vs.
@@ -1254,7 +1254,7 @@
             />
             <div class="sheet-body">
                 <label class="inlineLabel">
-                    Usage
+                    Recharge
                     <select name="attr_Minor-usage" class="Usage">
                         <option value="At-Will">At-Will</option>
                         <option value="Encounter">Encounter</option>
@@ -1279,7 +1279,7 @@
                     <button
                         type="roll"
                         name="roll_Minor-Attack"
-                        value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}}}"
+                        value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}} {{edge=[[1d4}}}"
                     ></button>
                     <span name="attr_Minor-HitBonus" value="+0"></span>
                     vs.
@@ -1403,7 +1403,7 @@
             />
             <div class="sheet-body">
                 <label class="inlineLabel">
-                    Usage
+                    Recharge
                     <select name="attr_Reaction-usage" class="Usage">
                         <option value="At-Will">At-Will</option>
                         <option value="Encounter">Encounter</option>
@@ -1440,7 +1440,7 @@
                     <button
                         type="roll"
                         name="roll_Reaction-Attack"
-                        value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}}}"
+                        value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}} {{edge=[[1d4}}}"
                     ></button>
                     <span name="attr_Reaction-HitBonus" value="+0"></span>
                     vs.
@@ -1736,10 +1736,10 @@
     <div class="money section">
         <h2>Currency</h2>
         <span name="attr_Currency" value="0 gp" style="font-size: 140%"></span>
-        <label><input type="number" name="attr_Platinum" /> Platinum</label>
-        <label><input type="number" name="attr_Gold" /> Gold</label>
-        <label><input type="number" name="attr_Silver" /> Silver</label>
-        <label><input type="number" name="attr_Copper" /> Copper</label>
+        <label><input type="number" name="attr_Platinum" /> Platinum Dragons</label>
+        <label><input type="number" name="attr_Gold" /> Gold Galifars</label>
+        <label><input type="number" name="attr_Silver" /> Silver Sovereigns</label>
+        <label><input type="number" name="attr_Copper" /> Copper Crowns</label>
     </div>
     <div class="backpack section">
         <h2>Other Equipment</h2>
@@ -1787,6 +1787,9 @@
                     {{ attackadv }} vs {{ defense }}
                 </td>
             </tr>
+			<tr>
+				<td>Edge: {{edge}}</td>
+			</tr>
         </table>
     </rolltemplate>
 
