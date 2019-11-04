@@ -35,7 +35,7 @@
             <input name="attr_strmod" type="hidden" value="0" />
             <button
                 type="roll"
-                value="&{template:skillcheck} {{name=Strength Check}} {{check=[[1d20 + @{strmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{strmod} + @{level-half} + @{Quest}]]}}"
+                value="&{template:skillcheck} {{name=Strength Check}} {{check=[[1d20 + @{strmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{strmod} + @{Quest}]]}}"
                 name="roll_StrengthCheck"
             ></button>
             Strength
@@ -93,7 +93,7 @@
             <input name="attr_conmod" type="hidden" value="0" />
             <button
                 type="roll"
-                value="&{template:skillcheck} {{name=Constitution Check}} {{check=[[1d20 + @{conmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{conmod} + @{level-half} + @{Quest}]]}}"
+                value="&{template:skillcheck} {{name=Constitution Check}} {{check=[[1d20 + @{conmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{conmod} + @{Quest}]]}}"
                 name="roll_ConstitutionCheck"
             ></button>
             Constitution
@@ -151,7 +151,7 @@
             <input name="attr_dexmod" type="hidden" value="0" />
             <button
                 type="roll"
-                value="&{template:skillcheck} {{name=Dexterity Check}} {{check=[[1d20 + @{dexmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{dexmod} + @{level-half} + @{Quest}]]}}"
+                value="&{template:skillcheck} {{name=Dexterity Check}} {{check=[[1d20 + @{dexmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{dexmod} + @{Quest}]]}}"
                 name="roll_DexterityCheck"
             ></button>
             Dexterity
@@ -295,7 +295,7 @@
             <input name="attr_intmod" type="hidden" value="0" />
             <button
                 type="roll"
-                value="&{template:skillcheck} {{name=Intelligence Check}} {{check=[[1d20 + @{intmod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{intmod} + @{level-half} + @{Quest}]]}}"
+                value="&{template:skillcheck} {{name=Intelligence Check}} {{check=[[1d20 + @{intmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{intmod} + @{Quest}]]}}"
                 name="roll_IntelligenceCheck"
             ></button>
             Intelligence
@@ -481,7 +481,7 @@
             <input name="attr_wismod" type="hidden" value="0" />
             <button
                 type="roll"
-                value="&{template:skillcheck} {{name=Wisdom Check}} {{check=[[1d20 + @{wismod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{wismod} + @{level-half} + @{Quest}]]}}"
+                value="&{template:skillcheck} {{name=Wisdom Check}} {{check=[[1d20 + @{wismod} + @{Quest}]]}} {{checkadv=[[1d20 + @{wismod} + @{Quest}]]}}"
                 name="roll_WisdomCheck"
             ></button>
             Wisdom
@@ -709,7 +709,7 @@
             <input name="attr_chamod" type="hidden" value="0" />
             <button
                 type="roll"
-                value="&{template:skillcheck} {{name=Charisma Check}} {{check=[[1d20 + @{chamod} + @{level-half} + @{Quest}]]}} {{checkadv=[[1d20 + @{chamod} + @{level-half} + @{Quest}]]}}"
+                value="&{template:skillcheck} {{name=Charisma Check}} {{check=[[1d20 + @{chamod} + @{Quest}]]}} {{checkadv=[[1d20 + @{chamod} + @{Quest}]]}}"
                 name="roll_CharismaCheck"
             ></button>
             Charisma
@@ -2967,7 +2967,7 @@
         }
     );
 
-    on("change:acrobatics-train", function() {
+    on("change:acrobatics-train sheet:opened", function() {
         getAttrs(["Acrobatics-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Acrobatics-Train"];
@@ -2988,7 +2988,7 @@
         });
     });
 
-    on("change:appeal-train", function() {
+    on("change:appeal-train sheet:opened", function() {
         getAttrs(["Appeal-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Appeal-Train"];
@@ -3009,7 +3009,7 @@
         });
     });
 
-    on("change:arcana-train", function() {
+    on("change:arcana-train sheet:opened", function() {
         getAttrs(["Arcana-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Arcana-Train"];
@@ -3030,7 +3030,7 @@
         });
     });
 
-    on("change:athletics-train", function() {
+    on("change:athletics-train sheet:opened", function() {
         getAttrs(["Athletics-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Athletics-Train"];
@@ -3051,7 +3051,7 @@
         });
     });
 
-    on("change:debate-train", function() {
+    on("change:debate-train sheet:opened", function() {
         getAttrs(["Debate-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Debate-Train"];
@@ -3072,7 +3072,7 @@
         });
     });
 
-    on("change:endurance-train", function() {
+    on("change:endurance-train sheet:opened", function() {
         getAttrs(["Endurance-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Endurance-Train"];
@@ -3093,7 +3093,7 @@
         });
     });
 
-    on("change:handleanimal-train", function() {
+    on("change:handleanimal-train sheet:opened", function() {
         getAttrs(["HandleAnimal-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["HandleAnimal-Train"];
@@ -3114,7 +3114,7 @@
         });
     });
 
-    on("change:impress-train", function() {
+    on("change:impress-train sheet:opened", function() {
         getAttrs(["Impress-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Impress-Train"];
@@ -3134,7 +3134,7 @@
             });
         });
     });
-    on("change:insight-train", function() {
+    on("change:insight-train sheet:opened", function() {
         getAttrs(["Insight-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Insight-Train"];
@@ -3155,7 +3155,7 @@
         });
     });
 
-    on("change:medicine-train", function() {
+    on("change:medicine-train sheet:opened", function() {
         getAttrs(["Medicine-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Medicine-Train"];
@@ -3176,7 +3176,7 @@
         });
     });
 
-    on("change:perception-train", function() {
+    on("change:perception-train sheet:opened", function() {
         getAttrs(["Perception-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Perception-Train"];
@@ -3197,7 +3197,7 @@
         });
     });
 
-    on("change:repair-train", function() {
+    on("change:repair-train sheet:opened", function() {
         getAttrs(["Repair-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Repair-Train"];
@@ -3218,7 +3218,7 @@
         });
     });
 
-    on("change:research-train", function() {
+    on("change:research-train sheet:opened", function() {
         getAttrs(["Research-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Research-Train"];
@@ -3239,7 +3239,7 @@
         });
     });
 
-    on("change:sleightofhand-train", function() {
+    on("change:sleightofhand-train sheet:opened", function() {
         getAttrs(["SleightofHand-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["SleightofHand-Train"];
@@ -3260,7 +3260,7 @@
         });
     });
 
-    on("change:stealth-train", function() {
+    on("change:stealth-train sheet:opened", function() {
         getAttrs(["Stealth-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Stealth-Train"];
@@ -3281,7 +3281,7 @@
         });
     });
 
-    on("change:socialize-train", function() {
+    on("change:socialize-train sheet:opened", function() {
         getAttrs(["Socialize-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Socialize-Train"];
@@ -3302,7 +3302,7 @@
         });
     });
 
-    on("change:survival-train", function() {
+    on("change:survival-train sheet:opened", function() {
         getAttrs(["Survival-Train"], function(values) {
             var finalattr = "Untrained";
             var skill = values["Survival-Train"];
