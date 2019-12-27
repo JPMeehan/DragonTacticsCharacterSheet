@@ -1,4 +1,4 @@
-<input type="hidden" name="attr_Version" value="3.3.1" />
+<input type="hidden" name="attr_Version" value="3.3.2" />
 
 <div class="main">
     <div class="header section">
@@ -28,15 +28,15 @@
             <input name="attr_strmod" type="hidden" value="0" />
             <button type="roll"
                 value="&{template:skillcheck} {{name=Strength Check}} {{check=[[1d20 + @{strmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{strmod} + @{Quest}]]}}"
-                name="roll_StrengthCheck"></button>
-            Strength
+                name="roll_StrengthCheck">Strength</button>
+
             <input type="checkbox" value="1" name="attr_StrSkillDrop" class="sheet-arrow" />
             <div class="body">
+                <span name="attr_Athletics" value="+0" style="font-size:140%;"></span>
                 <button type="roll"
                     value="&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{Athletics-Trained}}} {{check=[[1d20 @{Athletics}]]}} {{checkadv=[[1d20 @{Athletics}]]}}"
-                    name="roll_AthleticsCheck"></button><span name="attr_Athletics" value="+0"
-                    style="font-size:140%;"></span>
-                Athletics
+                    name="roll_AthleticsCheck">Athletics</button>
+
                 <input type="checkbox" value="1" name="attr_AthDets" checked="true" class="sheet-arrow" />
                 <div class="body">
                     <select name="attr_Athletics-Train" class="sheet-Training">
@@ -59,15 +59,15 @@
             <input name="attr_conmod" type="hidden" value="0" />
             <button type="roll"
                 value="&{template:skillcheck} {{name=Constitution Check}} {{check=[[1d20 + @{conmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{conmod} + @{Quest}]]}}"
-                name="roll_ConstitutionCheck"></button>
-            Constitution
+                name="roll_ConstitutionCheck">Constitution</button>
+
             <input type="checkbox" value="1" name="attr_ConSkillDrop" class="sheet-arrow" />
             <div class="body">
+                <span name="attr_Endurance" value="+0" style="font-size:140%;"></span>
                 <button type="roll"
                     value="&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{Endurance-Trained}}} {{check=[[1d20 @{Endurance}]]}} {{checkadv=[[1d20 @{Endurance}]]}}"
-                    name="roll_EnduranceCheck"></button><span name="attr_Endurance" value="+0"
-                    style="font-size:140%;"></span>
-                Endurance
+                    name="roll_EnduranceCheck">Endurance</button>
+
                 <input type="checkbox" value="1" name="attr_EndDets" checked="true" class="sheet-arrow" />
                 <div class="body">
                     <select name="attr_Endurance-Train" class="sheet-Training">
@@ -90,16 +90,16 @@
             <input name="attr_dexmod" type="hidden" value="0" />
             <button type="roll"
                 value="&{template:skillcheck} {{name=Dexterity Check}} {{check=[[1d20 + @{dexmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{dexmod} + @{Quest}]]}}"
-                name="roll_DexterityCheck"></button>
-            Dexterity
+                name="roll_DexterityCheck">Dexterity</button>
+
             <input type="checkbox" value="1" name="attr_DexSkillDrop" class="sheet-arrow" />
             <div class="body">
                 <div>
+                    <span name="attr_Acrobatics" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{Acrobatics-Trained}}} {{check=[[1d20 @{Acrobatics}]]}} {{checkadv=[[1d20 @{Acrobatics}]]}}"
-                        name="roll_AcrobaticsCheck"></button><span name="attr_Acrobatics" value="+0"
-                        style="font-size:140%;"></span>
-                    Acrobatics
+                        name="roll_AcrobaticsCheck">Acrobatics</button>
+
                     <input type="checkbox" name="attr_AcrDets" value="1" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Acrobatics-Train" class="sheet-Training">
@@ -117,11 +117,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Stealth" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}"
-                        name="roll_StealthCheck"></button><span name="attr_Stealth" value="+0"
-                        style="font-size:140%;"></span>
-                    Stealth
+                        name="roll_StealthCheck">Stealth</button>
+
                     <input type="checkbox" value="1" name="attr_SteDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Stealth-Train" class="sheet-Training">
@@ -139,11 +139,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_SleightofHand" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{SleightofHand-Trained}}} {{check=[[1d20 @{SleightofHand}]]}} {{checkadv=[[1d20 @{SleightofHand}]]}}"
-                        name="roll_SleightofHandCheck"></button><span name="attr_SleightofHand" value="+0"
-                        style="font-size:140%;"></span>
-                    Sleight of Hand
+                        name="roll_SleightofHandCheck">Sleight of Hand</button>
+
                     <input type="checkbox" name="attr_SleDets" value="1" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_SleightofHand-Train" class="sheet-Training">
@@ -167,16 +167,16 @@
             <input name="attr_intmod" type="hidden" value="0" />
             <button type="roll"
                 value="&{template:skillcheck} {{name=Intelligence Check}} {{check=[[1d20 + @{intmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{intmod} + @{Quest}]]}}"
-                name="roll_IntelligenceCheck"></button>
-            Intelligence
+                name="roll_IntelligenceCheck">Intelligence</button>
+
             <input type="checkbox" value="1" name="attr_IntSkillDrop" class="sheet-arrow" />
             <div class="body">
                 <div>
+                    <span name="attr_Arcana" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{Arcana-Trained}}} {{check=[[1d20 @{Arcana}]]}} {{checkadv=[[1d20 @{Arcana}]]}}"
-                        name="roll_ArcanaCheck"></button><span name="attr_Arcana" value="+0"
-                        style="font-size:140%;"></span>
-                    Arcana
+                        name="roll_ArcanaCheck">Arcana</button>
+
                     <input type="checkbox" value="1" name="attr_ArcDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Arcana-Train" class="sheet-Training">
@@ -194,11 +194,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Debate" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Debate Check}} {{Trained=@{Debate-Trained}}} {{check=[[1d20 @{Debate}]]}} {{checkadv=[[1d20 @{Debate}]]}}"
-                        name="roll_DebateCheck"></button><span name="attr_Debate" value="+0"
-                        style="font-size:140%;"></span>
-                    Debate
+                        name="roll_DebateCheck">Debate</button>
+
                     <input type="checkbox" value="1" name="attr_DebDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Debate-Train" class="sheet-Training">
@@ -216,11 +216,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Repair" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Repair Check}} {{Trained=@{Repair-Trained}}} {{check=[[1d20 @{Repair}]]}} {{checkadv=[[1d20 @{Repair}]]}}"
-                        name="roll_RepairCheck"></button><span name="attr_Repair" value="+0"
-                        style="font-size:140%;"></span>
-                    Repair
+                        name="roll_RepairCheck">Repair</button>
+
                     <input type="checkbox" value="1" name="attr_RepDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Repair-Train" class="sheet-Training">
@@ -238,11 +238,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Research" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Research Check}} {{Trained=@{Research-Trained}}} {{check=[[1d20 @{Research}]]}} {{checkadv=[[1d20 @{Research}]]}}"
-                        name="roll_ResearchCheck"></button><span name="attr_Research" value="+0"
-                        style="font-size:140%;"></span>
-                    Research
+                        name="roll_ResearchCheck">Research</button>
+
                     <input type="checkbox" value="1" name="attr_ResDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Research-Train" class="sheet-Training">
@@ -266,16 +266,16 @@
             <input name="attr_wismod" type="hidden" value="0" />
             <button type="roll"
                 value="&{template:skillcheck} {{name=Wisdom Check}} {{check=[[1d20 + @{wismod} + @{Quest}]]}} {{checkadv=[[1d20 + @{wismod} + @{Quest}]]}}"
-                name="roll_WisdomCheck"></button>
-            Wisdom
+                name="roll_WisdomCheck">Wisdom</button>
+
             <input type="checkbox" value="1" name="attr_WisSkillDrop" class="sheet-arrow" />
             <div class="body">
                 <div>
+                    <span name="attr_HandleAnimal" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{HandleAnimal-Trained}}} {{check=[[1d20 @{HandleAnimal}]]}} {{checkadv=[[1d20 @{HandleAnimal}]]}}"
-                        name="roll_HandleAnimalCheck"></button><span name="attr_HandleAnimal" value="+0"
-                        style="font-size:140%;"></span>
-                    Handle Animal
+                        name="roll_HandleAnimalCheck">Handle Animal</button>
+
                     <input type="checkbox" name="attr_HanDets" value="1" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_HandleAnimal-Train" class="sheet-Training">
@@ -293,11 +293,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Insight" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Insight Check}} {{Trained=@{Insight-Trained}}} {{check=[[1d20 @{Insight}]]}} {{checkadv=[[1d20 @{Insight}]]}}"
-                        name="roll_InsightCheck"></button><span name="attr_Insight" value="+0"
-                        style="font-size:140%;"></span>
-                    Insight
+                        name="roll_InsightCheck">Insight</button>
+
                     <input type="checkbox" value="1" name="attr_InsDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Insight-Train" class="sheet-Training">
@@ -315,11 +315,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Medicine" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{Medicine-Trained}}} {{check=[[1d20 @{Medicine}]]}} {{checkadv=[[1d20 @{Medicine}]]}}"
-                        name="roll_MedicineCheck"></button><span name="attr_Medicine" value="+0"
-                        style="font-size:140%;"></span>
-                    Medicine
+                        name="roll_MedicineCheck">Medicine</button>
+
                     <input type="checkbox" value="1" name="attr_MedDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Medicine-Train" class="sheet-Training">
@@ -337,11 +337,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Perception" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Perception Check}} {{Trained=@{Perception-Trained}}} {{check=[[1d20 @{Perception}]]}} {{checkadv=[[1d20 @{Perception}]]}}"
-                        name="roll_PerceptionCheck"></button><span name="attr_Perception" value="+0"
-                        style="font-size:140%;"></span>
-                    Perception
+                        name="roll_PerceptionCheck">Perception</button>
+
                     <input type="checkbox" name="attr_PerDets" value="1" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Perception-Train" class="sheet-Training">
@@ -359,11 +359,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Survival" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Survival Check}} {{Trained=@{Survival-Trained}}} {{check=[[1d20 @{Survival}]]}} {{checkadv=[[1d20 @{Survival}]]}}"
-                        name="roll_SurvivalCheck"></button><span name="attr_Survival" value="+0"
-                        style="font-size:140%;"></span>
-                    Survival
+                        name="roll_SurvivalCheck">Survival</button>
+
                     <input type="checkbox" value="1" name="attr_SurDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Survival-Train" class="sheet-Training">
@@ -387,16 +387,16 @@
             <input name="attr_chamod" type="hidden" value="0" />
             <button type="roll"
                 value="&{template:skillcheck} {{name=Charisma Check}} {{check=[[1d20 + @{chamod} + @{Quest}]]}} {{checkadv=[[1d20 + @{chamod} + @{Quest}]]}}"
-                name="roll_CharismaCheck"></button>
-            Charisma
+                name="roll_CharismaCheck">Charisma</button>
+
             <input type="checkbox" value="1" name="attr_ChaSkillDrop" class="sheet-arrow" />
             <div class="body">
                 <div>
+                    <span name="attr_Appeal" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{Appeal-Trained}}} {{check=[[1d20 @{Appeal}]]}} {{checkadv=[[1d20 @{Appeal}]]}}"
-                        name="roll_AppealCheck"></button><span name="attr_Appeal" value="+0"
-                        style="font-size:140%;"></span>
-                    Appeal
+                        name="roll_AppealCheck">Appeal</button>
+
                     <input type="checkbox" value="1" name="attr_AppDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Appeal-Train" class="sheet-Training">
@@ -414,11 +414,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Impress" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Impress Check}} {{Trained=@{Impress-Trained}}} {{check=[[1d20 @{Impress}]]}} {{checkadv=[[1d20 @{Impress}]]}}"
-                        name="roll_ImpressCheck"></button><span name="attr_Impress" value="+0"
-                        style="font-size:140%;"></span>
-                    Impress
+                        name="roll_ImpressCheck">Impress</button>
+
                     <input type="checkbox" value="1" name="attr_ImpDets" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Impress-Train" class="sheet-Training">
@@ -436,11 +436,11 @@
                     </div>
                 </div>
                 <div>
+                    <span name="attr_Socialize" value="+0" style="font-size:140%;"></span>
                     <button type="roll"
                         value="&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}"
-                        name="roll_SocializeCheck"></button><span name="attr_Socialize" value="+0"
-                        style="font-size:140%;"></span>
-                    Socialize
+                        name="roll_SocializeCheck">Socialize</button>
+
                     <input type="checkbox" name="attr_SocDets" value="1" checked="true" class="sheet-arrow" />
                     <div class="body">
                         <select name="attr_Socialize-Train" class="sheet-Training">
@@ -506,9 +506,11 @@
     </div>
     <div class="effects section">
         <h2>Stats</h2>
-        <h3>Bonus Dice</h3>
+
         <button type="roll" name="roll_Striker_Damage"
-            value="&{template:damage} {{name=Bonus Dice}} {{damage=[[@{strikerdice}]]}} {{dmgcrit=[[@{strikercrit}]]}}"></button>
+            value="&{template:damage} {{name=Bonus Dice}} {{damage=[[@{strikerdice}]]}} {{dmgcrit=[[@{strikercrit}]]}}">
+            <h3>Bonus Dice</h3>
+        </button>
         <input type="text" name="attr_strikerdice" value="" class="sheet-diceInput" />
         <input type="hidden" value="1d4" name="attr_strikercrit" />
         <h3>Power Points</h3>
@@ -538,27 +540,26 @@
                     <input type="text" name="attr_Standard-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    Power Text
+                    
                     <button type="roll" name="roll_Standard-TextOut"
-                        value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}"></button>
+                        value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">Power Text</button>
                     <textarea name="attr_Standard-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Standard-HitBonus" />
-                    <button type="roll" name="roll_Standard-Attack"
-                        value="&{template:attack} {{name=@{Standard-Name}}} {{RangeTargets=@{Standard-RangeTargets}}} {{attack=[[1d20 @{Standard-HitBonus}]]}} {{attackadv=[[1d20 @{Standard-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=@{Standard-DefSelect}}}"></button>
                     <span name="attr_Standard-HitBonus" value="+0"></span>
-                    vs.
+                    <button type="roll" name="roll_Standard-Attack"
+                        value="&{template:attack} {{name=@{Standard-Name}}} {{RangeTargets=@{Standard-RangeTargets}}} {{attack=[[1d20 @{Standard-HitBonus}]]}} {{attackadv=[[1d20 @{Standard-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=@{Standard-DefSelect}}}">vs.</button>
                     <span name="attr_Standard-DefSelect"></span>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Standard-flatdamage" />
-                    <button type="roll" name="roll_Standard-Damage"
-                        value="&{template:damage} {{name=@{Standard-Name}}} {{damage=[[@{Standard-damagedice} @{Standard-flatdamage}]]}} {{dmgcrit=[[@{Standard-critdice} + @{Standard-critflat} @{Standard-flatdamage}]]}} {{dmgtype=@{Standard-damagetype}}}"></button>
+                    
                     <span name="attr_Standard-damagedice" value="1d4"></span><span value="0"
                         name="attr_Standard-flatdamage" value="+0"></span>
                     <span name="attr_Standard-damagetype" value="Fire"></span>
-                    damage
+                    <button type="roll" name="roll_Standard-Damage"
+                        value="&{template:damage} {{name=@{Standard-Name}}} {{damage=[[@{Standard-damagedice} @{Standard-flatdamage}]]}} {{dmgcrit=[[@{Standard-critdice} + @{Standard-critflat} @{Standard-flatdamage}]]}} {{dmgtype=@{Standard-damagetype}}}">damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Standard-setup-display"
@@ -635,27 +636,27 @@
                     <input type="text" name="attr_Move-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    Power Text
+                    
                     <button type="roll" name="roll_Move-TextOut"
-                        value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}"></button>
+                        value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">Power Text</button>
                     <textarea name="attr_Move-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Move-HitBonus" />
-                    <button type="roll" name="roll_Move-Attack"
-                        value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}}} {{edge=[[1d4]]}}"></button>
+                    
                     <span name="attr_Move-HitBonus" value="+0"></span>
-                    vs.
+                    <button type="roll" name="roll_Move-Attack"
+                        value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}}} {{edge=[[1d4]]}}">vs.</button>
                     <span name="attr_Move-DefSelect"></span>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Move-flatdamage" />
-                    <button type="roll" name="roll_Move-Damage"
-                        value="&{template:damage} {{name=@{Move-Name}}} {{damage=[[@{Move-damagedice} @{Move-flatdamage}]]}} {{dmgcrit=[[@{Move-critdice} + @{Move-critflat} @{Move-flatdamage}]]}} {{dmgtype=@{Move-damagetype}}}"></button>
+                    
                     <span name="attr_Move-damagedice" value="1d4"></span><span value="0" name="attr_Move-flatdamage"
                         value="+0"></span>
                     <span name="attr_Move-damagetype" value="Fire"></span>
-                    damage
+                    <button type="roll" name="roll_Move-Damage"
+                        value="&{template:damage} {{name=@{Move-Name}}} {{damage=[[@{Move-damagedice} @{Move-flatdamage}]]}} {{dmgcrit=[[@{Move-critdice} + @{Move-critflat} @{Move-flatdamage}]]}} {{dmgtype=@{Move-damagetype}}}">damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Move-setup-display" class="sheet-arrow" />
@@ -729,27 +730,27 @@
                     <input type="text" name="attr_Minor-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    Power Text
+                    
                     <button type="roll" name="roll_Minor-TextOut"
-                        value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}"></button>
+                        value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">Power Text</button>
                     <textarea name="attr_Minor-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Minor-HitBonus" />
-                    <button type="roll" name="roll_Minor-Attack"
-                        value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}}} {{edge=[[1d4]]}}"></button>
+                    
                     <span name="attr_Minor-HitBonus" value="+0"></span>
-                    vs.
+                    <button type="roll" name="roll_Minor-Attack"
+                        value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}}} {{edge=[[1d4]]}}">vs.</button>
                     <span name="attr_Minor-DefSelect"></span>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Minor-flatdamage" />
-                    <button type="roll" name="roll_Minor-Damage"
-                        value="&{template:damage} {{name=@{Minor-Name}}} {{damage=[[@{Minor-damagedice} @{Minor-flatdamage}]]}} {{dmgcrit=[[@{Minor-critdice} + @{Minor-critflat} @{Minor-flatdamage}]]}} {{dmgtype=@{Minor-damagetype}}}"></button>
+                    
                     <span name="attr_Minor-damagedice" value="1d4"></span><span value="0" name="attr_Minor-flatdamage"
                         value="+0"></span>
                     <span name="attr_Minor-damagetype" value="Fire"></span>
-                    damage
+                    <button type="roll" name="roll_Minor-Damage"
+                        value="&{template:damage} {{name=@{Minor-Name}}} {{damage=[[@{Minor-damagedice} @{Minor-flatdamage}]]}} {{dmgcrit=[[@{Minor-critdice} + @{Minor-critflat} @{Minor-flatdamage}]]}} {{dmgtype=@{Minor-damagetype}}}">damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Minor-setup-display" class="sheet-arrow" />
@@ -835,27 +836,27 @@
                     <input type="text" name="attr_Reaction-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    Power Text
+                    
                     <button type="roll" name="roll_Reaction-TextOut"
-                        value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}"></button>
+                        value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">Power Text</button>
                     <textarea name="attr_Reaction-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Reaction-HitBonus" />
-                    <button type="roll" name="roll_Reaction-Attack"
-                        value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}}} {{edge=[[1d4]]}}"></button>
+                    
                     <span name="attr_Reaction-HitBonus" value="+0"></span>
-                    vs.
+                    <button type="roll" name="roll_Reaction-Attack"
+                        value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}}} {{edge=[[1d4]]}}">vs.</button>
                     <span name="attr_Reaction-DefSelect"></span>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Reaction-flatdamage" />
-                    <button type="roll" name="roll_Reaction-Damage"
-                        value="&{template:damage} {{name=@{Reaction-Name}}} {{damage=[[@{Reaction-damagedice} @{Reaction-flatdamage}]]}} {{dmgcrit=[[@{Reaction-critdice} + @{Reaction-critflat} @{Reaction-flatdamage}]]}} {{dmgtype=@{Reaction-damagetype}}}"></button>
+                    
                     <span name="attr_Reaction-damagedice" value="1d4"></span><span value="0"
                         name="attr_Reaction-flatdamage" value="+0"></span>
                     <span name="attr_Reaction-damagetype" value="Fire"></span>
-                    damage
+                    <button type="roll" name="roll_Reaction-Damage"
+                        value="&{template:damage} {{name=@{Reaction-Name}}} {{damage=[[@{Reaction-damagedice} @{Reaction-flatdamage}]]}} {{dmgcrit=[[@{Reaction-critdice} + @{Reaction-critflat} @{Reaction-flatdamage}]]}} {{dmgtype=@{Reaction-damagetype}}}">damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Reaction-setup-display"
