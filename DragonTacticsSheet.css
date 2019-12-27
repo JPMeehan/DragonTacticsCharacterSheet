@@ -29,6 +29,44 @@ PHB STYLING
     font-size: .458cm
 }
 
+button[type=roll].sheet-skillcheckroll {
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    font-size: 1.05em;
+    font-weight: bold;
+    box-shadow: none;
+    text-shadow: none;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+}
+
+button[type=roll].sheet-bonusdiceroll {
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    font-size: .529cm;
+    border-bottom: 2px solid #c9ad6a;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    font-family: MrJeeves;
+    font-weight: 800;
+    color: #58180D;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+}
+
+button[type=roll].sheet-combatroll {
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+}
+
 /********
 
 GRID
