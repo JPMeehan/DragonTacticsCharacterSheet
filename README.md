@@ -2,9 +2,8 @@
 
 This is a character sheet for my homebrew 4e-derivative system, Dragon Tactics
 
-Version 3.3.1
+Version 3.3.2
 
 Features
-- Updated visuals
-- Organization by action type rather than usage
-- Skills inside attributes
+- Text Buttons
+- Improved box sizing CSS
