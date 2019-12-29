@@ -540,26 +540,29 @@
                     <input type="text" name="attr_Standard-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    
+
                     <button type="roll" class="sheet-combatroll" name="roll_Standard-TextOut"
-                        value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">Power Text</button>
+                        value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">Power
+                        Text</button>
                     <textarea name="attr_Standard-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Standard-HitBonus" />
-                    <span name="attr_Standard-HitBonus" value="+0"></span>
                     <button type="roll" class="sheet-combatroll" name="roll_Standard-Attack"
-                        value="&{template:attack} {{name=@{Standard-Name}}} {{RangeTargets=@{Standard-RangeTargets}}} {{attack=[[1d20 @{Standard-HitBonus}]]}} {{attackadv=[[1d20 @{Standard-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=@{Standard-DefSelect}}}">vs.</button>
-                    <span name="attr_Standard-DefSelect"></span>
+                        value="&{template:attack} {{name=@{Standard-Name}}} {{RangeTargets=@{Standard-RangeTargets}}} {{attack=[[1d20 @{Standard-HitBonus}]]}} {{attackadv=[[1d20 @{Standard-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=@{Standard-DefSelect}}}"><span
+                            name="attr_Standard-HitBonus" value="+0"></span>
+                        vs.
+                        <span name="attr_Standard-DefSelect"></span></button>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Standard-flatdamage" />
-                    
-                    <span name="attr_Standard-damagedice" value="1d4"></span><span value="0"
-                        name="attr_Standard-flatdamage" value="+0"></span>
-                    <span name="attr_Standard-damagetype" value="Fire"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Standard-Damage"
-                        value="&{template:damage} {{name=@{Standard-Name}}} {{damage=[[@{Standard-damagedice} @{Standard-flatdamage}]]}} {{dmgcrit=[[@{Standard-critdice} + @{Standard-critflat} @{Standard-flatdamage}]]}} {{dmgtype=@{Standard-damagetype}}}">damage</button>
+                        value="&{template:damage} {{name=@{Standard-Name}}} {{damage=[[@{Standard-damagedice} @{Standard-flatdamage}]]}} {{dmgcrit=[[@{Standard-critdice} + @{Standard-critflat} @{Standard-flatdamage}]]}} {{dmgtype=@{Standard-damagetype}}}"><span
+                            name="attr_Standard-damagedice" value="1d4"></span><span value="0"
+                            name="attr_Standard-flatdamage" value="+0"></span>
+                        <span name="attr_Standard-damagetype" value="Fire"></span>
+                        damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Standard-setup-display"
@@ -636,27 +639,30 @@
                     <input type="text" name="attr_Move-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    
+
                     <button type="roll" class="sheet-combatroll" name="roll_Move-TextOut"
-                        value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">Power Text</button>
+                        value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">Power
+                        Text</button>
                     <textarea name="attr_Move-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Move-HitBonus" />
-                    
-                    <span name="attr_Move-HitBonus" value="+0"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Move-Attack"
-                        value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}}} {{edge=[[1d4]]}}">vs.</button>
-                    <span name="attr_Move-DefSelect"></span>
+                        value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}}} {{edge=[[1d4]]}}"><span
+                            name="attr_Move-HitBonus" value="+0"></span>
+                        vs.
+                        <span name="attr_Move-DefSelect"></span></button>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Move-flatdamage" />
-                    
-                    <span name="attr_Move-damagedice" value="1d4"></span><span value="0" name="attr_Move-flatdamage"
-                        value="+0"></span>
-                    <span name="attr_Move-damagetype" value="Fire"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Move-Damage"
-                        value="&{template:damage} {{name=@{Move-Name}}} {{damage=[[@{Move-damagedice} @{Move-flatdamage}]]}} {{dmgcrit=[[@{Move-critdice} + @{Move-critflat} @{Move-flatdamage}]]}} {{dmgtype=@{Move-damagetype}}}">damage</button>
+                        value="&{template:damage} {{name=@{Move-Name}}} {{damage=[[@{Move-damagedice} @{Move-flatdamage}]]}} {{dmgcrit=[[@{Move-critdice} + @{Move-critflat} @{Move-flatdamage}]]}} {{dmgtype=@{Move-damagetype}}}"><span
+                            name="attr_Move-damagedice" value="1d4"></span><span value="0" name="attr_Move-flatdamage"
+                            value="+0"></span>
+                        <span name="attr_Move-damagetype" value="Fire"></span>
+                        damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Move-setup-display" class="sheet-arrow" />
@@ -730,27 +736,30 @@
                     <input type="text" name="attr_Minor-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    
+
                     <button type="roll" class="sheet-combatroll" name="roll_Minor-TextOut"
-                        value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">Power Text</button>
+                        value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">Power
+                        Text</button>
                     <textarea name="attr_Minor-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Minor-HitBonus" />
-                    
-                    <span name="attr_Minor-HitBonus" value="+0"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Minor-Attack"
-                        value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}}} {{edge=[[1d4]]}}">vs.</button>
-                    <span name="attr_Minor-DefSelect"></span>
+                        value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}}} {{edge=[[1d4]]}}"><span
+                            name="attr_Minor-HitBonus" value="+0"></span>
+                        vs.
+                        <span name="attr_Minor-DefSelect"></span></button>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Minor-flatdamage" />
-                    
-                    <span name="attr_Minor-damagedice" value="1d4"></span><span value="0" name="attr_Minor-flatdamage"
-                        value="+0"></span>
-                    <span name="attr_Minor-damagetype" value="Fire"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Minor-Damage"
-                        value="&{template:damage} {{name=@{Minor-Name}}} {{damage=[[@{Minor-damagedice} @{Minor-flatdamage}]]}} {{dmgcrit=[[@{Minor-critdice} + @{Minor-critflat} @{Minor-flatdamage}]]}} {{dmgtype=@{Minor-damagetype}}}">damage</button>
+                        value="&{template:damage} {{name=@{Minor-Name}}} {{damage=[[@{Minor-damagedice} @{Minor-flatdamage}]]}} {{dmgcrit=[[@{Minor-critdice} + @{Minor-critflat} @{Minor-flatdamage}]]}} {{dmgtype=@{Minor-damagetype}}}"><span
+                            name="attr_Minor-damagedice" value="1d4"></span><span value="0" name="attr_Minor-flatdamage"
+                            value="+0"></span>
+                        <span name="attr_Minor-damagetype" value="Fire"></span>
+                        damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Minor-setup-display" class="sheet-arrow" />
@@ -836,27 +845,30 @@
                     <input type="text" name="attr_Reaction-RangeTargets" />
                 </label>
                 <label title="Power Text">
-                    
+
                     <button type="roll" class="sheet-combatroll" name="roll_Reaction-TextOut"
-                        value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">Power Text</button>
+                        value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">Power
+                        Text</button>
                     <textarea name="attr_Reaction-Power-Text"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Reaction-HitBonus" />
-                    
-                    <span name="attr_Reaction-HitBonus" value="+0"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Reaction-Attack"
-                        value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}}} {{edge=[[1d4]]}}">vs.</button>
-                    <span name="attr_Reaction-DefSelect"></span>
+                        value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}}} {{edge=[[1d4]]}}"><span
+                            name="attr_Reaction-HitBonus" value="+0"></span>
+                        vs.
+                        <span name="attr_Reaction-DefSelect"></span></button>
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Reaction-flatdamage" />
-                    
-                    <span name="attr_Reaction-damagedice" value="1d4"></span><span value="0"
-                        name="attr_Reaction-flatdamage" value="+0"></span>
-                    <span name="attr_Reaction-damagetype" value="Fire"></span>
+
                     <button type="roll" class="sheet-combatroll" name="roll_Reaction-Damage"
-                        value="&{template:damage} {{name=@{Reaction-Name}}} {{damage=[[@{Reaction-damagedice} @{Reaction-flatdamage}]]}} {{dmgcrit=[[@{Reaction-critdice} + @{Reaction-critflat} @{Reaction-flatdamage}]]}} {{dmgtype=@{Reaction-damagetype}}}">damage</button>
+                        value="&{template:damage} {{name=@{Reaction-Name}}} {{damage=[[@{Reaction-damagedice} @{Reaction-flatdamage}]]}} {{dmgcrit=[[@{Reaction-critdice} + @{Reaction-critflat} @{Reaction-flatdamage}]]}} {{dmgtype=@{Reaction-damagetype}}}"><span
+                            name="attr_Reaction-damagedice" value="1d4"></span><span value="0"
+                            name="attr_Reaction-flatdamage" value="+0"></span>
+                        <span name="attr_Reaction-damagetype" value="Fire"></span>
+                        damage</button>
                 </div>
                 Setup
                 <input type="checkbox" value="1" checked="true" name="attr_Reaction-setup-display"
