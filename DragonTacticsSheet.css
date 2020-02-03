@@ -49,7 +49,7 @@ GRID
         "mve        backpack    worn"
         "minor      backpack    worn"
         "minor      money       worn";
-    min-width: 8.5in;
+    min-width: 9in;
 }
 
 input.sheet-arrow:not(:checked)~div.sheet-body {
