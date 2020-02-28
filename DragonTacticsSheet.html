@@ -1074,16 +1074,24 @@
         <label><input type="number" name="attr_Copper" /> Copper Crowns</label>
     </div>
     <div class="backpack section">
-        <h2>Other Equipment</h2>
-        <h3>Backpack</h3>
-        <fieldset class="repeating_BackpackItems">
-            <input type="text" name="attr_BackpackItem" class="sheet-Item" />
-            <input type="number" name="attr_BackpackItem-Space" value="0" min="0" />
-        </fieldset>
-        <h3>Left At Home</h3>
+        <h2>General Equipment</h2>
+        <h3>On Person</h3>
         <fieldset class="repeating_OnPersonItems">
             <input type="text" name="attr_OnPersonItem" class="sheet-Item" />
-            <input type="number" name="attr_OnPersonItemSpace" value="0" min="0" />
+            <input type="number" name="attr_OnPersonItem-Quantity" value="0" min="0">
+            <input type="checkbox" name="attr_o" class="sheet-arrow">
+            <div class="sheet-body">
+                <label><input type="number" name="attr_OnPersonItem-Space" value="0" min="0" /> Space</label>
+            </div>
+        </fieldset>
+        <h3>Left at Home</h3>
+        <fieldset class="repeating_HomeItems">
+            <input type="text" name="attr_HomeItem" class="sheet-Item" />
+            <input type="number" name="attr_HomeItem-Quantity" value="0" min="0">
+            <input type="checkbox" name="attr_o" class="sheet-arrow">
+            <div class="sheet-body">
+                <label><input type="number" name="attr_HomeItem-Space" value="0" min="0" /> Space</label>
+            </div>
         </fieldset>
     </div>
 </div>
