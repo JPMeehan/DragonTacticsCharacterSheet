@@ -1076,21 +1076,30 @@
     <div class="backpack section">
         <h2>General Equipment</h2>
         <h3>On Person</h3>
+        <label><span name="attr_currentSpace" value="0">0</span>/<input type="number" name="attr_maxSpace" min=0 value=0>Total Space</label>
         <fieldset class="repeating_OnPersonItems">
             <input type="text" name="attr_OnPersonItem" class="sheet-Item" />
             <input type="number" name="attr_OnPersonItem-Quantity" value="0" min="0">
-            <input type="checkbox" name="attr_o" class="sheet-arrow">
+            <input type="checkbox" name="attr_OnPerson-toggle" class="sheet-arrow">
             <div class="sheet-body">
-                <label><input type="number" name="attr_OnPersonItem-Space" value="0" min="0" /> Space</label>
+                <label><input type="number" name="attr_OnPersonItem-Space" value="0" /> Space (per)</label>
+                <label>
+                    Description
+                    <textarea name="attr_OnPersonItem-description"></textarea>
+                </label>
             </div>
         </fieldset>
         <h3>Left at Home</h3>
         <fieldset class="repeating_HomeItems">
             <input type="text" name="attr_HomeItem" class="sheet-Item" />
             <input type="number" name="attr_HomeItem-Quantity" value="0" min="0">
-            <input type="checkbox" name="attr_o" class="sheet-arrow">
+            <input type="checkbox" name="attr_Home-toggle" class="sheet-arrow">
             <div class="sheet-body">
-                <label><input type="number" name="attr_HomeItem-Space" value="0" min="0" /> Space</label>
+                <label><input type="number" name="attr_HomeItem-Space" value="0" /> Space (per)</label>
+                <label>
+                    Description
+                    <textarea name="attr_HomeItem-description"></textarea>
+                </label>
             </div>
         </fieldset>
     </div>

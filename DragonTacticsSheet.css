@@ -104,10 +104,15 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
     padding: 1em 1em;
     border-radius: 0.28571429rem;
     border: 1px solid rgba(34, 36, 38, 0.15);
+    max-width: 480px;
 }
 
 .charsheet textarea {
     width: 95%;
+    max-width: 95%;
+    min-width: 190px;
+    /* display: block; */
+    margin-right: 0;
 }
 
 .sheet-section {
