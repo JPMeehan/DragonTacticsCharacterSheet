@@ -196,6 +196,22 @@ MISC
 
 ******/
 
+label.sheet-small{
+    display: inline;
+    /* width: 40%; */
+    font-size: 1em;
+    text-align: right;
+}
+
+label.sheet-hicrit{
+    margin-left: 10px;
+}
+
+label.sheet-brutal{
+    padding-right: 0;
+    /* padding-left: 10px; */
+}
+
 .sheet-BasicInfo input[type=text] {
 	width: 200px;
 }
@@ -222,7 +238,20 @@ MISC
 }
 
 .sheet-Item {
-    width: 150px;
+    width: 200px;
+}
+
+.sheet-Item_repeat {
+    width: 65%;
+}
+
+input.sheet-Item_other {
+    width: 200px;
+}
+
+label.sheet-Item_other {
+    margin-bottom: 1px;
+    display: block;
 }
 
 .sheet-Usage {

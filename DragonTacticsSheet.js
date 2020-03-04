@@ -11,11 +11,7 @@ on("change:hp_max", function () {
     });
 });
 
-on("change:strength"
-
-
-    ,
-    function () {
+on("change:strength", function () {
         getAttrs(["Strength"], function (values) {
             setAttrs({
                 strmod: Math.floor(values.Strength / 2 - 5)
@@ -1285,6 +1281,7 @@ on("change:impress-train sheet:opened", function () {
         });
     });
 });
+
 on("change:insight-train sheet:opened", function () {
     getAttrs(["Insight-Train"], function (values) {
         var finalattr = "Untrained";
@@ -1474,8 +1471,24 @@ on("change:survival-train sheet:opened", function () {
     });
 });
 
-on("change:repeating_OnPersonItems", function () {
-    getAttrs([], function (values) {
-
-    });
+on("change:repeating_onpersonitems:onpersonitem-quantity change:repeating_onpersonitems:onpersonitem-space", function () {
+    getSectionIDs("onpersonitems", function(idarray) {
+        var totalSpace = 0;
+        var quantArray = []; 
+        var sizeArray = [];
+        for(var i=0; i < idarray.length; i++) {
+            quantArray.push("repeating_onpersonitems_" + idarray[i] + "_OnPersonItem-Quantity");
+            sizeArray.push("repeating_onpersonitems_" + idarray[i] + "_OnPersonItem-Space");
+        }
+        getAttrs(quantArray.concat(sizeArray), function(values) {
+            // console.log(values);
+            for (i=0; i<idarray.length; i++) {
+                totalSpace+= values[quantArray[i]] * values[sizeArray[i]];
+            }
+            // console.log(totalSpace);
+            setAttrs({
+                currentSpace: totalSpace
+            })
+        });
+     });
 });
