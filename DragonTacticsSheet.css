@@ -75,7 +75,7 @@ GRID
 
 .sheet-main {
     display: grid;
-    grid-template-columns: 275px auto 285px;
+    grid-template-columns: 275px 280px 285px;
     grid-template-rows: 50px 220px 250px auto auto auto auto auto auto;
     grid-gap: 4px;
     grid-template-areas: "header header header"
@@ -290,8 +290,21 @@ input[type=number]:not(:focus){
     width: 200px;
 }
 
+.sheet-repeatingItemsLabels{
+    font-weight: bold;
+}
+
+/* span.sheet-left{
+    text-align: left;
+} */
+
+span.sheet-right{
+    float: right;
+    margin-right: 18px;
+}
+
 .sheet-Item_repeat {
-    width: 65%;
+    width: 190px;
 }
 
 input.sheet-Item_other {

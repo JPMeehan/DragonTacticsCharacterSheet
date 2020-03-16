@@ -1097,7 +1097,8 @@
     <div class="backpack section">
         <h2>General Equipment</h2>
         <h3>On Person</h3>
-        <label>Space: <span name="attr_currentSpace" value="0">0</span>/<input type="number" name="attr_maxSpace" min=0 value=12 class="sheet-space"></label>
+        <label>Space: <span name="attr_currentSpace" value="0">0</span> / <input type="number" name="attr_maxSpace" min=0 value=12 class="sheet-space"></label>
+        <div class="sheet-repeatingItemsLabels"><span class="sheet-left">Name</span><span class="sheet-right">Quantity</span></div>
         <fieldset class="repeating_OnPersonItems">
             <input type="text" name="attr_OnPersonItem" class="sheet-Item_repeat" />
             <input type="number" name="attr_OnPersonItem-Quantity" value="0" min="0">
@@ -1111,6 +1112,7 @@
             </div>
         </fieldset>
         <h3>Left at Home</h3>
+        <div class="sheet-repeatingItemsLabels"><span class="sheet-left">Name</span><span class="sheet-right">Quantity</span></div>
         <fieldset class="repeating_HomeItems">
             <input type="text" name="attr_HomeItem" class="sheet-Item_repeat" />
             <input type="number" name="attr_HomeItem-Quantity" value="0" min="0">
