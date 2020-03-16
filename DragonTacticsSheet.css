@@ -249,6 +249,14 @@ input.sheet-Item_other {
     width: 200px;
 }
 
+input.sheet-space:not(:focus) {
+    font-weight: inherit;
+    font-size: inherit;
+    border: none;
+    background: inherit;
+    color: inherit;
+}
+
 label.sheet-Item_other {
     margin-bottom: 1px;
     display: block;

@@ -481,28 +481,44 @@
             <input type="number" name="attr_surges_max" value="6" />
             Surges</label>
         <h3>Defenses</h3>
-        <input type="number" name="attr_AC" value="10" class="sheet-defense" />
-        Armor Class (AC)
+        <label>
+            <input type="number" name="attr_AC" value="10" class="sheet-defense" />
+            Armor Class (AC)
+        </label>
         <br />
-        Misc bonus: <input type="number" name="attr_AC-Misc" value="0" />
+        <label>
+            Misc bonus: <input type="number" name="attr_AC-Misc" value="0" />
+        </label>
         <br />
-        <input type="number" name="attr_Fort" value="10" class="sheet-defense" />
-        Fortitude
+        <label>
+            <input type="number" name="attr_Fort" value="10" class="sheet-defense" />
+            Fortitude
+        </label>
         <br />
-        Class/Misc bonus:
-        <input type="number" name="attr_Fort-Misc" value="0" />
+        <label>
+            Class/Misc bonus:
+            <input type="number" name="attr_Fort-Misc" value="0" />
+        </label>
         <br />
-        <input type="number" name="attr_Ref" value="10" class="sheet-defense" />
-        Reflex
+        <label>
+            <input type="number" name="attr_Ref" value="10" class="sheet-defense" />
+            Reflex
+        </label>
         <br />
-        Class/Misc bonus:
-        <input type="number" name="attr_Ref-Misc" value="0" />
+        <label>
+            Class/Misc bonus:
+            <input type="number" name="attr_Ref-Misc" value="0" />
+        </label>
         <br />
-        <input type="number" name="attr_Will" value="10" class="sheet-defense" />
-        Will
+        <label>
+            <input type="number" name="attr_Will" value="10" class="sheet-defense" />
+            Will
+        </label>
         <br />
-        Class/Misc bonus:
-        <input type="number" name="attr_Will-Misc" value="0" />
+        <label>
+            Class/Misc bonus:
+            <input type="number" name="attr_Will-Misc" value="0" />
+        </label>
     </div>
     <div class="effects section">
         <h2>Stats</h2>
@@ -1088,7 +1104,7 @@
     <div class="backpack section">
         <h2>General Equipment</h2>
         <h3>On Person</h3>
-        <label><span name="attr_currentSpace" value="0">0</span>/<input type="number" name="attr_maxSpace" min=0 value=12>Total Space</label>
+        <label>Space: <span name="attr_currentSpace" value="0">0</span>/<input type="number" name="attr_maxSpace" min=0 value=12 class="sheet-space"></label>
         <fieldset class="repeating_OnPersonItems">
             <input type="text" name="attr_OnPersonItem" class="sheet-Item_repeat" />
             <input type="number" name="attr_OnPersonItem-Quantity" value="0" min="0">
