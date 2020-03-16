@@ -76,7 +76,7 @@ GRID
 .sheet-main {
     display: grid;
     grid-template-columns: 275px auto 285px;
-    grid-template-rows: 50px 210px 250px auto auto auto auto auto auto;
+    grid-template-rows: 50px 220px 250px auto auto auto auto auto auto;
     grid-gap: 4px;
     grid-template-areas: "header header header"
         "common     defense     features"
@@ -140,6 +140,10 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
     grid-area: common;
 }
 
+.sheet-common label {
+    text-align: right;
+}
+
 
 .sheet-abilities {
     grid-area: abilities;
@@ -196,6 +200,14 @@ MISC
 
 ******/
 
+label {
+    vertical-align: middle;
+}
+
+select {
+    background-color: #faf7ea;
+}
+
 label.sheet-small{
     display: inline;
     /* width: 40%; */
@@ -212,8 +224,36 @@ label.sheet-brutal{
     /* padding-left: 10px; */
 }
 
+label.sheet-hp {
+    font-size: 1em;
+    padding: 0;
+}
+
+label.sheet-miscbonus{
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+label.sheet-defense{
+    margin: 0;
+}
+
 .sheet-BasicInfo input[type=text] {
 	width: 200px;
+}
+
+textarea:not(:focus){
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+input[type=text]:not(:focus){
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+input[type=number]:not(:focus){
+    background: #faf7ea;
 }
 
 .sheet-inlineLabel {
@@ -233,8 +273,17 @@ label.sheet-brutal{
     width: 140px;
 }
 
+
+
+.sheet-weapon, 
+.sheet-implement
+.sheet-armor {
+    float: right;
+}
+
 .sheet-wepDamSelect {
     width: 70px;
+    margin-bottom: 0;
 }
 
 .sheet-Item {
@@ -255,6 +304,8 @@ input.sheet-space:not(:focus) {
     border: none;
     background: inherit;
     color: inherit;
+    padding: 0;
+    height: 28px;
 }
 
 label.sheet-Item_other {

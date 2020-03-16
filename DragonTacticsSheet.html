@@ -474,48 +474,41 @@
         </label>
         <label title="HP"><input type="number" name="attr_HP" value="20" /> /
             <input type="number" name="attr_HP_max" value="20" /> HP</label>
-        <input type="number" name="attr_HP-Bloodied" value="10" /> Bloodied
-        <input type="number" name="attr_HP-surgeValue" value="5" /> Surge Value
+        <label class="sheet-inlineLabel sheet-hp"><input type="number" name="attr_HP-Bloodied" value="10" /> Bloodied</label>
+        <label class="sheet-inlineLabel sheet-hp"><input type="number" name="attr_HP-surgeValue" value="5" /> Surge Value</label>
         <br />
         <label title="Surges"><input type="number" name="attr_surges" value="6" /> /
             <input type="number" name="attr_surges_max" value="6" />
             Surges</label>
         <h3>Defenses</h3>
-        <label>
+        <label class="sheet-defense">
             <input type="number" name="attr_AC" value="10" class="sheet-defense" />
             Armor Class (AC)
         </label>
-        <br />
-        <label>
+        <label class="sheet-miscbonus">
             Misc bonus: <input type="number" name="attr_AC-Misc" value="0" />
         </label>
-        <br />
-        <label>
+        <label class="sheet-defense">
             <input type="number" name="attr_Fort" value="10" class="sheet-defense" />
             Fortitude
         </label>
-        <br />
-        <label>
+        <label class="sheet-miscbonus">
             Class/Misc bonus:
             <input type="number" name="attr_Fort-Misc" value="0" />
         </label>
-        <br />
-        <label>
+        <label class="sheet-defense">
             <input type="number" name="attr_Ref" value="10" class="sheet-defense" />
             Reflex
         </label>
-        <br />
-        <label>
+        <label class="sheet-miscbonus">
             Class/Misc bonus:
             <input type="number" name="attr_Ref-Misc" value="0" />
         </label>
-        <br />
-        <label>
+        <label class="sheet-defense">
             <input type="number" name="attr_Will" value="10" class="sheet-defense" />
             Will
         </label>
-        <br />
-        <label>
+        <label class="sheet-miscbonus">
             Class/Misc bonus:
             <input type="number" name="attr_Will-Misc" value="0" />
         </label>
@@ -963,7 +956,7 @@
     </div>
     <div class="worn section">
         <h2>Worn Equipment</h2>
-        <div>
+        <div class="sheet-weapon">
             <h3>Weapon 1</h3>
             <label><input type="text" name="attr_wep1-Name" class="sheet-Item" />
                 Name
@@ -988,7 +981,7 @@
                 <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
             </label>
         </div>
-        <div>
+        <div class="sheet-weapon">
             <h3>Weapon 2</h3>
             <label><input type="text" name="attr_wep2-Name" class="sheet-Item" />
                 Name
@@ -1013,7 +1006,7 @@
                 <input type="checkbox" name="attr_wep2-HighCrit" value="true" />
             </label>
         </div>
-        <div>
+        <div class="sheet-weapon">
             <h3>Weapon 3</h3>
             <label><input type="text" name="attr_wep3-Name" class="sheet-Item" />
                 Name
@@ -1038,7 +1031,7 @@
                 <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
             </label>
         </div>
-        <div>
+        <div class="sheet-implement">
             <h3>Implement 1</h3>
             <label><input type="text" name="attr_imp1-Name" class="sheet-Item" />
                 Name
@@ -1048,7 +1041,7 @@
             <br />
             <input type="hidden" name="attr_imp1-Damage" value="1d8" />
         </div>
-        <div>
+        <div class="sheet-implement">
             <h3>Implement 2</h3>
             <label><input type="text" name="attr_imp2-Name" class="sheet-Item" />
                 Name
@@ -1058,7 +1051,7 @@
             <br />
             <input type="hidden" name="attr_imp2-Damage" value="1d8" />
         </div>
-        <div>
+        <div class="sheet-armor">
             <h3>Armor</h3>
             <label><input type="text" name="attr_ArmorItem-Name" value="Cloth" class="sheet-Item" />
                 Name</label>
@@ -1077,7 +1070,7 @@
             <label title="Armor Bonus">
                 Armor Bonus <input type="number" name="attr_AC-Armor" value="0" /></label>
         </div>
-        <div>
+        <div class="sheet-otherwornequipment">
             <h3>Other Equipment</h3>
             <label class="sheet-Item_other"><input type="text" name="attr_HeadItem" value="A simple cowl" class="sheet-Item_other"/>
             Head</label>
