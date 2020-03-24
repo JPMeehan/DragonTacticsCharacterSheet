@@ -1,4 +1,4 @@
-<input type="hidden" name="attr_Version" value="3.3.2" />
+<input type="hidden" name="attr_Version" value="3.4.0" />
 
 <div class="main">
     <div class="header section">
@@ -939,19 +939,31 @@
         <h2>Features</h2>
         <h3>Race Features</h3>
         <fieldset class="repeating_RaceFeatures">
-            <input type="text" name="attr_RaceFeature" placeholder="Darkvision"/>
+            <input type="text" name="attr_RaceFeature-name" placeholder="Darkvision"/> <input type="checkbox" class="arrow">
+            <div class="body">
+                <textarea name="attr_RaceFeature-description"></textarea>
+            </div>
         </fieldset>
         <h3>Class Features</h3>
         <fieldset class="repeating_ClassFeatures">
-            <input type="text" name="attr_ClassFeature" placeholder="Magic"/>
+            <input type="text" name="attr_ClassFeature-name" placeholder="Magic"/> <input type="checkbox" class="arrow">
+            <div class="body">
+                <textarea name="attr_ClassFeature-description"></textarea>
+            </div>
         </fieldset>
         <h3>Feats</h3>
         <fieldset class="repeating_Feats">
-            <input type="text" name="attr_Feat" placeholder="Toughness"/>
+            <input type="text" name="attr_Feat-name" placeholder="Toughness"/> <input type="checkbox" class="arrow">
+            <div class="body">
+                <textarea name="attr_Feat-description"></textarea>
+            </div>
         </fieldset>
         <h3>Flaws and Longterm Conditions</h3>
-        <fieldset class="repeating_Flaws-LongtermConditions">
-            <input type="text" name="attr_Flaw-LongtermCondition" placeholder="Mummy Rot"/>
+        <fieldset class="repeating_Flaws_LongTermConditions">
+            <input type="text" name="attr_Flaws_LongTermCondition-name" placeholder="Mummy Rot"/> <input type="checkbox" class="arrow">
+            <div class="body">
+                <textarea name="attr_Flaws_LongTermCondition-description"></textarea>
+            </div>
         </fieldset>
     </div>
     <div class="worn section">
