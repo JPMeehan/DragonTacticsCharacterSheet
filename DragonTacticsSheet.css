@@ -91,50 +91,6 @@ GRID
     max-width: 11in;
 }
 
-input.sheet-arrow:not(:checked)~div.sheet-body {
-    display: none;
-}
-
-.sheet-body { /* Dropdown areas */
-    position: relative;
-    background: #faf7ea;
-    -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-    box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-    margin: 1rem 0em;
-    padding: 1em 1em;
-    border-radius: 0.28571429rem;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    max-width: 480px;
-}
-
-.charsheet textarea {
-    width: 95%;
-    resize: vertical;
-    /* display: block; */
-    margin-right: 0;
-}
-
-
-textarea, 
-input { 
-	outline: none;
-	box-shadow: none;
-}
-
-textarea:not(:focus){
-    background: #faf7ea;
-    font-weight: bold;
-}
-
-input[type=text]:not(:focus){
-    background: #faf7ea;
-    font-weight: bold;
-}
-
-input[type=number]:not(:focus){
-    background: #faf7ea;
-}
-
 
 .sheet-section {
     padding: 5px;
@@ -215,11 +171,76 @@ input[type=number]:not(:focus){
     grid-area: money;
 }
 
+
+/********
+ 
+DROPDOWN AREAS
+ 
+********/
+
+ input.sheet-arrow:not(:checked)~div.sheet-body {
+    display: none;
+}
+
+.sheet-body {
+    position: relative;
+    background: #faf7ea;
+    -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+    box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+    margin: 1rem 0em;
+    padding: 1em 1em;
+    border-radius: 0.28571429rem;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    max-width: 480px;
+}
+
+
+/********
+ 
+INPUT FIELDS
+ 
+********/
+
+.charsheet textarea {
+    width: 95%;
+    resize: vertical;
+    margin-right: 0;
+}
+
+
+textarea, 
+input { 
+	outline: none;
+	box-shadow: none;
+}
+
+textarea:not(:focus){
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+
+
+input[type=text]:not(:focus){
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+input[type=number]:not(:focus){
+    background: #faf7ea;
+}
+
+.sheet-diceInput {
+    width: 140px;
+}
+
+
 /******
 
-MISC
+LABELS
 
 ******/
+
 
 label {
     vertical-align: middle;
@@ -231,36 +252,8 @@ select {
 
 label.sheet-small{
     display: inline;
-    /* width: 40%; */
     font-size: 1em;
     text-align: right;
-}
-
-label.sheet-hicrit{
-    margin-left: 10px;
-}
-
-label.sheet-brutal{
-    padding-right: 0;
-    /* padding-left: 10px; */
-}
-
-label.sheet-hp {
-    font-size: 1em;
-    padding: 0;
-}
-
-label.sheet-miscbonus{
-    font-size: 1em;
-    margin-bottom: 5px;
-}
-
-label.sheet-defense{
-    margin: 0;
-}
-
-.sheet-BasicInfo input[type=text] {
-	width: 200px;
 }
 
 
@@ -269,70 +262,51 @@ label.sheet-defense{
 }
 
 
-.sheet-AttSelect-AC select {
-    width: 160px;
+/******
+
+COMMON
+
+******/
+
+
+.sheet-BasicInfo input[type=text] {
+	width: 200px;
 }
 
-.sheet-speedIn {
-    width: 160px;
+
+
+/******
+
+ABILITIES
+- Attributes & Skills
+
+******/
+
+
+
+.sheet-Training {
+    width: 100px;
 }
 
-.sheet-diceInput {
-    width: 140px;
-}
+/******
+
+EFFECTS
+- Bonus Dice, Power Points, Persistent Effects
+
+******/
 
 
+/******
 
-.sheet-weapon, 
-.sheet-implement
-.sheet-armor {
-    float: right;
-}
+POWERS 
+- Standard
+- Mve
+- Minor
+- Reaction
 
-.sheet-wepDamSelect {
-    width: 70px;
-    margin-bottom: 0;
-}
+******/
 
-.sheet-Item {
-    width: 200px;
-}
 
-.sheet-repeatingItemsLabels{
-    font-weight: bold;
-}
-
-/* span.sheet-left{
-    text-align: left;
-} */
-
-span.sheet-right{
-    float: right;
-    margin-right: 18px;
-}
-
-.sheet-Item_repeat {
-    width: 190px;
-}
-
-input.sheet-Item_other {
-    width: 200px;
-}
-
-input.sheet-space:not(:focus) {
-    font-weight: inherit;
-    font-size: inherit;
-    border: none;
-    background: inherit;
-    color: inherit;
-    padding: 0;
-    height: 28px;
-}
-
-label.sheet-Item_other {
-    margin-bottom: 1px;
-    display: block;
-}
 
 .sheet-Usage {
     width: 100px;
@@ -360,9 +334,119 @@ select.sheet-AccesorySelect {
     font-size: 140%;
 }
 
-.sheet-Training {
-    width: 100px;
+
+/******
+
+DEFENSE & EFFECTS
+
+******/
+
+label.sheet-hp {
+    font-size: 1em;
+    padding: 0;
 }
+
+label.sheet-miscbonus{
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+label.sheet-defense{
+    margin: 0;
+}
+
+.sheet-speedIn {
+    width: 160px;
+}
+
+
+/******
+
+ITEMS
+- Backpack
+- Money
+- Worn
+
+******/
+
+
+label.sheet-hicrit{
+    margin-left: 10px;
+}
+
+label.sheet-brutal{
+    padding-right: 0;
+    /* padding-left: 10px; */
+}
+
+.sheet-AttSelect-AC select {
+    width: 160px;
+}
+
+
+.sheet-weapon, 
+.sheet-implement
+.sheet-armor {
+    float: right;
+}
+
+.sheet-wepDamSelect {
+    width: 70px;
+    margin-bottom: 0;
+}
+
+.sheet-Item {
+    width: 200px;
+}
+
+.sheet-repeatingItemsLabels{
+    font-weight: bold;
+}
+
+
+
+
+span.sheet-right{
+    float: right;
+    margin-right: 18px;
+}
+
+
+
+
+.sheet-Item_repeat {
+    width: 190px;
+}
+
+input.sheet-Item_other {
+    width: 200px;
+}
+
+label.sheet-Item_other {
+    margin-bottom: 1px;
+    display: block;
+}
+
+
+input.sheet-space:not(:focus) {
+    font-weight: inherit;
+    font-size: inherit;
+    border: none;
+    background: inherit;
+    color: inherit;
+    padding: 0;
+    height: 28px;
+}
+
+/******
+
+FEATURES & COMPETENCIES
+
+******/
+
+
+
+
 
 /*****
 
