@@ -527,7 +527,7 @@
         <input type="number" value="0" name="attr_PowerPoints_max" />
         <h3>Persistent Effects</h3>
         <div class="sheet-Persistent-Effect-Block">
-            <textarea name="attr_Persistent-Effect-Text"></textarea>
+            <textarea name="attr_Persistent-Effect-Text" placeholder="Status Effects, Buffs, etc."></textarea>
         </div>
     </div>
     <div class="standard section">
@@ -553,7 +553,7 @@
                     <button type="roll" class="sheet-combatroll" name="roll_Standard-TextOut"
                         value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">Power
                         Text</button>
-                    <textarea name="attr_Standard-Power-Text"></textarea>
+                    <textarea name="attr_Standard-Power-Text" placeholder="Effect:Create a zone"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Standard-HitBonus" />
@@ -652,7 +652,7 @@
                     <button type="roll" class="sheet-combatroll" name="roll_Move-TextOut"
                         value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">Power
                         Text</button>
-                    <textarea name="attr_Move-Power-Text"></textarea>
+                    <textarea name="attr_Move-Power-Text" placeholder="Effect: Shift your speed"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Move-HitBonus" />
@@ -749,7 +749,7 @@
                     <button type="roll" class="sheet-combatroll" name="roll_Minor-TextOut"
                         value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">Power
                         Text</button>
-                    <textarea name="attr_Minor-Power-Text"></textarea>
+                    <textarea name="attr_Minor-Power-Text" placeholder="Mark the target"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Minor-HitBonus" />
@@ -858,7 +858,7 @@
                     <button type="roll" class="sheet-combatroll" name="roll_Reaction-TextOut"
                         value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">Power
                         Text</button>
-                    <textarea name="attr_Reaction-Power-Text"></textarea>
+                    <textarea name="attr_Reaction-Power-Text" placeholder="You gain resistance"></textarea>
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Reaction-HitBonus" />
@@ -1107,7 +1107,7 @@
                 <label><input type="number" name="attr_OnPersonItem-Space" value="0" step="0.25"/> Space (per)</label>
                 <label>
                     Description
-                    <textarea name="attr_OnPersonItem-description"></textarea>
+                    <textarea name="attr_OnPersonItem-description" placeholder="It's pretty and pink"></textarea>
                 </label>
             </div>
         </fieldset>
@@ -1121,7 +1121,7 @@
                 <label><input type="number" name="attr_HomeItem-Space" value="0" step="0.25"/> Space (per)</label>
                 <label>
                     Description
-                    <textarea name="attr_HomeItem-description"></textarea>
+                    <textarea name="attr_HomeItem-description" placeholder="Golden and Shiny"></textarea>
                 </label>
             </div>
         </fieldset>
