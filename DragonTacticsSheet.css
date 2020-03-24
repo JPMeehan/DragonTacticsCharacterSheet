@@ -109,11 +109,32 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
 
 .charsheet textarea {
     width: 95%;
-    max-width: 95%;
-    min-width: 190px;
+    resize: vertical;
     /* display: block; */
     margin-right: 0;
 }
+
+
+textarea, 
+input { 
+	outline: none;
+	box-shadow: none;
+}
+
+textarea:not(:focus){
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+input[type=text]:not(:focus){
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+input[type=number]:not(:focus){
+    background: #faf7ea;
+}
+
 
 .sheet-section {
     padding: 5px;
@@ -242,19 +263,6 @@ label.sheet-defense{
 	width: 200px;
 }
 
-textarea:not(:focus){
-    background: #faf7ea;
-    font-weight: bold;
-}
-
-input[type=text]:not(:focus){
-    background: #faf7ea;
-    font-weight: bold;
-}
-
-input[type=number]:not(:focus){
-    background: #faf7ea;
-}
 
 .sheet-inlineLabel {
     display: inline;

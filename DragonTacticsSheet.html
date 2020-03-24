@@ -8,10 +8,10 @@
         <h2>Basic Info</h2>
         <div class="sheet-BasicInfo">
             <label>
-                Name <input type="text" name="attr_character_name" />
+                Name <input type="text" name="attr_character_name" placeholder="Name"/>
             </label>
-            <label>Race <input type="text" name="attr_Race" /> </label>
-            <label>Class <input type="text" name="attr_Class" /> </label>
+            <label>Race <input type="text" name="attr_Race" placeholder="Race"/> </label>
+            <label>Class <input type="text" name="attr_Class" placeholder="Class"/> </label>
             <label class="sheet-inlineLabel">Level
                 <input type="number" name="attr_level" value="1" min="1" max="30" /></label>
             <label class="sheet-inlineLabel">
@@ -463,13 +463,13 @@
     <div class="competencies section">
         <h2>Competencies</h2>
         <fieldset class="repeating_competencies">
-            <input type="text" name="attr_competency" />
+            <input type="text" name="attr_competency" placeholder="Competency"/>
         </fieldset>
     </div>
     <div class="defense section">
         <h2>Key Values</h2>
         <label title="Movement Speed">
-            <input type="text" name="attr_speed" class="sheet-speedIn" value="30 feet" />
+            <input type="text" name="attr_speed" class="sheet-speedIn" placeholder="30 feet" />
             Speed
         </label>
         <label title="HP"><input type="number" name="attr_HP" value="20" /> /
@@ -520,7 +520,7 @@
             value="&{template:damage} {{name=Bonus Dice}} {{damage=[[@{strikerdice}]]}} {{dmgcrit=[[@{strikercrit}]]}}">
             Bonus Dice
         </button>
-        <input type="text" name="attr_strikerdice" value="" class="sheet-diceInput" />
+        <input type="text" name="attr_strikerdice" value="" class="sheet-diceInput" placeholder="1d8"/>
         <input type="hidden" value="1d4" name="attr_strikercrit" />
         <h3>Power Points</h3>
         <input type="number" value="0" name="attr_PowerPoints" /> /
@@ -533,7 +533,7 @@
     <div class="standard section">
         <h2>Standard Actions</h2>
         <fieldset class="repeating_Standard">
-            <input type="text" name="attr_Standard-Name" />
+            <input type="text" name="attr_Standard-Name" placeholder="Power Name"/>
             <input type="checkbox" value="1" checked="true" name="attr_Standard-display" class="sheet-arrow" />
             <div class="sheet-body">
                 <label class="inlineLabel">
@@ -546,7 +546,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Standard-RangeTargets" />
+                    <input type="text" name="attr_Standard-RangeTargets" placeholder="Melee One Creature"/>
                 </label>
                 <label title="Power Text">
 
@@ -632,7 +632,7 @@
     <div class="move section">
         <h2>Move Actions</h2>
         <fieldset class="repeating_Move">
-            <input type="text" name="attr_Move-Name" />
+            <input type="text" name="attr_Move-Name" placeholder="Power Name"/>
             <input type="checkbox" value="1" checked="true" name="attr_Move-display" class="sheet-arrow" />
             <div class="sheet-body">
                 <label class="inlineLabel">
@@ -645,7 +645,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Move-RangeTargets" />
+                    <input type="text" name="attr_Move-RangeTargets" placeholder="Personal"/>
                 </label>
                 <label title="Power Text">
 
@@ -729,7 +729,7 @@
     <div class="minor section">
         <h2>Minor Actions</h2>
         <fieldset class="repeating_Minor">
-            <input type="text" name="attr_Minor-Name" />
+            <input type="text" name="attr_Minor-Name" placeholder="Power Name"/>
             <input type="checkbox" value="1" checked="true" name="attr_Minor-display" class="sheet-arrow" />
             <div class="sheet-body">
                 <label class="inlineLabel">
@@ -742,7 +742,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Minor-RangeTargets" />
+                    <input type="text" name="attr_Minor-RangeTargets" placeholder="Ranged Sight One Creature"/>
                 </label>
                 <label title="Power Text">
 
@@ -826,7 +826,7 @@
     <div class="reaction section">
         <h2>Immediate Actions</h2>
         <fieldset class="repeating_Reaction">
-            <input type="text" name="attr_Reaction-Name" />
+            <input type="text" name="attr_Reaction-Name" placeholder="Power Name"/>
             <input type="checkbox" value="1" checked="true" name="attr_Reaction-display" class="sheet-arrow" />
             <div class="sheet-body">
                 <label class="inlineLabel">
@@ -847,11 +847,11 @@
                     </select>
                 </label>
                 <label>
-                    Trigger <input type="text" name="attr_Reaction-trigger" />
+                    Trigger <input type="text" name="attr_Reaction-trigger" placeholder="An Enemy Bloodies You"/>
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Reaction-RangeTargets" />
+                    <input type="text" name="attr_Reaction-RangeTargets" placeholder="The Triggering Enemy"/>
                 </label>
                 <label title="Power Text">
 
@@ -939,26 +939,26 @@
         <h2>Features</h2>
         <h3>Race Features</h3>
         <fieldset class="repeating_RaceFeatures">
-            <input type="text" name="attr_RaceFeature" />
+            <input type="text" name="attr_RaceFeature" placeholder="Darkvision"/>
         </fieldset>
         <h3>Class Features</h3>
         <fieldset class="repeating_ClassFeatures">
-            <input type="text" name="attr_ClassFeature" />
+            <input type="text" name="attr_ClassFeature" placeholder="Magic"/>
         </fieldset>
         <h3>Feats</h3>
         <fieldset class="repeating_Feats">
-            <input type="text" name="attr_Feat" />
+            <input type="text" name="attr_Feat" placeholder="Toughness"/>
         </fieldset>
         <h3>Flaws and Longterm Conditions</h3>
         <fieldset class="repeating_Flaws-LongtermConditions">
-            <input type="text" name="attr_Flaw-LongtermCondition" />
+            <input type="text" name="attr_Flaw-LongtermCondition" placeholder="Mummy Rot"/>
         </fieldset>
     </div>
     <div class="worn section">
         <h2>Worn Equipment</h2>
         <div class="sheet-weapon">
             <h3>Weapon 1</h3>
-            <label><input type="text" name="attr_wep1-Name" class="sheet-Item" />
+            <label><input type="text" name="attr_wep1-Name" class="sheet-Item" placeholder="Longsword"/>
                 Name
             </label> 
             <label class="sheet-small">Proficiency
@@ -983,7 +983,7 @@
         </div>
         <div class="sheet-weapon">
             <h3>Weapon 2</h3>
-            <label><input type="text" name="attr_wep2-Name" class="sheet-Item" />
+            <label><input type="text" name="attr_wep2-Name" class="sheet-Item" placeholder="Dagger"/>
                 Name
             </label>
             <label class="sheet-small">Proficiency
@@ -1008,7 +1008,7 @@
         </div>
         <div class="sheet-weapon">
             <h3>Weapon 3</h3>
-            <label><input type="text" name="attr_wep3-Name" class="sheet-Item" />
+            <label><input type="text" name="attr_wep3-Name" class="sheet-Item" placeholder="Crossbow"/>
                 Name
             </label>
             <label class="sheet-small">Proficiency
@@ -1028,12 +1028,12 @@
             </label>
             <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
             <label class="sheet-small sheet-hicrit">High Crit
-                <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
+                <input type="checkbox" name="attr_wep3-HighCrit" value="true"/>
             </label>
         </div>
         <div class="sheet-implement">
             <h3>Implement 1</h3>
-            <label><input type="text" name="attr_imp1-Name" class="sheet-Item" />
+            <label><input type="text" name="attr_imp1-Name" class="sheet-Item" placeholder="Staff"/>
                 Name
             </label>
             <label class="sheet-small"><input type="number" name="attr_imp1-Attack" value="0" /> Attack
@@ -1043,7 +1043,7 @@
         </div>
         <div class="sheet-implement">
             <h3>Implement 2</h3>
-            <label><input type="text" name="attr_imp2-Name" class="sheet-Item" />
+            <label><input type="text" name="attr_imp2-Name" class="sheet-Item" placeholder="Wand"/>
                 Name
             </label>
             <label class="sheet-small"><input type="number" name="attr_imp2-Attack" value="0" /> Attack
@@ -1053,7 +1053,7 @@
         </div>
         <div class="sheet-armor">
             <h3>Armor</h3>
-            <label><input type="text" name="attr_ArmorItem-Name" value="Cloth" class="sheet-Item" />
+            <label><input type="text" name="attr_ArmorItem-Name" value="Cloth" class="sheet-Item" placeholder="Studded Leather"/>
                 Name</label>
             <span class="sheet-AttSelect-AC">
                 <label class="sheet-small"><select name="attr_AC-Att">
@@ -1072,17 +1072,17 @@
         </div>
         <div class="sheet-otherwornequipment">
             <h3>Other Equipment</h3>
-            <label class="sheet-Item_other"><input type="text" name="attr_HeadItem" value="A simple cowl" class="sheet-Item_other"/>
+            <label class="sheet-Item_other"><input type="text" name="attr_HeadItem" placeholder="A simple cowl" class="sheet-Item_other"/>
             Head</label>
-            <label class="sheet-Item_other"><input type="text" name="attr_NeckItem" value="Nothing" class="sheet-Item_other"/>
+            <label class="sheet-Item_other"><input type="text" name="attr_NeckItem" placeholder="A basic broach" class="sheet-Item_other"/>
             Neck</label>
-            <label class="sheet-Item_other"><input type="text" name="attr_ArmsItem" value="Sleevies" class="sheet-Item_other"/>
+            <label class="sheet-Item_other"><input type="text" name="attr_ArmsItem" placeholder="Sleevies" class="sheet-Item_other"/>
             Arms</label>
-            <label class="sheet-Item_other"><input type="text" name="attr_HandsItem" value="Leather gloves" class="sheet-Item_other"/>
+            <label class="sheet-Item_other"><input type="text" name="attr_HandsItem" placeholder="Leather gloves" class="sheet-Item_other"/>
             Hands</label>
-            <label class="sheet-Item_other"><input type="text" name="attr_WaistItem" value="Belt with pouches" class="sheet-Item_other"/>
+            <label class="sheet-Item_other"><input type="text" name="attr_WaistItem" placeholder="Belt with pouches" class="sheet-Item_other"/>
             Waist</label>
-            <label class="sheet-Item_other"><input type="text" name="attr_FeetItem" value="Worn shoes" class="sheet-Item_other"/>
+            <label class="sheet-Item_other"><input type="text" name="attr_FeetItem" placeholder="Worn shoes" class="sheet-Item_other"/>
             Feet</label>
         </div>
     </div>
@@ -1100,7 +1100,7 @@
         <label>Space: <span name="attr_currentSpace" value="0">0</span> / <input type="number" name="attr_maxSpace" min=0 value=12 class="sheet-space"></label>
         <div class="sheet-repeatingItemsLabels"><span class="sheet-left">Name</span><span class="sheet-right">Quantity</span></div>
         <fieldset class="repeating_OnPersonItems">
-            <input type="text" name="attr_OnPersonItem" class="sheet-Item_repeat" />
+            <input type="text" name="attr_OnPersonItem" class="sheet-Item_repeat" placeholder="A day's rations"/>
             <input type="number" name="attr_OnPersonItem-Quantity" value="0" min="0">
             <input type="checkbox" name="attr_OnPerson-toggle" class="sheet-arrow">
             <div class="sheet-body">
@@ -1114,7 +1114,7 @@
         <h3>Left at Home</h3>
         <div class="sheet-repeatingItemsLabels"><span class="sheet-left">Name</span><span class="sheet-right">Quantity</span></div>
         <fieldset class="repeating_HomeItems">
-            <input type="text" name="attr_HomeItem" class="sheet-Item_repeat" />
+            <input type="text" name="attr_HomeItem" class="sheet-Item_repeat" placeholder="A mystery chest"/>
             <input type="number" name="attr_HomeItem-Quantity" value="0" min="0">
             <input type="checkbox" name="attr_Home-toggle" class="sheet-arrow">
             <div class="sheet-body">
