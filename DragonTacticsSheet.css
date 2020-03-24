@@ -264,10 +264,15 @@ label.sheet-small{
 
 /******
 
-COMMON
+COMMON AND HEADER
 
 ******/
 
+.sheet-header input[type=text] {
+    background-color: inherit;
+    border: none;
+    float: right;
+}
 
 .sheet-BasicInfo input[type=text] {
 	width: 200px;
