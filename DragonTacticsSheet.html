@@ -977,107 +977,109 @@
         </fieldset>
     </div>
     <div class="worn section">
-        <h2>Worn Equipment</h2>
+        <h2>Worn Equipment</h2>        
         <div class="weapon">
             <h3>Weapon 1</h3>
-            <label><input type="text" name="attr_wep1-Name" class="Item" placeholder="Longsword" />
-                Name
-            </label>
-            <label class="small">Proficiency
-                <input type="number" name="attr_wep1-Attack" value="2" /></label>
-            <label class="small"> Damage
-                <select name="attr_wep1-Damage" class="wepDamSelect">
-                    <option value="1d4">1d4 </option>
-                    <option value="1d6">1d6 </option>
-                    <option value="1d8">1d8 </option>
-                    <option value="1d10">1d10</option>
-                    <option value="1d12">1d12</option>
-                    <option value="2d4">2d4 </option>
-                    <option value="2d6">2d6 </option>
-                </select></label><br />
-            <label class="small brutal">
-                <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
-            </label>
-            <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
-            <label class="small hicrit">High Crit
-                <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
-            </label>
+            <input type="text" name="attr_wep1-Name" class="item" placeholder="Longsword" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="small">Prof.
+                    <input type="number" name="attr_wep1-Attack" value="2" /></label>
+                <label class="small"> Dmg
+                    <select name="attr_wep1-Damage" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8">1d8 </option>
+                        <option value="1d10">1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select></label><br />
+                <label class="small brutal">
+                    <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
+                </label>
+                <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
+                <label class="small hicrit">High Crit
+                    <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
+                </label>
+            </div>
         </div>
         <div class="weapon">
             <h3>Weapon 2</h3>
-            <label><input type="text" name="attr_wep2-Name" class="Item" placeholder="Dagger" />
-                Name
-            </label>
-            <label class="small">Proficiency
-                <input type="number" name="attr_wep2-Attack" value="2" /></label>
-            <label class="small"> Damage
-                <select name="attr_wep2-Damage" class="wepDamSelect">
-                    <option value="1d4">1d4 </option>
-                    <option value="1d6">1d6 </option>
-                    <option value="1d8">1d8 </option>
-                    <option value="1d10">1d10</option>
-                    <option value="1d12">1d12</option>
-                    <option value="2d4">2d4 </option>
-                    <option value="2d6">2d6 </option>
-                </select></label><br />
-            <label class="small brutal">
-                <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
-            </label>
-            <input type="number" name="attr_wep2-BrutN" min="1" max="2" value="1" />
-            <label class="small hicrit">High Crit
-                <input type="checkbox" name="attr_wep2-HighCrit" value="true" />
-            </label>
+            <input type="text" name="attr_wep2-Name" class="item" placeholder="Dagger" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="small">Prof.
+                    <input type="number" name="attr_wep2-Attack" value="2" /></label>
+                <label class="small"> Dmg
+                    <select name="attr_wep2-Damage" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8">1d8 </option>
+                        <option value="1d10">1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select></label><br />
+                <label class="small brutal">
+                    <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
+                </label>
+                <input type="number" name="attr_wep2-BrutN" min="1" max="2" value="1" />
+                <label class="small hicrit">High Crit
+                    <input type="checkbox" name="attr_wep2-HighCrit" value="true" />
+                </label>
+            </div>
         </div>
         <div class="weapon">
             <h3>Weapon 3</h3>
-            <label><input type="text" name="attr_wep3-Name" class="Item" placeholder="Crossbow" />
-                Name
-            </label>
-            <label class="small">Proficiency
-                <input type="number" name="attr_wep3-Attack" value="2" /></label>
-            <label class="small">Damage
-                <select name="attr_wep3-Damage" class="wepDamSelect">
-                    <option value="1d4">1d4 </option>
-                    <option value="1d6">1d6 </option>
-                    <option value="1d8">1d8 </option>
-                    <option value="1d10">1d10</option>
-                    <option value="1d12">1d12</option>
-                    <option value="2d4">2d4 </option>
-                    <option value="2d6">2d6 </option>
-                </select></label><br />
-            <label class="small brutal">
-                <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
-            </label>
-            <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
-            <label class="small hicrit">High Crit
-                <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
-            </label>
+            <input type="text" name="attr_wep3-Name" class="item" placeholder="Crossbow" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="small">Prof.
+                    <input type="number" name="attr_wep3-Attack" value="2" /></label>
+                <label class="small"> Dmg
+                    <select name="attr_wep3-Damage" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8">1d8 </option>
+                        <option value="1d10">1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select></label><br />
+                <label class="small brutal">
+                    <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
+                </label>
+                <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
+                <label class="small hicrit">High Crit
+                    <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
+                </label>
+            </div>
         </div>
         <div class="implement">
             <h3>Implement 1</h3>
-            <label><input type="text" name="attr_imp1-Name" class="Item" placeholder="Staff" />
-                Name
-            </label>
-            <label class="small"><input type="number" name="attr_imp1-Attack" value="0" /> Attack
-                Bonus</label>
-            <br />
-            <input type="hidden" name="attr_imp1-Damage" value="1d8" />
+            <input type="text" name="attr_imp1-Name" class="item" placeholder="Staff" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="small"><input type="number" name="attr_imp1-Attack" value="0" /> Attack
+                    Bonus</label>
+                <input type="hidden" name="attr_imp1-Damage" value="1d8" />
+            </div>
         </div>
         <div class="implement">
             <h3>Implement 2</h3>
-            <label><input type="text" name="attr_imp2-Name" class="Item" placeholder="Wand" />
-                Name
-            </label>
-            <label class="small"><input type="number" name="attr_imp2-Attack" value="0" /> Attack
-                Bonus</label>
-            <br />
-            <input type="hidden" name="attr_imp2-Damage" value="1d8" />
+            <input type="text" name="attr_imp2-Name" class="item" placeholder="Wand" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="small"><input type="number" name="attr_imp2-Attack" value="0" /> Attack
+                    Bonus</label>
+                <input type="hidden" name="attr_imp2-Damage" value="1d8" />
+            </div>
         </div>
         <div class="armor">
             <h3>Armor</h3>
-            <label><input type="text" name="attr_ArmorItem-Name" value="Cloth" class="Item"
+            <input type="text" name="attr_ArmorItem-Name" value="Cloth" class="item"
                     placeholder="Studded Leather" />
-                Name</label>
             <span class="AttSelect-AC">
                 <label class="small"><select name="attr_AC-Att">
                         <option value="0" selected>None (Heavy Armor)</option>
@@ -1095,24 +1097,36 @@
         </div>
         <div class="otherwornequipment">
             <h3>Other Equipment</h3>
-            <label class="Item_other"><input type="text" name="attr_HeadItem" placeholder="A simple cowl"
-                    class="Item_other" />
-                Head</label>
-            <label class="Item_other"><input type="text" name="attr_NeckItem" placeholder="A basic broach"
-                    class="Item_other" />
-                Neck</label>
-            <label class="Item_other"><input type="text" name="attr_ArmsItem" placeholder="Sleevies"
-                    class="Item_other" />
-                Arms</label>
-            <label class="Item_other"><input type="text" name="attr_HandsItem" placeholder="Leather gloves"
-                    class="Item_other" />
-                Hands</label>
-            <label class="Item_other"><input type="text" name="attr_WaistItem" placeholder="Belt with pouches"
-                    class="Item_other" />
-                Waist</label>
-            <label class="Item_other"><input type="text" name="attr_FeetItem" placeholder="Worn shoes"
-                    class="Item_other" />
-                Feet</label>
+            <input type="text" name="attr_HeadItem-name" placeholder="Head" class="item" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <textarea name="attr_HeadItem-description"></textarea>
+            </div>
+            <input type="text" name="attr_NeckItem-name" placeholder="Neck" class="item" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <textarea name="attr_NeckItem-description"></textarea>
+            </div>
+            <input type="text" name="attr_ArmsItem-name" placeholder="Arms" class="item" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <textarea name="attr_ArmsItem-description"></textarea>
+            </div>
+            <input type="text" name="attr_HandsItem-name" placeholder="Hands" class="item" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <textarea name="attr_HandsItem-description"></textarea>
+            </div>
+            <input type="text" name="attr_WaistItem-name" placeholder="Waist" class="item" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <textarea name="attr_WaistItem-description"></textarea>
+            </div>
+            <input type="text" name="attr_FeetItem-name" placeholder="Feet" class="item" />
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <textarea name="attr_FeetItem-description"></textarea>
+            </div>
         </div>
     </div>
     <div class="money section">

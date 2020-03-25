@@ -1,3 +1,5 @@
+
+
 /********
 
 PHB STYLING
@@ -443,20 +445,13 @@ label.sheet-brutal{
     width: 160px;
 }
 
-
-.sheet-weapon, 
-.sheet-implement
-.sheet-armor {
-    float: right;
-}
-
 .sheet-wepDamSelect {
     width: 70px;
     margin-bottom: 0;
 }
 
-.sheet-Item {
-    width: 200px;
+.sheet-item {
+    width: 93%;
 }
 
 .sheet-repeatingItemsLabels{
@@ -480,15 +475,6 @@ div.sheet-right {
 
 .sheet-Item_repeat {
     width: 190px;
-}
-
-input.sheet-Item_other {
-    width: 200px;
-}
-
-label.sheet-Item_other {
-    margin-bottom: 1px;
-    display: block;
 }
 
 
