@@ -983,9 +983,13 @@
             <input type="text" name="attr_wep1-Name" class="item" placeholder="Longsword" />
             <input type="checkbox" class="arrow"/>
             <div class="body">
-                <label class="small">Prof.
+                <button type="roll" class="weaponba"
+                    value="&{template:attack}"
+                    name="roll_wep1-basic">Basic Attack</button>
+                <input type="text" name="wep1-Range" placeholder="Melee 5'" class="weaponrange"/>
+                <label class="small proficiency">Prof.
                     <input type="number" name="attr_wep1-Attack" value="2" /></label>
-                <label class="small"> Dmg
+                <label class="small damage"> Dmg
                     <select name="attr_wep1-Damage" class="wepDamSelect">
                         <option value="1d4">1d4 </option>
                         <option value="1d6">1d6 </option>
@@ -994,14 +998,18 @@
                         <option value="1d12">1d12</option>
                         <option value="2d4">2d4 </option>
                         <option value="2d6">2d6 </option>
-                    </select></label><br />
-                <label class="small brutal">
-                    <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
+                    </select>
                 </label>
-                <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
-                <label class="small hicrit">High Crit
-                    <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
-                </label>
+                <div class="brutal">
+                    <label class="small brutal">
+                        <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
+                    </label>
+                    <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
+                    <label class="small hicrit">High Crit
+                        <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
+                    </label>
+                </div>
+                <textarea placeholder="Description"></textarea>
             </div>
         </div>
         <div class="weapon">
@@ -1009,9 +1017,9 @@
             <input type="text" name="attr_wep2-Name" class="item" placeholder="Dagger" />
             <input type="checkbox" class="arrow"/>
             <div class="body">
-                <label class="small">Prof.
+                <label class="small proficiency">Prof.
                     <input type="number" name="attr_wep2-Attack" value="2" /></label>
-                <label class="small"> Dmg
+                <label class="small damage"> Dmg
                     <select name="attr_wep2-Damage" class="wepDamSelect">
                         <option value="1d4">1d4 </option>
                         <option value="1d6">1d6 </option>
@@ -1020,14 +1028,17 @@
                         <option value="1d12">1d12</option>
                         <option value="2d4">2d4 </option>
                         <option value="2d6">2d6 </option>
-                    </select></label><br />
-                <label class="small brutal">
-                    <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
+                    </select>
                 </label>
-                <input type="number" name="attr_wep2-BrutN" min="1" max="2" value="1" />
-                <label class="small hicrit">High Crit
-                    <input type="checkbox" name="attr_wep2-HighCrit" value="true" />
-                </label>
+                <div class="brutal">
+                    <label class="small brutal">
+                        <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
+                    </label>
+                    <input type="number" name="attr_wep2-BrutN" min="1" max="2" value="1" />
+                    <label class="small hicrit">High Crit
+                        <input type="checkbox" name="attr_wep2-HighCrit" value="true" />
+                    </label>
+                </div>
             </div>
         </div>
         <div class="weapon">
@@ -1035,9 +1046,9 @@
             <input type="text" name="attr_wep3-Name" class="item" placeholder="Crossbow" />
             <input type="checkbox" class="arrow"/>
             <div class="body">
-                <label class="small">Prof.
+                <label class="small proficiency">Prof.
                     <input type="number" name="attr_wep3-Attack" value="2" /></label>
-                <label class="small"> Dmg
+                <label class="small damage"> Dmg
                     <select name="attr_wep3-Damage" class="wepDamSelect">
                         <option value="1d4">1d4 </option>
                         <option value="1d6">1d6 </option>
@@ -1046,14 +1057,17 @@
                         <option value="1d12">1d12</option>
                         <option value="2d4">2d4 </option>
                         <option value="2d6">2d6 </option>
-                    </select></label><br />
-                <label class="small brutal">
-                    <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
+                    </select>
                 </label>
-                <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
-                <label class="small hicrit">High Crit
-                    <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
-                </label>
+                <div class="brutal">
+                    <label class="small brutal">
+                        <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
+                    </label>
+                    <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
+                    <label class="small hicrit">High Crit
+                        <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
+                    </label>
+                </div>
             </div>
         </div>
         <div class="implement">

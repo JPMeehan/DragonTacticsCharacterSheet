@@ -202,6 +202,12 @@ input[type=number]:not(:focus){
 }
 
 
+button[type=roll] {
+    background-color: inherit;
+    background-image: none;
+    border: none;
+}
+
 /******
 
 LABELS
@@ -286,9 +292,6 @@ ABILITIES
 
 
 button[type=roll].sheet-skillcheckroll {
-    border: none;
-    background-color: transparent;
-    background-image: none;
     font-size: 18.2px;
     box-shadow: none;
     text-shadow: none;
@@ -325,9 +328,6 @@ div.sheet-bonusdice input[type=text] {
 }
 
 button[type=roll].sheet-bonusdice-roll {
-    border: inherit;
-    background-color: transparent;
-    background-image: none;
     font-size: .529cm;
     border-bottom: 2px solid #c9ad6a;
     margin: 4px 0;
@@ -380,9 +380,6 @@ select.sheet-AccesorySelect {
 
 
 button[type=roll].sheet-combatroll {
-    border: none;
-    background-color: transparent;
-    background-image: none;
     height: 28px;
     margin: 0px;
     padding: 0px;
@@ -431,14 +428,28 @@ ITEMS
 
 ******/
 
+input.sheet-weaponrange {
+    width: 40%;
+}
 
-label.sheet-hicrit{
-    margin-left: 10px;
+label.proficiency {
+    float: left;
+}
+
+label.damage {
+    float: left;
+}
+
+div.sheet-brutal {
+    margin: 3px 0;
 }
 
 label.sheet-brutal{
     padding-right: 0;
-    /* padding-left: 10px; */
+}
+
+label.sheet-hicrit{
+    margin-left: 10px;
 }
 
 .sheet-AttSelect-AC select {
@@ -469,9 +480,6 @@ span.sheet-right{
 div.sheet-right {
     float: right;
 }
-
-
-
 
 .sheet-Item_repeat {
     width: 190px;
