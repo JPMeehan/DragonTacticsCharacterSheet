@@ -29,43 +29,6 @@ PHB STYLING
     font-size: .458cm
 }
 
-button[type=roll].sheet-skillcheckroll {
-    border: none;
-    background-color: transparent;
-    background-image: none;
-    font-size: 18.2px;
-    box-shadow: none;
-    text-shadow: none;
-    height: 28px;
-    margin: 0px;
-    padding: 0px;
-}
-
-button[type=roll].sheet-bonusdiceroll {
-    border: none;
-    background-color: transparent;
-    background-image: none;
-    font-size: .529cm;
-    border-bottom: 2px solid #c9ad6a;
-    margin-top: .2em;
-    margin-bottom: .2em;
-    font-family: MrJeeves;
-    font-weight: 800;
-    color: #58180D;
-    height: 28px;
-    margin: 0px;
-    padding: 0px;
-}
-
-button[type=roll].sheet-combatroll {
-    border: none;
-    background-color: transparent;
-    background-image: none;
-    height: 28px;
-    margin: 0px;
-    padding: 0px;
-    font-size: 18.2px;
-}
 
 /********
 
@@ -76,7 +39,7 @@ GRID
 .sheet-main {
     display: grid;
     grid-template-columns: 275px 280px 285px;
-    grid-template-rows: 50px 220px 250px auto auto auto auto auto auto;
+    grid-template-rows: 50px auto auto auto auto auto auto auto auto;
     grid-gap: 4px;
     grid-template-areas: "header header header"
         "common     defense     features"
@@ -187,7 +150,7 @@ DROPDOWN AREAS
     background: #faf7ea;
     -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
     box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-    margin: 1rem 0em;
+    margin: .5rem 0em;
     padding: 1em 1em;
     border-radius: 0.28571429rem;
     border: 1px solid rgba(34, 36, 38, 0.15);
@@ -201,10 +164,12 @@ INPUT FIELDS
  
 ********/
 
-.charsheet textarea {
-    width: 95%;
+textarea {
+    width: 97%;
     resize: vertical;
     margin-right: 0;
+    height: 3.5em;
+    min-height: 1em;
 }
 
 
@@ -268,15 +233,45 @@ COMMON AND HEADER
 
 ******/
 
+.sheet-header h1 {
+    width: 55%;
+    display: inline-block;
+}
+
 .sheet-header input[type=text] {
     background-color: inherit;
     border: none;
+    text-align: right;
     float: right;
+    font-size: 24px;
+    width: 45%;
 }
 
-.sheet-BasicInfo input[type=text] {
-	width: 200px;
+
+.sheet-common input {
+    margin-bottom: 7px;
 }
+
+.sheet-common input[type=text].sheet-gender {
+    width: 60px;
+}
+
+.sheet-common input[type=text].sheet-race {
+    width: 175px;
+}
+
+.sheet-common input[type=text].sheet-class {
+    width: 220px;
+}
+
+.sheet-common input[type=number] {
+    width: 40px;
+}
+
+.sheet-common input[type=text].sheet-bio {
+    width: 49%;
+}
+
 
 
 
@@ -287,6 +282,18 @@ ABILITIES
 
 ******/
 
+
+button[type=roll].sheet-skillcheckroll {
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    font-size: 18.2px;
+    box-shadow: none;
+    text-shadow: none;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+}
 
 
 .sheet-Training {
@@ -300,6 +307,35 @@ EFFECTS
 
 ******/
 
+
+input.sheet-speed {
+    width: 97%;
+}
+
+div.sheet-bonusdice,
+div.sheet-powerpoints {
+    width: 47%;
+    display:inline-block;
+}
+
+div.sheet-bonusdice input[type=text] {
+    width: 100%;
+}
+
+button[type=roll].sheet-bonusdice-roll {
+    border: inherit;
+    background-color: transparent;
+    background-image: none;
+    font-size: .529cm;
+    border-bottom: 2px solid #c9ad6a;
+    margin: 4px 0;
+    font-family: MrJeeves;
+    font-weight: 800;
+    color: #58180D;
+    height: 28px;
+    padding: 0px;
+    border-radius: inherit;
+}
 
 /******
 
@@ -340,13 +376,29 @@ select.sheet-AccesorySelect {
 }
 
 
+
+button[type=roll].sheet-combatroll {
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    height: 28px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18.2px;
+}
+
+
 /******
 
-DEFENSE & EFFECTS
+DEFENSE
 
 ******/
 
 label.sheet-hp {
+    margin-bottom: 7px;
+}
+
+.sheet-defense label.sheet-small {
     font-size: 1em;
     padding: 0;
 }
@@ -357,13 +409,16 @@ label.sheet-miscbonus{
 }
 
 label.sheet-defense{
-    margin: 0;
+    width: 80%;
+    display: inline-block;
+    margin: 5px 0 0;
 }
 
-.sheet-speedIn {
-    width: 160px;
-}
 
+div.sheet-defense input[type=checkbox] {
+    float: right;
+    margin-top: 10px;
+}
 
 /******
 
@@ -416,6 +471,10 @@ span.sheet-right{
     margin-right: 18px;
 }
 
+div.sheet-right {
+    float: right;
+}
+
 
 
 
@@ -449,9 +508,13 @@ FEATURES & COMPETENCIES
 
 ******/
 
+.sheet-features input[type=text] {
+    width: 94%;
+}
 
-
-
+.sheet-competencies input[type=text] {
+    width: 100%;
+}
 
 /*****
 

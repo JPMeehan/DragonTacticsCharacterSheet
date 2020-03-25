@@ -1,25 +1,25 @@
 <input type="hidden" name="attr_Version" value="3.4.0" />
-
 <div class="main">
     <div class="header section">
         <h1>Dragon Tactics Character Sheet</h1>
+        <input type="text" name="attr_character_name" placeholder="Name" />
     </div>
     <div class="common section">
         <h2>Basic Info</h2>
-        <div class="BasicInfo">
-            <label>
-                Name <input type="text" name="attr_character_name" placeholder="Name"/>
-            </label>
-            <label>Race <input type="text" name="attr_Race" placeholder="Race"/> </label>
-            <label>Class <input type="text" name="attr_Class" placeholder="Class"/> </label>
-            <label class="inlineLabel">Level
-                <input type="number" name="attr_level" value="1" min="1" max="30" /></label>
-            <label class="inlineLabel">
-                Quest Bonus <input type="number" name="attr_Quest" value="0" />
-            </label>
-            <input type="hidden" name="attr_actionpoints" value="1" />
-            <input type="hidden" name="attr_actionpoints_max" value="1" />
+        <input type="text" name="attr_Gender" placeholder="Gender" class="gender" />
+        <input type="text" name="attr_Race" placeholder="Race" class="race" />
+        <input type="checkbox" class="arrow" />
+        <div class="body">
+            <input type="text" name="attr_Height" placeholder="Height" class="bio" />
+            <input type="text" name="attr_Weight" placeholder="Weight" class="bio" />
         </div>
+        <input type="text" name="attr_Class" placeholder="Class" /> <input type="number" name="attr_level" value="1"
+            min="1" max="30" />
+        <label class="inlineLabel">
+            Quest Bonus <input type="number" name="attr_Quest" value="0" />
+        </label>
+        <input type="hidden" name="attr_actionpoints" value="1" />
+        <input type="hidden" name="attr_actionpoints_max" value="1" />
     </div>
     <div class="abilities section">
         <h2>Attributes</h2>
@@ -29,15 +29,14 @@
             <button type="roll" class="skillcheckroll"
                 value="&{template:skillcheck} {{name=Strength Check}} {{check=[[1d20 + @{strmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{strmod} + @{Quest}]]}}"
                 name="roll_StrengthCheck">Strength</button>
-
-            <input type="checkbox" value="1" name="attr_StrSkillDrop" class="arrow" />
+            <input type="checkbox" value="1" name="attr_StrSkillDrop" class="arrow" title="Show Details" />
             <div class="body">
                 <span name="attr_Athletics" value="+0" style="font-size:140%;"></span>
                 <button type="roll" class="skillcheckroll"
                     value="&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{Athletics-Trained}}} {{check=[[1d20 @{Athletics}]]}} {{checkadv=[[1d20 @{Athletics}]]}}"
                     name="roll_AthleticsCheck">Athletics</button>
-
-                <input type="checkbox" value="1" name="attr_AthDets" checked="true" class="arrow" />
+                <input type="checkbox" value="1" name="attr_AthDets" checked="true" class="arrow"
+                    title="Show Details" />
                 <div class="body">
                     <select name="attr_Athletics-Train" class="Training">
                         <option value="0" selected>Untrained</option>
@@ -60,15 +59,14 @@
             <button type="roll" class="skillcheckroll"
                 value="&{template:skillcheck} {{name=Constitution Check}} {{check=[[1d20 + @{conmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{conmod} + @{Quest}]]}}"
                 name="roll_ConstitutionCheck">Constitution</button>
-
-            <input type="checkbox" value="1" name="attr_ConSkillDrop" class="arrow" />
+            <input type="checkbox" value="1" name="attr_ConSkillDrop" class="arrow" title="Show Details" />
             <div class="body">
                 <span name="attr_Endurance" value="+0" style="font-size:140%;"></span>
                 <button type="roll" class="skillcheckroll"
                     value="&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{Endurance-Trained}}} {{check=[[1d20 @{Endurance}]]}} {{checkadv=[[1d20 @{Endurance}]]}}"
                     name="roll_EnduranceCheck">Endurance</button>
-
-                <input type="checkbox" value="1" name="attr_EndDets" checked="true" class="arrow" />
+                <input type="checkbox" value="1" name="attr_EndDets" checked="true" class="arrow"
+                    title="Show Details" />
                 <div class="body">
                     <select name="attr_Endurance-Train" class="Training">
                         <option value="0" selected>Untrained</option>
@@ -91,16 +89,15 @@
             <button type="roll" class="skillcheckroll"
                 value="&{template:skillcheck} {{name=Dexterity Check}} {{check=[[1d20 + @{dexmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{dexmod} + @{Quest}]]}}"
                 name="roll_DexterityCheck">Dexterity</button>
-
-            <input type="checkbox" value="1" name="attr_DexSkillDrop" class="arrow" />
+            <input type="checkbox" value="1" name="attr_DexSkillDrop" class="arrow" title="Show Details" />
             <div class="body">
                 <div>
                     <span name="attr_Acrobatics" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{Acrobatics-Trained}}} {{check=[[1d20 @{Acrobatics}]]}} {{checkadv=[[1d20 @{Acrobatics}]]}}"
                         name="roll_AcrobaticsCheck">Acrobatics</button>
-
-                    <input type="checkbox" name="attr_AcrDets" value="1" checked="true" class="arrow" />
+                    <input type="checkbox" name="attr_AcrDets" value="1" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Acrobatics-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -121,8 +118,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{Stealth-Trained}}} {{check=[[1d20 @{Stealth}]]}} {{checkadv=[[1d20 @{Stealth}]]}}"
                         name="roll_StealthCheck">Stealth</button>
-
-                    <input type="checkbox" value="1" name="attr_SteDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_SteDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Stealth-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -143,8 +140,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{SleightofHand-Trained}}} {{check=[[1d20 @{SleightofHand}]]}} {{checkadv=[[1d20 @{SleightofHand}]]}}"
                         name="roll_SleightofHandCheck">Sleight of Hand</button>
-
-                    <input type="checkbox" name="attr_SleDets" value="1" checked="true" class="arrow" />
+                    <input type="checkbox" name="attr_SleDets" value="1" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_SleightofHand-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -168,16 +165,15 @@
             <button type="roll" class="skillcheckroll"
                 value="&{template:skillcheck} {{name=Intelligence Check}} {{check=[[1d20 + @{intmod} + @{Quest}]]}} {{checkadv=[[1d20 + @{intmod} + @{Quest}]]}}"
                 name="roll_IntelligenceCheck">Intelligence</button>
-
-            <input type="checkbox" value="1" name="attr_IntSkillDrop" class="arrow" />
+            <input type="checkbox" value="1" name="attr_IntSkillDrop" class="arrow" title="Show Details" />
             <div class="body">
                 <div>
                     <span name="attr_Arcana" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{Arcana-Trained}}} {{check=[[1d20 @{Arcana}]]}} {{checkadv=[[1d20 @{Arcana}]]}}"
                         name="roll_ArcanaCheck">Arcana</button>
-
-                    <input type="checkbox" value="1" name="attr_ArcDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_ArcDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Arcana-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -198,8 +194,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Debate Check}} {{Trained=@{Debate-Trained}}} {{check=[[1d20 @{Debate}]]}} {{checkadv=[[1d20 @{Debate}]]}}"
                         name="roll_DebateCheck">Debate</button>
-
-                    <input type="checkbox" value="1" name="attr_DebDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_DebDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Debate-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -220,8 +216,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Repair Check}} {{Trained=@{Repair-Trained}}} {{check=[[1d20 @{Repair}]]}} {{checkadv=[[1d20 @{Repair}]]}}"
                         name="roll_RepairCheck">Repair</button>
-
-                    <input type="checkbox" value="1" name="attr_RepDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_RepDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Repair-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -242,8 +238,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Research Check}} {{Trained=@{Research-Trained}}} {{check=[[1d20 @{Research}]]}} {{checkadv=[[1d20 @{Research}]]}}"
                         name="roll_ResearchCheck">Research</button>
-
-                    <input type="checkbox" value="1" name="attr_ResDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_ResDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Research-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -267,16 +263,15 @@
             <button type="roll" class="skillcheckroll"
                 value="&{template:skillcheck} {{name=Wisdom Check}} {{check=[[1d20 + @{wismod} + @{Quest}]]}} {{checkadv=[[1d20 + @{wismod} + @{Quest}]]}}"
                 name="roll_WisdomCheck">Wisdom</button>
-
-            <input type="checkbox" value="1" name="attr_WisSkillDrop" class="arrow" />
+            <input type="checkbox" value="1" name="attr_WisSkillDrop" class="arrow" title="Show Details" />
             <div class="body">
                 <div>
                     <span name="attr_HandleAnimal" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{HandleAnimal-Trained}}} {{check=[[1d20 @{HandleAnimal}]]}} {{checkadv=[[1d20 @{HandleAnimal}]]}}"
                         name="roll_HandleAnimalCheck">Handle Animal</button>
-
-                    <input type="checkbox" name="attr_HanDets" value="1" checked="true" class="arrow" />
+                    <input type="checkbox" name="attr_HanDets" value="1" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_HandleAnimal-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -297,8 +292,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Insight Check}} {{Trained=@{Insight-Trained}}} {{check=[[1d20 @{Insight}]]}} {{checkadv=[[1d20 @{Insight}]]}}"
                         name="roll_InsightCheck">Insight</button>
-
-                    <input type="checkbox" value="1" name="attr_InsDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_InsDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Insight-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -319,8 +314,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{Medicine-Trained}}} {{check=[[1d20 @{Medicine}]]}} {{checkadv=[[1d20 @{Medicine}]]}}"
                         name="roll_MedicineCheck">Medicine</button>
-
-                    <input type="checkbox" value="1" name="attr_MedDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_MedDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Medicine-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -341,8 +336,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Perception Check}} {{Trained=@{Perception-Trained}}} {{check=[[1d20 @{Perception}]]}} {{checkadv=[[1d20 @{Perception}]]}}"
                         name="roll_PerceptionCheck">Perception</button>
-
-                    <input type="checkbox" name="attr_PerDets" value="1" checked="true" class="arrow" />
+                    <input type="checkbox" name="attr_PerDets" value="1" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Perception-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -363,8 +358,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Survival Check}} {{Trained=@{Survival-Trained}}} {{check=[[1d20 @{Survival}]]}} {{checkadv=[[1d20 @{Survival}]]}}"
                         name="roll_SurvivalCheck">Survival</button>
-
-                    <input type="checkbox" value="1" name="attr_SurDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_SurDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Survival-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -388,16 +383,15 @@
             <button type="roll" class="skillcheckroll"
                 value="&{template:skillcheck} {{name=Charisma Check}} {{check=[[1d20 + @{chamod} + @{Quest}]]}} {{checkadv=[[1d20 + @{chamod} + @{Quest}]]}}"
                 name="roll_CharismaCheck">Charisma</button>
-
-            <input type="checkbox" value="1" name="attr_ChaSkillDrop" class="arrow" />
+            <input type="checkbox" value="1" name="attr_ChaSkillDrop" class="arrow" title="Show Details" />
             <div class="body">
                 <div>
                     <span name="attr_Appeal" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{Appeal-Trained}}} {{check=[[1d20 @{Appeal}]]}} {{checkadv=[[1d20 @{Appeal}]]}}"
                         name="roll_AppealCheck">Appeal</button>
-
-                    <input type="checkbox" value="1" name="attr_AppDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_AppDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Appeal-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -418,8 +412,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Impress Check}} {{Trained=@{Impress-Trained}}} {{check=[[1d20 @{Impress}]]}} {{checkadv=[[1d20 @{Impress}]]}}"
                         name="roll_ImpressCheck">Impress</button>
-
-                    <input type="checkbox" value="1" name="attr_ImpDets" checked="true" class="arrow" />
+                    <input type="checkbox" value="1" name="attr_ImpDets" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Impress-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -440,8 +434,8 @@
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{Socialize-Trained}}} {{check=[[1d20 @{Socialize}]]}} {{checkadv=[[1d20 @{Socialize}]]}}"
                         name="roll_SocializeCheck">Socialize</button>
-
-                    <input type="checkbox" name="attr_SocDets" value="1" checked="true" class="arrow" />
+                    <input type="checkbox" name="attr_SocDets" value="1" checked="true" class="arrow"
+                        title="Show Details" />
                     <div class="body">
                         <select name="attr_Socialize-Train" class="Training">
                             <option value="0" selected>Untrained</option>
@@ -463,68 +457,89 @@
     <div class="competencies section">
         <h2>Competencies</h2>
         <fieldset class="repeating_competencies">
-            <input type="text" name="attr_competency" placeholder="Competency"/>
+            <input type="text" name="attr_competency" placeholder="Competency" />
         </fieldset>
     </div>
     <div class="defense section">
         <h2>Key Values</h2>
-        <label title="Movement Speed">
-            <input type="text" name="attr_speed" class="speedIn" placeholder="30 feet" />
-            Speed
-        </label>
-        <label title="HP"><input type="number" name="attr_HP" value="20" /> /
+        <label class="hp" title="HP"><input type="number" name="attr_HP" value="20" /> /
             <input type="number" name="attr_HP_max" value="20" /> HP</label>
-        <label class="inlineLabel hp"><input type="number" name="attr_HP-Bloodied" value="10" /> Bloodied</label>
-        <label class="inlineLabel hp"><input type="number" name="attr_HP-surgeValue" value="5" /> Surge Value</label>
+        <label class="small"><input type="number" name="attr_HP-Bloodied" value="10" /> Bloodied</label>
+        <label class="small"><input type="number" name="attr_HP-surgeValue" value="5" /> Surge Value</label>
         <br />
         <label title="Surges"><input type="number" name="attr_surges" value="6" /> /
             <input type="number" name="attr_surges_max" value="6" />
             Surges</label>
         <h3>Defenses</h3>
-        <label class="defense">
-            <input type="number" name="attr_AC" value="10" class="defense" />
-            Armor Class (AC)
-        </label>
-        <label class="miscbonus">
-            Misc bonus: <input type="number" name="attr_AC-Misc" value="0" />
-        </label>
-        <label class="defense">
-            <input type="number" name="attr_Fort" value="10" class="defense" />
-            Fortitude
-        </label>
-        <label class="miscbonus">
-            Class/Misc bonus:
-            <input type="number" name="attr_Fort-Misc" value="0" />
-        </label>
-        <label class="defense">
-            <input type="number" name="attr_Ref" value="10" class="defense" />
-            Reflex
-        </label>
-        <label class="miscbonus">
-            Class/Misc bonus:
-            <input type="number" name="attr_Ref-Misc" value="0" />
-        </label>
-        <label class="defense">
-            <input type="number" name="attr_Will" value="10" class="defense" />
-            Will
-        </label>
-        <label class="miscbonus">
-            Class/Misc bonus:
-            <input type="number" name="attr_Will-Misc" value="0" />
-        </label>
+        <div>
+            <label class="defense">
+                <input type="number" name="attr_AC" value="10" class="defense" />
+                Armor Class (AC)
+            </label>
+            <input type="checkbox" class="arrow" title="Show Details">
+            <div class="body">
+                <label class="miscbonus">
+                    Misc bonus: <input type="number" name="attr_AC-Misc" value="0" />
+                </label>
+            </div>
+        </div>
+        <div>
+            <label class="defense">
+                <input type="number" name="attr_Fort" value="10" class="defense" />
+                Fortitude
+            </label>
+            <input type="checkbox" class="arrow" title="Show Details">
+            <div class="body">
+                <label class="miscbonus">
+                    Class/Misc bonus:
+                    <input type="number" name="attr_Fort-Misc" value="0" />
+                </label>
+            </div>
+        </div>
+        <div>
+            <label class="defense">
+                <input type="number" name="attr_Ref" value="10" class="defense" />
+                Reflex
+            </label>
+            <input type="checkbox" class="arrow" title="Show Details">
+            <div class="body">
+                <label class="miscbonus">
+                    Class/Misc bonus:
+                    <input type="number" name="attr_Ref-Misc" value="0" />
+                </label>
+            </div>
+        </div>
+        <div>
+            <label class="defense">
+                <input type="number" name="attr_Will" value="10" class="defense" />
+                Will
+            </label>
+            <input type="checkbox" class="arrow" title="Show Details">
+            <div class="body">
+                <label class="miscbonus">
+                    Class/Misc bonus:
+                    <input type="number" name="attr_Will-Misc" value="0" />
+                </label>
+            </div>
+        </div>
     </div>
     <div class="effects section">
         <h2>Stats</h2>
-
-        <button type="roll" class="bonusdiceroll" name="roll_Striker_Damage"
-            value="&{template:damage} {{name=Bonus Dice}} {{damage=[[@{strikerdice}]]}} {{dmgcrit=[[@{strikercrit}]]}}">
-            Bonus Dice
-        </button>
-        <input type="text" name="attr_strikerdice" value="" class="diceInput" placeholder="1d8"/>
-        <input type="hidden" value="1d4" name="attr_strikercrit" />
-        <h3>Power Points</h3>
-        <input type="number" value="0" name="attr_PowerPoints" /> /
-        <input type="number" value="0" name="attr_PowerPoints_max" />
+        <h3>Movement</h3>
+        <input type="text" name="attr_speed" class="speed" placeholder="30 feet" />
+        <div class="bonusdice">
+            <button type="roll" class="bonusdice-roll" name="roll_Striker_Damage"
+                value="&{template:damage} {{name=Bonus Dice}} {{damage=[[@{bonusdice-entry}]]}} {{dmgcrit=[[@{bonusdice-crit}]]}}">
+                Bonus Dice
+            </button>
+            <input type="text" name="attr_bonusdice-entry"  placeholder="1d8" />
+            <input type="hidden" value="0" name="attr_bonusdice-crit" />
+        </div>
+        <div class="powerpoints right">
+            <h3>Resource</h3>
+            <input type="number" value="0" name="attr_PowerPoints" /> /
+            <input type="number" value="0" name="attr_PowerPoints_max" />
+        </div>
         <h3>Persistent Effects</h3>
         <div class="Persistent-Effect-Block">
             <textarea name="attr_Persistent-Effect-Text" placeholder="Status Effects, Buffs, etc."></textarea>
@@ -533,8 +548,9 @@
     <div class="standard section">
         <h2>Standard Actions</h2>
         <fieldset class="repeating_Standard">
-            <input type="text" name="attr_Standard-Name" placeholder="Power Name"/>
-            <input type="checkbox" value="1" checked="true" name="attr_Standard-display" class="arrow" />
+            <input type="text" name="attr_Standard-Name" placeholder="Power Name" />
+            <input type="checkbox" value="1" checked="true" name="attr_Standard-display" class="arrow"
+                title="Show Details" />
             <div class="body">
                 <label class="inlineLabel">
                     Recharge
@@ -546,10 +562,9 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Standard-RangeTargets" placeholder="Melee One Creature"/>
+                    <input type="text" name="attr_Standard-RangeTargets" placeholder="Melee One Creature" />
                 </label>
                 <label title="Power Text">
-
                     <button type="roll" class="combatroll" name="roll_Standard-TextOut"
                         value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">Power
                         Text</button>
@@ -565,7 +580,6 @@
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Standard-flatdamage" />
-
                     <button type="roll" class="combatroll" name="roll_Standard-Damage"
                         value="&{template:damage} {{name=@{Standard-Name}}} {{damage=[[@{Standard-damagedice} @{Standard-flatdamage}]]}} {{dmgcrit=[[@{Standard-critdice} + @{Standard-critflat} @{Standard-flatdamage}]]}} {{dmgtype=@{Standard-damagetype}}}"><span
                             name="attr_Standard-damagedice" value="1d4"></span><span value="0"
@@ -574,8 +588,8 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_Standard-setup-display"
-                    class="arrow" />
+                <input type="checkbox" value="1" checked="true" name="attr_Standard-setup-display" class="arrow"
+                    title="Show Details" />
                 <div class="body">
                     <select name="attr_Standard-Accessory" class="AccesorySelect">
                         <option value="imp1"> Implement 1 </option>
@@ -606,12 +620,10 @@
                     </span>
                     <label title="Damage Dice">
                         Damage Dice
-                        <input type="text" name="attr_Standard-damagedice" class="diceInput"
-                            value="1d4" /></label>
+                        <input type="text" name="attr_Standard-damagedice" class="diceInput" value="1d4" /></label>
                     <label title="Damage Type">
                         Damage Type
-                        <input type="text" name="attr_Standard-damagetype" class="diceInput"
-                            value="Fire" /></label>
+                        <input type="text" name="attr_Standard-damagetype" class="diceInput" value="Fire" /></label>
                     <label title="Crit dice">
                         Crit Dice
                         <input type="text" value="1d4" class="diceInput" name="attr_Standard-critdice" /></label>
@@ -632,8 +644,9 @@
     <div class="move section">
         <h2>Move Actions</h2>
         <fieldset class="repeating_Move">
-            <input type="text" name="attr_Move-Name" placeholder="Power Name"/>
-            <input type="checkbox" value="1" checked="true" name="attr_Move-display" class="arrow" />
+            <input type="text" name="attr_Move-Name" placeholder="Power Name" />
+            <input type="checkbox" value="1" checked="true" name="attr_Move-display" class="arrow"
+                title="Show Details" />
             <div class="body">
                 <label class="inlineLabel">
                     Recharge
@@ -645,10 +658,9 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Move-RangeTargets" placeholder="Personal"/>
+                    <input type="text" name="attr_Move-RangeTargets" placeholder="Personal" />
                 </label>
                 <label title="Power Text">
-
                     <button type="roll" class="combatroll" name="roll_Move-TextOut"
                         value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">Power
                         Text</button>
@@ -656,7 +668,6 @@
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Move-HitBonus" />
-
                     <button type="roll" class="combatroll" name="roll_Move-Attack"
                         value="&{template:attack} {{name=@{Move-Name}}} {{RangeTargets=@{Move-RangeTargets}}} {{attack=[[1d20 @{Move-HitBonus}]]}} {{attackadv=[[1d20 @{Move-HitBonus}]]}} {{defense=@{Move-DefSelect}}} {{edge=[[1d4]]}}"><span
                             name="attr_Move-HitBonus" value="+0"></span>
@@ -665,7 +676,6 @@
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Move-flatdamage" />
-
                     <button type="roll" class="combatroll" name="roll_Move-Damage"
                         value="&{template:damage} {{name=@{Move-Name}}} {{damage=[[@{Move-damagedice} @{Move-flatdamage}]]}} {{dmgcrit=[[@{Move-critdice} + @{Move-critflat} @{Move-flatdamage}]]}} {{dmgtype=@{Move-damagetype}}}"><span
                             name="attr_Move-damagedice" value="1d4"></span><span value="0" name="attr_Move-flatdamage"
@@ -674,7 +684,8 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_Move-setup-display" class="arrow" />
+                <input type="checkbox" value="1" checked="true" name="attr_Move-setup-display" class="arrow"
+                    title="Show Details" />
                 <div class="body">
                     <select name="attr_Move-Accessory" class="AccesorySelect">
                         <option value="imp1"> Implement 1 </option>
@@ -729,8 +740,9 @@
     <div class="minor section">
         <h2>Minor Actions</h2>
         <fieldset class="repeating_Minor">
-            <input type="text" name="attr_Minor-Name" placeholder="Power Name"/>
-            <input type="checkbox" value="1" checked="true" name="attr_Minor-display" class="arrow" />
+            <input type="text" name="attr_Minor-Name" placeholder="Power Name" />
+            <input type="checkbox" value="1" checked="true" name="attr_Minor-display" class="arrow"
+                title="Show Details" />
             <div class="body">
                 <label class="inlineLabel">
                     Recharge
@@ -742,10 +754,9 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Minor-RangeTargets" placeholder="Ranged Sight One Creature"/>
+                    <input type="text" name="attr_Minor-RangeTargets" placeholder="Ranged Sight One Creature" />
                 </label>
                 <label title="Power Text">
-
                     <button type="roll" class="combatroll" name="roll_Minor-TextOut"
                         value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">Power
                         Text</button>
@@ -753,7 +764,6 @@
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Minor-HitBonus" />
-
                     <button type="roll" class="combatroll" name="roll_Minor-Attack"
                         value="&{template:attack} {{name=@{Minor-Name}}} {{RangeTargets=@{Minor-RangeTargets}}} {{attack=[[1d20 @{Minor-HitBonus}]]}} {{attackadv=[[1d20 @{Minor-HitBonus}]]}} {{defense=@{Minor-DefSelect}}} {{edge=[[1d4]]}}"><span
                             name="attr_Minor-HitBonus" value="+0"></span>
@@ -762,7 +772,6 @@
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Minor-flatdamage" />
-
                     <button type="roll" class="combatroll" name="roll_Minor-Damage"
                         value="&{template:damage} {{name=@{Minor-Name}}} {{damage=[[@{Minor-damagedice} @{Minor-flatdamage}]]}} {{dmgcrit=[[@{Minor-critdice} + @{Minor-critflat} @{Minor-flatdamage}]]}} {{dmgtype=@{Minor-damagetype}}}"><span
                             name="attr_Minor-damagedice" value="1d4"></span><span value="0" name="attr_Minor-flatdamage"
@@ -771,7 +780,8 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_Minor-setup-display" class="arrow" />
+                <input type="checkbox" value="1" checked="true" name="attr_Minor-setup-display" class="arrow"
+                    title="Show Details" />
                 <div class="body">
                     <select name="attr_Minor-Accessory" class="AccesorySelect">
                         <option value="imp1"> Implement 1 </option>
@@ -826,8 +836,9 @@
     <div class="reaction section">
         <h2>Immediate Actions</h2>
         <fieldset class="repeating_Reaction">
-            <input type="text" name="attr_Reaction-Name" placeholder="Power Name"/>
-            <input type="checkbox" value="1" checked="true" name="attr_Reaction-display" class="arrow" />
+            <input type="text" name="attr_Reaction-Name" placeholder="Power Name" />
+            <input type="checkbox" value="1" checked="true" name="attr_Reaction-display" class="arrow"
+                title="Show Details" />
             <div class="body">
                 <label class="inlineLabel">
                     Recharge
@@ -847,14 +858,13 @@
                     </select>
                 </label>
                 <label>
-                    Trigger <input type="text" name="attr_Reaction-trigger" placeholder="An Enemy Bloodies You"/>
+                    Trigger <input type="text" name="attr_Reaction-trigger" placeholder="An Enemy Bloodies You" />
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_Reaction-RangeTargets" placeholder="The Triggering Enemy"/>
+                    <input type="text" name="attr_Reaction-RangeTargets" placeholder="The Triggering Enemy" />
                 </label>
                 <label title="Power Text">
-
                     <button type="roll" class="combatroll" name="roll_Reaction-TextOut"
                         value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">Power
                         Text</button>
@@ -862,7 +872,6 @@
                 </label>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Reaction-HitBonus" />
-
                     <button type="roll" class="combatroll" name="roll_Reaction-Attack"
                         value="&{template:attack} {{name=@{Reaction-Name}}} {{RangeTargets=@{Reaction-RangeTargets}}} {{attack=[[1d20 @{Reaction-HitBonus}]]}} {{attackadv=[[1d20 @{Reaction-HitBonus}]]}} {{defense=@{Reaction-DefSelect}}} {{edge=[[1d4]]}}"><span
                             name="attr_Reaction-HitBonus" value="+0"></span>
@@ -871,7 +880,6 @@
                 </div>
                 <div class="DamageRoll">
                     <input type="hidden" name="attr_Reaction-flatdamage" />
-
                     <button type="roll" class="combatroll" name="roll_Reaction-Damage"
                         value="&{template:damage} {{name=@{Reaction-Name}}} {{damage=[[@{Reaction-damagedice} @{Reaction-flatdamage}]]}} {{dmgcrit=[[@{Reaction-critdice} + @{Reaction-critflat} @{Reaction-flatdamage}]]}} {{dmgtype=@{Reaction-damagetype}}}"><span
                             name="attr_Reaction-damagedice" value="1d4"></span><span value="0"
@@ -880,8 +888,8 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_Reaction-setup-display"
-                    class="arrow" />
+                <input type="checkbox" value="1" checked="true" name="attr_Reaction-setup-display" class="arrow"
+                    title="Show Details" />
                 <div class="body">
                     <select name="attr_Reaction-Accessory" class="AccesorySelect">
                         <option value="imp1"> Implement 1 </option>
@@ -912,12 +920,10 @@
                     </span>
                     <label title="Damage Dice">
                         Damage Dice
-                        <input type="text" name="attr_Reaction-damagedice" class="diceInput"
-                            value="1d4" /></label>
+                        <input type="text" name="attr_Reaction-damagedice" class="diceInput" value="1d4" /></label>
                     <label title="Damage Type">
                         Damage Type
-                        <input type="text" name="attr_Reaction-damagetype" class="diceInput"
-                            value="Fire" /></label>
+                        <input type="text" name="attr_Reaction-damagetype" class="diceInput" value="Fire" /></label>
                     <label title="Crit dice">
                         Crit Dice
                         <input type="text" value="1d4" class="diceInput" name="attr_Reaction-critdice" /></label>
@@ -939,28 +945,32 @@
         <h2>Features</h2>
         <h3>Race Features</h3>
         <fieldset class="repeating_RaceFeatures">
-            <input type="text" name="attr_RaceFeature-name" placeholder="Darkvision"/> <input type="checkbox" class="arrow">
+            <input type="text" name="attr_RaceFeature-name" placeholder="Darkvision" /> <input type="checkbox"
+                class="arrow" title="Show Details">
             <div class="body">
                 <textarea name="attr_RaceFeature-description"></textarea>
             </div>
         </fieldset>
         <h3>Class Features</h3>
         <fieldset class="repeating_ClassFeatures">
-            <input type="text" name="attr_ClassFeature-name" placeholder="Magic"/> <input type="checkbox" class="arrow">
+            <input type="text" name="attr_ClassFeature-name" placeholder="Magic" /> <input type="checkbox" class="arrow"
+                title="Show Details">
             <div class="body">
                 <textarea name="attr_ClassFeature-description"></textarea>
             </div>
         </fieldset>
         <h3>Feats</h3>
         <fieldset class="repeating_Feats">
-            <input type="text" name="attr_Feat-name" placeholder="Toughness"/> <input type="checkbox" class="arrow">
+            <input type="text" name="attr_Feat-name" placeholder="Toughness" /> <input type="checkbox" class="arrow"
+                title="Show Details">
             <div class="body">
                 <textarea name="attr_Feat-description"></textarea>
             </div>
         </fieldset>
         <h3>Flaws and Longterm Conditions</h3>
         <fieldset class="repeating_Flaws_LongTermConditions">
-            <input type="text" name="attr_Flaws_LongTermCondition-name" placeholder="Mummy Rot"/> <input type="checkbox" class="arrow">
+            <input type="text" name="attr_Flaws_LongTermCondition-name" placeholder="Mummy Rot" /> <input
+                type="checkbox" class="arrow" title="Show Details">
             <div class="body">
                 <textarea name="attr_Flaws_LongTermCondition-description"></textarea>
             </div>
@@ -970,21 +980,21 @@
         <h2>Worn Equipment</h2>
         <div class="weapon">
             <h3>Weapon 1</h3>
-            <label><input type="text" name="attr_wep1-Name" class="Item" placeholder="Longsword"/>
+            <label><input type="text" name="attr_wep1-Name" class="Item" placeholder="Longsword" />
                 Name
-            </label> 
+            </label>
             <label class="small">Proficiency
-            <input type="number" name="attr_wep1-Attack" value="2" /></label>
+                <input type="number" name="attr_wep1-Attack" value="2" /></label>
             <label class="small"> Damage
-            <select name="attr_wep1-Damage" class="wepDamSelect">
-                <option value="1d4">1d4 </option>
-                <option value="1d6">1d6 </option>
-                <option value="1d8">1d8 </option>
-                <option value="1d10">1d10</option>
-                <option value="1d12">1d12</option>
-                <option value="2d4">2d4 </option>
-                <option value="2d6">2d6 </option>
-            </select></label><br />
+                <select name="attr_wep1-Damage" class="wepDamSelect">
+                    <option value="1d4">1d4 </option>
+                    <option value="1d6">1d6 </option>
+                    <option value="1d8">1d8 </option>
+                    <option value="1d10">1d10</option>
+                    <option value="1d12">1d12</option>
+                    <option value="2d4">2d4 </option>
+                    <option value="2d6">2d6 </option>
+                </select></label><br />
             <label class="small brutal">
                 <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
             </label>
@@ -995,21 +1005,21 @@
         </div>
         <div class="weapon">
             <h3>Weapon 2</h3>
-            <label><input type="text" name="attr_wep2-Name" class="Item" placeholder="Dagger"/>
+            <label><input type="text" name="attr_wep2-Name" class="Item" placeholder="Dagger" />
                 Name
             </label>
             <label class="small">Proficiency
-            <input type="number" name="attr_wep2-Attack" value="2" /></label>
+                <input type="number" name="attr_wep2-Attack" value="2" /></label>
             <label class="small"> Damage
-            <select name="attr_wep2-Damage" class="wepDamSelect">
-                <option value="1d4">1d4 </option>
-                <option value="1d6">1d6 </option>
-                <option value="1d8">1d8 </option>
-                <option value="1d10">1d10</option>
-                <option value="1d12">1d12</option>
-                <option value="2d4">2d4 </option>
-                <option value="2d6">2d6 </option>
-            </select></label><br />
+                <select name="attr_wep2-Damage" class="wepDamSelect">
+                    <option value="1d4">1d4 </option>
+                    <option value="1d6">1d6 </option>
+                    <option value="1d8">1d8 </option>
+                    <option value="1d10">1d10</option>
+                    <option value="1d12">1d12</option>
+                    <option value="2d4">2d4 </option>
+                    <option value="2d6">2d6 </option>
+                </select></label><br />
             <label class="small brutal">
                 <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
             </label>
@@ -1020,88 +1030,95 @@
         </div>
         <div class="weapon">
             <h3>Weapon 3</h3>
-            <label><input type="text" name="attr_wep3-Name" class="Item" placeholder="Crossbow"/>
+            <label><input type="text" name="attr_wep3-Name" class="Item" placeholder="Crossbow" />
                 Name
             </label>
             <label class="small">Proficiency
-            <input type="number" name="attr_wep3-Attack" value="2" /></label>
+                <input type="number" name="attr_wep3-Attack" value="2" /></label>
             <label class="small">Damage
-            <select name="attr_wep3-Damage" class="wepDamSelect">
-                <option value="1d4">1d4 </option>
-                <option value="1d6">1d6 </option>
-                <option value="1d8">1d8 </option>
-                <option value="1d10">1d10</option>
-                <option value="1d12">1d12</option>
-                <option value="2d4">2d4 </option>
-                <option value="2d6">2d6 </option>
-            </select></label><br />
-            <label class="small brutal"> 
+                <select name="attr_wep3-Damage" class="wepDamSelect">
+                    <option value="1d4">1d4 </option>
+                    <option value="1d6">1d6 </option>
+                    <option value="1d8">1d8 </option>
+                    <option value="1d10">1d10</option>
+                    <option value="1d12">1d12</option>
+                    <option value="2d4">2d4 </option>
+                    <option value="2d6">2d6 </option>
+                </select></label><br />
+            <label class="small brutal">
                 <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
             </label>
             <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
             <label class="small hicrit">High Crit
-                <input type="checkbox" name="attr_wep3-HighCrit" value="true"/>
+                <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
             </label>
         </div>
         <div class="implement">
             <h3>Implement 1</h3>
-            <label><input type="text" name="attr_imp1-Name" class="Item" placeholder="Staff"/>
+            <label><input type="text" name="attr_imp1-Name" class="Item" placeholder="Staff" />
                 Name
             </label>
             <label class="small"><input type="number" name="attr_imp1-Attack" value="0" /> Attack
-            Bonus</label>
+                Bonus</label>
             <br />
             <input type="hidden" name="attr_imp1-Damage" value="1d8" />
         </div>
         <div class="implement">
             <h3>Implement 2</h3>
-            <label><input type="text" name="attr_imp2-Name" class="Item" placeholder="Wand"/>
+            <label><input type="text" name="attr_imp2-Name" class="Item" placeholder="Wand" />
                 Name
             </label>
             <label class="small"><input type="number" name="attr_imp2-Attack" value="0" /> Attack
-            Bonus</label>
+                Bonus</label>
             <br />
             <input type="hidden" name="attr_imp2-Damage" value="1d8" />
         </div>
         <div class="armor">
             <h3>Armor</h3>
-            <label><input type="text" name="attr_ArmorItem-Name" value="Cloth" class="Item" placeholder="Studded Leather"/>
+            <label><input type="text" name="attr_ArmorItem-Name" value="Cloth" class="Item"
+                    placeholder="Studded Leather" />
                 Name</label>
             <span class="AttSelect-AC">
                 <label class="small"><select name="attr_AC-Att">
-                    <option value="0" selected>None (Heavy Armor)</option>
-                    <option value="1">Strength</option>
-                    <option value="2">Constitution</option>
-                    <option value="3">Dexterity</option>
-                    <option value="4">Intelligence</option>
-                    <option value="5">Wisdom</option>
-                    <option value="6">Charisma</option>
-                </select>
-                Attribute</label>
+                        <option value="0" selected>None (Heavy Armor)</option>
+                        <option value="1">Strength</option>
+                        <option value="2">Constitution</option>
+                        <option value="3">Dexterity</option>
+                        <option value="4">Intelligence</option>
+                        <option value="5">Wisdom</option>
+                        <option value="6">Charisma</option>
+                    </select>
+                    Attribute</label>
             </span>
             <label title="Armor Bonus">
                 Armor Bonus <input type="number" name="attr_AC-Armor" value="0" /></label>
         </div>
         <div class="otherwornequipment">
             <h3>Other Equipment</h3>
-            <label class="Item_other"><input type="text" name="attr_HeadItem" placeholder="A simple cowl" class="Item_other"/>
-            Head</label>
-            <label class="Item_other"><input type="text" name="attr_NeckItem" placeholder="A basic broach" class="Item_other"/>
-            Neck</label>
-            <label class="Item_other"><input type="text" name="attr_ArmsItem" placeholder="Sleevies" class="Item_other"/>
-            Arms</label>
-            <label class="Item_other"><input type="text" name="attr_HandsItem" placeholder="Leather gloves" class="Item_other"/>
-            Hands</label>
-            <label class="Item_other"><input type="text" name="attr_WaistItem" placeholder="Belt with pouches" class="Item_other"/>
-            Waist</label>
-            <label class="Item_other"><input type="text" name="attr_FeetItem" placeholder="Worn shoes" class="Item_other"/>
-            Feet</label>
+            <label class="Item_other"><input type="text" name="attr_HeadItem" placeholder="A simple cowl"
+                    class="Item_other" />
+                Head</label>
+            <label class="Item_other"><input type="text" name="attr_NeckItem" placeholder="A basic broach"
+                    class="Item_other" />
+                Neck</label>
+            <label class="Item_other"><input type="text" name="attr_ArmsItem" placeholder="Sleevies"
+                    class="Item_other" />
+                Arms</label>
+            <label class="Item_other"><input type="text" name="attr_HandsItem" placeholder="Leather gloves"
+                    class="Item_other" />
+                Hands</label>
+            <label class="Item_other"><input type="text" name="attr_WaistItem" placeholder="Belt with pouches"
+                    class="Item_other" />
+                Waist</label>
+            <label class="Item_other"><input type="text" name="attr_FeetItem" placeholder="Worn shoes"
+                    class="Item_other" />
+                Feet</label>
         </div>
     </div>
     <div class="money section">
         <h2>Currency</h2>
         <span name="attr_Currency" value="0 gp" style="font-size: 140%"></span>
-        <label><input type="number" name="attr_Platinum" value=0/> Platinum Dragons</label>
+        <label><input type="number" name="attr_Platinum" value=0 /> Platinum Dragons</label>
         <label><input type="number" name="attr_Gold" value=0 /> Gold Galifars</label>
         <label><input type="number" name="attr_Silver" value=0 /> Silver Sovereigns</label>
         <label><input type="number" name="attr_Copper" value=0 /> Copper Crowns</label>
@@ -1109,14 +1126,15 @@
     <div class="backpack section">
         <h2>General Equipment</h2>
         <h3>On Person</h3>
-        <label>Space: <span name="attr_currentSpace" value="0">0</span> / <input type="number" name="attr_maxSpace" min=0 value=12 class="space"></label>
+        <label>Space: <span name="attr_currentSpace" value="0">0</span> / <input type="number" name="attr_maxSpace"
+                min=0 value=12 class="space"></label>
         <div class="repeatingItemsLabels"><span class="left">Name</span><span class="right">Quantity</span></div>
         <fieldset class="repeating_OnPersonItems">
-            <input type="text" name="attr_OnPersonItem" class="Item_repeat" placeholder="A day's rations"/>
+            <input type="text" name="attr_OnPersonItem" class="Item_repeat" placeholder="A day's rations" />
             <input type="number" name="attr_OnPersonItem-Quantity" value="0" min="0">
-            <input type="checkbox" name="attr_OnPerson-toggle" class="arrow">
+            <input type="checkbox" name="attr_OnPerson-toggle" class="arrow" title="Show Details">
             <div class="body">
-                <label><input type="number" name="attr_OnPersonItem-Space" value="0" step="0.25"/> Space (per)</label>
+                <label><input type="number" name="attr_OnPersonItem-Space" value="0" step="0.25" /> Space (per)</label>
                 <label>
                     Description
                     <textarea name="attr_OnPersonItem-description" placeholder="It's pretty and pink"></textarea>
@@ -1126,11 +1144,11 @@
         <h3>Left at Home</h3>
         <div class="repeatingItemsLabels"><span class="left">Name</span><span class="right">Quantity</span></div>
         <fieldset class="repeating_HomeItems">
-            <input type="text" name="attr_HomeItem" class="Item_repeat" placeholder="A mystery chest"/>
+            <input type="text" name="attr_HomeItem" class="Item_repeat" placeholder="A mystery chest" />
             <input type="number" name="attr_HomeItem-Quantity" value="0" min="0">
-            <input type="checkbox" name="attr_Home-toggle" class="arrow">
+            <input type="checkbox" name="attr_Home-toggle" class="arrow" title="Show Details">
             <div class="body">
-                <label><input type="number" name="attr_HomeItem-Space" value="0" step="0.25"/> Space (per)</label>
+                <label><input type="number" name="attr_HomeItem-Space" value="0" step="0.25" /> Space (per)</label>
                 <label>
                     Description
                     <textarea name="attr_HomeItem-description" placeholder="Golden and Shiny"></textarea>
@@ -1139,7 +1157,6 @@
         </fieldset>
     </div>
 </div>
-
 <!--Roll Templates-->
 <div class="rolltemplates">
     <rolltemplate class="rolltemplate-attack">
@@ -1166,7 +1183,6 @@
             </tr>
         </table>
     </rolltemplate>
-
     <rolltemplate class="rolltemplate-damage">
         <table>
             <tr>
@@ -1183,7 +1199,6 @@
             </tr>
         </table>
     </rolltemplate>
-
     <rolltemplate class="rolltemplate-skillcheck">
         <table>
             <tr>
@@ -1205,7 +1220,6 @@
             </tr>
         </table>
     </rolltemplate>
-
     <rolltemplate class="rolltemplate-powertext">
         <table>
             <tr>
@@ -1222,13 +1236,11 @@
         </table>
     </rolltemplate>
 </div>
-
 <!-- WORKERS -->
 <script type="text/worker">
 on("sheet:opened", function () {
     console.log("Sheet opened, JS is running");
 });
-
 on("change:hp_max", function () {
     getAttrs(["HP_max"], function (values) {
         setAttrs({
@@ -1237,7 +1249,6 @@ on("change:hp_max", function () {
         });
     });
 });
-
 on("change:strength", function () {
         getAttrs(["Strength"], function (values) {
             setAttrs({
@@ -1245,7 +1256,6 @@ on("change:strength", function () {
             });
         });
     });
-
 on("change:constitution", function () {
     getAttrs(["Constitution"], function (values) {
         setAttrs({
@@ -1253,7 +1263,6 @@ on("change:constitution", function () {
         });
     });
 });
-
 on("change:dexterity", function () {
     getAttrs(["Dexterity"], function (values) {
         setAttrs({
@@ -1261,7 +1270,6 @@ on("change:dexterity", function () {
         });
     });
 });
-
 on("change:intelligence", function () {
     getAttrs(["Intelligence"], function (values) {
         setAttrs({
@@ -1269,7 +1277,6 @@ on("change:intelligence", function () {
         });
     });
 });
-
 on("change:wisdom", function () {
     getAttrs(["Wisdom"], function (values) {
         setAttrs({
@@ -1277,7 +1284,6 @@ on("change:wisdom", function () {
         });
     });
 });
-
 on("change:charisma", function () {
     getAttrs(["Charisma"], function (values) {
         setAttrs({
@@ -1285,7 +1291,6 @@ on("change:charisma", function () {
         });
     });
 });
-
 on(
     "change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod  change:quest change:ac-armor change:ac-misc",
     function () {
@@ -1340,7 +1345,6 @@ on(
         );
     }
 );
-
 on("change:strmod change:conmod change:quest change:fort-misc", function () {
     getAttrs(["strmod", "conmod", "Quest", "Fort-Misc"], function (values) {
         var finalattr =
@@ -1353,7 +1357,6 @@ on("change:strmod change:conmod change:quest change:fort-misc", function () {
         });
     });
 });
-
 on("change:dexmod change:intmod change:quest change:ref-misc", function () {
     getAttrs(["dexmod", "intmod", "Quest", "Ref-Misc"], function (values) {
         var finalattr =
@@ -1366,7 +1369,6 @@ on("change:dexmod change:intmod change:quest change:ref-misc", function () {
         });
     });
 });
-
 on("change:wismod change:chamod change:quest change:will-misc", function () {
     getAttrs(["wismod", "chamod", "Quest", "Will-Misc"], function (values) {
         var finalattr =
@@ -1379,23 +1381,21 @@ on("change:wismod change:chamod change:quest change:will-misc", function () {
         });
     });
 });
-
-on("change:strikerdice", function () {
-    getAttrs(["strikerdice"], function (values) {
-        var numdice = parseInt(values.strikerdice);
+on("change:bonusdice-entry", function () {
+    getAttrs(["bonusdice-entry"], function (values) {
+        var numdice = parseInt(values["bonusdice-entry"]);
         var size = 4;
         if (numdice < 10) {
-            size = parseInt(values.strikerdice.substring(2));
+            size = parseInt(values["bonusdice-entry"].substring(2));
         } else {
-            size = parseInt(values.strikerdice.substring(3));
+            size = parseInt(values["bonusdice-entry"].substring(3));
         }
         var finalattr = numdice * size;
         setAttrs({
-            strikercrit: finalattr
+            'bonusdice-crit': finalattr
         });
     });
 });
-
 on("change:repeating_standard:standard-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-Attack";
@@ -1442,7 +1442,6 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
         });
     }
 });
-
 on(
     "change:repeating_standard:standard-ability change:repeating_standard:standard-display",
     function (eventInfo) {
@@ -1458,7 +1457,6 @@ on(
         });
     }
 );
-
 on(
     "change:repeating_standard:standard-miscattackbonus change:repeating_standard:standard-abimod change:repeating_standard:standard-hitbonus-accessory change:repeating_standard:standard-display",
     function () {
@@ -1491,7 +1489,6 @@ on(
         );
     }
 );
-
 on(
     "change:repeating_standard:standard-miscdamage change:repeating_standard:standard-abimod change:repeating_standard:standard-display",
     function () {
@@ -1518,7 +1515,6 @@ on(
         );
     }
 );
-
 on("change:repeating_standard:standard-damagedice", function () {
     getAttrs(["repeating_Standard_Standard-damagedice"], function (values) {
         var numdice = parseInt(
@@ -1540,7 +1536,6 @@ on("change:repeating_standard:standard-damagedice", function () {
         });
     });
 });
-
 on("change:repeating_move:move-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-Attack";
@@ -1587,7 +1582,6 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
         });
     }
 });
-
 on(
     "change:repeating_move:move-ability change:repeating_move:move-display",
     function (eventInfo) {
@@ -1601,7 +1595,6 @@ on(
         });
     }
 );
-
 on(
     "change:repeating_move:move-miscattackbonus change:repeating_move:move-abimod change:repeating_move:move-hitbonus-accessory change:repeating_move:move-display",
     function () {
@@ -1630,7 +1623,6 @@ on(
         );
     }
 );
-
 on(
     "change:repeating_move:move-miscdamage change:repeating_move:move-abimod change:repeating_move:move-display",
     function () {
@@ -1657,7 +1649,6 @@ on(
         );
     }
 );
-
 on("change:repeating_move:move-damagedice", function () {
     getAttrs(["repeating_Move_Move-damagedice"], function (values) {
         var numdice = parseInt(values["repeating_Move_Move-damagedice"]);
@@ -1677,7 +1668,6 @@ on("change:repeating_move:move-damagedice", function () {
         });
     });
 });
-
 on("change:repeating_minor:minor-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-Attack";
@@ -1724,7 +1714,6 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
         });
     }
 });
-
 on(
     "change:repeating_minor:minor-ability change:repeating_minor:minor-display",
     function (eventInfo) {
@@ -1738,7 +1727,6 @@ on(
         });
     }
 );
-
 on(
     "change:repeating_minor:minor-miscattackbonus change:repeating_minor:minor-abimod change:repeating_minor:minor-hitbonus-accessory change:repeating_minor:minor-display",
     function () {
@@ -1769,7 +1757,6 @@ on(
         );
     }
 );
-
 on(
     "change:repeating_minor:minor-miscdamage change:repeating_minor:minor-abimod change:repeating_minor:minor-display",
     function () {
@@ -1796,7 +1783,6 @@ on(
         );
     }
 );
-
 on("change:repeating_minor:minor-damagedice", function () {
     getAttrs(["repeating_Minor_Minor-damagedice"], function (values) {
         var numdice = parseInt(values["repeating_Minor_Minor-damagedice"]);
@@ -1816,7 +1802,6 @@ on("change:repeating_minor:minor-damagedice", function () {
         });
     });
 });
-
 on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-Attack";
@@ -1863,7 +1848,6 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
         });
     }
 });
-
 on(
     "change:repeating_reaction:reaction-ability change:repeating_reaction:reaction-display",
     function (eventInfo) {
@@ -1879,7 +1863,6 @@ on(
         });
     }
 );
-
 on(
     "change:repeating_reaction:reaction-miscattackbonus change:repeating_reaction:reaction-abimod change:repeating_reaction:reaction-hitbonus-accessory change:repeating_reaction:reaction-display",
     function () {
@@ -1912,7 +1895,6 @@ on(
         );
     }
 );
-
 on(
     "change:repeating_reaction:reaction-miscdamage change:repeating_reaction:reaction-abimod change:repeating_reaction:reaction-display",
     function () {
@@ -1939,7 +1921,6 @@ on(
         );
     }
 );
-
 on("change:repeating_reaction:reaction-damagedice", function () {
     getAttrs(["repeating_Reaction_Reaction-damagedice"], function (values) {
         var numdice = parseInt(
@@ -1961,7 +1942,6 @@ on("change:repeating_reaction:reaction-damagedice", function () {
         });
     });
 });
-
 on(
     "change:acrobatics-train change:acrobatics-miscbonus change:dexmod change:quest sheet:opened",
     function () {
@@ -1983,7 +1963,6 @@ on(
         );
     }
 );
-
 on(
     "change:appeal-train change:appeal-miscbonus change:chamod change:quest sheet:opened",
     function () {
@@ -2005,7 +1984,6 @@ on(
         );
     }
 );
-
 on(
     "change:arcana-train change:arcana-miscbonus change:intmod change:quest sheet:opened",
     function () {
@@ -2027,7 +2005,6 @@ on(
         );
     }
 );
-
 on(
     "change:athletics-train change:athletics-miscbonus change:strmod change:quest sheet:opened",
     function () {
@@ -2049,7 +2026,6 @@ on(
         );
     }
 );
-
 on(
     "change:debate-train change:debate-miscbonus change:intmod change:quest sheet:opened",
     function () {
@@ -2071,7 +2047,6 @@ on(
         );
     }
 );
-
 on(
     "change:endurance-train change:endurance-miscbonus change:conmod change:quest sheet:opened",
     function () {
@@ -2093,7 +2068,6 @@ on(
         );
     }
 );
-
 on(
     "change:handleanimal-train change:handleanimal-miscbonus change:wismod change:quest sheet:opened",
     function () {
@@ -2115,7 +2089,6 @@ on(
         );
     }
 );
-
 on(
     "change:impress-train change:impress-miscbonus change:chamod change:quest sheet:opened sheet:opened",
     function () {
@@ -2137,7 +2110,6 @@ on(
         );
     }
 );
-
 on(
     "change:insight-train change:insight-miscbonus change:wismod change:quest sheet:opened",
     function () {
@@ -2159,7 +2131,6 @@ on(
         );
     }
 );
-
 on(
     "change:medicine-train change:medicine-miscbonus change:wismod change:quest sheet:opened",
     function () {
@@ -2181,7 +2152,6 @@ on(
         );
     }
 );
-
 on(
     "change:perception-train change:perception-miscbonus change:wismod change:quest sheet:opened",
     function () {
@@ -2203,7 +2173,6 @@ on(
         );
     }
 );
-
 on(
     "change:repair-train change:repair-miscbonus change:intmod change:quest sheet:opened",
     function () {
@@ -2225,7 +2194,6 @@ on(
         );
     }
 );
-
 on(
     "change:research-train change:research-miscbonus change:intmod change:quest sheet:opened",
     function () {
@@ -2247,7 +2215,6 @@ on(
         );
     }
 );
-
 on(
     "change:sleightofhand-train change:sleightofhand-miscbonus change:dexmod change:quest sheet:opened",
     function () {
@@ -2274,7 +2241,6 @@ on(
         );
     }
 );
-
 on(
     "change:stealth-train change:stealth-miscbonus change:dexmod change:quest sheet:opened",
     function () {
@@ -2296,7 +2262,6 @@ on(
         );
     }
 );
-
 on(
     "change:socialize-train change:socialize-miscbonus change:chamod change:quest sheet:opened",
     function () {
@@ -2318,7 +2283,6 @@ on(
         );
     }
 );
-
 on(
     "change:survival-train change:survival-miscbonus change:wismod change:quest sheet:opened",
     function () {
@@ -2340,7 +2304,6 @@ on(
         );
     }
 );
-
 on("change:acrobatics-train sheet:opened", function () {
     getAttrs(["Acrobatics-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2361,7 +2324,6 @@ on("change:acrobatics-train sheet:opened", function () {
         });
     });
 });
-
 on("change:appeal-train sheet:opened", function () {
     getAttrs(["Appeal-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2382,7 +2344,6 @@ on("change:appeal-train sheet:opened", function () {
         });
     });
 });
-
 on("change:arcana-train sheet:opened", function () {
     getAttrs(["Arcana-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2403,7 +2364,6 @@ on("change:arcana-train sheet:opened", function () {
         });
     });
 });
-
 on("change:athletics-train sheet:opened", function () {
     getAttrs(["Athletics-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2424,7 +2384,6 @@ on("change:athletics-train sheet:opened", function () {
         });
     });
 });
-
 on("change:debate-train sheet:opened", function () {
     getAttrs(["Debate-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2445,7 +2404,6 @@ on("change:debate-train sheet:opened", function () {
         });
     });
 });
-
 on("change:endurance-train sheet:opened", function () {
     getAttrs(["Endurance-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2466,7 +2424,6 @@ on("change:endurance-train sheet:opened", function () {
         });
     });
 });
-
 on("change:handleanimal-train sheet:opened", function () {
     getAttrs(["HandleAnimal-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2487,7 +2444,6 @@ on("change:handleanimal-train sheet:opened", function () {
         });
     });
 });
-
 on("change:impress-train sheet:opened", function () {
     getAttrs(["Impress-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2508,7 +2464,6 @@ on("change:impress-train sheet:opened", function () {
         });
     });
 });
-
 on("change:insight-train sheet:opened", function () {
     getAttrs(["Insight-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2529,7 +2484,6 @@ on("change:insight-train sheet:opened", function () {
         });
     });
 });
-
 on("change:medicine-train sheet:opened", function () {
     getAttrs(["Medicine-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2550,7 +2504,6 @@ on("change:medicine-train sheet:opened", function () {
         });
     });
 });
-
 on("change:perception-train sheet:opened", function () {
     getAttrs(["Perception-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2571,7 +2524,6 @@ on("change:perception-train sheet:opened", function () {
         });
     });
 });
-
 on("change:repair-train sheet:opened", function () {
     getAttrs(["Repair-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2592,7 +2544,6 @@ on("change:repair-train sheet:opened", function () {
         });
     });
 });
-
 on("change:research-train sheet:opened", function () {
     getAttrs(["Research-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2613,7 +2564,6 @@ on("change:research-train sheet:opened", function () {
         });
     });
 });
-
 on("change:sleightofhand-train sheet:opened", function () {
     getAttrs(["SleightofHand-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2634,7 +2584,6 @@ on("change:sleightofhand-train sheet:opened", function () {
         });
     });
 });
-
 on("change:stealth-train sheet:opened", function () {
     getAttrs(["Stealth-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2655,7 +2604,6 @@ on("change:stealth-train sheet:opened", function () {
         });
     });
 });
-
 on("change:socialize-train sheet:opened", function () {
     getAttrs(["Socialize-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2676,7 +2624,6 @@ on("change:socialize-train sheet:opened", function () {
         });
     });
 });
-
 on("change:survival-train sheet:opened", function () {
     getAttrs(["Survival-Train"], function (values) {
         var finalattr = "Untrained";
@@ -2697,7 +2644,6 @@ on("change:survival-train sheet:opened", function () {
         });
     });
 });
-
 on("change:repeating_onpersonitems:onpersonitem-quantity change:repeating_onpersonitems:onpersonitem-space", function () {
     getSectionIDs("onpersonitems", function(idarray) {
         var totalSpace = 0;
@@ -2718,5 +2664,4 @@ on("change:repeating_onpersonitems:onpersonitem-quantity change:repeating_onpers
             })
         });
      });
-});
-</script>
+});</script>

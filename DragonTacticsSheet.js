@@ -153,18 +153,18 @@ on("change:wismod change:chamod change:quest change:will-misc", function () {
     });
 });
 
-on("change:strikerdice", function () {
-    getAttrs(["strikerdice"], function (values) {
-        var numdice = parseInt(values.strikerdice);
+on("change:bonusdice-entry", function () {
+    getAttrs(["bonusdice-entry"], function (values) {
+        var numdice = parseInt(values["bonusdice-entry"]);
         var size = 4;
         if (numdice < 10) {
-            size = parseInt(values.strikerdice.substring(2));
+            size = parseInt(values["bonusdice-entry"].substring(2));
         } else {
-            size = parseInt(values.strikerdice.substring(3));
+            size = parseInt(values["bonusdice-entry"].substring(3));
         }
         var finalattr = numdice * size;
         setAttrs({
-            strikercrit: finalattr
+            'bonusdice-crit': finalattr
         });
     });
 });
