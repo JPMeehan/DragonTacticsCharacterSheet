@@ -266,16 +266,18 @@ on(
 );
 
 on(
-    "change:repeating_standard:standard-miscdamage change:repeating_standard:standard-abimod change:repeating_standard:standard-display",
+    "change:repeating_standard:standard-miscdamage change:repeating_standard:standard-abidamage change:repeating_standard:standard-abimod change:repeating_standard:standard-display",
     function () {
         getAttrs(
             [
                 "repeating_Standard_Standard-miscdamage",
+                "repeating_Standard_Standard-abidamage",
                 "repeating_Standard_Standard-abimod",
                 "Quest"
             ],
             function (values) {
                 var finalattr =
+                    parseInt(values["repeating_Standard_Standard-abidamage"]) *
                     parseInt(values["repeating_Standard_Standard-abimod"]) +
                     parseInt(values["Quest"]) +
                     parseInt(values["repeating_Standard_Standard-miscdamage"]);
@@ -405,16 +407,18 @@ on(
 );
 
 on(
-    "change:repeating_move:move-miscdamage change:repeating_move:move-abimod change:repeating_move:move-display",
+    "change:repeating_move:move-miscdamage change:repeating_move:move-abidamage change:repeating_move:move-abimod change:repeating_move:move-display",
     function () {
         getAttrs(
             [
                 "repeating_Move_Move-miscdamage",
+                "repeating_Move_Move-abidamage",
                 "repeating_Move_Move-abimod",
                 "Quest"
             ],
             function (values) {
                 var finalattr =
+                    parseInt(values["repeating_Move_Move-abidamage"]) *
                     parseInt(values["repeating_Move_Move-abimod"]) +
                     parseInt(values["Quest"]) +
                     parseInt(values["repeating_Move_Move-miscdamage"]);
@@ -544,16 +548,18 @@ on(
 );
 
 on(
-    "change:repeating_minor:minor-miscdamage change:repeating_minor:minor-abimod change:repeating_minor:minor-display",
+    "change:repeating_minor:minor-miscdamage change:repeating_minor:minor-abidamage change:repeating_minor:minor-abimod change:repeating_minor:minor-display",
     function () {
         getAttrs(
             [
                 "repeating_Minor_Minor-miscdamage",
+                "repeating_Minor_Minor-abidamage",
                 "repeating_Minor_Minor-abimod",
                 "Quest"
             ],
             function (values) {
                 var finalattr =
+                    parseInt(values["repeating_Minor_Minor-abidamage"]) *
                     parseInt(values["repeating_Minor_Minor-abimod"]) +
                     parseInt(values["Quest"]) +
                     parseInt(values["repeating_Minor_Minor-miscdamage"]);
@@ -687,16 +693,18 @@ on(
 );
 
 on(
-    "change:repeating_reaction:reaction-miscdamage change:repeating_reaction:reaction-abimod change:repeating_reaction:reaction-display",
+    "change:repeating_reaction:reaction-miscdamage change:repeating_reaction:reaction-abidamage change:repeating_reaction:reaction-abimod change:repeating_reaction:reaction-display",
     function () {
         getAttrs(
             [
                 "repeating_Reaction_Reaction-miscdamage",
+                "repeating_Reaction_Reaction-abidamage",
                 "repeating_Reaction_Reaction-abimod",
                 "Quest"
             ],
             function (values) {
                 var finalattr =
+                    parseInt(values["repeating_Reaction_Reaction-abidamage"]) *
                     parseInt(values["repeating_Reaction_Reaction-abimod"]) +
                     parseInt(values["Quest"]) +
                     parseInt(values["repeating_Reaction_Reaction-miscdamage"]);
