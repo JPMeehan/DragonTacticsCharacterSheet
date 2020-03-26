@@ -171,7 +171,7 @@ on("change:bonusdice-entry", function () {
 
 on("change:repeating_standard:standard-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-Attack";
+    var attack = accessory + "-prof";
     var damage = accessory + "-Damage";
     var brutal = accessory + "-Brutal";
     var brutN = accessory + "-BrutN";
@@ -316,7 +316,7 @@ on("change:repeating_standard:standard-damagedice", function () {
 
 on("change:repeating_move:move-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-Attack";
+    var attack = accessory + "-prof";
     var damage = accessory + "-Damage";
     var brutal = accessory + "-Brutal";
     var brutN = accessory + "-BrutN";
@@ -453,7 +453,7 @@ on("change:repeating_move:move-damagedice", function () {
 
 on("change:repeating_minor:minor-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-Attack";
+    var attack = accessory + "-prof";
     var damage = accessory + "-Damage";
     var brutal = accessory + "-Brutal";
     var brutN = accessory + "-BrutN";
@@ -592,7 +592,7 @@ on("change:repeating_minor:minor-damagedice", function () {
 
 on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-Attack";
+    var attack = accessory + "-prof";
     var damage = accessory + "-Damage";
     var brutal = accessory + "-Brutal";
     var brutN = accessory + "-BrutN";
