@@ -168,6 +168,7 @@ textarea {
     width: 97%;
     resize: vertical;
     margin-right: 0;
+    margin-bottom: 0;
     height: 3.5em;
     min-height: 1em;
 }

@@ -1023,7 +1023,7 @@
                 </div>
                 <div class="weapon-right">
                     <button type="roll" class="weaponbd"
-                        value="&{template:damage} {{name=@{wep1-Name}}} {{damage=[[@{wep1-DamageRoll}]]}} {{dmgcrit=[[@{wep1-critdmg}]]}} {{dmgtype=@{wep1-Group}}}">Damage</button>
+                        value="&{template:damage} {{name=@{wep1-Name}}} {{damage=[[@{wep1-DamageRoll}]]}} {{dmgcrit=[[@{wep1-critdmg}]]}} {{dmgtype=@{wep1-Group}}}"> Damage</button>
                     <select name="attr_wep1-Damage" class="wepDamSelect">
                         <option value="1d4">1d4 </option>
                         <option value="1d6">1d6 </option>
@@ -1060,7 +1060,7 @@
                         <option value="2d6">2d6 </option>
                     </select>
                 </div>
-                <textarea
+                <textarea name="attr_wep1-description"
                     placeholder="Use the versatile damage when wielding with two hands; for powers create a copy with the versatile damage, or edit on the fly"></textarea>
             </div>
         </div>
@@ -1104,7 +1104,7 @@
                 </div>
                 <div class="weapon-right">
                     <button type="roll" class="weaponbd"
-                        value="&{template:damage} {{name=@{wep2-Name}}} {{damage=[[@{wep2-DamageRoll}]]}} {{dmgcrit=[[@{wep2-critdmg}]]}} {{dmgtype=@{wep2-Group}}}">Damage</button>
+                        value="&{template:damage} {{name=@{wep2-Name}}} {{damage=[[@{wep2-DamageRoll}]]}} {{dmgcrit=[[@{wep2-critdmg}]]}} {{dmgtype=@{wep2-Group}}}"> Damage</button>
                     <select name="attr_wep2-Damage" class="wepDamSelect">
                         <option value="1d4" selected>1d4 </option>
                         <option value="1d6">1d6 </option>
@@ -1140,7 +1140,7 @@
                         <option value="2d6">2d6 </option>
                     </select>
                 </div>
-                <textarea placeholder="Light Thrown, Off-Hand"></textarea>
+                <textarea placeholder="Light Thrown, Off-Hand"  name="attr_wep2-description"></textarea>
             </div>
         </div>
         <div class="weapon">
@@ -1183,7 +1183,7 @@
                 </div>
                 <div class="weapon-right">
                     <button type="roll" class="weaponbd"
-                        value="&{template:damage} {{name=@{wep3-Name}}} {{damage=[[@{wep3-DamageRoll}]]}} {{dmgcrit=[[@{wep3-critdmg}]]}} {{dmgtype=@{wep3-Group}}}">Damage</button>
+                        value="&{template:damage} {{name=@{wep3-Name}}} {{damage=[[@{wep3-DamageRoll}]]}} {{dmgcrit=[[@{wep3-critdmg}]]}} {{dmgtype=@{wep3-Group}}}"> Damage</button>
                     <select name="attr_wep3-Damage" class="wepDamSelect">
                         <option value="1d4">1d4 </option>
                         <option value="1d6">1d6 </option>
@@ -1219,7 +1219,7 @@
                         <option value="2d6">2d6 </option>
                     </select>
                 </div>
-                <textarea placeholder="Load Minor"></textarea>
+                <textarea placeholder="Load Minor" name="attr_wep3-description"></textarea>
             </div>
         </div>
         <div class="implement">
@@ -1230,6 +1230,7 @@
                 <label class="small"><input type="number" name="attr_imp1-prof" value="0" /> Attack
                     Bonus</label>
                 <input type="hidden" name="attr_imp1-Damage" value="1d8" />
+                <textarea name="attr_imp1-Description" placeholder="Description"></textarea>
             </div>
         </div>
         <div class="implement">
@@ -1240,23 +1241,28 @@
                 <label class="small"><input type="number" name="attr_imp2-prof" value="0" /> Attack
                     Bonus</label>
                 <input type="hidden" name="attr_imp2-Damage" value="1d8" />
+                <textarea name="attr_imp1-Description" placeholder="Description"></textarea>
             </div>
         </div>
         <div class="armor">
             <h3>Armor</h3>
             <input type="text" name="attr_ArmorItem-Name" value="Cloth" class="item" placeholder="Studded Leather" />
-            <label class="small AttSelect-AC"><select name="attr_AC-Att">
-                    <option value="0" selected>None (Heavy Armor)</option>
-                    <option value="1">Strength</option>
-                    <option value="2">Constitution</option>
-                    <option value="3">Dexterity</option>
-                    <option value="4">Intelligence</option>
-                    <option value="5">Wisdom</option>
-                    <option value="6">Charisma</option>
-                </select>
-                Attribute</label>
-            <label title="Armor Bonus">
-                Armor Bonus <input type="number" name="attr_AC-Armor" value="0" /></label>
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="small AttSelect-AC"><select name="attr_AC-Att">
+                        <option value="0" selected>None (Heavy Armor)</option>
+                        <option value="1">Strength</option>
+                        <option value="2">Constitution</option>
+                        <option value="3">Dexterity</option>
+                        <option value="4">Intelligence</option>
+                        <option value="5">Wisdom</option>
+                        <option value="6">Charisma</option>
+                    </select>
+                    Attribute</label>
+                <label title="Armor Bonus">
+                    Armor Bonus <input type="number" name="attr_AC-Armor" value="0" /></label>
+                <textarea name="attr_ArmorItem-Description" placeholder="Tough, -1 Armor Check Penalty"></textarea>
+            </div>
         </div>
         <div class="otherwornequipment">
             <h3>Other Equipment</h3>
