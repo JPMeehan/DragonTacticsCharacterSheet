@@ -8,10 +8,11 @@
         <h2>Basic Info</h2>
         <input type="text" name="attr_Gender" placeholder="Gender" class="gender" />
         <input type="text" name="attr_Race" placeholder="Race" class="race" />
-        <input type="checkbox" class="arrow" />
+        <input type="checkbox" class="arrow" title="More qualities" />
         <div class="body">
             <input type="text" name="attr_Height" placeholder="Height" class="bio" />
             <input type="text" name="attr_Weight" placeholder="Weight" class="bio" />
+            <textarea placeholder="Character Description"></textarea>
         </div>
         <input type="text" name="attr_Class" placeholder="Class" /> <input type="number" name="attr_level" value="1"
             min="1" max="30" />
@@ -532,7 +533,7 @@
                 value="&{template:damage} {{name=Bonus Dice}} {{damage=[[@{bonusdice-entry}]]}} {{dmgcrit=[[@{bonusdice-crit}]]}}">
                 Bonus Dice
             </button>
-            <input type="text" name="attr_bonusdice-entry"  placeholder="1d8" />
+            <input type="text" name="attr_bonusdice-entry" placeholder="1d8" />
             <input type="hidden" value="0" name="attr_bonusdice-crit" />
         </div>
         <div class="powerpoints right">
@@ -564,12 +565,11 @@
                     Range and Targets
                     <input type="text" name="attr_Standard-RangeTargets" placeholder="Melee One Creature" />
                 </label>
-                <label title="Power Text">
-                    <button type="roll" class="combatroll" name="roll_Standard-TextOut"
-                        value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">Power
-                        Text</button>
-                    <textarea name="attr_Standard-Power-Text" placeholder="Effect: Create a zone"></textarea>
-                </label>
+                <button type="roll" class="combatroll" name="roll_Standard-TextOut"
+                    value="&{template:powertext} {{name=@{Standard-Name}}} {{powertext=@{Standard-Power-Text}}}">
+                    Power Text
+                </button>
+                <textarea name="attr_Standard-Power-Text" placeholder="Effect: Create a zone"></textarea>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Standard-HitBonus" value="+0" />
                     <button type="roll" class="combatroll" name="roll_Standard-Attack"
@@ -600,7 +600,7 @@
                     </select>
                     <br />
                     <select class="AttSelect" name="attr_Standard-Ability">
-                        <option value="strmod">Strength</option>
+                        <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
                         <option value="dexmod">Dexterity</option>
                         <option value="intmod">Intelligence</option>
@@ -634,7 +634,7 @@
                     </label>
                     <label title="For basic attacks that don't add the ability modifier to the damage roll">
                         Abi mod to damage
-                        <input type="checkbox" name="attr_Standard-abidamage" checked value=1/>
+                        <input type="checkbox" name="attr_Standard-abidamage" checked value=1 />
                     </label>
                     <input type="hidden" value="0" name="attr_Standard-HitBonus-accessory" />
                     <input type="hidden" value="0" name="attr_Standard-abimod" />
@@ -662,12 +662,11 @@
                     Range and Targets
                     <input type="text" name="attr_Move-RangeTargets" placeholder="Personal" />
                 </label>
-                <label title="Power Text">
-                    <button type="roll" class="combatroll" name="roll_Move-TextOut"
-                        value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">Power
-                        Text</button>
-                    <textarea name="attr_Move-Power-Text" placeholder="Effect: Shift your speed"></textarea>
-                </label>
+                <button type="roll" class="combatroll" name="roll_Move-TextOut"
+                    value="&{template:powertext} {{name=@{Move-Name}}} {{powertext=@{Move-Power-Text}}}">
+                    Power Text
+                </button>
+                <textarea name="attr_Move-Power-Text" placeholder="Effect: Shift your speed"></textarea>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Move-HitBonus" value="+0" />
                     <button type="roll" class="combatroll" name="roll_Move-Attack"
@@ -680,8 +679,8 @@
                     <input type="hidden" name="attr_Move-flatdamage" />
                     <button type="roll" class="combatroll" name="roll_Move-Damage"
                         value="&{template:damage} {{name=@{Move-Name}}} {{damage=[[@{Move-damagedice} @{Move-flatdamage}]]}} {{dmgcrit=[[@{Move-critdice} + @{Move-critflat} @{Move-flatdamage}]]}} {{dmgtype=@{Move-damagetype}}}"><span
-                            name="attr_Move-damagedice" value="1d4">1d4</span><span value="0" name="attr_Move-flatdamage"
-                            value="\+0">+0</span>
+                            name="attr_Move-damagedice" value="1d4">1d4</span><span value="0"
+                            name="attr_Move-flatdamage" value="\+0">+0</span>
                         <span name="attr_Move-damagetype" value="Fire">Fire</span>
                         damage</button>
                 </div>
@@ -698,7 +697,7 @@
                     </select>
                     <br />
                     <select class="AttSelect" name="attr_Move-Ability">
-                        <option value="strmod">Strength</option>
+                        <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
                         <option value="dexmod">Dexterity</option>
                         <option value="intmod">Intelligence</option>
@@ -732,7 +731,7 @@
                     </label>
                     <label title="For basic attacks that don't add the ability modifier to the damage roll">
                         Abi mod to damage
-                        <input type="checkbox" name="attr_Move-abidamage" checked value=1/>
+                        <input type="checkbox" name="attr_Move-abidamage" checked value=1 />
                     </label>
                     <input type="hidden" value="0" name="attr_Move-HitBonus-accessory" />
                     <input type="hidden" value="0" name="attr_Move-abimod" />
@@ -760,12 +759,11 @@
                     Range and Targets
                     <input type="text" name="attr_Minor-RangeTargets" placeholder="Ranged Sight One Creature" />
                 </label>
-                <label title="Power Text">
-                    <button type="roll" class="combatroll" name="roll_Minor-TextOut"
-                        value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">Power
-                        Text</button>
-                    <textarea name="attr_Minor-Power-Text" placeholder="Mark the target"></textarea>
-                </label>
+                <button type="roll" class="combatroll" name="roll_Minor-TextOut"
+                    value="&{template:powertext} {{name=@{Minor-Name}}} {{powertext=@{Minor-Power-Text}}}">
+                    Power Text
+                </button>
+                <textarea name="attr_Minor-Power-Text" placeholder="Mark the target"></textarea>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Minor-HitBonus" value="+0" />
                     <button type="roll" class="combatroll" name="roll_Minor-Attack"
@@ -778,8 +776,8 @@
                     <input type="hidden" name="attr_Minor-flatdamage" />
                     <button type="roll" class="combatroll" name="roll_Minor-Damage"
                         value="&{template:damage} {{name=@{Minor-Name}}} {{damage=[[@{Minor-damagedice} @{Minor-flatdamage}]]}} {{dmgcrit=[[@{Minor-critdice} + @{Minor-critflat} @{Minor-flatdamage}]]}} {{dmgtype=@{Minor-damagetype}}}"><span
-                            name="attr_Minor-damagedice" value="1d4">1d4</span><span value="0" name="attr_Minor-flatdamage"
-                            value="\+0">+0</span>
+                            name="attr_Minor-damagedice" value="1d4">1d4</span><span value="0"
+                            name="attr_Minor-flatdamage" value="\+0">+0</span>
                         <span name="attr_Minor-damagetype" value="Fire">Fire</span>
                         damage</button>
                 </div>
@@ -796,7 +794,7 @@
                     </select>
                     <br />
                     <select class="AttSelect" name="attr_Minor-Ability">
-                        <option value="strmod">Strength</option>
+                        <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
                         <option value="dexmod">Dexterity</option>
                         <option value="intmod">Intelligence</option>
@@ -830,7 +828,7 @@
                     </label>
                     <label title="For basic attacks that don't add the ability modifier to the damage roll">
                         Abi mod to damage
-                        <input type="checkbox" name="attr_Minor-abidamage" checked value=1/>
+                        <input type="checkbox" name="attr_Minor-abidamage" checked value=1 />
                     </label>
                     <input type="hidden" value="0" name="attr_Minor-HitBonus-accessory" />
                     <input type="hidden" value="0" name="attr_Minor-abimod" />
@@ -870,12 +868,11 @@
                     Range and Targets
                     <input type="text" name="attr_Reaction-RangeTargets" placeholder="The Triggering Enemy" />
                 </label>
-                <label title="Power Text">
-                    <button type="roll" class="combatroll" name="roll_Reaction-TextOut"
-                        value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">Power
-                        Text</button>
-                    <textarea name="attr_Reaction-Power-Text" placeholder="You gain resistance"></textarea>
-                </label>
+                <button type="roll" class="combatroll" name="roll_Reaction-TextOut"
+                    value="&{template:powertext} {{name=@{Reaction-Name}}} {{powertext=@{Reaction-Power-Text}}}">
+                    Power Text
+                </button>
+                <textarea name="attr_Reaction-Power-Text" placeholder="You gain resistance"></textarea>
                 <div class="AttackRoll">
                     <input type="hidden" name="attr_Reaction-HitBonus" value="+0" />
                     <button type="roll" class="combatroll" name="roll_Reaction-Attack"
@@ -906,7 +903,7 @@
                     </select>
                     <br />
                     <select class="AttSelect" name="attr_Reaction-Ability">
-                        <option value="strmod">Strength</option>
+                        <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
                         <option value="dexmod">Dexterity</option>
                         <option value="intmod">Intelligence</option>
@@ -940,7 +937,7 @@
                     </label>
                     <label title="For basic attacks that don't add the ability modifier to the damage roll">
                         Abi mod to damage
-                        <input type="checkbox" name="attr_Reaction-abidamage" checked value=1/>
+                        <input type="checkbox" name="attr_Reaction-abidamage" checked value=1 />
                     </label>
                     <input type="hidden" value="0" name="attr_Reaction-HitBonus-accessory" />
                     <input type="hidden" value="0" name="attr_Reaction-abimod" />
@@ -985,11 +982,11 @@
         </fieldset>
     </div>
     <div class="worn section">
-        <h2>Worn Equipment</h2>        
+        <h2>Worn Equipment</h2>
         <div class="weapon">
             <h3>Weapon 1</h3>
             <input type="text" name="attr_wep1-Name" class="item" placeholder="Longsword" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <div class="weapon-left">
                     <button type="roll" class="weaponba"
@@ -997,73 +994,119 @@
                         name="roll_wep1-basic">
                         Basic Attack
                     </button>
-                    <input type="text" name="attr_wep1-Range" placeholder="Melee 5'" class="weaponrange"/>
+                    <input type="text" name="attr_wep1-Range" placeholder="Melee 5'" class="weaponrange" />
                     <select class="AttSelect" name="attr_wep1-Ability">
-                        <option value="strmod">Strength</option>
+                        <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
                         <option value="dexmod">Dexterity</option>
                         <option value="intmod">Intelligence</option>
                         <option value="wismod">Wisdom</option>
                         <option value="chamod">Charisma</option>
                     </select>
-                    <input type="hidden" name="attr_wep1-HitBonus" value="+0"/>
-                    <label class="small proficiency">Prof.
-                        <input type="number" name="attr_wep1-prof" value="2" /></label>
+                    <input type="hidden" name="attr_wep1-HitBonus" value="+0" />
+                    <label class="small proficiency">Proficiency
+                        <input type="number" name="attr_wep1-prof" value="2" min=0 max=9 /></label>
                     <select class="weapon" name="attr_wep1-Group">
-                        <option value="slashing">Axe</option>
-                        <option value="piercing">Bow</option>
-                        <option value="piercing">Crossbow</option>
-                        <option value="piercing">Flail</option>
-                        <option value="bludgeoning">Hammer</option>
-                        <option value="slashing">Heavy Blade</option>
-                        <option value="piercing">Light Blade</option>
-                        <option value="bludgeoning">Mace</option>
-                        <option value="piercing">Pick</option>
-                        <option value="bludgeoning">Sling</option>
-                        <option value="piercing">Spear</option>
-                        <option value="bludgeoning">Staff</option>
+                        <option value="Slashing">Axe</option>
+                        <option value="Piercing">Bow</option>
+                        <option value="Piercing">Crossbow</option>
+                        <option value="Piercing">Flail</option>
+                        <option value="Bludgeoning">Hammer</option>
+                        <option value="Slashing" selected>Heavy Blade</option>
+                        <option value="Piercing">Light Blade</option>
+                        <option value="Bludgeoning">Mace</option>
+                        <option value="Piercing">Pick</option>
+                        <option value="Bludgeoning">Sling</option>
+                        <option value="Piercing">Spear</option>
+                        <option value="Bludgeoning">Staff</option>
                     </select>
                 </div>
                 <div class="weapon-right">
                     <button type="roll" class="weaponbd"
-                        value="&{template:damage} {{name=@{wep1-Name}}} {{damage=@{wep1-Damage} @{wep1-DamageBonus}}} {{dmgcrit=wep1-critdmg}} {{dmgtype=wep1-Group}}"></button>
-                    <label class="small damage"> Dmg
-                        <select name="attr_wep1-Damage" class="wepDamSelect">
-                            <option value="1d4">1d4 </option>
-                            <option value="1d6">1d6 </option>
-                            <option value="1d8">1d8 </option>
-                            <option value="1d10">1d10</option>
-                            <option value="1d12">1d12</option>
-                            <option value="2d4">2d4 </option>
-                            <option value="2d6">2d6 </option>
-                        </select>
-                    </label>
-                    <input type="hidden" name="attr_wep1-DamageBonus"/>
+                        value="&{template:damage} {{name=@{wep1-Name}}} {{damage=[[@{wep1-DamageRoll}]]}} {{dmgcrit=[[@{wep1-critdmg}]]}} {{dmgtype=@{wep1-Group}}}">Damage</button>
+                    <select name="attr_wep1-Damage" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8" selected>1d8 </option>
+                        <option value="1d10">1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select>
+                    <input type="hidden" name="attr_wep1-DamageRoll" value="1d8+0" />
                     <div class="brutal">
                         <label class="small brutal">
                             <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
                         </label>
                         <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
-                        <label class="small hicrit">High Crit
-                            <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
-                        </label>
-                        <input type="hidden" name="attr_wep1-critdmg"/>
-                    </div>
 
+                    </div>
+                    <label class="small hicrit">
+                        <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
+                        High Crit
+                    </label>
+                    <input type="hidden" name="attr_wep1-critdmg" value="8" />
+                    <label class="small versatile">
+                        <input type="checkbox" name="attr_wep1-Versatile" />
+                        Versatile
+                    </label>
+                    <select name="attr_wep1-Damage-versatile" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8">1d8 </option>
+                        <option value="1d10" selected>1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select>
                 </div>
-                <textarea placeholder="Description"></textarea>
+                <textarea
+                    placeholder="Use the versatile damage when wielding with two hands; for powers create a copy with the versatile damage, or edit on the fly"></textarea>
             </div>
         </div>
         <div class="weapon">
             <h3>Weapon 2</h3>
             <input type="text" name="attr_wep2-Name" class="item" placeholder="Dagger" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
-                <label class="small proficiency">Prof.
-                    <input type="number" name="attr_wep2-prof" value="2" /></label>
-                <label class="small damage"> Dmg
+                <div class="weapon-left">
+                    <button type="roll" class="weaponba"
+                        value="&{template:attack} {{name=@{wep2-Name}}} {{RangeTargets=@{wep2-Range}}} {{attack=[[1d20 @{wep2-HitBonus}]]}} {{attackadv=[[1d20 @{wep2-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=AC}}"
+                        name="roll_wep2-basic">
+                        Basic Attack
+                    </button>
+                    <input type="text" name="attr_wep2-Range" placeholder="Thrown 25'/50'" class="weaponrange" />
+                    <select class="AttSelect" name="attr_wep2-Ability">
+                        <option value="strmod">Strength</option>
+                        <option value="conmod" selected>Constitution</option>
+                        <option value="dexmod">Dexterity</option>
+                        <option value="intmod">Intelligence</option>
+                        <option value="wismod">Wisdom</option>
+                        <option value="chamod">Charisma</option>
+                    </select>
+                    <input type="hidden" name="attr_wep2-HitBonus" value="+0" />
+                    <label class="small proficiency">Proficiency
+                        <input type="number" name="attr_wep2-prof" value="3" min=0 max=9 /></label>
+                    <select class="weapon" name="attr_wep2-Group">
+                        <option value="Slashing">Axe</option>
+                        <option value="Piercing">Bow</option>
+                        <option value="Piercing">Crossbow</option>
+                        <option value="Piercing">Flail</option>
+                        <option value="Bludgeoning">Hammer</option>
+                        <option value="Slashing">Heavy Blade</option>
+                        <option value="Piercing" selected>Light Blade</option>
+                        <option value="Bludgeoning">Mace</option>
+                        <option value="Piercing">Pick</option>
+                        <option value="Bludgeoning">Sling</option>
+                        <option value="Piercing">Spear</option>
+                        <option value="Bludgeoning">Staff</option>
+                    </select>
+                </div>
+                <div class="weapon-right">
+                    <button type="roll" class="weaponbd"
+                        value="&{template:damage} {{name=@{wep2-Name}}} {{damage=[[@{wep2-DamageRoll}]]}} {{dmgcrit=[[@{wep2-critdmg}]]}} {{dmgtype=@{wep2-Group}}}">Damage</button>
                     <select name="attr_wep2-Damage" class="wepDamSelect">
-                        <option value="1d4">1d4 </option>
+                        <option value="1d4" selected>1d4 </option>
                         <option value="1d6">1d6 </option>
                         <option value="1d8">1d8 </option>
                         <option value="1d10">1d10</option>
@@ -1071,51 +1114,118 @@
                         <option value="2d4">2d4 </option>
                         <option value="2d6">2d6 </option>
                     </select>
-                </label>
-                <div class="brutal">
-                    <label class="small brutal">
-                        <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
-                    </label>
-                    <input type="number" name="attr_wep2-BrutN" min="1" max="2" value="1" />
-                    <label class="small hicrit">High Crit
+                    <input type="hidden" name="attr_wep2-DamageRoll" value="1d8+0" />
+                    <div class="brutal">
+                        <label class="small brutal">
+                            <input type="checkbox" name="attr_wep2-Brutal" value="r<" /> Brutal
+                        </label>
+                        <input type="number" name="attr_wep2-BrutN" min="1" max="2" value="1" />
+                    </div>
+                    <label class="small hicrit">
                         <input type="checkbox" name="attr_wep2-HighCrit" value="true" />
+                        High Crit
                     </label>
+                    <input type="hidden" name="attr_wep2-critdmg" value="8" />
+                    <label class="small versatile">
+                        <input type="checkbox" name="attr_wep2-Versatile" />
+                        Versatile
+                    </label>
+                    <select name="attr_wep2-Damage-versatile" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8">1d8 </option>
+                        <option value="1d10" selected>1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select>
                 </div>
+                <textarea placeholder="Light Thrown, Off-Hand"></textarea>
             </div>
         </div>
         <div class="weapon">
             <h3>Weapon 3</h3>
             <input type="text" name="attr_wep3-Name" class="item" placeholder="Crossbow" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
-                <label class="small proficiency">Prof.
-                    <input type="number" name="attr_wep3-prof" value="2" /></label>
-                <label class="small damage"> Dmg
+                <div class="weapon-left">
+                    <button type="roll" class="weaponba"
+                        value="&{template:attack} {{name=@{wep3-Name}}} {{RangeTargets=@{wep3-Range}}} {{attack=[[1d20 @{wep3-HitBonus}]]}} {{attackadv=[[1d20 @{wep3-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=AC}}"
+                        name="roll_wep3-basic">
+                        Basic Attack
+                    </button>
+                    <input type="text" name="attr_wep3-Range" placeholder="Ranged 100'/200'" class="weaponrange" />
+                    <select class="AttSelect" name="attr_wep3-Ability">
+                        <option value="strmod">Strength</option>
+                        <option value="conmod">Constitution</option>
+                        <option value="dexmod" selected>Dexterity</option>
+                        <option value="intmod">Intelligence</option>
+                        <option value="wismod">Wisdom</option>
+                        <option value="chamod">Charisma</option>
+                    </select>
+                    <input type="hidden" name="attr_wep3-HitBonus" value="+0" />
+                    <label class="small proficiency">Proficiency
+                        <input type="number" name="attr_wep3-prof" value="2" min=0 max=9 /></label>
+                    <select class="weapon" name="attr_wep3-Group">
+                        <option value="Slashing">Axe</option>
+                        <option value="Piercing">Bow</option>
+                        <option value="Piercing" selected>Crossbow</option>
+                        <option value="Piercing">Flail</option>
+                        <option value="Bludgeoning">Hammer</option>
+                        <option value="Slashing">Heavy Blade</option>
+                        <option value="Piercing">Light Blade</option>
+                        <option value="Bludgeoning">Mace</option>
+                        <option value="Piercing">Pick</option>
+                        <option value="Bludgeoning">Sling</option>
+                        <option value="Piercing">Spear</option>
+                        <option value="Bludgeoning">Staff</option>
+                    </select>
+                </div>
+                <div class="weapon-right">
+                    <button type="roll" class="weaponbd"
+                        value="&{template:damage} {{name=@{wep3-Name}}} {{damage=[[@{wep3-DamageRoll}]]}} {{dmgcrit=[[@{wep3-critdmg}]]}} {{dmgtype=@{wep3-Group}}}">Damage</button>
                     <select name="attr_wep3-Damage" class="wepDamSelect">
                         <option value="1d4">1d4 </option>
                         <option value="1d6">1d6 </option>
-                        <option value="1d8">1d8 </option>
+                        <option value="1d8" selected>1d8 </option>
                         <option value="1d10">1d10</option>
                         <option value="1d12">1d12</option>
                         <option value="2d4">2d4 </option>
                         <option value="2d6">2d6 </option>
                     </select>
-                </label>
-                <div class="brutal">
-                    <label class="small brutal">
-                        <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
-                    </label>
-                    <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
-                    <label class="small hicrit">High Crit
+                    <input type="hidden" name="attr_wep3-DamageRoll" value="1d8+0" />
+                    <div class="brutal">
+                        <label class="small brutal">
+                            <input type="checkbox" name="attr_wep3-Brutal" value="r<" /> Brutal
+                        </label>
+                        <input type="number" name="attr_wep3-BrutN" min="1" max="2" value="1" />
+                    </div>
+                    <label class="small hicrit">
                         <input type="checkbox" name="attr_wep3-HighCrit" value="true" />
+                        High Crit
                     </label>
+                    <input type="hidden" name="attr_wep3-critdmg" value="8" />
+                    <label class="small versatile">
+                        <input type="checkbox" name="attr_wep3-Versatile" />
+                        Versatile
+                    </label>
+                    <select name="attr_wep3-Damage-versatile" class="wepDamSelect">
+                        <option value="1d4">1d4 </option>
+                        <option value="1d6">1d6 </option>
+                        <option value="1d8">1d8 </option>
+                        <option value="1d10" selected>1d10</option>
+                        <option value="1d12">1d12</option>
+                        <option value="2d4">2d4 </option>
+                        <option value="2d6">2d6 </option>
+                    </select>
                 </div>
+                <textarea placeholder="Load Minor"></textarea>
             </div>
         </div>
         <div class="implement">
             <h3>Implement 1</h3>
             <input type="text" name="attr_imp1-Name" class="item" placeholder="Staff" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <label class="small"><input type="number" name="attr_imp1-prof" value="0" /> Attack
                     Bonus</label>
@@ -1125,7 +1235,7 @@
         <div class="implement">
             <h3>Implement 2</h3>
             <input type="text" name="attr_imp2-Name" class="item" placeholder="Wand" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <label class="small"><input type="number" name="attr_imp2-prof" value="0" /> Attack
                     Bonus</label>
@@ -1134,8 +1244,7 @@
         </div>
         <div class="armor">
             <h3>Armor</h3>
-            <input type="text" name="attr_ArmorItem-Name" value="Cloth" class="item"
-                    placeholder="Studded Leather" />
+            <input type="text" name="attr_ArmorItem-Name" value="Cloth" class="item" placeholder="Studded Leather" />
             <label class="small AttSelect-AC"><select name="attr_AC-Att">
                     <option value="0" selected>None (Heavy Armor)</option>
                     <option value="1">Strength</option>
@@ -1152,32 +1261,32 @@
         <div class="otherwornequipment">
             <h3>Other Equipment</h3>
             <input type="text" name="attr_HeadItem-name" placeholder="Head" class="item" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <textarea name="attr_HeadItem-description"></textarea>
             </div>
             <input type="text" name="attr_NeckItem-name" placeholder="Neck" class="item" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <textarea name="attr_NeckItem-description"></textarea>
             </div>
             <input type="text" name="attr_ArmsItem-name" placeholder="Arms" class="item" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <textarea name="attr_ArmsItem-description"></textarea>
             </div>
             <input type="text" name="attr_HandsItem-name" placeholder="Hands" class="item" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <textarea name="attr_HandsItem-description"></textarea>
             </div>
             <input type="text" name="attr_WaistItem-name" placeholder="Waist" class="item" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <textarea name="attr_WaistItem-description"></textarea>
             </div>
             <input type="text" name="attr_FeetItem-name" placeholder="Feet" class="item" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="arrow" />
             <div class="body">
                 <textarea name="attr_FeetItem-description"></textarea>
             </div>
@@ -1306,7 +1415,7 @@
 </div>
 <!-- WORKERS -->
 <script type="text/worker">
-on("sheet:opened", function () {
+    on("sheet:opened", function () {
     console.log("Sheet opened, JS is running");
 });
 

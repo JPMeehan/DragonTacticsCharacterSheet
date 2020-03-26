@@ -1,5 +1,3 @@
-
-
 /********
 
 PHB STYLING
@@ -97,7 +95,7 @@ GRID
 
 .sheet-defense {
     grid-area: defense;
-    
+
 }
 
 .sheet-effects {
@@ -143,7 +141,7 @@ DROPDOWN AREAS
  
 ********/
 
- input.sheet-arrow:not(:checked)~div.sheet-body {
+input.sheet-arrow:not(:checked)~div.sheet-body {
     display: none;
 }
 
@@ -175,25 +173,25 @@ textarea {
 }
 
 
-textarea, 
-input { 
-	outline: none;
-	box-shadow: none;
+textarea,
+input {
+    outline: none;
+    box-shadow: none;
 }
 
-textarea:not(:focus){
+textarea:not(:focus) {
     background: #faf7ea;
     font-weight: bold;
 }
 
 
 
-input[type=text]:not(:focus){
+input[type=text]:not(:focus) {
     background: #faf7ea;
     font-weight: bold;
 }
 
-input[type=number]:not(:focus){
+input[type=number]:not(:focus) {
     background: #faf7ea;
 }
 
@@ -223,7 +221,7 @@ select {
     background-color: #faf7ea;
 }
 
-label.sheet-small{
+label.sheet-small {
     display: inline;
     font-size: 1em;
     text-align: right;
@@ -320,7 +318,7 @@ input.sheet-speed {
 div.sheet-bonusdice,
 div.sheet-powerpoints {
     width: 47%;
-    display:inline-block;
+    display: inline-block;
 }
 
 div.sheet-bonusdice input[type=text] {
@@ -402,12 +400,12 @@ label.sheet-hp {
     padding: 0;
 }
 
-label.sheet-miscbonus{
+label.sheet-miscbonus {
     font-size: 1em;
     margin-bottom: 5px;
 }
 
-label.sheet-defense{
+label.sheet-defense {
     width: 80%;
     display: inline-block;
     margin: 5px 0 0;
@@ -427,62 +425,88 @@ ITEMS
 - Worn
 
 ******/
-/* 
-input.sheet-weaponrange {
-    width: 40%;
+
+
+div.sheet-weapon div.sheet-body input[type=text],
+div.sheet-weapon div.sheet-body select,
+div.sheet-weapon div.sheet-body button {
+    margin-bottom: 5px;
 }
 
-label.proficiency {
-    float: left;
-}
-
-label.damage {
-    float: left;
-} */
 
 div.sheet-weapon-left {
     width: 50%;
     float: left;
 }
 
-div.sheet-weapon-right {
-    width: 50%;
-    float: right;
+
+input.sheet-weaponrange {
+    width: 100%;
 }
 
+select.sheet-weapon {
+    width: 100%;
+}
+
+label.sheet-versatile {
+    text-align: left;
+}
+
+label.sheet-proficiency,
+label.sheet-versatile {
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+label.sheet-proficiency input[type=number] {
+    width: 2.5em;
+}
+
+
+div.sheet-weapon-right {
+    width: 45%;
+    float: right;
+    text-align: left;
+}
+
+
+.sheet-wepDamSelect {
+    width: 70px;
+    margin-left: 10px;
+}
+
+label.sheet-brutal {
+    padding-right: 0;
+}
+
+/* 
 div.sheet-brutal {
     margin: 3px 0;
 }
 
-label.sheet-brutal{
-    padding-right: 0;
-}
 
 label.sheet-hicrit{
     margin-left: 10px;
-}
+} */
+
 
 .sheet-AttSelect-AC select {
     width: 160px;
-}
-
-.sheet-wepDamSelect {
-    width: 70px;
-    margin-bottom: 0;
 }
 
 .sheet-item {
     width: 93%;
 }
 
-.sheet-repeatingItemsLabels{
+.sheet-repeatingItemsLabels {
     font-weight: bold;
 }
 
 
 
 
-span.sheet-right{
+span.sheet-right {
     float: right;
     margin-right: 18px;
 }
