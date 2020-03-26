@@ -359,7 +359,7 @@ POWERS
     width: 150px;
 }
 
-.sheet-AttSelect select {
+select.sheet-AttSelect {
     width: 100px;
 }
 
@@ -427,7 +427,7 @@ ITEMS
 - Worn
 
 ******/
-
+/* 
 input.sheet-weaponrange {
     width: 40%;
 }
@@ -438,6 +438,16 @@ label.proficiency {
 
 label.damage {
     float: left;
+} */
+
+div.sheet-weapon-left {
+    width: 50%;
+    float: left;
+}
+
+div.sheet-weapon-right {
+    width: 50%;
+    float: right;
 }
 
 div.sheet-brutal {
@@ -479,6 +489,10 @@ span.sheet-right{
 
 div.sheet-right {
     float: right;
+}
+
+div.sheet-left {
+    float: left;
 }
 
 .sheet-Item_repeat {

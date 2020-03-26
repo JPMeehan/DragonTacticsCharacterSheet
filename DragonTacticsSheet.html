@@ -599,16 +599,14 @@
                         <option value="wep3"> Weapon 3 </option>
                     </select>
                     <br />
-                    <span class="AttSelect">
-                        <select name="attr_Standard-Ability">
-                            <option value="strmod">Strength</option>
-                            <option value="conmod">Constitution</option>
-                            <option value="dexmod">Dexterity</option>
-                            <option value="intmod">Intelligence</option>
-                            <option value="wismod">Wisdom</option>
-                            <option value="chamod">Charisma</option>
-                        </select>
-                    </span>
+                    <select class="AttSelect" name="attr_Standard-Ability">
+                        <option value="strmod">Strength</option>
+                        <option value="conmod">Constitution</option>
+                        <option value="dexmod">Dexterity</option>
+                        <option value="intmod">Intelligence</option>
+                        <option value="wismod">Wisdom</option>
+                        <option value="chamod">Charisma</option>
+                    </select>
                     vs.
                     <span class="DefSelect">
                         <select name="attr_Standard-DefSelect">
@@ -699,16 +697,14 @@
                         <option value="wep3"> Weapon 3 </option>
                     </select>
                     <br />
-                    <span class="AttSelect">
-                        <select name="attr_Move-Ability">
-                            <option value="strmod">Strength</option>
-                            <option value="conmod">Constitution</option>
-                            <option value="dexmod">Dexterity</option>
-                            <option value="intmod">Intelligence</option>
-                            <option value="wismod">Wisdom</option>
-                            <option value="chamod">Charisma</option>
-                        </select>
-                    </span>
+                    <select class="AttSelect" name="attr_Move-Ability">
+                        <option value="strmod">Strength</option>
+                        <option value="conmod">Constitution</option>
+                        <option value="dexmod">Dexterity</option>
+                        <option value="intmod">Intelligence</option>
+                        <option value="wismod">Wisdom</option>
+                        <option value="chamod">Charisma</option>
+                    </select>
                     vs.
                     <span class="DefSelect">
                         <select name="attr_Move-DefSelect">
@@ -799,16 +795,14 @@
                         <option value="wep3"> Weapon 3 </option>
                     </select>
                     <br />
-                    <span class="AttSelect">
-                        <select name="attr_Minor-Ability">
-                            <option value="strmod">Strength</option>
-                            <option value="conmod">Constitution</option>
-                            <option value="dexmod">Dexterity</option>
-                            <option value="intmod">Intelligence</option>
-                            <option value="wismod">Wisdom</option>
-                            <option value="chamod">Charisma</option>
-                        </select>
-                    </span>
+                    <select class="AttSelect" name="attr_Minor-Ability">
+                        <option value="strmod">Strength</option>
+                        <option value="conmod">Constitution</option>
+                        <option value="dexmod">Dexterity</option>
+                        <option value="intmod">Intelligence</option>
+                        <option value="wismod">Wisdom</option>
+                        <option value="chamod">Charisma</option>
+                    </select>
                     vs.
                     <span class="DefSelect">
                         <select name="attr_Minor-DefSelect">
@@ -911,16 +905,14 @@
                         <option value="wep3"> Weapon 3 </option>
                     </select>
                     <br />
-                    <span class="AttSelect">
-                        <select name="attr_Reaction-Ability">
-                            <option value="strmod">Strength</option>
-                            <option value="conmod">Constitution</option>
-                            <option value="dexmod">Dexterity</option>
-                            <option value="intmod">Intelligence</option>
-                            <option value="wismod">Wisdom</option>
-                            <option value="chamod">Charisma</option>
-                        </select>
-                    </span>
+                    <select class="AttSelect" name="attr_Reaction-Ability">
+                        <option value="strmod">Strength</option>
+                        <option value="conmod">Constitution</option>
+                        <option value="dexmod">Dexterity</option>
+                        <option value="intmod">Intelligence</option>
+                        <option value="wismod">Wisdom</option>
+                        <option value="chamod">Charisma</option>
+                    </select>
                     vs.
                     <span class="DefSelect">
                         <select name="attr_Reaction-DefSelect">
@@ -999,15 +991,14 @@
             <input type="text" name="attr_wep1-Name" class="item" placeholder="Longsword" />
             <input type="checkbox" class="arrow"/>
             <div class="body">
-                <button type="roll" class="weaponba"
-                    value="&{template:attack} {{name=@{wep1-Name}}} {{RangeTargets=@{wep1-Range}}} {{attack=[[1d20 @{wep1-HitBonus}]]}} {{attackadv=[[1d20 @{wep1-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=AC}}"
-                    name="roll_wep1-basic">Basic Attack</button>
-                <input type="text" name="attr_wep1-Range" placeholder="Melee 5'" class="weaponrange"/>
-                <input type="hidden" name="attr_wep1-HitBonus" value="+0"/>
-                <label class="small proficiency">Prof.
-                    <input type="number" name="attr_wep1-prof" value="2" /></label>
-                <span class="AttSelect">
-                    <select name="attr_wep1-Ability">
+                <div class="weapon-left">
+                    <button type="roll" class="weaponba"
+                        value="&{template:attack} {{name=@{wep1-Name}}} {{RangeTargets=@{wep1-Range}}} {{attack=[[1d20 @{wep1-HitBonus}]]}} {{attackadv=[[1d20 @{wep1-HitBonus}]]}} {{edge=[[1d4]]}} {{defense=AC}}"
+                        name="roll_wep1-basic">
+                        Basic Attack
+                    </button>
+                    <input type="text" name="attr_wep1-Range" placeholder="Melee 5'" class="weaponrange"/>
+                    <select class="AttSelect" name="attr_wep1-Ability">
                         <option value="strmod">Strength</option>
                         <option value="conmod">Constitution</option>
                         <option value="dexmod">Dexterity</option>
@@ -1015,26 +1006,50 @@
                         <option value="wismod">Wisdom</option>
                         <option value="chamod">Charisma</option>
                     </select>
-                </span>
-                <label class="small damage"> Dmg
-                    <select name="attr_wep1-Damage" class="wepDamSelect">
-                        <option value="1d4">1d4 </option>
-                        <option value="1d6">1d6 </option>
-                        <option value="1d8">1d8 </option>
-                        <option value="1d10">1d10</option>
-                        <option value="1d12">1d12</option>
-                        <option value="2d4">2d4 </option>
-                        <option value="2d6">2d6 </option>
+                    <input type="hidden" name="attr_wep1-HitBonus" value="+0"/>
+                    <label class="small proficiency">Prof.
+                        <input type="number" name="attr_wep1-prof" value="2" /></label>
+                    <select class="weapon" name="attr_wep1-Group">
+                        <option value="slashing">Axe</option>
+                        <option value="piercing">Bow</option>
+                        <option value="piercing">Crossbow</option>
+                        <option value="piercing">Flail</option>
+                        <option value="bludgeoning">Hammer</option>
+                        <option value="slashing">Heavy Blade</option>
+                        <option value="piercing">Light Blade</option>
+                        <option value="bludgeoning">Mace</option>
+                        <option value="piercing">Pick</option>
+                        <option value="bludgeoning">Sling</option>
+                        <option value="piercing">Spear</option>
+                        <option value="bludgeoning">Staff</option>
                     </select>
-                </label>
-                <div class="brutal">
-                    <label class="small brutal">
-                        <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
+                </div>
+                <div class="weapon-right">
+                    <button type="roll" class="weaponbd"
+                        value="&{template:damage} {{name=@{wep1-Name}}} {{damage=@{wep1-Damage} @{wep1-DamageBonus}}} {{dmgcrit=wep1-critdmg}} {{dmgtype=wep1-Group}}"></button>
+                    <label class="small damage"> Dmg
+                        <select name="attr_wep1-Damage" class="wepDamSelect">
+                            <option value="1d4">1d4 </option>
+                            <option value="1d6">1d6 </option>
+                            <option value="1d8">1d8 </option>
+                            <option value="1d10">1d10</option>
+                            <option value="1d12">1d12</option>
+                            <option value="2d4">2d4 </option>
+                            <option value="2d6">2d6 </option>
+                        </select>
                     </label>
-                    <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
-                    <label class="small hicrit">High Crit
-                        <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
-                    </label>
+                    <input type="hidden" name="attr_wep1-DamageBonus"/>
+                    <div class="brutal">
+                        <label class="small brutal">
+                            <input type="checkbox" name="attr_wep1-Brutal" value="r<" /> Brutal
+                        </label>
+                        <input type="number" name="attr_wep1-BrutN" min="1" max="2" value="1" />
+                        <label class="small hicrit">High Crit
+                            <input type="checkbox" name="attr_wep1-HighCrit" value="true" />
+                        </label>
+                        <input type="hidden" name="attr_wep1-critdmg"/>
+                    </div>
+
                 </div>
                 <textarea placeholder="Description"></textarea>
             </div>
@@ -1121,18 +1136,16 @@
             <h3>Armor</h3>
             <input type="text" name="attr_ArmorItem-Name" value="Cloth" class="item"
                     placeholder="Studded Leather" />
-            <span class="AttSelect-AC">
-                <label class="small"><select name="attr_AC-Att">
-                        <option value="0" selected>None (Heavy Armor)</option>
-                        <option value="1">Strength</option>
-                        <option value="2">Constitution</option>
-                        <option value="3">Dexterity</option>
-                        <option value="4">Intelligence</option>
-                        <option value="5">Wisdom</option>
-                        <option value="6">Charisma</option>
-                    </select>
-                    Attribute</label>
-            </span>
+            <label class="small AttSelect-AC"><select name="attr_AC-Att">
+                    <option value="0" selected>None (Heavy Armor)</option>
+                    <option value="1">Strength</option>
+                    <option value="2">Constitution</option>
+                    <option value="3">Dexterity</option>
+                    <option value="4">Intelligence</option>
+                    <option value="5">Wisdom</option>
+                    <option value="6">Charisma</option>
+                </select>
+                Attribute</label>
             <label title="Armor Bonus">
                 Armor Bonus <input type="number" name="attr_AC-Armor" value="0" /></label>
         </div>
@@ -1238,7 +1251,7 @@
             </tr>
         </table>
     </rolltemplate>
-    <rolltemplate class="rolltemplate-damage">
+    <rolltemplate class="sheet-rolltemplate-damage">
         <table>
             <tr>
                 <th>{{ name }}</th>
@@ -1254,7 +1267,7 @@
             </tr>
         </table>
     </rolltemplate>
-    <rolltemplate class="rolltemplate-skillcheck">
+    <rolltemplate class="sheet-rolltemplate-skillcheck">
         <table>
             <tr>
                 <th>{{ name }}</th>
@@ -1275,7 +1288,7 @@
             </tr>
         </table>
     </rolltemplate>
-    <rolltemplate class="rolltemplate-powertext">
+    <rolltemplate class="sheet-rolltemplate-powertext">
         <table>
             <tr>
                 <th>{{ name }}</th>
