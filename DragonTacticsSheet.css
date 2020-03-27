@@ -225,6 +225,9 @@ select {
 label.sheet-small {
     display: inline;
     font-size: 1em;
+}
+
+label.sheet-right {
     text-align: right;
 }
 
@@ -454,7 +457,8 @@ label.sheet-versatile {
 }
 
 label.sheet-proficiency,
-label.sheet-versatile {
+label.sheet-versatile,
+label.sheet-implement {
     padding: 0;
     display: inline-block;
     margin-bottom: 5px;
@@ -503,9 +507,6 @@ label.sheet-hicrit{
 .sheet-repeatingItemsLabels {
     font-weight: bold;
 }
-
-
-
 
 span.sheet-right {
     float: right;

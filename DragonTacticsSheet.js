@@ -1,6 +1,41 @@
 on("sheet:opened", function () {
     console.log("Sheet opened, JS is running");
+    console.log(maxdice("1d8"))
+    console.log(maxdice("33d100"))
 });
+
+/********
+
+HELPER FUNCTIONS
+
+********/
+
+
+function maxdice(damagedice) {
+    return parseInt(damagedice) * parseInt(damagedice.slice(damagedice.indexOf("d") + 1));
+}
+
+function training(skill) {
+    if (skill == 2) {
+        return "Adept";
+    } else if (skill == 4) {
+        return "Trained";
+    } else if (skill == 6) {
+        return "Experienced";
+    } else if (skill == 8) {
+        return "Expert";
+    } else if (skill == 10) {
+        return "Master";
+    } else {
+        return "Untrained";
+    }
+}
+
+/********
+
+CORE STATS
+
+********/
 
 on("change:hp_max", function () {
     getAttrs(["HP_max"], function (values) {
@@ -12,12 +47,12 @@ on("change:hp_max", function () {
 });
 
 on("change:strength", function () {
-        getAttrs(["Strength"], function (values) {
-            setAttrs({
-                strmod: Math.floor(values.Strength / 2 - 5)
-            });
+    getAttrs(["Strength"], function (values) {
+        setAttrs({
+            strmod: Math.floor(values.Strength / 2 - 5)
         });
     });
+});
 
 on("change:constitution", function () {
     getAttrs(["Constitution"], function (values) {
@@ -58,6 +93,12 @@ on("change:charisma", function () {
         });
     });
 });
+
+/********
+
+DEFENSES
+
+********/
 
 on(
     "change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod  change:quest change:ac-armor change:ac-misc",
@@ -153,21 +194,30 @@ on("change:wismod change:chamod change:quest change:will-misc", function () {
     });
 });
 
+/********
+
+ATTACKS
+
+********/
+
 on("change:bonusdice-entry", function () {
     getAttrs(["bonusdice-entry"], function (values) {
-        var numdice = parseInt(values["bonusdice-entry"]);
-        var size = 4;
-        if (numdice < 10) {
-            size = parseInt(values["bonusdice-entry"].substring(2));
-        } else {
-            size = parseInt(values["bonusdice-entry"].substring(3));
-        }
-        var finalattr = numdice * size;
+        // var numdice = parseInt(values["bonusdice-entry"]);
+        // var size = 4;
+        // if (numdice < 10) {
+        //     size = parseInt(values["bonusdice-entry"].substring(2));
+        // } else {
+        //     size = parseInt(values["bonusdice-entry"].substring(3));
+        // }
+        // var finalattr = numdice * size;
         setAttrs({
-            'bonusdice-crit': finalattr
+            'bonusdice-crit': maxdice(values["bonusdice-entry"])
         });
     });
 });
+
+
+/* ===STANDARD=== */
 
 on("change:repeating_standard:standard-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
@@ -315,6 +365,8 @@ on("change:repeating_standard:standard-damagedice", function () {
         });
     });
 });
+
+/* ===MOVE=== */
 
 on("change:repeating_move:move-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
@@ -502,6 +554,8 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
     }
 });
 
+/* ===MINOR=== */
+
 on(
     "change:repeating_minor:minor-ability change:repeating_minor:minor-display",
     function (eventInfo) {
@@ -595,6 +649,8 @@ on("change:repeating_minor:minor-damagedice", function () {
         });
     });
 });
+
+/* ===REACTION=== */
 
 on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
@@ -743,8 +799,14 @@ on("change:repeating_reaction:reaction-damagedice", function () {
     });
 });
 
+/********
+
+SKILLS
+
+********/
+
 on(
-    "change:acrobatics-train change:acrobatics-miscbonus change:dexmod change:quest sheet:opened",
+    "change:acrobatics-train change:acrobatics-miscbonus change:dexmod change:quest",
     function () {
         getAttrs(
             ["Acrobatics-Train", "Acrobatics-MiscBonus", "dexmod", "Quest"],
@@ -766,7 +828,7 @@ on(
 );
 
 on(
-    "change:appeal-train change:appeal-miscbonus change:chamod change:quest sheet:opened",
+    "change:appeal-train change:appeal-miscbonus change:chamod change:quest",
     function () {
         getAttrs(
             ["Appeal-Train", "Appeal-MiscBonus", "chamod", "Quest"],
@@ -788,7 +850,7 @@ on(
 );
 
 on(
-    "change:arcana-train change:arcana-miscbonus change:intmod change:quest sheet:opened",
+    "change:arcana-train change:arcana-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
             ["Arcana-Train", "Arcana-MiscBonus", "intmod", "Quest"],
@@ -810,7 +872,7 @@ on(
 );
 
 on(
-    "change:athletics-train change:athletics-miscbonus change:strmod change:quest sheet:opened",
+    "change:athletics-train change:athletics-miscbonus change:strmod change:quest",
     function () {
         getAttrs(
             ["Athletics-Train", "Athletics-MiscBonus", "strmod", "Quest"],
@@ -832,7 +894,7 @@ on(
 );
 
 on(
-    "change:debate-train change:debate-miscbonus change:intmod change:quest sheet:opened",
+    "change:debate-train change:debate-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
             ["Debate-Train", "Debate-MiscBonus", "intmod", "Quest"],
@@ -854,7 +916,7 @@ on(
 );
 
 on(
-    "change:endurance-train change:endurance-miscbonus change:conmod change:quest sheet:opened",
+    "change:endurance-train change:endurance-miscbonus change:conmod change:quest",
     function () {
         getAttrs(
             ["Endurance-Train", "Endurance-MiscBonus", "conmod", "Quest"],
@@ -876,7 +938,7 @@ on(
 );
 
 on(
-    "change:handleanimal-train change:handleanimal-miscbonus change:wismod change:quest sheet:opened",
+    "change:handleanimal-train change:handleanimal-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
             ["HandleAnimal-Train", "HandleAnimal-MiscBonus", "wismod", "Quest"],
@@ -898,7 +960,7 @@ on(
 );
 
 on(
-    "change:impress-train change:impress-miscbonus change:chamod change:quest sheet:opened sheet:opened",
+    "change:impress-train change:impress-miscbonus change:chamod change:quest",
     function () {
         getAttrs(
             ["Impress-Train", "Impress-MiscBonus", "chamod", "Quest"],
@@ -920,7 +982,7 @@ on(
 );
 
 on(
-    "change:insight-train change:insight-miscbonus change:wismod change:quest sheet:opened",
+    "change:insight-train change:insight-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
             ["Insight-Train", "Insight-MiscBonus", "wismod", "Quest"],
@@ -942,7 +1004,7 @@ on(
 );
 
 on(
-    "change:medicine-train change:medicine-miscbonus change:wismod change:quest sheet:opened",
+    "change:medicine-train change:medicine-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
             ["Medicine-Train", "Medicine-MiscBonus", "wismod", "Quest"],
@@ -964,7 +1026,7 @@ on(
 );
 
 on(
-    "change:perception-train change:perception-miscbonus change:wismod change:quest sheet:opened",
+    "change:perception-train change:perception-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
             ["Perception-Train", "Perception-MiscBonus", "wismod", "Quest"],
@@ -986,7 +1048,7 @@ on(
 );
 
 on(
-    "change:repair-train change:repair-miscbonus change:intmod change:quest sheet:opened",
+    "change:repair-train change:repair-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
             ["Repair-Train", "Repair-MiscBonus", "intmod", "Quest"],
@@ -1008,7 +1070,7 @@ on(
 );
 
 on(
-    "change:research-train change:research-miscbonus change:intmod change:quest sheet:opened",
+    "change:research-train change:research-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
             ["Research-Train", "Research-MiscBonus", "intmod", "Quest"],
@@ -1030,7 +1092,7 @@ on(
 );
 
 on(
-    "change:sleightofhand-train change:sleightofhand-miscbonus change:dexmod change:quest sheet:opened",
+    "change:sleightofhand-train change:sleightofhand-miscbonus change:dexmod change:quest",
     function () {
         getAttrs(
             [
@@ -1057,7 +1119,7 @@ on(
 );
 
 on(
-    "change:stealth-train change:stealth-miscbonus change:dexmod change:quest sheet:opened",
+    "change:stealth-train change:stealth-miscbonus change:dexmod change:quest",
     function () {
         getAttrs(
             ["Stealth-Train", "Stealth-MiscBonus", "dexmod", "Quest"],
@@ -1079,7 +1141,7 @@ on(
 );
 
 on(
-    "change:socialize-train change:socialize-miscbonus change:chamod change:quest sheet:opened",
+    "change:socialize-train change:socialize-miscbonus change:chamod change:quest",
     function () {
         getAttrs(
             ["Socialize-Train", "Socialize-MiscBonus", "chamod", "Quest"],
@@ -1101,7 +1163,7 @@ on(
 );
 
 on(
-    "change:survival-train change:survival-miscbonus change:wismod change:quest sheet:opened",
+    "change:survival-train change:survival-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
             ["Survival-Train", "Survival-MiscBonus", "wismod", "Quest"],
@@ -1122,381 +1184,215 @@ on(
     }
 );
 
-on("change:acrobatics-train sheet:opened", function () {
+on("change:acrobatics-train", function () {
     getAttrs(["Acrobatics-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Acrobatics-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Acrobatics-Trained": finalattr
+            "Acrobatics-Trained": training(values["Acrobatics-Train"])
         });
     });
 });
 
-on("change:appeal-train sheet:opened", function () {
+on("change:appeal-train", function () {
     getAttrs(["Appeal-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Appeal-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Appeal-Trained": finalattr
+            "Appeal-Trained": training(values["Appeal-Train"])
         });
     });
 });
 
-on("change:arcana-train sheet:opened", function () {
+on("change:arcana-train", function () {
     getAttrs(["Arcana-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Arcana-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Arcana-Trained": finalattr
+            "Arcana-Trained": training(values["Arcana-Train"])
         });
     });
 });
 
-on("change:athletics-train sheet:opened", function () {
+on("change:athletics-train", function () {
     getAttrs(["Athletics-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Athletics-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Athletics-Trained": finalattr
+            "Athletics-Trained": training(values["Athletics-Train"])
         });
     });
 });
 
-on("change:debate-train sheet:opened", function () {
+on("change:debate-train", function () {
     getAttrs(["Debate-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Debate-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Debate-Trained": finalattr
+            "Debate-Trained": training(values["Debate-Train"])
         });
     });
 });
 
-on("change:endurance-train sheet:opened", function () {
+on("change:endurance-train", function () {
     getAttrs(["Endurance-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Endurance-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Endurance-Trained": finalattr
+            "Endurance-Trained": training(values["Endurance-Train"])
         });
     });
 });
 
-on("change:handleanimal-train sheet:opened", function () {
+on("change:handleanimal-train", function () {
     getAttrs(["HandleAnimal-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["HandleAnimal-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "HandleAnimal-Trained": finalattr
+            "HandleAnimal-Trained": training(values["HandleAnimal-Train"])
         });
     });
 });
 
-on("change:impress-train sheet:opened", function () {
+on("change:impress-train", function () {
     getAttrs(["Impress-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Impress-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Impress-Trained": finalattr
+            "Impress-Trained": training(values["Impress-Train"])
         });
     });
 });
 
-on("change:insight-train sheet:opened", function () {
+on("change:insight-train", function () {
     getAttrs(["Insight-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Insight-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Insight-Trained": finalattr
+            "Insight-Trained": training(values["Insight-Train"])
         });
     });
 });
 
-on("change:medicine-train sheet:opened", function () {
+on("change:medicine-train", function () {
     getAttrs(["Medicine-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Medicine-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Medicine-Trained": finalattr
+            "Medicine-Trained": training(values["Medicine-Train"])
         });
     });
 });
 
-on("change:perception-train sheet:opened", function () {
+on("change:perception-train", function () {
     getAttrs(["Perception-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Perception-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Perception-Trained": finalattr
+            "Perception-Trained": training(values["Perception-Train"])
         });
     });
 });
 
-on("change:repair-train sheet:opened", function () {
+on("change:repair-train", function () {
     getAttrs(["Repair-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Repair-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Repair-Trained": finalattr
+            "Repair-Trained": training(values["Repair-Train"])
         });
     });
 });
 
-on("change:research-train sheet:opened", function () {
+on("change:research-train", function () {
     getAttrs(["Research-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Research-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Research-Trained": finalattr
+            "Research-Trained": training(values["Research-Train"])
         });
     });
 });
 
-on("change:sleightofhand-train sheet:opened", function () {
+on("change:sleightofhand-train", function () {
     getAttrs(["SleightofHand-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["SleightofHand-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "SleightofHand-Trained": finalattr
+            "SleightofHand-Trained": training(values["SleightofHand-Train"])
         });
     });
 });
 
-on("change:stealth-train sheet:opened", function () {
+on("change:stealth-train", function () {
     getAttrs(["Stealth-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Stealth-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Stealth-Trained": finalattr
+            "Stealth-Trained": training(values["Stealth-Train"])
         });
     });
 });
 
-on("change:socialize-train sheet:opened", function () {
+on("change:socialize-train", function () {
     getAttrs(["Socialize-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Socialize-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Socialize-Trained": finalattr
+            "Socialize-Trained": training(values["Socialize-Train"])
         });
     });
 });
 
-on("change:survival-train sheet:opened", function () {
+on("change:survival-train", function () {
     getAttrs(["Survival-Train"], function (values) {
-        var finalattr = "Untrained";
-        var skill = values["Survival-Train"];
-        if (skill == 2) {
-            finalattr = "Adept";
-        } else if (skill == 4) {
-            finalattr = "Trained";
-        } else if (skill == 6) {
-            finalattr = "Experienced";
-        } else if (skill == 8) {
-            finalattr = "Expert";
-        } else if (skill == 10) {
-            finalattr = "Master";
-        }
         setAttrs({
-            "Survival-Trained": finalattr
+            "Survival-Trained": training(values["Survival-Train"])
         });
     });
 });
 
 on("change:repeating_onpersonitems:onpersonitem-quantity change:repeating_onpersonitems:onpersonitem-space", function () {
-    getSectionIDs("onpersonitems", function(idarray) {
+    getSectionIDs("onpersonitems", function (idarray) {
         var totalSpace = 0;
-        var quantArray = []; 
+        var quantArray = [];
         var sizeArray = [];
-        for(var i=0; i < idarray.length; i++) {
+        for (var i = 0; i < idarray.length; i++) {
             quantArray.push("repeating_onpersonitems_" + idarray[i] + "_OnPersonItem-Quantity");
             sizeArray.push("repeating_onpersonitems_" + idarray[i] + "_OnPersonItem-Space");
         }
-        getAttrs(quantArray.concat(sizeArray), function(values) {
+        getAttrs(quantArray.concat(sizeArray), function (values) {
             // console.log(values);
-            for (i=0; i<idarray.length; i++) {
-                totalSpace+= values[quantArray[i]] * values[sizeArray[i]];
+            for (i = 0; i < idarray.length; i++) {
+                totalSpace += values[quantArray[i]] * values[sizeArray[i]];
             }
             // console.log(totalSpace);
             setAttrs({
                 currentSpace: totalSpace
             })
         });
-     });
+    });
+});
+
+
+/********
+
+WEAPONS
+
+********/
+
+on(
+    "change:wep1-ability change:wep2-ability change:wep3-ability change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod",
+    function () {
+        getAttrs(["wep1-Ability", "wep2-Ability", "wep3-Ability"], function (values) {
+            var wep1mod = values["wep1-Ability"];
+            var wep2mod = values["wep2-Ability"];
+            var wep3mod = values["wep3-Ability"];
+            getAttrs([wep1mod, wep2mod, wep3mod], function (values) {
+                setAttrs({
+                    "wep1-abimod": parseInt(
+                        values[wep1mod]
+                    ),
+                    "wep2-abimod": parseInt(
+                        values[wep2mod]
+                    ),
+                    "wep3-abimod": parseInt(
+                        values[wep3mod]
+                    ),
+                });
+            });
+        });
+    }
+);
+
+on("change:wep1-abimod change:wep1-prof", function () {
+    getAttrs(["wep1-abimod", "wep1-prof"], function (v) {
+        setAttrs({
+            "wep1-HitBonus": parseInt(v["wep1-abimod"]) + parseInt(v["wep1-prof"])
+        })
+    })
+});
+
+on("change:wep1-damage change:wep1-damage-versatile change:wep1-versatile change:wep1-brutal change:wep1-brutaln change:wep1-highcrit", function () {
+    getAttrs(["wep1-damage", "wep1-damage-versatile", "wep1-versatile", "wep1-brutal", "wep1-brutaln", "wep1-highcrit"], function (v) {
+        var damagedice = v["wep1-damage"];
+        if (v["wep1-versatile"]) {
+            damagedice = v["wep1-damage-versatile"];
+        }
+        brutal = "";
+        if (v["wep1-brutal"]) {
+            brutal = v["wep1-brutal"] + v["wep1-brutaln"]
+        }
+        setAttrs({
+            "wep1-DamageRoll": damagedice + brutal
+        });
+    });
 });
