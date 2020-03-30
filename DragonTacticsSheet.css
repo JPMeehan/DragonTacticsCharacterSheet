@@ -196,7 +196,7 @@ input[type=number]:not(:focus) {
     background: #faf7ea;
 }
 
-.sheet-diceInput {
+.sheet-diceinput {
     width: 140px;
 }
 
@@ -232,7 +232,7 @@ label.sheet-right {
 }
 
 
-.sheet-inlineLabel {
+.sheet-inlinelabel {
     display: inline;
 }
 
@@ -303,7 +303,7 @@ button[type=roll].sheet-skillcheckroll {
 }
 
 
-.sheet-Training {
+.sheet-training {
     width: 100px;
 }
 
@@ -353,29 +353,29 @@ POWERS
 
 
 
-.sheet-Usage {
+.sheet-usage {
     width: 100px;
 }
 
-.sheet-Action {
+.sheet-action {
     width: 150px;
 }
 
-select.sheet-AttSelect {
+select.sheet-attselect {
     width: 100px;
 }
 
-.sheet-DefSelect select {
+.sheet-defselect select {
     width: 80px;
 }
 
 
-select.sheet-AccesorySelect {
+select.sheet-accesoryselect {
     width: 120px;
 }
 
-.sheet-DamageRoll,
-.sheet-AttackRoll {
+.sheet-damageroll,
+.sheet-attackroll {
     font-size: 140%;
 }
 
@@ -476,7 +476,7 @@ div.sheet-weapon-right {
 }
 
 
-.sheet-wepDamSelect {
+.sheet-wepdamselect {
     width: 70px;
     margin-left: 10px;
 }
@@ -496,7 +496,7 @@ label.sheet-hicrit{
 } */
 
 
-.sheet-AttSelect-AC select {
+.sheet-attselect-ac select {
     width: 160px;
 }
 
@@ -504,7 +504,7 @@ label.sheet-hicrit{
     width: 93%;
 }
 
-.sheet-repeatingItemsLabels {
+.sheet-repeatingitemslabels {
     font-weight: bold;
 }
 
@@ -521,7 +521,7 @@ div.sheet-left {
     float: left;
 }
 
-.sheet-Item_repeat {
+.sheet-item_repeat {
     width: 190px;
 }
 
