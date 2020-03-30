@@ -1652,8 +1652,8 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
                     "repeating_standard_standard-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_standard_standard-damagedice": damageroll,
-                    "repeating_standard_standard-critdice": critdice
+                    "repeating_standard_standard-damagedice": values[damageroll],
+                    "repeating_standard_standard-critdice": values[crit]
                 });
             }
         );
@@ -1771,8 +1771,8 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
                     "repeating_move_move-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_move_move-damagedice": damageroll,
-                    "repeating_move_move-critdice": critdice
+                    "repeating_move_move-damagedice": values[damageroll],
+                    "repeating_move_move-critdice": values[crit]
                 });
             }
         );
@@ -1890,8 +1890,8 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
                     "repeating_minor_minor-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_minor_minor-damagedice": damageroll,
-                    "repeating_minor_minor-critdice": critdice
+                    "repeating_minor_minor-damagedice": values[damageroll],
+                    "repeating_minor_minor-critdice": values[crit]
                 });
             }
         );
@@ -2009,8 +2009,8 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
                     "repeating_reaction_reaction-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_reaction_reaction-damagedice": damageroll,
-                    "repeating_reaction_reaction-critdice": critdice
+                    "repeating_reaction_reaction-damagedice": values[damageroll],
+                    "repeating_reaction_reaction-critdice": values[crit]
                 });
             }
         );
