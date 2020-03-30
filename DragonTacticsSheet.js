@@ -213,7 +213,7 @@ on("change:bonusdice-entry", function () {
 
 on("change:repeating_standard:standard-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-hitbonus";
+    var attack = accessory + "-prof";
     var damageroll = accessory + "-damageroll";
     var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
@@ -332,7 +332,7 @@ on("change:repeating_standard:standard-damagedice", function () {
 
 on("change:repeating_move:move-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-hitbonus";
+    var attack = accessory + "-prof";
     var damageroll = accessory + "-damageroll";
     var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
@@ -451,7 +451,7 @@ on("change:repeating_move:move-damagedice", function () {
 
 on("change:repeating_minor:minor-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-hitbonus";
+    var attack = accessory + "-prof";
     var damageroll = accessory + "-damageroll";
     var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
@@ -570,7 +570,7 @@ on("change:repeating_minor:minor-damagedice", function () {
 
 on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-hitbonus";
+    var attack = accessory + "-prof";
     var damageroll = accessory + "-damageroll";
     var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
