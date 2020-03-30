@@ -399,6 +399,38 @@ label.sheet-hp {
     margin-bottom: 7px;
 }
 
+div.sheet-hp {
+    font-size: large;
+}
+
+div.sheet-hp span {
+    font-size: x-large;
+}
+
+label.sheet-numblock {
+    width: 48%;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 0;
+    text-align: center;
+    font-size: 11px;
+    display: inline-block;
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+
+label.sheet-numblock input[type=number] {
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+}
+
+div.sheet-armor,
+div.sheet-hp {
+    width: 48%;
+}
+
 .sheet-defense label.sheet-small {
     font-size: 1em;
     padding: 0;
@@ -411,8 +443,10 @@ label.sheet-miscbonus {
 
 label.sheet-defense {
     width: 80%;
+    font-size: small;
     display: inline-block;
     margin: 5px 0 0;
+    padding: 0;
 }
 
 

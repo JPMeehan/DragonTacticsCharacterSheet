@@ -37,14 +37,16 @@ CORE STATS
 
 ********/
 
-on("change:hp_max", function () {
-    getAttrs(["hp_max"], function (values) {
+on("change:constitution change:hp-base change:hp-level change:hp-bonus change:level", function() {
+    getAttrs(["constitution", "hp-base", "hp-level", "hp-bonus", "level"], function(values) {
+        hp_max = parseInt(values["constitution"]) + parseInt(values["hp-base"]) + parseInt(values["hp-level"]) * (parseInt(values["level"])-1) + parseInt(values["hp-bonus"])
         setAttrs({
-            "hp-bloodied": Math.floor(values.hp_max / 2),
-            "hp-surgevalue": Math.floor(values.hp_max / 4)
-        });
-    });
-});
+            "hp_max": hp_max,
+            "hp-bloodied": Math.floor(hp_max / 2),
+            "hp-surgevalue": Math.floor(hp_max / 4)
+        })
+    })
+})
 
 on("change:strength", function () {
     getAttrs(["strength"], function (values) {

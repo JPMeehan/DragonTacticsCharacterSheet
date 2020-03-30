@@ -463,65 +463,91 @@
     </div>
     <div class="defense section">
         <h2>Key Values</h2>
-        <label class="hp" title="HP"><input type="number" name="attr_hp" value="20" /> /
-            <input type="number" name="attr_hp_max" value="20" /> HP</label>
-        <label class="small"><input type="number" name="attr_hp-bloodied" value="10" /> Bloodied</label>
-        <label class="small"><input type="number" name="attr_hp-surgevalue" value="5" /> Surge Value</label>
-        <br />
-        <label title="Surges"><input type="number" name="attr_surges" value="6" /> /
-            <input type="number" name="attr_surges_max" value="6" />
-            Surges</label>
-        <h3>Defenses</h3>
-        <div>
-            <label class="defense">
-                <input type="number" name="attr_ac" value="10" class="defense" />
-                Armor Class (AC)
+        <div class="hp left">
+            <h3>Hit Points</h3>
+            Max
+            <span name="attr_hp_max" value="20">20</span>
+            <label class="numblock current">Current<input type="number" name="attr_hp" value="20" /></label>
+            <label class="numblock temp">Temporary<input type="number" name="attr_hp-temp" value="20" /></label>
+            <label class="numblock bloodied">Bloodied<input type="number" name="attr_hp-bloodied" value="10" /></label>
+            <label>
+                Setup
+                <input type="checkbox" class="arrow"/>
+                <div class="body">
+                    <label>
+                        <input type="number" name="attr_hp-base" value="10"/>
+                        Base
+                    </label>
+                    <label>
+                        <input type="number" name="attr_hp-level" value="5"/>
+                        Per level
+                    </label>
+                    <label>
+                        <input type="number" name="attr_hp-bonus" value="0"/>
+                        Bonus
+                    </label>
+                </div>
             </label>
-            <input type="checkbox" class="arrow" title="Show Details">
-            <div class="body">
-                <label class="miscbonus">
-                    Misc bonus: <input type="number" name="attr_ac-misc" value="0" />
+        </div>
+        <div class="armor right">
+            <h3>Defenses</h3>
+            <div class="defense-block">
+                <label class="numblock defense">
+                    Armor Class
+                    <input type="number" name="attr_ac" value="10" class="defense" />
                 </label>
+                <input type="checkbox" class="arrow" title="Show Details">
+                <div class="body">
+                    <label class="miscbonus">
+                        Misc bonus: <input type="number" name="attr_ac-misc" value="0" />
+                    </label>
+                </div>
+            </div>
+            <div class="defense-block">
+                <label class="numblock defense">
+                    Fortitude
+                    <input type="number" name="attr_fort" value="10" class="defense" />
+                </label>
+                <input type="checkbox" class="arrow" title="Show Details">
+                <div class="body">
+                    <label class="miscbonus">
+                        Class/Misc bonus:
+                        <input type="number" name="attr_fort-misc" value="0" />
+                    </label>
+                </div>
+            </div>
+            <div class="defense-block">
+                <label class="numblock defense">
+                    Reflex
+                    <input type="number" name="attr_ref" value="10" class="defense" />
+                </label>
+                <input type="checkbox" class="arrow" title="Show Details">
+                <div class="body">
+                    <label class="miscbonus">
+                        Class/Misc bonus:
+                        <input type="number" name="attr_ref-misc" value="0" />
+                    </label>
+                </div>
+            </div>
+            <div class="defense-block">
+                <label class="numblock defense">
+                    Will
+                    <input type="number" name="attr_will" value="10" class="defense" />
+                </label>
+                <input type="checkbox" class="arrow" title="Show Details">
+                <div class="body">
+                    <label class="miscbonus">
+                        Class/Misc bonus:
+                        <input type="number" name="attr_will-misc" value="0" />
+                    </label>
+                </div>
             </div>
         </div>
-        <div>
-            <label class="defense">
-                <input type="number" name="attr_fort" value="10" class="defense" />
-                Fortitude
-            </label>
-            <input type="checkbox" class="arrow" title="Show Details">
-            <div class="body">
-                <label class="miscbonus">
-                    Class/Misc bonus:
-                    <input type="number" name="attr_fort-misc" value="0" />
-                </label>
-            </div>
-        </div>
-        <div>
-            <label class="defense">
-                <input type="number" name="attr_ref" value="10" class="defense" />
-                Reflex
-            </label>
-            <input type="checkbox" class="arrow" title="Show Details">
-            <div class="body">
-                <label class="miscbonus">
-                    Class/Misc bonus:
-                    <input type="number" name="attr_ref-misc" value="0" />
-                </label>
-            </div>
-        </div>
-        <div>
-            <label class="defense">
-                <input type="number" name="attr_will" value="10" class="defense" />
-                Will
-            </label>
-            <input type="checkbox" class="arrow" title="Show Details">
-            <div class="body">
-                <label class="miscbonus">
-                    Class/Misc bonus:
-                    <input type="number" name="attr_will-misc" value="0" />
-                </label>
-            </div>
+        <div class="surges">
+            <h3>Healing Surges</h3>
+            <label class="numblock surge-max">Value<input type="number" name="attr_hp-surgevalue" value="5" /></label>
+            <label class="numblock surge-current">Current<input type="number" name="attr_surges" value="6" /></label>
+            <label class="numblock surge-max">Max<input type="number" name="attr_surges_max" value="6" /></label>
         </div>
     </div>
     <div class="effects section">
@@ -1467,14 +1493,16 @@ CORE STATS
 
 ********/
 
-on("change:hp_max", function () {
-    getAttrs(["hp_max"], function (values) {
+on("change:constitution change:hp-base change:hp-level change:hp-bonus change:level", function() {
+    getAttrs(["constitution", "hp-base", "hp-level", "hp-bonus", "level"], function(values) {
+        hp_max = parseInt(values["constitution"]) + parseInt(values["hp-base"]) + parseInt(values["hp-level"]) * (parseInt(values["level"])-1) + parseInt(values["hp-bonus"])
         setAttrs({
-            "hp-bloodied": Math.floor(values.hp_max / 2),
-            "hp-surgevalue": Math.floor(values.hp_max / 4)
-        });
-    });
-});
+            "hp_max": hp_max,
+            "hp-bloodied": Math.floor(hp_max / 2),
+            "hp-surgevalue": Math.floor(hp_max / 4)
+        })
+    })
+})
 
 on("change:strength", function () {
     getAttrs(["strength"], function (values) {
