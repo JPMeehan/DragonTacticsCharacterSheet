@@ -465,13 +465,12 @@
         <h2>Key Values</h2>
         <div class="hp">
             <h3>Hit Points</h3>
-            <div class="hp-max">
-                Max
-                <span name="attr_hp_max" value="20">20</span>
-            </div>
-            <label class="hp-setup">
-                Configure
-                <input type="checkbox" class="arrow"/>
+            <label class="numblock-container hp-setup">
+                <div class="numblock hp-max">
+                    Max
+                    <span name="attr_hp_max" value="20">20</span>
+                </div>
+                <input type="checkbox" class="arrow hidden"/>
                 <div class="body">
                     <label class="numblock 3col">
                         Base
@@ -497,57 +496,57 @@
         </div>
         <div class="armor">
             <h3>Defenses</h3>
-            <div class="defense-block AC">
-                <label class="numblock defense">
+            <label class="numblock-container AC">
+                <div class="numblock defense-block">
                     Armor Class
-                    <input type="number" name="attr_ac" value="10" class="defense" />
-                </label>
-                <input type="checkbox" class="arrow" title="Show Details">
+                    <span name="attr_ac" value="10" class="defense">10</span>
+                </div>
+                <input type="checkbox" class="arrow hidden" title="Show Details">
                 <div class="body">
-                    <label class="miscbonus">
-                        Misc bonus: <input type="number" name="attr_ac-misc" value="0" />
+                    <label class="miscbonus" title="Miscellaneous AC bonuses">
+                        Bonus <input type="number" name="attr_ac-misc" value="0" />
                     </label>
                 </div>
-            </div>
-            <div class="defense-block NAD">
-                <label class="numblock defense">
+            </label>
+            <label class="numblock-container NAD">
+                <div class="numblock defense-block">
                     Fortitude
-                    <input type="number" name="attr_fort" value="10" class="defense" />
-                </label>
-                <input type="checkbox" class="arrow" title="Show Details">
+                    <span name="attr_fort" value="10" class="defense" >10</span>
+                </div>
+                <input type="checkbox" class="arrow hidden" title="Show Details">
                 <div class="body">
-                    <label class="miscbonus">
-                        Class/Misc bonus:
+                    <label class="miscbonus" title="Miscellaneous Fortitude bonuses, like from your class">
+                        Bonus
                         <input type="number" name="attr_fort-misc" value="0" />
                     </label>
                 </div>
-            </div>
-            <div class="defense-block NAD">
-                <label class="numblock defense">
+            </label>
+            <label class="numblock-container NAD">
+                <div class="numblock defense-block">
                     Reflex
-                    <input type="number" name="attr_ref" value="10" class="defense" />
-                </label>
-                <input type="checkbox" class="arrow" title="Show Details">
+                    <span name="attr_ref" value="10" class="defense" >10</span>
+                </div>
+                <input type="checkbox" class="arrow hidden" title="Show Details">
                 <div class="body">
-                    <label class="miscbonus">
-                        Class/Misc bonus:
+                    <label class="miscbonus" title="Miscellaneous Reflex bonuses, like from your class">
+                        Bonus
                         <input type="number" name="attr_ref-misc" value="0" />
                     </label>
                 </div>
-            </div>
-            <div class="defense-block NAD">
-                <label class="numblock defense">
+            </label>
+            <label class="numblock-container NAD">
+                <div class="numblock defense-block">
                     Will
-                    <input type="number" name="attr_will" value="10" class="defense" />
-                </label>
-                <input type="checkbox" class="arrow" title="Show Details">
+                    <span name="attr_will" value="10" class="defense" >10</span>
+                </div>
+                <input type="checkbox" class="arrow hidden" title="Show Details">
                 <div class="body">
-                    <label class="miscbonus">
-                        Class/Misc bonus:
+                    <label class="miscbonus" title="Miscellaneous Will bonuses, like from your class">
+                        Bonus
                         <input type="number" name="attr_will-misc" value="0" />
                     </label>
                 </div>
-            </div>
+            </label>
         </div>
     </div>
     <div class="effects section">

@@ -213,6 +213,9 @@ LABELS AND DIVS
 
 ******/
 
+input.sheet-hidden {
+    visibility: hidden;
+}
 
 div.sheet-inline,
 label.sheet-inline {
@@ -236,6 +239,64 @@ label.sheet-right {
     text-align: right;
 }
 
+
+/* NUMBLOCKS */
+
+
+div.sheet-numblock {
+    display: inline-block;
+    font-size: large;
+    font-weight: bold;
+    border: 1px black solid;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 2px 0 0 0;
+}
+
+div.sheet-numblock span {
+    display: block;
+    font-size: x-large;
+    background-color: #faf7ea;
+    color: black;
+    height: 50%;
+    padding: 5px;
+    margin-top: 2px;
+}
+
+label.sheet-numblock-container {
+    text-align: center;
+    padding: 0;
+}
+
+label.sheet-numblock-container div.sheet-body{
+    padding: 4px;
+}
+
+label.sheet-numblock {
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 0;
+    text-align: center;
+    font-size: 11px;
+    display: inline-block;
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+
+
+
+label.sheet-3col {
+    width: 32%;
+}
+
+label.sheet-numblock input[type=number] {
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+}
 
 /******
 
@@ -395,35 +456,19 @@ DEFENSE
 
 ******/
 
-div.sheet-hp-max {
-    display: inline-block;
-    width: 50%;
-    border-radius: 30px;
-    font-size: large;
-    font-weight: bold;
-    border: 1px black solid;
-    overflow: hidden;
-    text-align: center;
-    color: white;
-    background-color: black;
-}
-
-div.sheet-hp-max span {
-    display: block;
-    font-size: x-large;
-    background-color: #faf7ea;
-    color: black;
-}
-
 label.sheet-hp-setup {
-    display: inline-block;
-    width: auto;
-    font-size: small;
+    display: block;
+    width: 100%;
 }
 
-div.sheet-hp div.sheet-body{
-    padding: 2px;
+
+div.sheet-hp-max {
+    width: 50%;
+    height: 50px;
+    border-radius: 30px;
 }
+
+
 
 div.sheet-hp,
 div.sheet-armor {
@@ -436,43 +481,40 @@ div.sheet-armor h3 {
 }
 
 
-label.sheet-numblock {
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-    padding: 0;
-    text-align: center;
-    font-size: 11px;
-    display: inline-block;
-    margin-bottom: 3px;
-    overflow: hidden;
-}
-
-label.sheet-3col {
-    width: 32%;
-}
-
-label.sheet-numblock input[type=number] {
-    width: 100%;
-    text-align: center;
-    border-radius: 0;
-}
 
 label.sheet-miscbonus {
     font-size: 1em;
     margin-bottom: 5px;
+    text-align: center;
+    padding: 0;
 }
 
-div.sheet-AC {
+label.sheet-AC {
     width: 29.5%;
 }
 
-div.sheet-NAD {
+label.sheet-NAD {
     width: 21.5%;
 }
 
-div.sheet-defense-block {
+label.sheet-AC,
+label.sheet-NAD {
     display: inline-block;
+    vertical-align: top;
+}
+
+label.sheet-AC div.sheet-body,
+label.sheet-NAD div.sheet-body{
+    margin-top: -15px;
+}
+
+
+
+div.sheet-defense-block {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 11px;
 }
 
 /******
