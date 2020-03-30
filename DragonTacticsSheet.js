@@ -1,7 +1,7 @@
+
+
 on("sheet:opened", function () {
     console.log("Sheet opened, JS is running");
-    console.log(maxdice("1d8"))
-    console.log(maxdice("33d100"))
 });
 
 /********
@@ -38,58 +38,58 @@ CORE STATS
 ********/
 
 on("change:hp_max", function () {
-    getAttrs(["HP_max"], function (values) {
+    getAttrs(["hp_max"], function (values) {
         setAttrs({
-            "HP-Bloodied": Math.floor(values.HP_max / 2),
-            "HP-surgeValue": Math.floor(values.HP_max / 4)
+            "hp-bloodied": Math.floor(values.hp_max / 2),
+            "hp-surgevalue": Math.floor(values.hp_max / 4)
         });
     });
 });
 
 on("change:strength", function () {
-    getAttrs(["Strength"], function (values) {
+    getAttrs(["strength"], function (values) {
         setAttrs({
-            strmod: Math.floor(values.Strength / 2 - 5)
+            strmod: Math.floor(values.strength / 2 - 5)
         });
     });
 });
 
 on("change:constitution", function () {
-    getAttrs(["Constitution"], function (values) {
+    getAttrs(["constitution"], function (values) {
         setAttrs({
-            conmod: Math.floor(values.Constitution / 2 - 5)
+            conmod: Math.floor(values.constitution / 2 - 5)
         });
     });
 });
 
 on("change:dexterity", function () {
-    getAttrs(["Dexterity"], function (values) {
+    getAttrs(["dexterity"], function (values) {
         setAttrs({
-            dexmod: Math.floor(values.Dexterity / 2 - 5)
+            dexmod: Math.floor(values.dexterity / 2 - 5)
         });
     });
 });
 
 on("change:intelligence", function () {
-    getAttrs(["Intelligence"], function (values) {
+    getAttrs(["intelligence"], function (values) {
         setAttrs({
-            intmod: Math.floor(values.Intelligence / 2 - 5)
+            intmod: Math.floor(values.intelligence / 2 - 5)
         });
     });
 });
 
 on("change:wisdom", function () {
-    getAttrs(["Wisdom"], function (values) {
+    getAttrs(["wisdom"], function (values) {
         setAttrs({
-            wismod: Math.floor(values.Wisdom / 2 - 5)
+            wismod: Math.floor(values.wisdom / 2 - 5)
         });
     });
 });
 
 on("change:charisma", function () {
-    getAttrs(["Charisma"], function (values) {
+    getAttrs(["charisma"], function (values) {
         setAttrs({
-            chamod: Math.floor(values.Charisma / 2 - 5)
+            chamod: Math.floor(values.charisma / 2 - 5)
         });
     });
 });
@@ -105,20 +105,20 @@ on(
     function () {
         getAttrs(
             [
-                "AC-Att",
+                "ac-att",
                 "strmod",
                 "conmod",
                 "dexmod",
                 "intmod",
                 "wismod",
                 "chamod",
-                "Quest",
-                "AC-Armor",
-                "AC-Misc"
+                "quest",
+                "ac-armor",
+                "ac-misc"
             ],
             function (values) {
                 var abimod = 0;
-                switch (parseInt(values["AC-Att"])) {
+                switch (parseInt(values["ac-att"])) {
                     case 0:
                         abimod = 0;
                         break;
@@ -144,9 +144,9 @@ on(
                 var finalattr =
                     10 +
                     parseInt(abimod) +
-                    parseInt(values.Quest) +
-                    parseInt(values["AC-Armor"]) +
-                    parseInt(values["AC-Misc"]);
+                    parseInt(values.quest) +
+                    parseInt(values["ac-armor"]) +
+                    parseInt(values["ac-misc"]);
                 setAttrs({
                     AC: finalattr
                 });
@@ -156,12 +156,12 @@ on(
 );
 
 on("change:strmod change:conmod change:quest change:fort-misc", function () {
-    getAttrs(["strmod", "conmod", "Quest", "Fort-Misc"], function (values) {
+    getAttrs(["strmod", "conmod", "quest", "fort-misc"], function (values) {
         var finalattr =
             10 +
             Math.max(parseInt(values.strmod), parseInt(values.conmod)) +
-            parseInt(values.Quest) +
-            parseInt(values["Fort-Misc"]);
+            parseInt(values.quest) +
+            parseInt(values["fort-misc"]);
         setAttrs({
             Fort: finalattr
         });
@@ -169,12 +169,12 @@ on("change:strmod change:conmod change:quest change:fort-misc", function () {
 });
 
 on("change:dexmod change:intmod change:quest change:ref-misc", function () {
-    getAttrs(["dexmod", "intmod", "Quest", "Ref-Misc"], function (values) {
+    getAttrs(["dexmod", "intmod", "quest", "ref-misc"], function (values) {
         var finalattr =
             10 +
             Math.max(parseInt(values.dexmod), parseInt(values.intmod)) +
-            parseInt(values.Quest) +
-            parseInt(values["Ref-Misc"]);
+            parseInt(values.quest) +
+            parseInt(values["ref-misc"]);
         setAttrs({
             Ref: finalattr
         });
@@ -182,12 +182,12 @@ on("change:dexmod change:intmod change:quest change:ref-misc", function () {
 });
 
 on("change:wismod change:chamod change:quest change:will-misc", function () {
-    getAttrs(["wismod", "chamod", "Quest", "Will-Misc"], function (values) {
+    getAttrs(["wismod", "chamod", "quest", "will-misc"], function (values) {
         var finalattr =
             10 +
             Math.max(parseInt(values.wismod), parseInt(values.chamod)) +
-            parseInt(values.Quest) +
-            parseInt(values["Will-Misc"]);
+            parseInt(values.quest) +
+            parseInt(values["will-misc"]);
         setAttrs({
             Will: finalattr
         });
@@ -222,17 +222,17 @@ on("change:bonusdice-entry", function () {
 on("change:repeating_standard:standard-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-prof";
-    var damage = accessory + "-Damage";
-    var brutal = accessory + "-Brutal";
-    var brutN = accessory + "-BrutN";
-    var crit = accessory + "-HighCrit";
+    var damage = accessory + "-damage";
+    var brutal = accessory + "-brutal";
+    var brutN = accessory + "-brutn";
+    var crit = accessory + "-highcrit";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
             [attack, damage, brutal, brutN, crit, "level", "quest"],
             function (values) {
                 var damagedice = values[damage];
                 if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutN];
+                    damagedice = damagedice + values[brutal] + values[brutn];
                 }
                 var critdice = values["quest"] + "d6";
                 if (values[crit] == "true") {
@@ -244,11 +244,11 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
                         damagedice.substring(1);
                 }
                 setAttrs({
-                    "repeating_Standard_Standard-HitBonus-accessory": parseInt(
+                    "repeating_standard_standard-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_Standard_Standard-damagedice": damagedice,
-                    "repeating_Standard_Standard-critdice": critdice
+                    "repeating_standard_standard-damagedice": damagedice,
+                    "repeating_standard_standard-critdice": critdice
                 });
             }
         );
@@ -256,11 +256,11 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
         getAttrs([attack, damage, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
-                "repeating_Stanard_Standard-HitBonus-accessory": parseInt(
+                "repeating_stanard_standard-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_Standard_Standard-damagedice": values[damage],
-                "repeating_Standard_Standard-critdice": values[critdice]
+                "repeating_standard_standard-damagedice": values[damage],
+                "repeating_standard_standard-critdice": values[critdice]
             });
         });
     }
@@ -269,11 +269,11 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
 on(
     "change:repeating_standard:standard-ability change:repeating_standard:standard-display",
     function (eventInfo) {
-        getAttrs(["repeating_Standard_Standard-Ability"], function (values) {
-            var modname = values["repeating_Standard_Standard-Ability"];
+        getAttrs(["repeating_standard_standard-ability"], function (values) {
+            var modname = values["repeating_standard_standard-ability"];
             getAttrs([modname], function (values) {
                 setAttrs({
-                    "repeating_Standard_Standard-abimod": parseInt(
+                    "repeating_standard_standard-abimod": parseInt(
                         values[modname]
                     )
                 });
@@ -287,28 +287,28 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_standard_Standard-MiscAttackBonus",
-                "repeating_standard_Standard-abimod",
-                "repeating_standard_Standard-HitBonus-accessory",
-                "Quest"
+                "repeating_standard_standard-miscattackbonus",
+                "repeating_standard_standard-abimod",
+                "repeating_standard_standard-hitbonus-accessory",
+                "quest"
             ],
             function (values) {
                 var finalattr =
                     parseInt(
-                        values["repeating_standard_Standard-MiscAttackBonus"]
+                        values["repeating_standard_standard-miscattackbonus"]
                     ) +
-                    parseInt(values["repeating_standard_Standard-abimod"]) +
+                    parseInt(values["repeating_standard_standard-abimod"]) +
                     parseInt(
-                        values["repeating_standard_Standard-HitBonus-accessory"]
+                        values["repeating_standard_standard-hitbonus-accessory"]
                     ) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Standard_Standard-HitBonus": finalattr
+                    "repeating_standard_standard-hitbonus": finalattr
                 });
             }
         );
@@ -320,24 +320,24 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_Standard_Standard-miscdamage",
-                "repeating_Standard_Standard-abidamage",
-                "repeating_Standard_Standard-abimod",
-                "Quest"
+                "repeating_standard_standard-miscdamage",
+                "repeating_standard_standard-abidamage",
+                "repeating_standard_standard-abimod",
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_Standard_Standard-abidamage"]) *
-                    parseInt(values["repeating_Standard_Standard-abimod"]) +
-                    parseInt(values["Quest"]) +
-                    parseInt(values["repeating_Standard_Standard-miscdamage"]);
+                    parseInt(values["repeating_standard_standard-abidamage"]) *
+                    parseInt(values["repeating_standard_standard-abimod"]) +
+                    parseInt(values["quest"]) +
+                    parseInt(values["repeating_standard_standard-miscdamage"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Standard_Standard-flatdamage": finalattr
+                    "repeating_standard_standard-flatdamage": finalattr
                 });
             }
         );
@@ -345,23 +345,23 @@ on(
 );
 
 on("change:repeating_standard:standard-damagedice", function () {
-    getAttrs(["repeating_Standard_Standard-damagedice"], function (values) {
+    getAttrs(["repeating_standard_standard-damagedice"], function (values) {
         var numdice = parseInt(
-            values["repeating_Standard_Standard-damagedice"]
+            values["repeating_standard_standard-damagedice"]
         );
         var size = 4;
         if (numdice < 10) {
             size = parseInt(
-                values["repeating_Standard_Standard-damagedice"].substring(2)
+                values["repeating_standard_standard-damagedice"].substring(2)
             );
         } else {
             size = parseInt(
-                values["repeating_Standard_Standard-damagedice"].substring(3)
+                values["repeating_standard_standard-damagedice"].substring(3)
             );
         }
         var finalattr = numdice * size;
         setAttrs({
-            "repeating_Standard_Standard-critflat": finalattr
+            "repeating_standard_standard-critflat": finalattr
         });
     });
 });
@@ -371,17 +371,17 @@ on("change:repeating_standard:standard-damagedice", function () {
 on("change:repeating_move:move-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-prof";
-    var damage = accessory + "-Damage";
-    var brutal = accessory + "-Brutal";
-    var brutN = accessory + "-BrutN";
-    var crit = accessory + "-HighCrit";
+    var damage = accessory + "-damage";
+    var brutal = accessory + "-brutal";
+    var brutN = accessory + "-brutn";
+    var crit = accessory + "-highcrit";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
             [attack, damage, brutal, brutN, crit, "level", "quest"],
             function (values) {
                 var damagedice = values[damage];
                 if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutN];
+                    damagedice = damagedice + values[brutal] + values[brutn];
                 }
                 var critdice = values["quest"] + "d6";
                 if (values[crit] == "true") {
@@ -393,11 +393,11 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
                         damagedice.substring(1);
                 }
                 setAttrs({
-                    "repeating_Move_Move-HitBonus-accessory": parseInt(
+                    "repeating_move_move-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_Move_Move-damagedice": damagedice,
-                    "repeating_Move_Move-critdice": critdice
+                    "repeating_move_move-damagedice": damagedice,
+                    "repeating_move_move-critdice": critdice
                 });
             }
         );
@@ -405,11 +405,11 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
         getAttrs([attack, damage, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
-                "repeating_Stanard_Move-HitBonus-accessory": parseInt(
+                "repeating_stanard_move-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_Move_Move-damagedice": values[damage],
-                "repeating_Move_Move-critdice": values[critdice]
+                "repeating_move_move-damagedice": values[damage],
+                "repeating_move_move-critdice": values[critdice]
             });
         });
     }
@@ -418,11 +418,11 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
 on(
     "change:repeating_move:move-ability change:repeating_move:move-display",
     function (eventInfo) {
-        getAttrs(["repeating_Move_Move-Ability"], function (values) {
-            var modname = values["repeating_Move_Move-Ability"];
+        getAttrs(["repeating_move_move-ability"], function (values) {
+            var modname = values["repeating_move_move-ability"];
             getAttrs([modname], function (values) {
                 setAttrs({
-                    "repeating_Move_Move-abimod": parseInt(values[modname])
+                    "repeating_move_move-abimod": parseInt(values[modname])
                 });
             });
         });
@@ -434,24 +434,24 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_move_Move-MiscAttackBonus",
-                "repeating_move_Move-abimod",
-                "repeating_move_Move-HitBonus-accessory",
-                "Quest"
+                "repeating_move_move-miscattackbonus",
+                "repeating_move_move-abimod",
+                "repeating_move_move-hitbonus-accessory",
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_move_Move-MiscAttackBonus"]) +
-                    parseInt(values["repeating_move_Move-abimod"]) +
-                    parseInt(values["repeating_move_Move-HitBonus-accessory"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["repeating_move_move-miscattackbonus"]) +
+                    parseInt(values["repeating_move_move-abimod"]) +
+                    parseInt(values["repeating_move_move-hitbonus-accessory"]) +
+                    parseInt(values["quest"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Move_Move-HitBonus": finalattr
+                    "repeating_move_move-hitbonus": finalattr
                 });
             }
         );
@@ -463,24 +463,24 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_Move_Move-miscdamage",
-                "repeating_Move_Move-abidamage",
-                "repeating_Move_Move-abimod",
-                "Quest"
+                "repeating_move_move-miscdamage",
+                "repeating_move_move-abidamage",
+                "repeating_move_move-abimod",
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_Move_Move-abidamage"]) *
-                    parseInt(values["repeating_Move_Move-abimod"]) +
-                    parseInt(values["Quest"]) +
-                    parseInt(values["repeating_Move_Move-miscdamage"]);
+                    parseInt(values["repeating_move_move-abidamage"]) *
+                    parseInt(values["repeating_move_move-abimod"]) +
+                    parseInt(values["quest"]) +
+                    parseInt(values["repeating_move_move-miscdamage"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Move_Move-flatdamage": finalattr
+                    "repeating_move_move-flatdamage": finalattr
                 });
             }
         );
@@ -488,21 +488,21 @@ on(
 );
 
 on("change:repeating_move:move-damagedice", function () {
-    getAttrs(["repeating_Move_Move-damagedice"], function (values) {
-        var numdice = parseInt(values["repeating_Move_Move-damagedice"]);
+    getAttrs(["repeating_move_move-damagedice"], function (values) {
+        var numdice = parseInt(values["repeating_move_move-damagedice"]);
         var size = 4;
         if (numdice < 10) {
             size = parseInt(
-                values["repeating_Move_Move-damagedice"].substring(2)
+                values["repeating_move_move-damagedice"].substring(2)
             );
         } else {
             size = parseInt(
-                values["repeating_Move_Move-damagedice"].substring(3)
+                values["repeating_move_move-damagedice"].substring(3)
             );
         }
         var finalattr = numdice * size;
         setAttrs({
-            "repeating_Move_Move-critflat": finalattr
+            "repeating_move_move-critflat": finalattr
         });
     });
 });
@@ -510,17 +510,17 @@ on("change:repeating_move:move-damagedice", function () {
 on("change:repeating_minor:minor-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-prof";
-    var damage = accessory + "-Damage";
-    var brutal = accessory + "-Brutal";
-    var brutN = accessory + "-BrutN";
-    var crit = accessory + "-HighCrit";
+    var damage = accessory + "-damage";
+    var brutal = accessory + "-brutal";
+    var brutN = accessory + "-brutn";
+    var crit = accessory + "-highcrit";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
             [attack, damage, brutal, brutN, crit, "level", "quest"],
             function (values) {
                 var damagedice = values[damage];
                 if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutN];
+                    damagedice = damagedice + values[brutal] + values[brutn];
                 }
                 var critdice = values["quest"] + "d6";
                 if (values[crit] == "true") {
@@ -532,11 +532,11 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
                         damagedice.substring(1);
                 }
                 setAttrs({
-                    "repeating_Minor_Minor-HitBonus-accessory": parseInt(
+                    "repeating_minor_minor-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_Minor_Minor-damagedice": damagedice,
-                    "repeating_Minor_Minor-critdice": critdice
+                    "repeating_minor_minor-damagedice": damagedice,
+                    "repeating_minor_minor-critdice": critdice
                 });
             }
         );
@@ -544,11 +544,11 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
         getAttrs([attack, damage, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
-                "repeating_Stanard_Minor-HitBonus-accessory": parseInt(
+                "repeating_stanard_minor-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_Minor_Minor-damagedice": values[damage],
-                "repeating_Minor_Minor-critdice": values[critdice]
+                "repeating_minor_minor-damagedice": values[damage],
+                "repeating_minor_minor-critdice": values[critdice]
             });
         });
     }
@@ -559,11 +559,11 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
 on(
     "change:repeating_minor:minor-ability change:repeating_minor:minor-display",
     function (eventInfo) {
-        getAttrs(["repeating_Minor_Minor-Ability"], function (values) {
-            var modname = values["repeating_Minor_Minor-Ability"];
+        getAttrs(["repeating_minor_minor-ability"], function (values) {
+            var modname = values["repeating_minor_minor-ability"];
             getAttrs([modname], function (values) {
                 setAttrs({
-                    "repeating_Minor_Minor-abimod": parseInt(values[modname])
+                    "repeating_minor_minor-abimod": parseInt(values[modname])
                 });
             });
         });
@@ -575,26 +575,26 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_minor_Minor-MiscAttackBonus",
-                "repeating_minor_Minor-abimod",
-                "repeating_minor_Minor-HitBonus-accessory",
-                "Quest"
+                "repeating_minor_minor-miscattackbonus",
+                "repeating_minor_minor-abimod",
+                "repeating_minor_minor-hitbonus-accessory",
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_minor_Minor-MiscAttackBonus"]) +
-                    parseInt(values["repeating_minor_Minor-abimod"]) +
+                    parseInt(values["repeating_minor_minor-miscattackbonus"]) +
+                    parseInt(values["repeating_minor_minor-abimod"]) +
                     parseInt(
-                        values["repeating_minor_Minor-HitBonus-accessory"]
+                        values["repeating_minor_minor-hitbonus-accessory"]
                     ) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Minor_Minor-HitBonus": finalattr
+                    "repeating_minor_minor-hitbonus": finalattr
                 });
             }
         );
@@ -606,24 +606,24 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_Minor_Minor-miscdamage",
-                "repeating_Minor_Minor-abidamage",
-                "repeating_Minor_Minor-abimod",
-                "Quest"
+                "repeating_minor_minor-miscdamage",
+                "repeating_minor_minor-abidamage",
+                "repeating_minor_minor-abimod",
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_Minor_Minor-abidamage"]) *
-                    parseInt(values["repeating_Minor_Minor-abimod"]) +
-                    parseInt(values["Quest"]) +
-                    parseInt(values["repeating_Minor_Minor-miscdamage"]);
+                    parseInt(values["repeating_minor_minor-abidamage"]) *
+                    parseInt(values["repeating_minor_minor-abimod"]) +
+                    parseInt(values["quest"]) +
+                    parseInt(values["repeating_minor_minor-miscdamage"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Minor_Minor-flatdamage": finalattr
+                    "repeating_minor_minor-flatdamage": finalattr
                 });
             }
         );
@@ -631,21 +631,21 @@ on(
 );
 
 on("change:repeating_minor:minor-damagedice", function () {
-    getAttrs(["repeating_Minor_Minor-damagedice"], function (values) {
-        var numdice = parseInt(values["repeating_Minor_Minor-damagedice"]);
+    getAttrs(["repeating_minor_minor-damagedice"], function (values) {
+        var numdice = parseInt(values["repeating_minor_minor-damagedice"]);
         var size = 4;
         if (numdice < 10) {
             size = parseInt(
-                values["repeating_Minor_Minor-damagedice"].substring(2)
+                values["repeating_minor_minor-damagedice"].substring(2)
             );
         } else {
             size = parseInt(
-                values["repeating_Minor_Minor-damagedice"].substring(3)
+                values["repeating_minor_minor-damagedice"].substring(3)
             );
         }
         var finalattr = numdice * size;
         setAttrs({
-            "repeating_Minor_Minor-critflat": finalattr
+            "repeating_minor_minor-critflat": finalattr
         });
     });
 });
@@ -655,17 +655,17 @@ on("change:repeating_minor:minor-damagedice", function () {
 on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
     var attack = accessory + "-prof";
-    var damage = accessory + "-Damage";
-    var brutal = accessory + "-Brutal";
-    var brutN = accessory + "-BrutN";
-    var crit = accessory + "-HighCrit";
+    var damage = accessory + "-damage";
+    var brutal = accessory + "-brutal";
+    var brutN = accessory + "-brutn";
+    var crit = accessory + "-highcrit";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
             [attack, damage, brutal, brutN, crit, "level", "quest"],
             function (values) {
                 var damagedice = values[damage];
                 if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutN];
+                    damagedice = damagedice + values[brutal] + values[brutn];
                 }
                 var critdice = values["quest"] + "d6";
                 if (values[crit] == "true") {
@@ -677,11 +677,11 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
                         damagedice.substring(1);
                 }
                 setAttrs({
-                    "repeating_Reaction_Reaction-HitBonus-accessory": parseInt(
+                    "repeating_reaction_reaction-hitbonus-accessory": parseInt(
                         values[attack]
                     ),
-                    "repeating_Reaction_Reaction-damagedice": damagedice,
-                    "repeating_Reaction_Reaction-critdice": critdice
+                    "repeating_reaction_reaction-damagedice": damagedice,
+                    "repeating_reaction_reaction-critdice": critdice
                 });
             }
         );
@@ -689,11 +689,11 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
         getAttrs([attack, damage, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
-                "repeating_Stanard_Reaction-HitBonus-accessory": parseInt(
+                "repeating_stanard_reaction-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_Reaction_Reaction-damagedice": values[damage],
-                "repeating_Reaction_Reaction-critdice": values[critdice]
+                "repeating_reaction_reaction-damagedice": values[damage],
+                "repeating_reaction_reaction-critdice": values[critdice]
             });
         });
     }
@@ -702,11 +702,11 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
 on(
     "change:repeating_reaction:reaction-ability change:repeating_reaction:reaction-display",
     function (eventInfo) {
-        getAttrs(["repeating_Reaction_Reaction-Ability"], function (values) {
-            var modname = values["repeating_Reaction_Reaction-Ability"];
+        getAttrs(["repeating_reaction_reaction-ability"], function (values) {
+            var modname = values["repeating_reaction_reaction-ability"];
             getAttrs([modname], function (values) {
                 setAttrs({
-                    "repeating_Reaction_Reaction-abimod": parseInt(
+                    "repeating_reaction_reaction-abimod": parseInt(
                         values[modname]
                     )
                 });
@@ -720,28 +720,28 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_reaction_Reaction-MiscAttackBonus",
-                "repeating_reaction_Reaction-abimod",
-                "repeating_reaction_Reaction-HitBonus-accessory",
-                "Quest"
+                "repeating_reaction_reaction-miscattackbonus",
+                "repeating_reaction_reaction-abimod",
+                "repeating_reaction_reaction-hitbonus-accessory",
+                "quest"
             ],
             function (values) {
                 var finalattr =
                     parseInt(
-                        values["repeating_reaction_Reaction-MiscAttackBonus"]
+                        values["repeating_reaction_reaction-miscattackbonus"]
                     ) +
-                    parseInt(values["repeating_reaction_Reaction-abimod"]) +
+                    parseInt(values["repeating_reaction_reaction-abimod"]) +
                     parseInt(
-                        values["repeating_reaction_Reaction-HitBonus-accessory"]
+                        values["repeating_reaction_reaction-hitbonus-accessory"]
                     ) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Reaction_Reaction-HitBonus": finalattr
+                    "repeating_reaction_reaction-hitbonus": finalattr
                 });
             }
         );
@@ -753,24 +753,24 @@ on(
     function () {
         getAttrs(
             [
-                "repeating_Reaction_Reaction-miscdamage",
-                "repeating_Reaction_Reaction-abidamage",
-                "repeating_Reaction_Reaction-abimod",
-                "Quest"
+                "repeating_reaction_reaction-miscdamage",
+                "repeating_reaction_reaction-abidamage",
+                "repeating_reaction_reaction-abimod",
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_Reaction_Reaction-abidamage"]) *
-                    parseInt(values["repeating_Reaction_Reaction-abimod"]) +
-                    parseInt(values["Quest"]) +
-                    parseInt(values["repeating_Reaction_Reaction-miscdamage"]);
+                    parseInt(values["repeating_reaction_reaction-abidamage"]) *
+                    parseInt(values["repeating_reaction_reaction-abimod"]) +
+                    parseInt(values["quest"]) +
+                    parseInt(values["repeating_reaction_reaction-miscdamage"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
                 } else {
                     finalattr = "-" + finalattr;
                 }
                 setAttrs({
-                    "repeating_Reaction_Reaction-flatdamage": finalattr
+                    "repeating_reaction_reaction-flatdamage": finalattr
                 });
             }
         );
@@ -778,23 +778,23 @@ on(
 );
 
 on("change:repeating_reaction:reaction-damagedice", function () {
-    getAttrs(["repeating_Reaction_Reaction-damagedice"], function (values) {
+    getAttrs(["repeating_reaction_reaction-damagedice"], function (values) {
         var numdice = parseInt(
-            values["repeating_Reaction_Reaction-damagedice"]
+            values["repeating_reaction_reaction-damagedice"]
         );
         var size = 4;
         if (numdice < 10) {
             size = parseInt(
-                values["repeating_Reaction_Reaction-damagedice"].substring(2)
+                values["repeating_reaction_reaction-damagedice"].substring(2)
             );
         } else {
             size = parseInt(
-                values["repeating_Reaction_Reaction-damagedice"].substring(3)
+                values["repeating_reaction_reaction-damagedice"].substring(3)
             );
         }
         var finalattr = numdice * size;
         setAttrs({
-            "repeating_Reaction_Reaction-critflat": finalattr
+            "repeating_reaction_reaction-critflat": finalattr
         });
     });
 });
@@ -809,13 +809,13 @@ on(
     "change:acrobatics-train change:acrobatics-miscbonus change:dexmod change:quest",
     function () {
         getAttrs(
-            ["Acrobatics-Train", "Acrobatics-MiscBonus", "dexmod", "Quest"],
+            ["acrobatics-train", "acrobatics-miscbonus", "dexmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Acrobatics-Train"]) +
-                    parseInt(values["Acrobatics-MiscBonus"]) +
+                    parseInt(values["acrobatics-train"]) +
+                    parseInt(values["acrobatics-miscbonus"]) +
                     parseInt(values["dexmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -831,13 +831,13 @@ on(
     "change:appeal-train change:appeal-miscbonus change:chamod change:quest",
     function () {
         getAttrs(
-            ["Appeal-Train", "Appeal-MiscBonus", "chamod", "Quest"],
+            ["appeal-train", "appeal-miscbonus", "chamod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Appeal-Train"]) +
-                    parseInt(values["Appeal-MiscBonus"]) +
+                    parseInt(values["appeal-train"]) +
+                    parseInt(values["appeal-miscbonus"]) +
                     parseInt(values["chamod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -853,13 +853,13 @@ on(
     "change:arcana-train change:arcana-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
-            ["Arcana-Train", "Arcana-MiscBonus", "intmod", "Quest"],
+            ["arcana-train", "arcana-miscbonus", "intmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Arcana-Train"]) +
-                    parseInt(values["Arcana-MiscBonus"]) +
+                    parseInt(values["arcana-train"]) +
+                    parseInt(values["arcana-miscbonus"]) +
                     parseInt(values["intmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -875,13 +875,13 @@ on(
     "change:athletics-train change:athletics-miscbonus change:strmod change:quest",
     function () {
         getAttrs(
-            ["Athletics-Train", "Athletics-MiscBonus", "strmod", "Quest"],
+            ["athletics-train", "athletics-miscbonus", "strmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Athletics-Train"]) +
-                    parseInt(values["Athletics-MiscBonus"]) +
+                    parseInt(values["athletics-train"]) +
+                    parseInt(values["athletics-miscbonus"]) +
                     parseInt(values["strmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -897,13 +897,13 @@ on(
     "change:debate-train change:debate-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
-            ["Debate-Train", "Debate-MiscBonus", "intmod", "Quest"],
+            ["debate-train", "debate-miscbonus", "intmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Debate-Train"]) +
-                    parseInt(values["Debate-MiscBonus"]) +
+                    parseInt(values["debate-train"]) +
+                    parseInt(values["debate-miscbonus"]) +
                     parseInt(values["intmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -919,13 +919,13 @@ on(
     "change:endurance-train change:endurance-miscbonus change:conmod change:quest",
     function () {
         getAttrs(
-            ["Endurance-Train", "Endurance-MiscBonus", "conmod", "Quest"],
+            ["endurance-train", "endurance-miscbonus", "conmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Endurance-Train"]) +
-                    parseInt(values["Endurance-MiscBonus"]) +
+                    parseInt(values["endurance-train"]) +
+                    parseInt(values["endurance-miscbonus"]) +
                     parseInt(values["conmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -941,13 +941,13 @@ on(
     "change:handleanimal-train change:handleanimal-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
-            ["HandleAnimal-Train", "HandleAnimal-MiscBonus", "wismod", "Quest"],
+            ["handleanimal-train", "handleanimal-miscbonus", "wismod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["HandleAnimal-Train"]) +
-                    parseInt(values["HandleAnimal-MiscBonus"]) +
+                    parseInt(values["handleanimal-train"]) +
+                    parseInt(values["handleanimal-miscbonus"]) +
                     parseInt(values["wismod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -963,13 +963,13 @@ on(
     "change:impress-train change:impress-miscbonus change:chamod change:quest",
     function () {
         getAttrs(
-            ["Impress-Train", "Impress-MiscBonus", "chamod", "Quest"],
+            ["impress-train", "impress-miscbonus", "chamod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Impress-Train"]) +
-                    parseInt(values["Impress-MiscBonus"]) +
+                    parseInt(values["impress-train"]) +
+                    parseInt(values["impress-miscbonus"]) +
                     parseInt(values["chamod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -985,13 +985,13 @@ on(
     "change:insight-train change:insight-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
-            ["Insight-Train", "Insight-MiscBonus", "wismod", "Quest"],
+            ["insight-train", "insight-miscbonus", "wismod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Insight-Train"]) +
-                    parseInt(values["Insight-MiscBonus"]) +
+                    parseInt(values["insight-train"]) +
+                    parseInt(values["insight-miscbonus"]) +
                     parseInt(values["wismod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1007,13 +1007,13 @@ on(
     "change:medicine-train change:medicine-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
-            ["Medicine-Train", "Medicine-MiscBonus", "wismod", "Quest"],
+            ["medicine-train", "medicine-miscbonus", "wismod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Medicine-Train"]) +
-                    parseInt(values["Medicine-MiscBonus"]) +
+                    parseInt(values["medicine-train"]) +
+                    parseInt(values["medicine-miscbonus"]) +
                     parseInt(values["wismod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1029,13 +1029,13 @@ on(
     "change:perception-train change:perception-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
-            ["Perception-Train", "Perception-MiscBonus", "wismod", "Quest"],
+            ["perception-train", "perception-miscbonus", "wismod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Perception-Train"]) +
-                    parseInt(values["Perception-MiscBonus"]) +
+                    parseInt(values["perception-train"]) +
+                    parseInt(values["perception-miscbonus"]) +
                     parseInt(values["wismod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1051,13 +1051,13 @@ on(
     "change:repair-train change:repair-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
-            ["Repair-Train", "Repair-MiscBonus", "intmod", "Quest"],
+            ["repair-train", "repair-miscbonus", "intmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Repair-Train"]) +
-                    parseInt(values["Repair-MiscBonus"]) +
+                    parseInt(values["repair-train"]) +
+                    parseInt(values["repair-miscbonus"]) +
                     parseInt(values["intmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1073,13 +1073,13 @@ on(
     "change:research-train change:research-miscbonus change:intmod change:quest",
     function () {
         getAttrs(
-            ["Research-Train", "Research-MiscBonus", "intmod", "Quest"],
+            ["research-train", "research-miscbonus", "intmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Research-Train"]) +
-                    parseInt(values["Research-MiscBonus"]) +
+                    parseInt(values["research-train"]) +
+                    parseInt(values["research-miscbonus"]) +
                     parseInt(values["intmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1096,17 +1096,17 @@ on(
     function () {
         getAttrs(
             [
-                "SleightofHand-Train",
-                "SleightofHand-MiscBonus",
+                "sleightofhand-train",
+                "sleightofhand-miscbonus",
                 "dexmod",
-                "Quest"
+                "quest"
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["SleightofHand-Train"]) +
-                    parseInt(values["SleightofHand-MiscBonus"]) +
+                    parseInt(values["sleightofhand-train"]) +
+                    parseInt(values["sleightofhand-miscbonus"]) +
                     parseInt(values["dexmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1122,13 +1122,13 @@ on(
     "change:stealth-train change:stealth-miscbonus change:dexmod change:quest",
     function () {
         getAttrs(
-            ["Stealth-Train", "Stealth-MiscBonus", "dexmod", "Quest"],
+            ["stealth-train", "stealth-miscbonus", "dexmod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Stealth-Train"]) +
-                    parseInt(values["Stealth-MiscBonus"]) +
+                    parseInt(values["stealth-train"]) +
+                    parseInt(values["stealth-miscbonus"]) +
                     parseInt(values["dexmod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1144,13 +1144,13 @@ on(
     "change:socialize-train change:socialize-miscbonus change:chamod change:quest",
     function () {
         getAttrs(
-            ["Socialize-Train", "Socialize-MiscBonus", "chamod", "Quest"],
+            ["socialize-train", "socialize-miscbonus", "chamod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Socialize-Train"]) +
-                    parseInt(values["Socialize-MiscBonus"]) +
+                    parseInt(values["socialize-train"]) +
+                    parseInt(values["socialize-miscbonus"]) +
                     parseInt(values["chamod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1166,13 +1166,13 @@ on(
     "change:survival-train change:survival-miscbonus change:wismod change:quest",
     function () {
         getAttrs(
-            ["Survival-Train", "Survival-MiscBonus", "wismod", "Quest"],
+            ["survival-train", "survival-miscbonus", "wismod", "quest"],
             function (values) {
                 var finalattr =
-                    parseInt(values["Survival-Train"]) +
-                    parseInt(values["Survival-MiscBonus"]) +
+                    parseInt(values["survival-train"]) +
+                    parseInt(values["survival-miscbonus"]) +
                     parseInt(values["wismod"]) +
-                    parseInt(values["Quest"]);
+                    parseInt(values["quest"]);
                 if (finalattr > 0) {
                     finalattr = "+" + finalattr;
                 }
@@ -1185,137 +1185,137 @@ on(
 );
 
 on("change:acrobatics-train", function () {
-    getAttrs(["Acrobatics-Train"], function (values) {
+    getAttrs(["acrobatics-train"], function (values) {
         setAttrs({
-            "Acrobatics-Trained": training(values["Acrobatics-Train"])
+            "acrobatics-trained": training(values["acrobatics-train"])
         });
     });
 });
 
 on("change:appeal-train", function () {
-    getAttrs(["Appeal-Train"], function (values) {
+    getAttrs(["appeal-train"], function (values) {
         setAttrs({
-            "Appeal-Trained": training(values["Appeal-Train"])
+            "appeal-trained": training(values["appeal-train"])
         });
     });
 });
 
 on("change:arcana-train", function () {
-    getAttrs(["Arcana-Train"], function (values) {
+    getAttrs(["arcana-train"], function (values) {
         setAttrs({
-            "Arcana-Trained": training(values["Arcana-Train"])
+            "arcana-trained": training(values["arcana-train"])
         });
     });
 });
 
 on("change:athletics-train", function () {
-    getAttrs(["Athletics-Train"], function (values) {
+    getAttrs(["athletics-train"], function (values) {
         setAttrs({
-            "Athletics-Trained": training(values["Athletics-Train"])
+            "athletics-trained": training(values["athletics-train"])
         });
     });
 });
 
 on("change:debate-train", function () {
-    getAttrs(["Debate-Train"], function (values) {
+    getAttrs(["debate-train"], function (values) {
         setAttrs({
-            "Debate-Trained": training(values["Debate-Train"])
+            "debate-trained": training(values["debate-train"])
         });
     });
 });
 
 on("change:endurance-train", function () {
-    getAttrs(["Endurance-Train"], function (values) {
+    getAttrs(["endurance-train"], function (values) {
         setAttrs({
-            "Endurance-Trained": training(values["Endurance-Train"])
+            "endurance-trained": training(values["endurance-train"])
         });
     });
 });
 
 on("change:handleanimal-train", function () {
-    getAttrs(["HandleAnimal-Train"], function (values) {
+    getAttrs(["handleanimal-train"], function (values) {
         setAttrs({
-            "HandleAnimal-Trained": training(values["HandleAnimal-Train"])
+            "handleanimal-trained": training(values["handleanimal-train"])
         });
     });
 });
 
 on("change:impress-train", function () {
-    getAttrs(["Impress-Train"], function (values) {
+    getAttrs(["impress-train"], function (values) {
         setAttrs({
-            "Impress-Trained": training(values["Impress-Train"])
+            "impress-trained": training(values["impress-train"])
         });
     });
 });
 
 on("change:insight-train", function () {
-    getAttrs(["Insight-Train"], function (values) {
+    getAttrs(["insight-train"], function (values) {
         setAttrs({
-            "Insight-Trained": training(values["Insight-Train"])
+            "insight-trained": training(values["insight-train"])
         });
     });
 });
 
 on("change:medicine-train", function () {
-    getAttrs(["Medicine-Train"], function (values) {
+    getAttrs(["medicine-train"], function (values) {
         setAttrs({
-            "Medicine-Trained": training(values["Medicine-Train"])
+            "medicine-trained": training(values["medicine-train"])
         });
     });
 });
 
 on("change:perception-train", function () {
-    getAttrs(["Perception-Train"], function (values) {
+    getAttrs(["perception-train"], function (values) {
         setAttrs({
-            "Perception-Trained": training(values["Perception-Train"])
+            "perception-trained": training(values["perception-train"])
         });
     });
 });
 
 on("change:repair-train", function () {
-    getAttrs(["Repair-Train"], function (values) {
+    getAttrs(["repair-train"], function (values) {
         setAttrs({
-            "Repair-Trained": training(values["Repair-Train"])
+            "repair-trained": training(values["repair-train"])
         });
     });
 });
 
 on("change:research-train", function () {
-    getAttrs(["Research-Train"], function (values) {
+    getAttrs(["research-train"], function (values) {
         setAttrs({
-            "Research-Trained": training(values["Research-Train"])
+            "research-trained": training(values["research-train"])
         });
     });
 });
 
 on("change:sleightofhand-train", function () {
-    getAttrs(["SleightofHand-Train"], function (values) {
+    getAttrs(["sleightofhand-train"], function (values) {
         setAttrs({
-            "SleightofHand-Trained": training(values["SleightofHand-Train"])
+            "sleightofhand-trained": training(values["sleightofhand-train"])
         });
     });
 });
 
 on("change:stealth-train", function () {
-    getAttrs(["Stealth-Train"], function (values) {
+    getAttrs(["stealth-train"], function (values) {
         setAttrs({
-            "Stealth-Trained": training(values["Stealth-Train"])
+            "stealth-trained": training(values["stealth-train"])
         });
     });
 });
 
 on("change:socialize-train", function () {
-    getAttrs(["Socialize-Train"], function (values) {
+    getAttrs(["socialize-train"], function (values) {
         setAttrs({
-            "Socialize-Trained": training(values["Socialize-Train"])
+            "socialize-trained": training(values["socialize-train"])
         });
     });
 });
 
 on("change:survival-train", function () {
-    getAttrs(["Survival-Train"], function (values) {
+    getAttrs(["survival-train"], function (values) {
         setAttrs({
-            "Survival-Trained": training(values["Survival-Train"])
+            "survival-trained": training(values["survival-train"])
         });
     });
 });
@@ -1326,15 +1326,13 @@ on("change:repeating_onpersonitems:onpersonitem-quantity change:repeating_onpers
         var quantArray = [];
         var sizeArray = [];
         for (var i = 0; i < idarray.length; i++) {
-            quantArray.push("repeating_onpersonitems_" + idarray[i] + "_OnPersonItem-Quantity");
-            sizeArray.push("repeating_onpersonitems_" + idarray[i] + "_OnPersonItem-Space");
+            quantArray.push("repeating_onpersonitems_" + idarray[i] + "_onpersonitem-quantity");
+            sizeArray.push("repeating_onpersonitems_" + idarray[i] + "_onpersonitem-space");
         }
         getAttrs(quantArray.concat(sizeArray), function (values) {
-            // console.log(values);
             for (i = 0; i < idarray.length; i++) {
-                totalSpace += values[quantArray[i]] * values[sizeArray[i]];
+                totalSpace += values[quantarray[i]] * values[sizearray[i]];
             }
-            // console.log(totalSpace);
             setAttrs({
                 currentSpace: totalSpace
             })
@@ -1352,10 +1350,10 @@ WEAPONS
 on(
     "change:wep1-ability change:wep2-ability change:wep3-ability change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod",
     function () {
-        getAttrs(["wep1-Ability", "wep2-Ability", "wep3-Ability"], function (values) {
-            var wep1mod = values["wep1-Ability"];
-            var wep2mod = values["wep2-Ability"];
-            var wep3mod = values["wep3-Ability"];
+        getAttrs(["wep1-ability", "wep2-ability", "wep3-ability"], function (values) {
+            var wep1mod = values["wep1-ability"];
+            var wep2mod = values["wep2-ability"];
+            var wep3mod = values["wep3-ability"];
             getAttrs([wep1mod, wep2mod, wep3mod], function (values) {
                 setAttrs({
                     "wep1-abimod": parseInt(
@@ -1373,26 +1371,106 @@ on(
     }
 );
 
-on("change:wep1-abimod change:wep1-prof", function () {
-    getAttrs(["wep1-abimod", "wep1-prof"], function (v) {
+on("change:wep1-abimod change:wep1-prof change:quest", function () {
+    getAttrs(["wep1-abimod", "wep1-prof", "quest"], function (v) {
         setAttrs({
-            "wep1-HitBonus": parseInt(v["wep1-abimod"]) + parseInt(v["wep1-prof"])
+            "wep1-hitbonus": parseInt(v["wep1-abimod"]) + parseInt(v["wep1-prof"]) + parseInt(v["quest"]),
+            "wep1-damageflat": parseInt(v["wep1-abimod"]) + parseInt(v["quest"])
         })
     })
 });
 
-on("change:wep1-damage change:wep1-damage-versatile change:wep1-versatile change:wep1-brutal change:wep1-brutaln change:wep1-highcrit", function () {
-    getAttrs(["wep1-damage", "wep1-damage-versatile", "wep1-versatile", "wep1-brutal", "wep1-brutaln", "wep1-highcrit"], function (v) {
+on("change:wep1-damage change:wep1-damage-versatile change:wep1-versatile change:wep1-brutal change:wep1-brutn change:wep1-highcrit change:wep1-damageflat change:level", function () {
+    getAttrs(["wep1-damage", "wep1-damage-versatile", "wep1-versatile", "wep1-brutal", "wep1-brutn", "wep1-highcrit", "wep1-damageflat", "level"], function (v) {
         var damagedice = v["wep1-damage"];
-        if (v["wep1-versatile"]) {
+        numdice = parseInt(damagedice);
+        diesize = "d" + String(maxdice(damagedice) / numdice)
+        if (v["wep1-versatile"] == 1) {
             damagedice = v["wep1-damage-versatile"];
         }
         brutal = "";
-        if (v["wep1-brutal"]) {
-            brutal = v["wep1-brutal"] + v["wep1-brutaln"]
+        if (v["wep1-brutal"] == "r<") {
+            brutal = v["wep1-brutal"] + v["wep1-brutn"]
         }
+        highcrit = ""
+        if (v["wep1-highcrit"] == "true") {
+            numdice = parseInt(damagedice);
+            highcrit = String(Math.ceil(v["level"] / 5) * numdice) + diesize + " + ";
+        }
+        damagedice = String(Math.ceil(v["level"]/10) * numdice) + diesize
         setAttrs({
-            "wep1-DamageRoll": damagedice + brutal
+            "wep1-damageroll": damagedice + brutal,
+            "wep1-critdmg": highcrit + String(maxdice(damagedice) + v["wep1-damageflat"])
+        });
+    });
+});
+
+
+on("change:wep2-abimod change:wep2-prof change:quest", function () {
+    getAttrs(["wep2-abimod", "wep2-prof", "quest"], function (v) {
+        setAttrs({
+            "wep2-hitbonus": parseInt(v["wep2-abimod"]) + parseInt(v["wep2-prof"]) + parseInt(v["quest"]),
+            "wep2-damageflat": parseInt(v["wep2-abimod"]) + parseInt(v["quest"])
+        })
+    })
+});
+
+on("change:wep2-damage change:wep2-damage-versatile change:wep2-versatile change:wep2-brutal change:wep2-brutn change:wep2-highcrit change:wep2-damageflat change:level", function () {
+    getAttrs(["wep2-damage", "wep2-damage-versatile", "wep2-versatile", "wep2-brutal", "wep2-brutn", "wep2-highcrit", "wep2-damageflat", "level"], function (v) {
+        var damagedice = v["wep2-damage"];
+        numdice = parseInt(damagedice);
+        diesize = "d" + String(maxdice(damagedice) / numdice)
+        if (v["wep2-versatile"] == 1) {
+            damagedice = v["wep2-damage-versatile"];
+        }
+        brutal = "";
+        if (v["wep2-brutal"] == "r<") {
+            brutal = v["wep2-brutal"] + v["wep2-brutn"]
+        }
+        highcrit = ""
+        if (v["wep2-highcrit"] == "true") {
+            numdice = parseInt(damagedice);
+            highcrit = String(Math.ceil(v["level"] / 5) * numdice) + diesize + " + ";
+        }
+        damagedice = String(Math.ceil(v["level"]/10) * numdice) + diesize
+        setAttrs({
+            "wep2-damageroll": damagedice + brutal,
+            "wep2-critdmg": highcrit + String(maxdice(damagedice) + v["wep2-damageflat"])
+        });
+    });
+});
+
+
+on("change:wep3-abimod change:wep3-prof change:quest", function () {
+    getAttrs(["wep3-abimod", "wep3-prof", "quest"], function (v) {
+        setAttrs({
+            "wep3-hitbonus": parseInt(v["wep3-abimod"]) + parseInt(v["wep3-prof"]) + parseInt(v["quest"]),
+            "wep3-damageflat": parseInt(v["wep3-abimod"]) + parseInt(v["quest"])
+        })
+    })
+});
+
+on("change:wep3-damage change:wep3-damage-versatile change:wep3-versatile change:wep3-brutal change:wep3-brutn change:wep3-highcrit change:wep3-damageflat change:level", function () {
+    getAttrs(["wep3-damage", "wep3-damage-versatile", "wep3-versatile", "wep3-brutal", "wep3-brutn", "wep3-highcrit", "wep3-damageflat", "level"], function (v) {
+        var damagedice = v["wep3-damage"];
+        numdice = parseInt(damagedice);
+        diesize = "d" + String(maxdice(damagedice) / numdice)
+        if (v["wep3-versatile"] == 1) {
+            damagedice = v["wep3-damage-versatile"];
+        }
+        brutal = "";
+        if (v["wep3-brutal"] == "r<") {
+            brutal = v["wep3-brutal"] + v["wep3-brutn"]
+        }
+        highcrit = ""
+        if (v["wep3-highcrit"] == "true") {
+            numdice = parseInt(damagedice);
+            highcrit = String(Math.ceil(v["level"] / 5) * numdice) + diesize + " + ";
+        }
+        damagedice = String(Math.ceil(v["level"]/10) * numdice) + diesize
+        setAttrs({
+            "wep3-damageroll": damagedice + brutal,
+            "wep3-critdmg": highcrit + String(maxdice(damagedice) + v["wep3-damageflat"])
         });
     });
 });
