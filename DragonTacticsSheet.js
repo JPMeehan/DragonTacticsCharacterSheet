@@ -202,14 +202,6 @@ ATTACKS
 
 on("change:bonusdice-entry", function () {
     getAttrs(["bonusdice-entry"], function (values) {
-        // var numdice = parseInt(values["bonusdice-entry"]);
-        // var size = 4;
-        // if (numdice < 10) {
-        //     size = parseInt(values["bonusdice-entry"].substring(2));
-        // } else {
-        //     size = parseInt(values["bonusdice-entry"].substring(3));
-        // }
-        // var finalattr = numdice * size;
         setAttrs({
             'bonusdice-crit': maxdice(values["bonusdice-entry"])
         });
@@ -221,28 +213,13 @@ on("change:bonusdice-entry", function () {
 
 on("change:repeating_standard:standard-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-prof";
-    var damage = accessory + "-damage";
-    var brutal = accessory + "-brutal";
-    var brutN = accessory + "-brutn";
-    var crit = accessory + "-highcrit";
+    var attack = accessory + "-hitbonus";
+    var damageroll = accessory + "-damageroll";
+    var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
-            [attack, damage, brutal, brutN, crit, "level", "quest"],
+            [attack, damageroll, crit],
             function (values) {
-                var damagedice = values[damage];
-                if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutn];
-                }
-                var critdice = values["quest"] + "d6";
-                if (values[crit] == "true") {
-                    critdice =
-                        critdice +
-                        " + " +
-                        parseInt(damagedice.substring(0, 1)) *
-                        Math.ceil(parseInt(values["level"]) / 5) +
-                        damagedice.substring(1);
-                }
                 setAttrs({
                     "repeating_standard_standard-hitbonus-accessory": parseInt(
                         values[attack]
@@ -253,13 +230,12 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
             }
         );
     } else {
-        getAttrs([attack, damage, "quest"], function (values) {
+        getAttrs([attack, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
                 "repeating_stanard_standard-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_standard_standard-damagedice": values[damage],
                 "repeating_standard_standard-critdice": values[critdice]
             });
         });
@@ -268,7 +244,7 @@ on("change:repeating_standard:standard-accessory", function (eventInfo) {
 
 on(
     "change:repeating_standard:standard-ability change:repeating_standard:standard-display",
-    function (eventInfo) {
+    function () {
         getAttrs(["repeating_standard_standard-ability"], function (values) {
             var modname = values["repeating_standard_standard-ability"];
             getAttrs([modname], function (values) {
@@ -346,22 +322,8 @@ on(
 
 on("change:repeating_standard:standard-damagedice", function () {
     getAttrs(["repeating_standard_standard-damagedice"], function (values) {
-        var numdice = parseInt(
-            values["repeating_standard_standard-damagedice"]
-        );
-        var size = 4;
-        if (numdice < 10) {
-            size = parseInt(
-                values["repeating_standard_standard-damagedice"].substring(2)
-            );
-        } else {
-            size = parseInt(
-                values["repeating_standard_standard-damagedice"].substring(3)
-            );
-        }
-        var finalattr = numdice * size;
         setAttrs({
-            "repeating_standard_standard-critflat": finalattr
+            "repeating_standard_standard-critflat": maxdice(values["repeating_standard_standard-damagedice"])
         });
     });
 });
@@ -370,28 +332,13 @@ on("change:repeating_standard:standard-damagedice", function () {
 
 on("change:repeating_move:move-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-prof";
-    var damage = accessory + "-damage";
-    var brutal = accessory + "-brutal";
-    var brutN = accessory + "-brutn";
-    var crit = accessory + "-highcrit";
+    var attack = accessory + "-hitbonus";
+    var damageroll = accessory + "-damageroll";
+    var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
-            [attack, damage, brutal, brutN, crit, "level", "quest"],
+            [attack, damageroll, crit],
             function (values) {
-                var damagedice = values[damage];
-                if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutn];
-                }
-                var critdice = values["quest"] + "d6";
-                if (values[crit] == "true") {
-                    critdice =
-                        critdice +
-                        " + " +
-                        parseInt(damagedice.substring(0, 1)) *
-                        Math.ceil(parseInt(values["level"]) / 5) +
-                        damagedice.substring(1);
-                }
                 setAttrs({
                     "repeating_move_move-hitbonus-accessory": parseInt(
                         values[attack]
@@ -402,13 +349,12 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
             }
         );
     } else {
-        getAttrs([attack, damage, "quest"], function (values) {
+        getAttrs([attack, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
                 "repeating_stanard_move-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_move_move-damagedice": values[damage],
                 "repeating_move_move-critdice": values[critdice]
             });
         });
@@ -417,12 +363,14 @@ on("change:repeating_move:move-accessory", function (eventInfo) {
 
 on(
     "change:repeating_move:move-ability change:repeating_move:move-display",
-    function (eventInfo) {
+    function () {
         getAttrs(["repeating_move_move-ability"], function (values) {
             var modname = values["repeating_move_move-ability"];
             getAttrs([modname], function (values) {
                 setAttrs({
-                    "repeating_move_move-abimod": parseInt(values[modname])
+                    "repeating_move_move-abimod": parseInt(
+                        values[modname]
+                    )
                 });
             });
         });
@@ -441,9 +389,13 @@ on(
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_move_move-miscattackbonus"]) +
+                    parseInt(
+                        values["repeating_move_move-miscattackbonus"]
+                    ) +
                     parseInt(values["repeating_move_move-abimod"]) +
-                    parseInt(values["repeating_move_move-hitbonus-accessory"]) +
+                    parseInt(
+                        values["repeating_move_move-hitbonus-accessory"]
+                    ) +
                     parseInt(values["quest"]);
                 if (finalattr >= 0) {
                     finalattr = "+" + finalattr;
@@ -489,48 +441,23 @@ on(
 
 on("change:repeating_move:move-damagedice", function () {
     getAttrs(["repeating_move_move-damagedice"], function (values) {
-        var numdice = parseInt(values["repeating_move_move-damagedice"]);
-        var size = 4;
-        if (numdice < 10) {
-            size = parseInt(
-                values["repeating_move_move-damagedice"].substring(2)
-            );
-        } else {
-            size = parseInt(
-                values["repeating_move_move-damagedice"].substring(3)
-            );
-        }
-        var finalattr = numdice * size;
         setAttrs({
-            "repeating_move_move-critflat": finalattr
+            "repeating_move_move-critflat": maxdice(values["repeating_move_move-damagedice"])
         });
     });
 });
 
+/* ===MINOR=== */
+
 on("change:repeating_minor:minor-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-prof";
-    var damage = accessory + "-damage";
-    var brutal = accessory + "-brutal";
-    var brutN = accessory + "-brutn";
-    var crit = accessory + "-highcrit";
+    var attack = accessory + "-hitbonus";
+    var damageroll = accessory + "-damageroll";
+    var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
-            [attack, damage, brutal, brutN, crit, "level", "quest"],
+            [attack, damageroll, crit],
             function (values) {
-                var damagedice = values[damage];
-                if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutn];
-                }
-                var critdice = values["quest"] + "d6";
-                if (values[crit] == "true") {
-                    critdice =
-                        critdice +
-                        " + " +
-                        parseInt(damagedice.substring(0, 1)) *
-                        Math.ceil(parseInt(values["level"]) / 5) +
-                        damagedice.substring(1);
-                }
                 setAttrs({
                     "repeating_minor_minor-hitbonus-accessory": parseInt(
                         values[attack]
@@ -541,29 +468,28 @@ on("change:repeating_minor:minor-accessory", function (eventInfo) {
             }
         );
     } else {
-        getAttrs([attack, damage, "quest"], function (values) {
+        getAttrs([attack, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
                 "repeating_stanard_minor-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_minor_minor-damagedice": values[damage],
                 "repeating_minor_minor-critdice": values[critdice]
             });
         });
     }
 });
 
-/* ===MINOR=== */
-
 on(
     "change:repeating_minor:minor-ability change:repeating_minor:minor-display",
-    function (eventInfo) {
+    function () {
         getAttrs(["repeating_minor_minor-ability"], function (values) {
             var modname = values["repeating_minor_minor-ability"];
             getAttrs([modname], function (values) {
                 setAttrs({
-                    "repeating_minor_minor-abimod": parseInt(values[modname])
+                    "repeating_minor_minor-abimod": parseInt(
+                        values[modname]
+                    )
                 });
             });
         });
@@ -582,7 +508,9 @@ on(
             ],
             function (values) {
                 var finalattr =
-                    parseInt(values["repeating_minor_minor-miscattackbonus"]) +
+                    parseInt(
+                        values["repeating_minor_minor-miscattackbonus"]
+                    ) +
                     parseInt(values["repeating_minor_minor-abimod"]) +
                     parseInt(
                         values["repeating_minor_minor-hitbonus-accessory"]
@@ -632,20 +560,8 @@ on(
 
 on("change:repeating_minor:minor-damagedice", function () {
     getAttrs(["repeating_minor_minor-damagedice"], function (values) {
-        var numdice = parseInt(values["repeating_minor_minor-damagedice"]);
-        var size = 4;
-        if (numdice < 10) {
-            size = parseInt(
-                values["repeating_minor_minor-damagedice"].substring(2)
-            );
-        } else {
-            size = parseInt(
-                values["repeating_minor_minor-damagedice"].substring(3)
-            );
-        }
-        var finalattr = numdice * size;
         setAttrs({
-            "repeating_minor_minor-critflat": finalattr
+            "repeating_minor_minor-critflat": maxdice(values["repeating_minor_minor-damagedice"])
         });
     });
 });
@@ -654,28 +570,13 @@ on("change:repeating_minor:minor-damagedice", function () {
 
 on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
     var accessory = eventInfo.newValue;
-    var attack = accessory + "-prof";
-    var damage = accessory + "-damage";
-    var brutal = accessory + "-brutal";
-    var brutN = accessory + "-brutn";
-    var crit = accessory + "-highcrit";
+    var attack = accessory + "-hitbonus";
+    var damageroll = accessory + "-damageroll";
+    var crit = accessory + "-critdmg";
     if (accessory.substring(0, 3) == "wep") {
         getAttrs(
-            [attack, damage, brutal, brutN, crit, "level", "quest"],
+            [attack, damageroll, crit],
             function (values) {
-                var damagedice = values[damage];
-                if (values[brutal] == "r<") {
-                    damagedice = damagedice + values[brutal] + values[brutn];
-                }
-                var critdice = values["quest"] + "d6";
-                if (values[crit] == "true") {
-                    critdice =
-                        critdice +
-                        " + " +
-                        parseInt(damagedice.substring(0, 1)) *
-                        Math.ceil(parseInt(values["level"]) / 5) +
-                        damagedice.substring(1);
-                }
                 setAttrs({
                     "repeating_reaction_reaction-hitbonus-accessory": parseInt(
                         values[attack]
@@ -686,13 +587,12 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
             }
         );
     } else {
-        getAttrs([attack, damage, "quest"], function (values) {
+        getAttrs([attack, "quest"], function (values) {
             var critdice = values["quest"] + "d6";
             setAttrs({
                 "repeating_stanard_reaction-hitbonus-accessory": parseInt(
                     values[attack]
                 ),
-                "repeating_reaction_reaction-damagedice": values[damage],
                 "repeating_reaction_reaction-critdice": values[critdice]
             });
         });
@@ -701,7 +601,7 @@ on("change:repeating_reaction:reaction-accessory", function (eventInfo) {
 
 on(
     "change:repeating_reaction:reaction-ability change:repeating_reaction:reaction-display",
-    function (eventInfo) {
+    function () {
         getAttrs(["repeating_reaction_reaction-ability"], function (values) {
             var modname = values["repeating_reaction_reaction-ability"];
             getAttrs([modname], function (values) {
@@ -779,22 +679,8 @@ on(
 
 on("change:repeating_reaction:reaction-damagedice", function () {
     getAttrs(["repeating_reaction_reaction-damagedice"], function (values) {
-        var numdice = parseInt(
-            values["repeating_reaction_reaction-damagedice"]
-        );
-        var size = 4;
-        if (numdice < 10) {
-            size = parseInt(
-                values["repeating_reaction_reaction-damagedice"].substring(2)
-            );
-        } else {
-            size = parseInt(
-                values["repeating_reaction_reaction-damagedice"].substring(3)
-            );
-        }
-        var finalattr = numdice * size;
         setAttrs({
-            "repeating_reaction_reaction-critflat": finalattr
+            "repeating_reaction_reaction-critflat": maxdice(values["repeating_reaction_reaction-damagedice"])
         });
     });
 });
@@ -1381,7 +1267,7 @@ on("change:wep1-abimod change:wep1-prof change:quest", function () {
 });
 
 on("change:wep1-damage change:wep1-damage-versatile change:wep1-versatile change:wep1-brutal change:wep1-brutn change:wep1-highcrit change:wep1-damageflat change:level", function () {
-    getAttrs(["wep1-damage", "wep1-damage-versatile", "wep1-versatile", "wep1-brutal", "wep1-brutn", "wep1-highcrit", "wep1-damageflat", "level"], function (v) {
+    getAttrs(["wep1-damage", "wep1-damage-versatile", "wep1-versatile", "wep1-brutal", "wep1-brutn", "wep1-highcrit", "wep1-damageflat", "level", "quest"], function (v) {
         var damagedice = v["wep1-damage"];
         numdice = parseInt(damagedice);
         diesize = "d" + String(maxdice(damagedice) / numdice)
@@ -1397,13 +1283,14 @@ on("change:wep1-damage change:wep1-damage-versatile change:wep1-versatile change
             numdice = parseInt(damagedice);
             highcrit = String(Math.ceil(v["level"] / 5) * numdice) + diesize + " + ";
         }
-        damagedice = String(Math.ceil(v["level"]/10) * numdice) + diesize
+        damagedice = String(Math.ceil(v["level"] / 10) * numdice) + diesize
         setAttrs({
             "wep1-damageroll": damagedice + brutal,
-            "wep1-critdmg": highcrit + String(maxdice(damagedice) + v["wep1-damageflat"])
+            "wep1-critdmg": highcrit + v["quest"] + "d6 + " + String(maxdice(damagedice) + v["wep1-damageflat"])
         });
     });
 });
+
 
 
 on("change:wep2-abimod change:wep2-prof change:quest", function () {
@@ -1416,7 +1303,7 @@ on("change:wep2-abimod change:wep2-prof change:quest", function () {
 });
 
 on("change:wep2-damage change:wep2-damage-versatile change:wep2-versatile change:wep2-brutal change:wep2-brutn change:wep2-highcrit change:wep2-damageflat change:level", function () {
-    getAttrs(["wep2-damage", "wep2-damage-versatile", "wep2-versatile", "wep2-brutal", "wep2-brutn", "wep2-highcrit", "wep2-damageflat", "level"], function (v) {
+    getAttrs(["wep2-damage", "wep2-damage-versatile", "wep2-versatile", "wep2-brutal", "wep2-brutn", "wep2-highcrit", "wep2-damageflat", "level", "quest"], function (v) {
         var damagedice = v["wep2-damage"];
         numdice = parseInt(damagedice);
         diesize = "d" + String(maxdice(damagedice) / numdice)
@@ -1432,10 +1319,10 @@ on("change:wep2-damage change:wep2-damage-versatile change:wep2-versatile change
             numdice = parseInt(damagedice);
             highcrit = String(Math.ceil(v["level"] / 5) * numdice) + diesize + " + ";
         }
-        damagedice = String(Math.ceil(v["level"]/10) * numdice) + diesize
+        damagedice = String(Math.ceil(v["level"] / 10) * numdice) + diesize
         setAttrs({
             "wep2-damageroll": damagedice + brutal,
-            "wep2-critdmg": highcrit + String(maxdice(damagedice) + v["wep2-damageflat"])
+            "wep2-critdmg": highcrit + v["quest"] + "d6 + " + String(maxdice(damagedice) + v["wep2-damageflat"])
         });
     });
 });
@@ -1451,7 +1338,7 @@ on("change:wep3-abimod change:wep3-prof change:quest", function () {
 });
 
 on("change:wep3-damage change:wep3-damage-versatile change:wep3-versatile change:wep3-brutal change:wep3-brutn change:wep3-highcrit change:wep3-damageflat change:level", function () {
-    getAttrs(["wep3-damage", "wep3-damage-versatile", "wep3-versatile", "wep3-brutal", "wep3-brutn", "wep3-highcrit", "wep3-damageflat", "level"], function (v) {
+    getAttrs(["wep3-damage", "wep3-damage-versatile", "wep3-versatile", "wep3-brutal", "wep3-brutn", "wep3-highcrit", "wep3-damageflat", "level", "quest"], function (v) {
         var damagedice = v["wep3-damage"];
         numdice = parseInt(damagedice);
         diesize = "d" + String(maxdice(damagedice) / numdice)
@@ -1467,10 +1354,11 @@ on("change:wep3-damage change:wep3-damage-versatile change:wep3-versatile change
             numdice = parseInt(damagedice);
             highcrit = String(Math.ceil(v["level"] / 5) * numdice) + diesize + " + ";
         }
-        damagedice = String(Math.ceil(v["level"]/10) * numdice) + diesize
+        damagedice = String(Math.ceil(v["level"] / 10) * numdice) + diesize
         setAttrs({
             "wep3-damageroll": damagedice + brutal,
-            "wep3-critdmg": highcrit + String(maxdice(damagedice) + v["wep3-damageflat"])
+            "wep3-critdmg": highcrit + v["quest"] + "d6 + " + String(maxdice(damagedice) + v["wep3-damageflat"])
         });
     });
 });
+
