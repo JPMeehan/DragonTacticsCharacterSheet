@@ -16,7 +16,7 @@
         </div>
         <input type="text" name="attr_class" placeholder="Class" /> <input type="number" name="attr_level" value="1"
             min="1" max="30" />
-        <label class="inlinelabel">
+        <label class="inline">
             Quest Bonus <input type="number" name="attr_quest" value="0" />
         </label>
         <input type="hidden" name="attr_actionpoints" value="1" />
@@ -463,35 +463,39 @@
     </div>
     <div class="defense section">
         <h2>Key Values</h2>
-        <div class="hp left">
+        <div class="hp">
             <h3>Hit Points</h3>
-            Max
-            <span name="attr_hp_max" value="20">20</span>
-            <label class="numblock current">Current<input type="number" name="attr_hp" value="20" /></label>
-            <label class="numblock temp">Temporary<input type="number" name="attr_hp-temp" value="20" /></label>
-            <label class="numblock bloodied">Bloodied<input type="number" name="attr_hp-bloodied" value="10" /></label>
-            <label>
-                Setup
-                <input type="checkbox" class="arrow"/>
-                <div class="body">
-                    <label>
-                        <input type="number" name="attr_hp-base" value="10"/>
-                        Base
-                    </label>
-                    <label>
-                        <input type="number" name="attr_hp-level" value="5"/>
-                        Per level
-                    </label>
-                    <label>
-                        <input type="number" name="attr_hp-bonus" value="0"/>
-                        Bonus
-                    </label>
-                </div>
-            </label>
+            <div class="hp-max">
+                Max
+                <div name="attr_hp_max" value="20">20</div>
+            </div>
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <label class="numblock 3col">
+                    Base
+                    <input type="number" name="attr_hp-base" value="10"/>
+                </label>
+                <label class="numblock 3col">
+                    Per level
+                    <input type="number" name="attr_hp-level" value="5"/>
+                </label>
+                <label class="numblock 3col">
+                    Bonus
+                    <input type="number" name="attr_hp-bonus" value="0"/>
+                </label>
+            </div>
+            <br>
+            <label class="numblock 3col">Current<input type="number" name="attr_hp" value="20" /></label>
+            <label class="numblock 3col">Temporary<input type="number" name="attr_hp-temp" value="0" /></label>
+            <label class="numblock 3col">Bloodied<input type="number" name="attr_hp-bloodied" value="10" /></label>
+            <h3>Healing Surges</h3>
+            <label class="numblock 3col">Surge Value<input type="number" name="attr_hp-surgevalue" value="5" /></label>
+            <label class="numblock 3col">Current<input type="number" name="attr_surges" value="6" /></label>
+            <label class="numblock 3col">Max<input type="number" name="attr_surges_max" value="6" /></label>
         </div>
-        <div class="armor right">
+        <div class="armor">
             <h3>Defenses</h3>
-            <div class="defense-block">
+            <div class="defense-block AC">
                 <label class="numblock defense">
                     Armor Class
                     <input type="number" name="attr_ac" value="10" class="defense" />
@@ -503,7 +507,7 @@
                     </label>
                 </div>
             </div>
-            <div class="defense-block">
+            <div class="defense-block NAD">
                 <label class="numblock defense">
                     Fortitude
                     <input type="number" name="attr_fort" value="10" class="defense" />
@@ -516,7 +520,7 @@
                     </label>
                 </div>
             </div>
-            <div class="defense-block">
+            <div class="defense-block NAD">
                 <label class="numblock defense">
                     Reflex
                     <input type="number" name="attr_ref" value="10" class="defense" />
@@ -529,7 +533,7 @@
                     </label>
                 </div>
             </div>
-            <div class="defense-block">
+            <div class="defense-block NAD">
                 <label class="numblock defense">
                     Will
                     <input type="number" name="attr_will" value="10" class="defense" />
@@ -542,12 +546,6 @@
                     </label>
                 </div>
             </div>
-        </div>
-        <div class="surges">
-            <h3>Healing Surges</h3>
-            <label class="numblock surge-max">Value<input type="number" name="attr_hp-surgevalue" value="5" /></label>
-            <label class="numblock surge-current">Current<input type="number" name="attr_surges" value="6" /></label>
-            <label class="numblock surge-max">Max<input type="number" name="attr_surges_max" value="6" /></label>
         </div>
     </div>
     <div class="effects section">
@@ -579,7 +577,7 @@
             <input type="checkbox" value="1" checked="true" name="attr_standard-display" class="arrow"
                 title="Show Details" />
             <div class="body">
-                <label class="inlinelabel">
+                <label class="inline">
                     Recharge
                     <select name="attr_standard-usage" class="usage">
                         <option value="At-Will">At-Will</option>
@@ -676,7 +674,7 @@
             <input type="checkbox" value="1" checked="true" name="attr_move-display" class="arrow"
                 title="Show Details" />
             <div class="body">
-                <label class="inlinelabel">
+                <label class="inline">
                     Recharge
                     <select name="attr_move-usage" class="usage">
                         <option value="At-Will">At-Will</option>
@@ -773,7 +771,7 @@
             <input type="checkbox" value="1" checked="true" name="attr_minor-display" class="arrow"
                 title="Show Details" />
             <div class="body">
-                <label class="inlinelabel">
+                <label class="inline">
                     Recharge
                     <select name="attr_minor-usage" class="usage">
                         <option value="At-Will">At-Will</option>
@@ -870,7 +868,7 @@
             <input type="checkbox" value="1" checked="true" name="attr_reaction-display" class="arrow"
                 title="Show Details" />
             <div class="body">
-                <label class="inlinelabel">
+                <label class="inline">
                     Recharge
                     <select name="attr_reaction-usage" class="usage">
                         <option value="At-Will">At-Will</option>

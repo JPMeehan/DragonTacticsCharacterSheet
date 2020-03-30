@@ -209,10 +209,15 @@ button[type=roll] {
 
 /******
 
-LABELS
+LABELS AND DIVS
 
 ******/
 
+
+div.sheet-inline,
+label.sheet-inline {
+    display: inline;
+}
 
 label {
     vertical-align: middle;
@@ -229,11 +234,6 @@ label.sheet-small {
 
 label.sheet-right {
     text-align: right;
-}
-
-
-.sheet-inlinelabel {
-    display: inline;
 }
 
 
@@ -395,20 +395,30 @@ DEFENSE
 
 ******/
 
-label.sheet-hp {
-    margin-bottom: 7px;
+div.sheet-hp-max {
+    display: inline-block;
+    width: 50%;
+    border-radius: 5px;
+    font-size: smaller;
+    border: 1px black solid;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    background-color: black;
 }
 
-div.sheet-hp {
-    font-size: large;
-}
-
-div.sheet-hp span {
+div.sheet-hp-max div {
     font-size: x-large;
+    background-color: #faf7ea;
+    color: black;
 }
+
+div.sheet-hp div.sheet-body{
+    padding: 2px;
+}
+
 
 label.sheet-numblock {
-    width: 48%;
     border-radius: 5px;
     background-color: black;
     color: white;
@@ -420,20 +430,14 @@ label.sheet-numblock {
     overflow: hidden;
 }
 
+label.sheet-3col {
+    width: 30%;
+}
+
 label.sheet-numblock input[type=number] {
     width: 100%;
     text-align: center;
     border-radius: 0;
-}
-
-div.sheet-armor,
-div.sheet-hp {
-    width: 48%;
-}
-
-.sheet-defense label.sheet-small {
-    font-size: 1em;
-    padding: 0;
 }
 
 label.sheet-miscbonus {
@@ -441,18 +445,16 @@ label.sheet-miscbonus {
     margin-bottom: 5px;
 }
 
-label.sheet-defense {
-    width: 80%;
-    font-size: small;
-    display: inline-block;
-    margin: 5px 0 0;
-    padding: 0;
+div.sheet-AC {
+    width: 29.5%;
 }
 
+div.sheet-NAD {
+    width: 21.5%;
+}
 
-div.sheet-defense input[type=checkbox] {
-    float: right;
-    margin-top: 10px;
+div.sheet-defense-block {
+    display: inline-block;
 }
 
 /******
