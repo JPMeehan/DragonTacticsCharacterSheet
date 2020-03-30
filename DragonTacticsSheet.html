@@ -467,24 +467,26 @@
             <h3>Hit Points</h3>
             <div class="hp-max">
                 Max
-                <div name="attr_hp_max" value="20">20</div>
+                <span name="attr_hp_max" value="20">20</span>
             </div>
-            <input type="checkbox" class="arrow"/>
-            <div class="body">
-                <label class="numblock 3col">
-                    Base
-                    <input type="number" name="attr_hp-base" value="10"/>
-                </label>
-                <label class="numblock 3col">
-                    Per level
-                    <input type="number" name="attr_hp-level" value="5"/>
-                </label>
-                <label class="numblock 3col">
-                    Bonus
-                    <input type="number" name="attr_hp-bonus" value="0"/>
-                </label>
-            </div>
-            <br>
+            <label class="hp-setup">
+                Configure
+                <input type="checkbox" class="arrow"/>
+                <div class="body">
+                    <label class="numblock 3col">
+                        Base
+                        <input type="number" name="attr_hp-base" value="10"/>
+                    </label>
+                    <label class="numblock 3col">
+                        Per level
+                        <input type="number" name="attr_hp-level" value="5"/>
+                    </label>
+                    <label class="numblock 3col">
+                        Bonus
+                        <input type="number" name="attr_hp-bonus" value="0"/>
+                    </label>
+                </div>
+            </label>
             <label class="numblock 3col">Current<input type="number" name="attr_hp" value="20" /></label>
             <label class="numblock 3col">Temporary<input type="number" name="attr_hp-temp" value="0" /></label>
             <label class="numblock 3col">Bloodied<input type="number" name="attr_hp-bloodied" value="10" /></label>

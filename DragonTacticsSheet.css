@@ -398,8 +398,9 @@ DEFENSE
 div.sheet-hp-max {
     display: inline-block;
     width: 50%;
-    border-radius: 5px;
-    font-size: smaller;
+    border-radius: 30px;
+    font-size: large;
+    font-weight: bold;
     border: 1px black solid;
     overflow: hidden;
     text-align: center;
@@ -407,14 +408,31 @@ div.sheet-hp-max {
     background-color: black;
 }
 
-div.sheet-hp-max div {
+div.sheet-hp-max span {
+    display: block;
     font-size: x-large;
     background-color: #faf7ea;
     color: black;
 }
 
+label.sheet-hp-setup {
+    display: inline-block;
+    width: auto;
+    font-size: small;
+}
+
 div.sheet-hp div.sheet-body{
     padding: 2px;
+}
+
+div.sheet-hp,
+div.sheet-armor {
+    text-align: center;
+}
+
+div.sheet-hp h3,
+div.sheet-armor h3 {
+    text-align: left;
 }
 
 
@@ -431,7 +449,7 @@ label.sheet-numblock {
 }
 
 label.sheet-3col {
-    width: 30%;
+    width: 32%;
 }
 
 label.sheet-numblock input[type=number] {
