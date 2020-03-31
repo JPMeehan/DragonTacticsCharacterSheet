@@ -424,10 +424,12 @@ POWERS
 
 ******/
 
-
+input.sheet-powername[type="text"] {
+    width: 93%;
+}
 
 .sheet-usage {
-    width: 100px;
+    width: 90px;
 }
 
 .sheet-action {
@@ -445,6 +447,10 @@ select.sheet-attselect {
 
 select.sheet-accesoryselect {
     width: 120px;
+}
+
+input.sheet-rangetargets[type="text"] {
+    width: 100%;
 }
 
 .sheet-damageroll,

@@ -585,7 +585,7 @@
     <div class="standard section">
         <h2>Standard Actions</h2>
         <fieldset class="repeating_standard">
-            <input type="text" name="attr_standard-name" placeholder="Power Name" />
+            <input type="text" name="attr_standard-name" placeholder="Power Name" class="powername" />
             <input type="checkbox" value="1" checked="true" name="attr_standard-display" class="arrow"
                 title="Show Details" />
             <div class="body">
@@ -599,7 +599,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_standard-rangetargets" placeholder="Melee One Creature" />
+                    <input type="text" name="attr_standard-rangetargets" class="rangetargets" placeholder="Melee One Creature" />
                 </label>
                 <button type="roll" class="combatroll" name="roll_standard-textout"
                     value="&{template:powertext} {{name=@{standard-name}}} {{powertext=@{standard-power-text}}}">
@@ -682,7 +682,7 @@
     <div class="move section">
         <h2>Move Actions</h2>
         <fieldset class="repeating_move">
-            <input type="text" name="attr_move-name" placeholder="Power Name" />
+            <input type="text" name="attr_move-name" placeholder="Power Name" class="powername" />
             <input type="checkbox" value="1" checked="true" name="attr_move-display" class="arrow"
                 title="Show Details" />
             <div class="body">
@@ -696,7 +696,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_move-rangetargets" placeholder="Personal" />
+                    <input type="text" name="attr_move-rangetargets" class="rangetargets" placeholder="Personal" />
                 </label>
                 <button type="roll" class="combatroll" name="roll_move-textout"
                     value="&{template:powertext} {{name=@{move-name}}} {{powertext=@{move-power-text}}}">
@@ -779,7 +779,7 @@
     <div class="minor section">
         <h2>Minor Actions</h2>
         <fieldset class="repeating_minor">
-            <input type="text" name="attr_minor-name" placeholder="Power Name" />
+            <input type="text" name="attr_minor-name" placeholder="Power Name" class="powername" />
             <input type="checkbox" value="1" checked="true" name="attr_minor-display" class="arrow"
                 title="Show Details" />
             <div class="body">
@@ -793,7 +793,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_minor-rangetargets" placeholder="Ranged Sight One Creature" />
+                    <input type="text" name="attr_minor-rangetargets" class="rangetargets" placeholder="Ranged Sight One Creature" />
                 </label>
                 <button type="roll" class="combatroll" name="roll_minor-textout"
                     value="&{template:powertext} {{name=@{minor-name}}} {{powertext=@{minor-power-text}}}">
@@ -876,7 +876,7 @@
     <div class="reaction section">
         <h2>Immediate Actions</h2>
         <fieldset class="repeating_reaction">
-            <input type="text" name="attr_reaction-name" placeholder="Power Name" />
+            <input type="text" name="attr_reaction-name" placeholder="Power Name" class="powername" />
             <input type="checkbox" value="1" checked="true" name="attr_reaction-display" class="arrow"
                 title="Show Details" />
             <div class="body">
@@ -902,7 +902,7 @@
                 </label>
                 <label title="Range and Targets">
                     Range and Targets
-                    <input type="text" name="attr_reaction-rangetargets" placeholder="The Triggering Enemy" />
+                    <input type="text" name="attr_reaction-rangetargets" class="rangetargets" placeholder="The Triggering Enemy" />
                 </label>
                 <button type="roll" class="combatroll" name="roll_reaction-textout"
                     value="&{template:powertext} {{name=@{reaction-name}}} {{powertext=@{reaction-power-text}}}">
