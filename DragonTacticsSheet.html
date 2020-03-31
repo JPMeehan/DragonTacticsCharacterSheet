@@ -566,6 +566,17 @@
             <input type="number" value="0" name="attr_powerpoints" /> /
             <input type="number" value="0" name="attr_powerpoints_max" />
         </div>
+        <div class="healing">
+            <h3>Healing</h3>
+            <button type="roll" value="&{template:healing} {{name=Second Wind}} {{name=Name}} {{surge=[[@{hp-surgevalue}]]}} {{powertext=You spend a healing surge and gain a +2 bonus to all defenses until the end of the next round.}}">Second Wind</button>
+            <input type="text" name="attr_healing-name" placeholder="Healing Power Name" class="healing-name"/>
+            <input type="checkbox" class="arrow"/>
+            <div class="body">
+                <button type="roll" value="&{template:healing} {{name=@{healing-name}}} {{dice=[[@{healing-dice}]]}} {{surge=[[@{target|hp-surgevalue}]]}} {{powertext=@{healing-description}}}">Heal Target</button>
+                <input type="text" name="attr_healing-dice" placeholder="Healing Dice" value="1d6" class="healing-dice"/>
+                <textarea name="attr_healing-description" placeholder="Healing Power Description"></textarea>
+            </div>
+        </div>
         <h3>Persistent Effects</h3>
         <div class="persistent-effect-block">
             <textarea name="attr_persistent-effect-text" placeholder="Status Effects, Buffs, etc."></textarea>
@@ -1297,21 +1308,21 @@
         </div>
         <div class="otherwornequipment">
             <h3>Other Equipment</h3>
-            <div>
+            <div class="worn-other">
                 <input type="text" name="attr_headitem-name" placeholder="Head" class="item" />
                 <input type="checkbox" class="arrow"/>
                 <div class="body">
                     <textarea name="attr_headitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
-            <div>
+            <div class="worn-other">
                 <input type="text" name="attr_neckitem-name" placeholder="Neck" class="item" />
                 <input type="checkbox" class="arrow" />
                 <div class="body">
                     <textarea name="attr_neckitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
-            <div>
+            <div class="worn-other">
                 <input type="text" name="attr_armsitem-name" placeholder="Arms" class="item" />
                 <input type="checkbox" class="arrow" />
                 <div class="body">
@@ -1321,21 +1332,21 @@
                     <textarea name="attr_armsitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
-            <div>
+            <div class="worn-other">
                 <input type="text" name="attr_handsitem-name" placeholder="Hands" class="item" />
                 <input type="checkbox" class="arrow" />
                 <div class="body">
                     <textarea name="attr_handsitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
-            <div>
+            <div class="worn-other">
                 <input type="text" name="attr_waistitem-name" placeholder="Waist" class="item" />
                 <input type="checkbox" class="arrow" />
                 <div class="body">
                     <textarea name="attr_waistitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
-            <div>
+            <div class="worn-other">
                 <input type="text" name="attr_feetitem-name" placeholder="Feet" class="item" />
                 <input type="checkbox" class="arrow" />
                 <div class="body">
@@ -1403,7 +1414,7 @@
             </tr>
             <tr class="rowcolor">
                 <td>
-                    <span class="tcat">Attack: </span>{{ attack }} |
+                    <span class="italic">Attack: </span>{{ attack }} |
                     {{ attackadv }} vs {{ defense }}
                 </td>
             </tr>
@@ -1419,13 +1430,13 @@
             </tr>
             <tr>
                 <td>
-                    <span class="tcat">Damage: </span>{{ damage }}
-                    <span class="tcat">Crit: </span>{{ dmgcrit }}
+                    <span class="italic">Damage: </span>{{ damage }}
+                    <span class="italic">Crit: </span>{{ dmgcrit }}
                 </td>
             </tr>
             {{#dmgtype}}
             <tr>
-                <td><span class="tcat">Type: </span>{{ dmgtype }}</td>
+                <td><span class="italic">Type: </span>{{ dmgtype }}</td>
             </tr>
             {{/dmgtype}}
         </table>
@@ -1445,7 +1456,7 @@
             </tr>
             <tr class="rowcolor">
                 <td>
-                    <span class="tcat">Check: </span>{{ check }} |
+                    <span class="italic">Check: </span>{{ check }} |
                     {{ checkadv }}
                 </td>
             </tr>
@@ -1462,7 +1473,29 @@
                 </td>
             </tr>
             <tr class="rowcolor">
-                <td><span class="tcat">Text: </span>{{ powertext }}</td>
+                <td><span class="italic">Text: </span>{{ powertext }}</td>
+            </tr>
+        </table>
+    </rolltemplate>
+    <!-- &{template:healing} {{name=Name}} {{dice=[[1d6]]}} {{surge=[[@{target|hp-surgevalue}]]}} {{powertext=Power Text}}-->
+    <rolltemplate class="sheet-rolltemplate-healing">
+        <table>
+            <tr>
+                <th>{{ name }}</th>
+            </tr>
+            <tr class="arrow-container">
+                <td>
+                    <div class="arrow-right"></div>
+                </td>
+            </tr>
+            <tr class="rowcolor">
+                <td>
+                    {{#dice}}<span class="italic">Dice:</span> {{dice}} {{/dice}}
+                    {{#surge}}<span class="italic">Surge:</span> {{surge}} {{/surge}}
+                </td>
+            </tr>
+            <tr class="rowcolor">
+                <td><span class="italic">Text: </span>{{ powertext }}</td>
             </tr>
         </table>
     </rolltemplate>

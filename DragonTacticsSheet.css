@@ -270,7 +270,7 @@ label.sheet-numblock-container {
     padding: 0;
 }
 
-label.sheet-numblock-container div.sheet-body{
+label.sheet-numblock-container div.sheet-body {
     padding: 4px;
 }
 
@@ -405,6 +405,15 @@ button[type=roll].sheet-bonusdice-roll {
     border-radius: inherit;
 }
 
+input.sheet-healing-name {
+    width: 93%;
+    margin-top: 5px;
+}
+
+input.sheet-healing-dice {
+    width: 50%;
+}
+
 /******
 
 POWERS 
@@ -507,7 +516,7 @@ label.sheet-NAD {
 }
 
 label.sheet-AC div.sheet-body,
-label.sheet-NAD div.sheet-body{
+label.sheet-NAD div.sheet-body {
     margin-top: -15px;
 }
 
@@ -584,6 +593,10 @@ label.sheet-brutal {
     padding-right: 0;
 }
 
+div.sheet-worn-other {
+    margin: 4px 0;
+}
+
 label.sheet-shield {
     width: 50%;
 }
@@ -658,206 +671,94 @@ FEATURES & COMPETENCIES
 ROLL TEMPLATES
 
 *****/
-
-.sheet-rolltemplate-attack table {
+.sheet-rolltemplate-attack table,
+.sheet-rolltemplate-damage table,
+.sheet-rolltemplate-skillcheck table,
+.sheet-rolltemplate-powertext table,
+.sheet-rolltemplate-healing table {
     width: 189px;
     padding: 2px;
     border: 1px solid;
-    background-color: #ffffff;
+    background-color: #fff
 }
 
-.sheet-rolltemplate-attack th {
-    color: rgb(126, 45, 64);
+.sheet-rolltemplate-attack th,
+.sheet-rolltemplate-damage th,
+.sheet-rolltemplate-skillcheck th,
+.sheet-rolltemplate-powertext th,
+.sheet-rolltemplate-healing th {
+    color: #7e2d40;
     padding-left: 5px;
     line-height: 1.6em;
     font-size: 1.2em;
     text-align: left;
     font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
+    font-variant: small-caps
 }
 
-.sheet-rolltemplate-attack .sheet-subheader {
-    color: #000;
-    font-size: 1em;
-    font-style: italic;
-}
-
-.sheet-rolltemplate-attack .sheet-arrow-right {
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-left: 180px solid rgb(126, 45, 64);
-}
-
-.sheet-rolltemplate-attack .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-attack td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-attack .inlinerollresult {
-    background-color: #ffffff;
-    border: none;
-}
-
-.sheet-rolltemplate-attack .inlinerollresult.fullcrit {
-    color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-attack .inlinerollresult.fullfail {
-    color: #B31515;
-    border: none;
-}
-
-/* damage */
-.sheet-rolltemplate-attack,
-.sheet-rolltemplate-damage table {
-    width: 189px;
-    padding: 2px;
-    border: 1px solid;
-    background-color: #ffffff;
-}
-
-.sheet-rolltemplate-damage th {
-    color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-}
-
-.sheet-rolltemplate-damage .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-damage td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult {
-    background-color: #ffffff;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.importantroll {
-    color: #4A57ED;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.fullcrit {
-    color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.fullfail {
-    color: #B31515;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.importantroll {
-    color: #4A57ED;
-    border: none;
-}
-
-/* skillcheck */
-
-.sheet-rolltemplate-skillcheck table {
-    width: 189px;
-    padding: 2px;
-    border: 1px solid;
-    background-color: #ffffff;
-}
-
-.sheet-rolltemplate-skillcheck th {
-    color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-}
-
-.sheet-rolltemplate-skillcheck .sheet-subheader {
-    color: #000;
-    font-size: 1em;
-    font-style: italic;
-}
-
-.sheet-rolltemplate-skillcheck .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-skillcheck td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-skillcheck .sheet-arrow-right {
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-left: 180px solid rgb(126, 45, 64);
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult {
-    background-color: #ffffff;
-    border: none;
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult.fullcrit {
-    color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult.fullfail {
-    color: #B31515;
-    border: none;
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult.importantroll {
-    color: #4A57ED;
-    border: none;
-}
-
-/* Power Text */
-
-
-.sheet-rolltemplate-powertext table {
-    width: 189px;
-    padding: 2px;
-    border: 1px solid;
-    background-color: #ffffff;
-}
-
-.sheet-rolltemplate-powertext th {
-    color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-}
-
+.sheet-rolltemplate-attack .sheet-subheader,
+.sheet-rolltemplate-skillcheck .sheet-subheader,
 .sheet-rolltemplate-powertext .sheet-subheader {
     color: #000;
     font-size: 1em;
-    font-style: italic;
+    font-style: italic
 }
 
-.sheet-rolltemplate-powertext .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-powertext td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-powertext .sheet-arrow-right {
+.sheet-rolltemplate-attack .sheet-arrow-right,
+.sheet-rolltemplate-damage .sheet-arrow-right,
+.sheet-rolltemplate-powertext .sheet-arrow-right,
+.sheet-rolltemplate-skillcheck .sheet-arrow-right,
+.sheet-rolltemplate-healing .sheet-arrow-right {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
-    border-left: 180px solid rgb(126, 45, 64);
+    border-left: 180px solid #7e2d40
+}
+
+.sheet-rolltemplate-attack td,
+.sheet-rolltemplate-damage td,
+.sheet-rolltemplate-powertext td,
+.sheet-rolltemplate-skillcheck td,
+.sheet-rolltemplate-healing td {
+    padding-left: 5px
+}
+
+.sheet-rolltemplate-attack .inlinerollresult,
+.sheet-rolltemplate-damage .inlinerollresult,
+.sheet-rolltemplate-skillcheck .inlinerollresult,
+.sheet-rolltemplate-healing .inlinerollresult {
+    background-color: #fff;
+    border: none
+}
+
+.sheet-rolltemplate-attack .inlinerollresult.importantroll,
+.sheet-rolltemplate-damage .inlinerollresult.importantroll,
+.sheet-rolltemplate-skillcheck .inlinerollresult.importantroll,
+.sheet-rolltemplate-healing .inlinerollresult.importantroll {
+    color: #4A57ED;
+    border: none
+}
+
+.sheet-rolltemplate-attack .inlinerollresult.fullcrit,
+.sheet-rolltemplate-damage .inlinerollresult.fullcrit,
+.sheet-rolltemplate-skillcheck .inlinerollresult.fullcrit,
+.sheet-rolltemplate-healing .inlinerollresult.fullcrit  {
+    color: #3FB315;
+    border: none
+}
+
+.sheet-rolltemplate-attack .inlinerollresult.fullfail,
+.sheet-rolltemplate-damage .inlinerollresult.fullfail,
+.sheet-rolltemplate-skillcheck .inlinerollresult.fullfail,
+.sheet-rolltemplate-healing .inlinerollresult.fullfail {
+    color: #B31515;
+    border: none
+}
+
+
+.sheet-rolltemplate-attack span.sheet-italic,
+.sheet-rolltemplate-damage span.sheet-italic,
+.sheet-rolltemplate-powertext span.sheet-italic,
+.sheet-rolltemplate-skillcheck span.sheet-italic,
+.sheet-rolltemplate-healing span.sheet-italic {
+    font-style: italic;
 }
