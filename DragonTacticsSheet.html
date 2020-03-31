@@ -978,7 +978,7 @@
             <input type="text" name="attr_racefeature-name" placeholder="Darkvision" /> <input type="checkbox"
                 class="arrow" title="Show Details">
             <div class="body">
-                <textarea name="attr_racefeature-description"></textarea>
+                <textarea name="attr_racefeature-description" placeholder="Item Description"></textarea>
             </div>
         </fieldset>
         <h3>Class Features</h3>
@@ -986,7 +986,7 @@
             <input type="text" name="attr_classfeature-name" placeholder="Magic" /> <input type="checkbox" class="arrow"
                 title="Show Details">
             <div class="body">
-                <textarea name="attr_classfeature-description"></textarea>
+                <textarea name="attr_classfeature-description" placeholder="Item Description"></textarea>
             </div>
         </fieldset>
         <h3>Feats</h3>
@@ -994,7 +994,7 @@
             <input type="text" name="attr_feat-name" placeholder="Toughness" /> <input type="checkbox" class="arrow"
                 title="Show Details">
             <div class="body">
-                <textarea name="attr_feat-description"></textarea>
+                <textarea name="attr_feat-description" placeholder="Item Description"></textarea>
             </div>
         </fieldset>
         <h3>Flaws and Longterm Conditions</h3>
@@ -1002,7 +1002,7 @@
             <input type="text" name="attr_flaws_longtermcondition-name" placeholder="Mummy Rot" /> <input
                 type="checkbox" class="arrow" title="Show Details">
             <div class="body">
-                <textarea name="attr_flaws_longtermcondition-description"></textarea>
+                <textarea name="attr_flaws_longtermcondition-description" placeholder="Item Description"></textarea>
             </div>
         </fieldset>
     </div>
@@ -1087,7 +1087,7 @@
                         <option value="2d6">2d6 </option>
                     </select>
                 </div>
-                <textarea name="attr_wep1-description"
+                <textarea name="attr_wep1-description" placeholder="Item Description"
                     placeholder="Use the versatile damage when wielding with two hands; for powers create a copy with the versatile damage, or edit on the fly"></textarea>
             </div>
         </div>
@@ -1261,7 +1261,7 @@
                 <label class="small implement"><input type="number" name="attr_imp1-prof" value="0" /> Attack
                     Bonus</label>
                 <input type="hidden" name="attr_imp1-damage" value="1d8" />
-                <textarea name="attr_imp1-description" placeholder="Description"></textarea>
+                <textarea name="attr_imp1-description" placeholder="Item Description" placeholder="Description"></textarea>
             </div>
         </div>
         <div class="implement">
@@ -1272,7 +1272,7 @@
                 <label class="small implement"><input type="number" name="attr_imp2-prof" value="0" /> Attack
                     Bonus</label>
                 <input type="hidden" name="attr_imp2-damage" value="1d8" />
-                <textarea name="attr_imp1-description" placeholder="Description"></textarea>
+                <textarea name="attr_imp1-description" placeholder="Item Description" placeholder="Description"></textarea>
             </div>
         </div>
         <div class="armor">
@@ -1292,40 +1292,55 @@
                     Attribute</label>
                 <label title="Armor Bonus">
                     Armor Bonus <input type="number" name="attr_ac-armor" value="0" /></label>
-                <textarea name="attr_armoritem-description" placeholder="Tough, -1 Armor Check Penalty"></textarea>
+                <textarea name="attr_armoritem-description" placeholder="Item Description" placeholder="Tough, -1 Armor Check Penalty"></textarea>
             </div>
         </div>
         <div class="otherwornequipment">
             <h3>Other Equipment</h3>
-            <input type="text" name="attr_headitem-name" placeholder="Head" class="item" />
-            <input type="checkbox" class="arrow" />
-            <div class="body">
-                <textarea name="attr_headitem-description"></textarea>
+            <div>
+                <input type="text" name="attr_headitem-name" placeholder="Head" class="item" />
+                <input type="checkbox" class="arrow"/>
+                <div class="body">
+                    <textarea name="attr_headitem-description" placeholder="Item Description"></textarea>
+                </div>
             </div>
-            <input type="text" name="attr_neckitem-name" placeholder="Neck" class="item" />
-            <input type="checkbox" class="arrow" />
-            <div class="body">
-                <textarea name="attr_neckitem-description"></textarea>
+            <div>
+                <input type="text" name="attr_neckitem-name" placeholder="Neck" class="item" />
+                <input type="checkbox" class="arrow" />
+                <div class="body">
+                    <textarea name="attr_neckitem-description" placeholder="Item Description"></textarea>
+                </div>
             </div>
-            <input type="text" name="attr_armsitem-name" placeholder="Arms" class="item" />
-            <input type="checkbox" class="arrow" />
-            <div class="body">
-                <textarea name="attr_armsitem-description"></textarea>
+            <div>
+                <input type="text" name="attr_armsitem-name" placeholder="Arms" class="item" />
+                <input type="checkbox" class="arrow" />
+                <div class="body">
+                    <label class="numblock shield">
+                        Shield Bonus <input type="number" name="attr_shield" value="0" min="0"/>
+                    </label>
+                    <textarea name="attr_armsitem-description" placeholder="Item Description"></textarea>
+                </div>
             </div>
-            <input type="text" name="attr_handsitem-name" placeholder="Hands" class="item" />
-            <input type="checkbox" class="arrow" />
-            <div class="body">
-                <textarea name="attr_handsitem-description"></textarea>
+            <div>
+                <input type="text" name="attr_handsitem-name" placeholder="Hands" class="item" />
+                <input type="checkbox" class="arrow" />
+                <div class="body">
+                    <textarea name="attr_handsitem-description" placeholder="Item Description"></textarea>
+                </div>
             </div>
-            <input type="text" name="attr_waistitem-name" placeholder="Waist" class="item" />
-            <input type="checkbox" class="arrow" />
-            <div class="body">
-                <textarea name="attr_waistitem-description"></textarea>
+            <div>
+                <input type="text" name="attr_waistitem-name" placeholder="Waist" class="item" />
+                <input type="checkbox" class="arrow" />
+                <div class="body">
+                    <textarea name="attr_waistitem-description" placeholder="Item Description"></textarea>
+                </div>
             </div>
-            <input type="text" name="attr_feetitem-name" placeholder="Feet" class="item" />
-            <input type="checkbox" class="arrow" />
-            <div class="body">
-                <textarea name="attr_feetitem-description"></textarea>
+            <div>
+                <input type="text" name="attr_feetitem-name" placeholder="Feet" class="item" />
+                <input type="checkbox" class="arrow" />
+                <div class="body">
+                    <textarea name="attr_feetitem-description" placeholder="Item Description"></textarea>
+                </div>
             </div>
         </div>
     </div>
@@ -1351,7 +1366,7 @@
                 <label><input type="number" name="attr_onpersonitem-space" value="0" step="0.25" /> Space (per)</label>
                 <label>
                     Description
-                    <textarea name="attr_onpersonitem-description" placeholder="It's pretty and pink"></textarea>
+                    <textarea name="attr_onpersonitem-description" placeholder="Item Description" placeholder="It's pretty and pink"></textarea>
                 </label>
             </div>
         </fieldset>
@@ -1365,7 +1380,7 @@
                 <label><input type="number" name="attr_homeitem-space" value="0" step="0.25" /> Space (per)</label>
                 <label>
                     Description
-                    <textarea name="attr_homeitem-description" placeholder="Golden and Shiny"></textarea>
+                    <textarea name="attr_homeitem-description" placeholder="Item Description" placeholder="Golden and Shiny"></textarea>
                 </label>
             </div>
         </fieldset>
@@ -1558,7 +1573,7 @@ DEFENSES
 ********/
 
 on(
-    "change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod  change:quest change:ac-armor change:ac-misc",
+    "change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod  change:quest change:ac-armor change:shield change:ac-misc",
     function () {
         getAttrs(
             [
@@ -1571,6 +1586,7 @@ on(
                 "chamod",
                 "quest",
                 "ac-armor",
+                "shield",
                 "ac-misc"
             ],
             function (values) {
@@ -1602,7 +1618,8 @@ on(
                     10 +
                     parseInt(abimod) +
                     parseInt(values.quest) +
-                    parseInt(values["ac-armor"]) +
+                    parseInt(values["ac-armor"]) + 
+                    parseInt(values["shield"]) +
                     parseInt(values["ac-misc"]);
                 setAttrs({
                     AC: finalattr
@@ -1620,20 +1637,21 @@ on("change:strmod change:conmod change:quest change:fort-misc", function () {
             parseInt(values.quest) +
             parseInt(values["fort-misc"]);
         setAttrs({
-            Fort: finalattr
+            "fort": finalattr
         });
     });
 });
 
-on("change:dexmod change:intmod change:quest change:ref-misc", function () {
-    getAttrs(["dexmod", "intmod", "quest", "ref-misc"], function (values) {
+on("change:dexmod change:intmod change:shield change:quest change:ref-misc", function () {
+    getAttrs(["dexmod", "intmod", "quest", "ref-misc", "shield"], function (values) {
         var finalattr =
             10 +
             Math.max(parseInt(values.dexmod), parseInt(values.intmod)) +
             parseInt(values.quest) +
+            parseInt(values["shield"]) +
             parseInt(values["ref-misc"]);
         setAttrs({
-            Ref: finalattr
+            "ref": finalattr
         });
     });
 });
@@ -1646,7 +1664,7 @@ on("change:wismod change:chamod change:quest change:will-misc", function () {
             parseInt(values.quest) +
             parseInt(values["will-misc"]);
         setAttrs({
-            Will: finalattr
+            "will": finalattr
         });
     });
 });

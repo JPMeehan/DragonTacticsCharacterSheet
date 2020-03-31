@@ -584,6 +584,10 @@ label.sheet-brutal {
     padding-right: 0;
 }
 
+label.sheet-shield {
+    width: 50%;
+}
+
 /* 
 div.sheet-brutal {
     margin: 3px 0;

@@ -103,7 +103,7 @@ DEFENSES
 ********/
 
 on(
-    "change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod  change:quest change:ac-armor change:ac-misc",
+    "change:ac-att change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod  change:quest change:ac-armor change:shield change:ac-misc",
     function () {
         getAttrs(
             [
@@ -116,6 +116,7 @@ on(
                 "chamod",
                 "quest",
                 "ac-armor",
+                "shield",
                 "ac-misc"
             ],
             function (values) {
@@ -147,7 +148,8 @@ on(
                     10 +
                     parseInt(abimod) +
                     parseInt(values.quest) +
-                    parseInt(values["ac-armor"]) +
+                    parseInt(values["ac-armor"]) + 
+                    parseInt(values["shield"]) +
                     parseInt(values["ac-misc"]);
                 setAttrs({
                     AC: finalattr
@@ -165,20 +167,21 @@ on("change:strmod change:conmod change:quest change:fort-misc", function () {
             parseInt(values.quest) +
             parseInt(values["fort-misc"]);
         setAttrs({
-            Fort: finalattr
+            "fort": finalattr
         });
     });
 });
 
-on("change:dexmod change:intmod change:quest change:ref-misc", function () {
-    getAttrs(["dexmod", "intmod", "quest", "ref-misc"], function (values) {
+on("change:dexmod change:intmod change:shield change:quest change:ref-misc", function () {
+    getAttrs(["dexmod", "intmod", "quest", "ref-misc", "shield"], function (values) {
         var finalattr =
             10 +
             Math.max(parseInt(values.dexmod), parseInt(values.intmod)) +
             parseInt(values.quest) +
+            parseInt(values["shield"]) +
             parseInt(values["ref-misc"]);
         setAttrs({
-            Ref: finalattr
+            "ref": finalattr
         });
     });
 });
@@ -191,7 +194,7 @@ on("change:wismod change:chamod change:quest change:will-misc", function () {
             parseInt(values.quest) +
             parseInt(values["will-misc"]);
         setAttrs({
-            Will: finalattr
+            "will": finalattr
         });
     });
 });
