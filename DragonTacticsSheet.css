@@ -286,7 +286,10 @@ label.sheet-numblock {
     overflow: hidden;
 }
 
-
+div.sheet-numblock:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
 
 label.sheet-3col {
     width: 32%;
@@ -463,7 +466,7 @@ label.sheet-hp-setup {
 
 
 div.sheet-hp-max {
-    width: 50%;
+    width: 40%;
     height: 50px;
     border-radius: 30px;
 }
