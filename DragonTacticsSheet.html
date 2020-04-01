@@ -24,7 +24,7 @@
     </div>
     <div class="abilities section">
         <h2>Attributes</h2>
-        <div>
+        <div class="ability">
             <input type="number" name="attr_strength" value="10" />
             <input name="attr_strmod" type="hidden" value="0" />
             <button type="roll" class="skillcheckroll"
@@ -38,7 +38,7 @@
                     name="roll_athleticscheck">Athletics</button>
                 <input type="checkbox" value="1" name="attr_athdets" checked="true" class="arrow"
                     title="Show Details" />
-                <div class="body">
+                <div class="skill" class="body">
                     <select name="attr_athletics-train" class="training">
                         <option value="0" selected>Untrained</option>
                         <option value="2">Adept</option>
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="ability">
             <input type="number" name="attr_constitution" value="10" />
             <input name="attr_conmod" type="hidden" value="0" />
             <button type="roll" class="skillcheckroll"
@@ -68,7 +68,7 @@
                     name="roll_endurancecheck">Endurance</button>
                 <input type="checkbox" value="1" name="attr_enddets" checked="true" class="arrow"
                     title="Show Details" />
-                <div class="body">
+                <div class="skill" class="body">
                     <select name="attr_endurance-train" class="training">
                         <option value="0" selected>Untrained</option>
                         <option value="2">Adept</option>
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="ability">
             <input type="number" name="attr_dexterity" value="10" />
             <input name="attr_dexmod" type="hidden" value="0" />
             <button type="roll" class="skillcheckroll"
@@ -92,7 +92,7 @@
                 name="roll_dexteritycheck">Dexterity</button>
             <input type="checkbox" value="1" name="attr_dexskilldrop" class="arrow" title="Show Details" />
             <div class="body">
-                <div>
+                <div class="skill">
                     <span name="attr_acrobatics" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{acrobatics-trained}}} {{check=[[1d20 @{acrobatics}]]}} {{checkadv=[[1d20 @{acrobatics}]]}}"
@@ -114,7 +114,7 @@
                         <input name="Acrobatics-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_stealth" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{stealth-trained}}} {{check=[[1d20 @{stealth}]]}} {{checkadv=[[1d20 @{stealth}]]}}"
@@ -136,7 +136,7 @@
                         <input name="Stealth-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_sleightofhand" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{sleightofhand-trained}}} {{check=[[1d20 @{sleightofhand}]]}} {{checkadv=[[1d20 @{sleightofhand}]]}}"
@@ -160,7 +160,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="ability">
             <input type="number" name="attr_intelligence" value="10" />
             <input name="attr_intmod" type="hidden" value="0" />
             <button type="roll" class="skillcheckroll"
@@ -168,7 +168,7 @@
                 name="roll_intelligencecheck">Intelligence</button>
             <input type="checkbox" value="1" name="attr_intskilldrop" class="arrow" title="Show Details" />
             <div class="body">
-                <div>
+                <div class="skill">
                     <span name="attr_arcana" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{arcana-trained}}} {{check=[[1d20 @{arcana}]]}} {{checkadv=[[1d20 @{arcana}]]}}"
@@ -190,7 +190,7 @@
                         <input name="Arcana-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_debate" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Debate Check}} {{Trained=@{debate-trained}}} {{check=[[1d20 @{debate}]]}} {{checkadv=[[1d20 @{debate}]]}}"
@@ -212,7 +212,7 @@
                         <input name="Debate-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_repair" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Repair Check}} {{Trained=@{repair-trained}}} {{check=[[1d20 @{repair}]]}} {{checkadv=[[1d20 @{repair}]]}}"
@@ -234,7 +234,7 @@
                         <input name="Repair-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_research" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Research Check}} {{Trained=@{research-trained}}} {{check=[[1d20 @{research}]]}} {{checkadv=[[1d20 @{research}]]}}"
@@ -258,7 +258,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="ability">
             <input type="number" name="attr_wisdom" value="10" />
             <input name="attr_wismod" type="hidden" value="0" />
             <button type="roll" class="skillcheckroll"
@@ -266,7 +266,7 @@
                 name="roll_wisdomcheck">Wisdom</button>
             <input type="checkbox" value="1" name="attr_wisskilldrop" class="arrow" title="Show Details" />
             <div class="body">
-                <div>
+                <div class="skill">
                     <span name="attr_handleanimal" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{handleanimal-trained}}} {{check=[[1d20 @{handleanimal}]]}} {{checkadv=[[1d20 @{handleanimal}]]}}"
@@ -288,7 +288,7 @@
                         <input name="HandleAnimal-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_insight" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Insight Check}} {{Trained=@{insight-trained}}} {{check=[[1d20 @{insight}]]}} {{checkadv=[[1d20 @{insight}]]}}"
@@ -310,7 +310,7 @@
                         <input name="Insight-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_medicine" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{medicine-trained}}} {{check=[[1d20 @{medicine}]]}} {{checkadv=[[1d20 @{medicine}]]}}"
@@ -332,7 +332,7 @@
                         <input name="Medicine-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_perception" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Perception Check}} {{Trained=@{perception-trained}}} {{check=[[1d20 @{perception}]]}} {{checkadv=[[1d20 @{perception}]]}}"
@@ -354,7 +354,7 @@
                         <input name="Perception-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_survival" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Survival Check}} {{Trained=@{survival-trained}}} {{check=[[1d20 @{survival}]]}} {{checkadv=[[1d20 @{survival}]]}}"
@@ -378,7 +378,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="ability">
             <input type="number" name="attr_charisma" value="10" />
             <input name="attr_chamod" type="hidden" value="0" />
             <button type="roll" class="skillcheckroll"
@@ -386,7 +386,7 @@
                 name="roll_charismacheck">Charisma</button>
             <input type="checkbox" value="1" name="attr_chaskilldrop" class="arrow" title="Show Details" />
             <div class="body">
-                <div>
+                <div class="skill">
                     <span name="attr_appeal" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{appeal-trained}}} {{check=[[1d20 @{appeal}]]}} {{checkadv=[[1d20 @{appeal}]]}}"
@@ -408,7 +408,7 @@
                         <input name="Appeal-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_impress" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Impress Check}} {{Trained=@{impress-trained}}} {{check=[[1d20 @{impress}]]}} {{checkadv=[[1d20 @{impress}]]}}"
@@ -430,7 +430,7 @@
                         <input name="Impress-Trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
-                <div>
+                <div class="skill">
                     <span name="attr_socialize" value="+0" style="font-size:140%;"></span>
                     <button type="roll" class="skillcheckroll"
                         value="&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{socialize-trained}}} {{check=[[1d20 @{socialize}]]}} {{checkadv=[[1d20 @{socialize}]]}}"

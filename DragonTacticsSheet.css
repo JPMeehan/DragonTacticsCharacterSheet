@@ -207,6 +207,10 @@ button[type=roll] {
     border: none;
 }
 
+button[type=roll]:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
 /******
 
 LABELS AND DIVS
@@ -214,7 +218,7 @@ LABELS AND DIVS
 ******/
 
 input.sheet-hidden {
-    visibility: hidden;
+    display: none;
 }
 
 div.sheet-inline,
@@ -359,8 +363,6 @@ ABILITIES
 
 button[type=roll].sheet-skillcheckroll {
     font-size: 18.2px;
-    box-shadow: none;
-    text-shadow: none;
     height: 28px;
     margin: 0px;
     padding: 0px;
@@ -521,10 +523,10 @@ label.sheet-NAD {
     vertical-align: top;
 }
 
-label.sheet-AC div.sheet-body,
+/* label.sheet-AC div.sheet-body,
 label.sheet-NAD div.sheet-body {
     margin-top: -15px;
-}
+} */
 
 
 
