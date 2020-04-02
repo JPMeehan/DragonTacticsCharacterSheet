@@ -628,32 +628,34 @@
                 </div>
                 <div class="powerbody">
                     <div class="powershow-row">
-                        <span name="attr_standard-range" value="Melee">Melee</span> ♦ <span name="attr_standard-targets" value="One Creature">One Creature</span>
+                        <div class="rangetargets">
+                            <span name="attr_standard-range" value="Melee" class="range">Melee</span> ♦ <span name="attr_standard-targets" value="One Creature" class="targets">One Creature</span>
+                        </div>
                         <label class="ready">
-                            Available
+                            Ready
                             <input type="checkbox" name="attr_standard-ready" />
                         </label>
                     </div>
                     <div class="powershow-row">
+                        Attack: 
                         <button type="roll" class="combatroll" name="roll_standard-attack"
-                            value="&{template:attack} {{name=@{standard-name}}} {{RangeTargets=@{standard-rangetargets}}} {{attack=[[1d20 @{standard-hitbonus}]]}} {{attackadv=[[1d20 @{standard-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{standard-defselect}}}">
+                            value="&{template:attack} {{name=@{standard-name}}} {{range=@{standard-range}}} {{targets=@{standard-targets}}} {{attack=[[1d20 @{standard-hitbonus}]]}} {{attackadv=[[1d20 @{standard-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{standard-defselect}}}">
                                 <span name="attr_standard-hitbonus" value="+0">+0</span> vs. <span name="attr_standard-defselect">AC</span>
                         </button>
                     </div>
                     <div class="powershow-row">
                         <button type="roll" class="combatroll" name="roll_standard-damage"
                             value="&{template:damage} {{name=@{standard-name}}} {{damage=[[@{standard-damagedice} @{standard-flatdamage}]]}} {{dmgcrit=[[@{standard-critdice} + @{standard-critflat} @{standard-flatdamage}]]}} {{dmgtype=@{standard-damagetype}}}">
-                            <span name="attr_standard-damagedice" value="1d4">1d4</span>
-                            <span value="0" name="attr_standard-flatdamage" value="+0">+0</span>
-                            <span name="attr_standard-damagetype" value="Fire">Fire</span>
-                            damage
+                            <span name="attr_standard-damagedice" value="1d4">1d4</span><span value="0" name="attr_standard-flatdamage" value="+0">+0</span>
+                            <span name="attr_standard-damagetype" value="Fire">Fire</span> damage
                         </button>
                     </div>
                     <div class="powershow-row">
                         <button type="roll" class="combatroll" name="roll_standard-textout"
                             value="&{template:powertext} {{name=@{standard-name}}} {{powertext=@{standard-power-text}}}">
-                            <span name="attr_standard-power-text"></span>
+                            Power Text
                         </button>
+                        <span name="attr_standard-power-text" class="powertext"></span>
                     </div>
                 </div>
             </div>
@@ -720,7 +722,7 @@
                         <input type="number" name="attr_standard-miscdamage" value="0" />
                     </label>
     
-                    <textarea name="attr_standard-power-text" value="Just Damage" placeholder="Put any key text you need - hit, miss, effects, etc.">Just Damage</textarea>
+                    <textarea name="attr_standard-power-text" value="Power Text" placeholder="Put any key text you need - hit, miss, effects, etc.">Power Text</textarea>
                     <input type="hidden" name="attr_standard-hitbonus" value="+0" />
                     <input type="hidden" name="attr_standard-hitbonus-accessory" value="0" />
                     <input type="hidden" name="attr_standard-abimod" value="0" />
@@ -733,48 +735,75 @@
     <div class="move section">
         <h2>Move Actions</h2>
         <fieldset class="repeating_move">
-            <input type="text" name="attr_move-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_move-display" class="toggle"
-                title="Show Details" />
-            <div class="body">
-                <label class="inline">
-                    Recharge
-                    <select name="attr_move-usage" class="usage">
-                        <option value="At-Will">At-Will</option>
-                        <option value="Encounter">Encounter</option>
-                        <option value="Daily">Daily</option>
+            <input type="hidden" name="attr_move-display" class="powerdisplay" value="hide"/>
+            <input type="hidden" name="attr_move-usage" class="usage"  value="atwill"/>
+            <div class="powerhide">
+                <div class="powerheader">
+                    <input type="text" name="attr_move-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_move-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
                     </select>
-                </label>
-                <label title="Range and Targets">
-                    Range and Targets
-                    <input type="text" name="attr_move-rangetargets" class="rangetargets" placeholder="Personal" />
-                </label>
-                <button type="roll" class="combatroll" name="roll_move-textout"
-                    value="&{template:powertext} {{name=@{move-name}}} {{powertext=@{move-power-text}}}">
-                    Power Text
-                </button>
-                <textarea name="attr_move-power-text" placeholder="Effect: Shift your speed"></textarea>
-                <div class="attackroll">
-                    <input type="hidden" name="attr_move-hitbonus" value="+0" />
-                    <button type="roll" class="combatroll" name="roll_move-attack"
-                        value="&{template:attack} {{name=@{move-name}}} {{RangeTargets=@{move-rangetargets}}} {{attack=[[1d20 @{move-hitbonus}]]}} {{attackadv=[[1d20 @{move-hitbonus}]]}} {{defense=@{move-defselect}}} {{edge=[[1d4]]}}"><span
-                            name="attr_move-hitbonus" value="+0">+0</span>
-                        vs.
-                        <span name="attr_move-defselect">AC</span></button>
                 </div>
-                <div class="damageroll">
-                    <input type="hidden" name="attr_move-flatdamage" />
-                    <button type="roll" class="combatroll" name="roll_move-damage"
-                        value="&{template:damage} {{name=@{move-name}}} {{damage=[[@{move-damagedice} @{move-flatdamage}]]}} {{dmgcrit=[[@{move-critdice} + @{move-critflat} @{move-flatdamage}]]}} {{dmgtype=@{move-damagetype}}}"><span
-                            name="attr_move-damagedice" value="1d4">1d4</span><span value="0"
-                            name="attr_move-flatdamage" value="\+0">+0</span>
-                        <span name="attr_move-damagetype" value="Fire">Fire</span>
-                        damage</button>
+            </div>
+            <div class="powershow">
+                <div class="powerheader">
+                    <input type="text" name="attr_move-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_move-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
                 </div>
-                Setup
-                <input type="checkbox" value="1" checked="true" name="attr_move-setup-display" class="toggle"
-                    title="Show Details" />
-                <div class="body">
+                <div class="powerbody">
+                    <div class="powershow-row">
+                        <div class="rangetargets">
+                            <span name="attr_move-range" value="Melee" class="range">Melee</span> ♦ <span name="attr_move-targets" value="One Creature" class="targets">One Creature</span>
+                        </div>
+                        <label class="ready">
+                            Ready
+                            <input type="checkbox" name="attr_move-ready" />
+                        </label>
+                    </div>
+                    <div class="powershow-row">
+                        Attack: 
+                        <button type="roll" class="combatroll" name="roll_move-attack"
+                            value="&{template:attack} {{name=@{move-name}}} {{range=@{move-range}}} {{targets=@{move-targets}}} {{attack=[[1d20 @{move-hitbonus}]]}} {{attackadv=[[1d20 @{move-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{move-defselect}}}">
+                                <span name="attr_move-hitbonus" value="+0">+0</span> vs. <span name="attr_move-defselect">AC</span>
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_move-damage"
+                            value="&{template:damage} {{name=@{move-name}}} {{damage=[[@{move-damagedice} @{move-flatdamage}]]}} {{dmgcrit=[[@{move-critdice} + @{move-critflat} @{move-flatdamage}]]}} {{dmgtype=@{move-damagetype}}}">
+                            <span name="attr_move-damagedice" value="1d4">1d4</span><span value="0" name="attr_move-flatdamage" value="+0">+0</span>
+                            <span name="attr_move-damagetype" value="Fire">Fire</span> damage
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_move-textout"
+                            value="&{template:powertext} {{name=@{move-name}}} {{powertext=@{move-power-text}}}">
+                            Power Text
+                        </button>
+                        <span name="attr_move-power-text" class="powertext"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="powerconfig">
+                <div class="powerheader">
+                    <input type="text" name="attr_move-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_move-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+                <div class="powerbody">
+                    <select name="attr_move-usage" class="usage">
+                        <option value="atwill" selected>At-Will</option>
+                        <option value="encounter">Encounter</option>
+                        <option value="daily">Daily</option>
+                    </select>
                     <select name="attr_move-accessory" class="accesoryselect">
                         <option value="imp1"> Implement 1 </option>
                         <option value="imp2"> Implement 2 </option>
@@ -782,7 +811,8 @@
                         <option value="wep2"> Weapon 2 </option>
                         <option value="wep3"> Weapon 3 </option>
                     </select>
-                    <br />
+                    <input type="text" name="attr_move-range" class="range" placeholder="Range" value="Melee"/>
+                    <input type="text" name="attr_move-targets" class="targets" placeholder="Targets" value="One Target"/>
                     <select class="attselect" name="attr_move-ability">
                         <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
@@ -800,29 +830,34 @@
                             <option value="Will">Will</option>
                         </select>
                     </span>
-                    <label title="Damage Dice">
+                    <label title="Damage Dice" class="numblock diceinput">
                         Damage Dice
                         <input type="text" name="attr_move-damagedice" class="diceinput" value="1d4" /></label>
-                    <label title="Damage Type">
+                    <label title="Damage Type" class="numblock diceinput">
                         Damage Type
                         <input type="text" name="attr_move-damagetype" class="diceinput" value="Fire" /></label>
-                    <label title="Crit dice">
+                    <label title="Crit dice" class="numblock diceinput">
                         Crit Dice
                         <input type="text" value="1d4" class="diceinput" name="attr_move-critdice" /></label>
-                    <label title="Misc. Bonus to hit">
-                        Misc Bonus to Hit
-                        <input type="number" value="0" name="attr_move-miscattackbonus" /></label>
-                    <label title="Other damage bonuses, such as from feats">
-                        Misc Flat Damage
-                        <input type="number" name="attr_move-miscdamage" value="0" />
-                    </label>
-                    <label title="For basic attacks that don't add the ability modifier to the damage roll">
-                        Abi mod to damage
+                    <label title="For basic attacks that don't add the ability modifier to the damage roll" class="numblock diceinput">
+                        Abi mod to damage<br>
                         <input type="checkbox" name="attr_move-abidamage" checked value=1 />
                     </label>
-                    <input type="hidden" value="0" name="attr_move-hitbonus-accessory" />
-                    <input type="hidden" value="0" name="attr_move-abimod" />
-                    <input type="hidden" value="0" name="attr_move-critflat" />
+                    <h4>Misc Bonuses</h4>
+                    <label title="Misc. Bonus to hit" class="numblock miscbonus">
+                        To Hit
+                        <input type="number" value="0" name="attr_move-miscattackbonus" /></label>
+                    <label title="Other damage bonuses, such as from feats" class="numblock miscbonus">
+                        Damage
+                        <input type="number" name="attr_move-miscdamage" value="0" />
+                    </label>
+    
+                    <textarea name="attr_move-power-text" value="Power Text" placeholder="Put any key text you need - hit, miss, effects, etc.">Power Text</textarea>
+                    <input type="hidden" name="attr_move-hitbonus" value="+0" />
+                    <input type="hidden" name="attr_move-hitbonus-accessory" value="0" />
+                    <input type="hidden" name="attr_move-abimod" value="0" />
+                    <input type="hidden" name="attr_move-flatdamage"  value="0" />
+                    <input type="hidden" name="attr_move-critflat" value="0" />
                 </div>
             </div>
         </fieldset>
@@ -830,48 +865,75 @@
     <div class="minor section">
         <h2>Minor Actions</h2>
         <fieldset class="repeating_minor">
-            <input type="text" name="attr_minor-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_minor-display" class="toggle"
-                title="Show Details" />
-            <div class="body">
-                <label class="inline">
-                    Recharge
-                    <select name="attr_minor-usage" class="usage">
-                        <option value="At-Will">At-Will</option>
-                        <option value="Encounter">Encounter</option>
-                        <option value="Daily">Daily</option>
+            <input type="hidden" name="attr_minor-display" class="powerdisplay" value="hide"/>
+            <input type="hidden" name="attr_minor-usage" class="usage"  value="atwill"/>
+            <div class="powerhide">
+                <div class="powerheader">
+                    <input type="text" name="attr_minor-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_minor-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
                     </select>
-                </label>
-                <label title="Range and Targets">
-                    Range and Targets
-                    <input type="text" name="attr_minor-rangetargets" class="rangetargets" placeholder="Ranged Sight One Creature" />
-                </label>
-                <button type="roll" class="combatroll" name="roll_minor-textout"
-                    value="&{template:powertext} {{name=@{minor-name}}} {{powertext=@{minor-power-text}}}">
-                    Power Text
-                </button>
-                <textarea name="attr_minor-power-text" placeholder="Mark the target"></textarea>
-                <div class="attackroll">
-                    <input type="hidden" name="attr_minor-hitbonus" value="+0" />
-                    <button type="roll" class="combatroll" name="roll_minor-attack"
-                        value="&{template:attack} {{name=@{minor-name}}} {{RangeTargets=@{minor-rangetargets}}} {{attack=[[1d20 @{minor-hitbonus}]]}} {{attackadv=[[1d20 @{minor-hitbonus}]]}} {{defense=@{minor-defselect}}} {{edge=[[1d4]]}}"><span
-                            name="attr_minor-hitbonus" value="+0">+0</span>
-                        vs.
-                        <span name="attr_minor-defselect">AC</span></button>
                 </div>
-                <div class="damageroll">
-                    <input type="hidden" name="attr_minor-flatdamage" />
-                    <button type="roll" class="combatroll" name="roll_minor-damage"
-                        value="&{template:damage} {{name=@{minor-name}}} {{damage=[[@{minor-damagedice} @{minor-flatdamage}]]}} {{dmgcrit=[[@{minor-critdice} + @{minor-critflat} @{minor-flatdamage}]]}} {{dmgtype=@{minor-damagetype}}}"><span
-                            name="attr_minor-damagedice" value="1d4">1d4</span><span value="0"
-                            name="attr_minor-flatdamage" value="\+0">+0</span>
-                        <span name="attr_minor-damagetype" value="Fire">Fire</span>
-                        damage</button>
+            </div>
+            <div class="powershow">
+                <div class="powerheader">
+                    <input type="text" name="attr_minor-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_minor-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
                 </div>
-                Setup
-                <input type="checkbox" value="1" checked="true" name="attr_minor-setup-display" class="toggle"
-                    title="Show Details" />
-                <div class="body">
+                <div class="powerbody">
+                    <div class="powershow-row">
+                        <div class="rangetargets">
+                            <span name="attr_minor-range" value="Melee" class="range">Melee</span> ♦ <span name="attr_minor-targets" value="One Creature" class="targets">One Creature</span>
+                        </div>
+                        <label class="ready">
+                            Ready
+                            <input type="checkbox" name="attr_minor-ready" />
+                        </label>
+                    </div>
+                    <div class="powershow-row">
+                        Attack: 
+                        <button type="roll" class="combatroll" name="roll_minor-attack"
+                            value="&{template:attack} {{name=@{minor-name}}} {{range=@{minor-range}}} {{targets=@{minor-targets}}} {{attack=[[1d20 @{minor-hitbonus}]]}} {{attackadv=[[1d20 @{minor-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{minor-defselect}}}">
+                                <span name="attr_minor-hitbonus" value="+0">+0</span> vs. <span name="attr_minor-defselect">AC</span>
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_minor-damage"
+                            value="&{template:damage} {{name=@{minor-name}}} {{damage=[[@{minor-damagedice} @{minor-flatdamage}]]}} {{dmgcrit=[[@{minor-critdice} + @{minor-critflat} @{minor-flatdamage}]]}} {{dmgtype=@{minor-damagetype}}}">
+                            <span name="attr_minor-damagedice" value="1d4">1d4</span><span value="0" name="attr_minor-flatdamage" value="+0">+0</span>
+                            <span name="attr_minor-damagetype" value="Fire">Fire</span> damage
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_minor-textout"
+                            value="&{template:powertext} {{name=@{minor-name}}} {{powertext=@{minor-power-text}}}">
+                            Power Text
+                        </button>
+                        <span name="attr_minor-power-text" class="powertext"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="powerconfig">
+                <div class="powerheader">
+                    <input type="text" name="attr_minor-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_minor-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+                <div class="powerbody">
+                    <select name="attr_minor-usage" class="usage">
+                        <option value="atwill" selected>At-Will</option>
+                        <option value="encounter">Encounter</option>
+                        <option value="daily">Daily</option>
+                    </select>
                     <select name="attr_minor-accessory" class="accesoryselect">
                         <option value="imp1"> Implement 1 </option>
                         <option value="imp2"> Implement 2 </option>
@@ -879,7 +941,8 @@
                         <option value="wep2"> Weapon 2 </option>
                         <option value="wep3"> Weapon 3 </option>
                     </select>
-                    <br />
+                    <input type="text" name="attr_minor-range" class="range" placeholder="Range" value="Melee"/>
+                    <input type="text" name="attr_minor-targets" class="targets" placeholder="Targets" value="One Target"/>
                     <select class="attselect" name="attr_minor-ability">
                         <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
@@ -897,29 +960,34 @@
                             <option value="Will">Will</option>
                         </select>
                     </span>
-                    <label title="Damage Dice">
+                    <label title="Damage Dice" class="numblock diceinput">
                         Damage Dice
                         <input type="text" name="attr_minor-damagedice" class="diceinput" value="1d4" /></label>
-                    <label title="Damage Type">
+                    <label title="Damage Type" class="numblock diceinput">
                         Damage Type
                         <input type="text" name="attr_minor-damagetype" class="diceinput" value="Fire" /></label>
-                    <label title="Crit dice">
+                    <label title="Crit dice" class="numblock diceinput">
                         Crit Dice
                         <input type="text" value="1d4" class="diceinput" name="attr_minor-critdice" /></label>
-                    <label title="Misc. Bonus to hit">
-                        Misc Bonus to Hit
-                        <input type="number" value="0" name="attr_minor-miscattackbonus" /></label>
-                    <label title="Other damage bonuses, such as from feats">
-                        Misc Flat Damage
-                        <input type="number" name="attr_minor-miscdamage" value="0" />
-                    </label>
-                    <label title="For basic attacks that don't add the ability modifier to the damage roll">
-                        Abi mod to damage
+                    <label title="For basic attacks that don't add the ability modifier to the damage roll" class="numblock diceinput">
+                        Abi mod to damage<br>
                         <input type="checkbox" name="attr_minor-abidamage" checked value=1 />
                     </label>
-                    <input type="hidden" value="0" name="attr_minor-hitbonus-accessory" />
-                    <input type="hidden" value="0" name="attr_minor-abimod" />
-                    <input type="hidden" value="0" name="attr_minor-critflat" />
+                    <h4>Misc Bonuses</h4>
+                    <label title="Misc. Bonus to hit" class="numblock miscbonus">
+                        To Hit
+                        <input type="number" value="0" name="attr_minor-miscattackbonus" /></label>
+                    <label title="Other damage bonuses, such as from feats" class="numblock miscbonus">
+                        Damage
+                        <input type="number" name="attr_minor-miscdamage" value="0" />
+                    </label>
+    
+                    <textarea name="attr_minor-power-text" value="Power Text" placeholder="Put any key text you need - hit, miss, effects, etc.">Power Text</textarea>
+                    <input type="hidden" name="attr_minor-hitbonus" value="+0" />
+                    <input type="hidden" name="attr_minor-hitbonus-accessory" value="0" />
+                    <input type="hidden" name="attr_minor-abimod" value="0" />
+                    <input type="hidden" name="attr_minor-flatdamage"  value="0" />
+                    <input type="hidden" name="attr_minor-critflat" value="0" />
                 </div>
             </div>
         </fieldset>
@@ -927,60 +995,77 @@
     <div class="reaction section">
         <h2>Immediate Actions</h2>
         <fieldset class="repeating_reaction">
-            <input type="text" name="attr_reaction-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_reaction-display" class="toggle"
-                title="Show Details" />
-            <div class="body">
-                <label class="inline">
-                    Recharge
+            <input type="hidden" name="attr_reaction-display" class="powerdisplay" value="hide"/>
+            <input type="hidden" name="attr_reaction-usage" class="usage"  value="atwill"/>
+            <div class="powerhide">
+                <div class="powerheader">
+                    <input type="text" name="attr_reaction-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_reaction-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+            </div>
+            <div class="powershow">
+                <div class="powerheader">
+                    <input type="text" name="attr_reaction-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_reaction-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+                <div class="powerbody">
+                    <div class="powershow-row">
+                        <span name="attr_reaction-action" value="Immediate Interrupt"></span>
+                        Trigger: <span name="attr_reaction-trigger" class="trigger" value="An Enemy Bloodies You" >An Enemy Bloodies You</span>
+                        <div class="rangetargets">
+                            <span name="attr_reaction-range" value="Melee" class="range">Melee</span> ♦ <span name="attr_reaction-targets" value="One Creature" class="targets">One Creature</span>
+                        </div>
+                        <label class="ready">
+                            Ready
+                            <input type="checkbox" name="attr_reaction-ready" />
+                        </label>
+                    </div>
+                    <div class="powershow-row">
+                        Attack: 
+                        <button type="roll" class="combatroll" name="roll_reaction-attack"
+                            value="&{template:attack} {{name=@{reaction-name}}} {{range=@{reaction-range}}} {{targets=@{reaction-targets}}} {{attack=[[1d20 @{reaction-hitbonus}]]}} {{attackadv=[[1d20 @{reaction-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{reaction-defselect}}}">
+                                <span name="attr_reaction-hitbonus" value="+0">+0</span> vs. <span name="attr_reaction-defselect">AC</span>
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_reaction-damage"
+                            value="&{template:damage} {{name=@{reaction-name}}} {{damage=[[@{reaction-damagedice} @{reaction-flatdamage}]]}} {{dmgcrit=[[@{reaction-critdice} + @{reaction-critflat} @{reaction-flatdamage}]]}} {{dmgtype=@{reaction-damagetype}}}">
+                            <span name="attr_reaction-damagedice" value="1d4">1d4</span><span value="0" name="attr_reaction-flatdamage" value="+0">+0</span>
+                            <span name="attr_reaction-damagetype" value="Fire">Fire</span> damage
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_reaction-textout"
+                            value="&{template:powertext} {{name=@{reaction-name}}} {{powertext=@{reaction-power-text}}}">
+                            Power Text
+                        </button>
+                        <span name="attr_reaction-power-text" class="powertext"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="powerconfig">
+                <div class="powerheader">
+                    <input type="text" name="attr_reaction-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_reaction-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+                <div class="powerbody">
                     <select name="attr_reaction-usage" class="usage">
-                        <option value="At-Will">At-Will</option>
-                        <option value="Encounter">Encounter</option>
-                        <option value="Daily">Daily</option>
+                        <option value="atwill" selected>At-Will</option>
+                        <option value="encounter">Encounter</option>
+                        <option value="daily">Daily</option>
                     </select>
-                </label>
-                <label>
-                    Action
-                    <select name="attr_reaction-action" class="action">
-                        <option value="1">Immediate Interrupt</option>
-                        <option value="2">Immediate Reaction</option>
-                        <option value="3">Free Interrupt</option>
-                        <option value="4">Free Reaction</option>
-                    </select>
-                </label>
-                <label>
-                    Trigger <input type="text" name="attr_reaction-trigger" placeholder="An Enemy Bloodies You" />
-                </label>
-                <label title="Range and Targets">
-                    Range and Targets
-                    <input type="text" name="attr_reaction-rangetargets" class="rangetargets" placeholder="The Triggering Enemy" />
-                </label>
-                <button type="roll" class="combatroll" name="roll_reaction-textout"
-                    value="&{template:powertext} {{name=@{reaction-name}}} {{powertext=@{reaction-power-text}}}">
-                    Power Text
-                </button>
-                <textarea name="attr_reaction-power-text" placeholder="You gain resistance"></textarea>
-                <div class="attackroll">
-                    <input type="hidden" name="attr_reaction-hitbonus" value="+0" />
-                    <button type="roll" class="combatroll" name="roll_reaction-attack"
-                        value="&{template:attack} {{name=@{reaction-name}}} {{RangeTargets=@{reaction-rangetargets}}} {{attack=[[1d20 @{reaction-hitbonus}]]}} {{attackadv=[[1d20 @{reaction-hitbonus}]]}} {{defense=@{reaction-defselect}}} {{edge=[[1d4]]}}"><span
-                            name="attr_reaction-hitbonus" value="+0">+0</span>
-                        vs.
-                        <span name="attr_reaction-defselect">AC</span></button>
-                </div>
-                <div class="damageroll">
-                    <input type="hidden" name="attr_reaction-flatdamage" />
-                    <button type="roll" class="combatroll" name="roll_reaction-damage"
-                        value="&{template:damage} {{name=@{reaction-name}}} {{damage=[[@{reaction-damagedice} @{reaction-flatdamage}]]}} {{dmgcrit=[[@{reaction-critdice} + @{reaction-critflat} @{reaction-flatdamage}]]}} {{dmgtype=@{reaction-damagetype}}}"><span
-                            name="attr_reaction-damagedice" value="1d4">1d4</span><span value="0"
-                            name="attr_reaction-flatdamage" value="\+0">+0</span>
-                        <span name="attr_reaction-damagetype" value="Fire">Fire</span>
-                        damage</button>
-                </div>
-                Setup
-                <input type="checkbox" value="1" checked="true" name="attr_reaction-setup-display" class="toggle"
-                    title="Show Details" />
-                <div class="body">
                     <select name="attr_reaction-accessory" class="accesoryselect">
                         <option value="imp1"> Implement 1 </option>
                         <option value="imp2"> Implement 2 </option>
@@ -988,7 +1073,10 @@
                         <option value="wep2"> Weapon 2 </option>
                         <option value="wep3"> Weapon 3 </option>
                     </select>
-                    <br />
+                    <input type="text" name="attr_reaction-action" class="action" placeholder="Action" value="Immediate Interrupt"/>
+                    <input type="text" name="attr_reaction-trigger" class="trigger" value="An Enemy Bloodies You" placeholder="Trigger"/>
+                    <input type="text" name="attr_reaction-range" class="range" placeholder="Range" value="Melee"/>
+                    <input type="text" name="attr_reaction-targets" class="targets" placeholder="Targets" value="One Target"/>
                     <select class="attselect" name="attr_reaction-ability">
                         <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
@@ -1006,29 +1094,34 @@
                             <option value="Will">Will</option>
                         </select>
                     </span>
-                    <label title="Damage Dice">
+                    <label title="Damage Dice" class="numblock diceinput">
                         Damage Dice
                         <input type="text" name="attr_reaction-damagedice" class="diceinput" value="1d4" /></label>
-                    <label title="Damage Type">
+                    <label title="Damage Type" class="numblock diceinput">
                         Damage Type
                         <input type="text" name="attr_reaction-damagetype" class="diceinput" value="Fire" /></label>
-                    <label title="Crit dice">
+                    <label title="Crit dice" class="numblock diceinput">
                         Crit Dice
                         <input type="text" value="1d4" class="diceinput" name="attr_reaction-critdice" /></label>
-                    <label title="Misc. Bonus to hit">
-                        Misc Bonus to Hit
-                        <input type="number" value="0" name="attr_reaction-miscattackbonus" /></label>
-                    <label title="Other damage bonuses, such as from feats">
-                        Misc Flat Damage
-                        <input type="number" name="attr_reaction-miscdamage" value="0" />
-                    </label>
-                    <label title="For basic attacks that don't add the ability modifier to the damage roll">
-                        Abi mod to damage
+                    <label title="For basic attacks that don't add the ability modifier to the damage roll" class="numblock diceinput">
+                        Abi mod to damage<br>
                         <input type="checkbox" name="attr_reaction-abidamage" checked value=1 />
                     </label>
-                    <input type="hidden" value="0" name="attr_reaction-hitbonus-accessory" />
-                    <input type="hidden" value="0" name="attr_reaction-abimod" />
-                    <input type="hidden" value="0" name="attr_reaction-critflat" />
+                    <h4>Misc Bonuses</h4>
+                    <label title="Misc. Bonus to hit" class="numblock miscbonus">
+                        To Hit
+                        <input type="number" value="0" name="attr_reaction-miscattackbonus" /></label>
+                    <label title="Other damage bonuses, such as from feats" class="numblock miscbonus">
+                        Damage
+                        <input type="number" name="attr_reaction-miscdamage" value="0" />
+                    </label>
+    
+                    <textarea name="attr_reaction-power-text" value="Power Text" placeholder="Put any key text you need - hit, miss, effects, etc.">Power Text</textarea>
+                    <input type="hidden" name="attr_reaction-hitbonus" value="+0" />
+                    <input type="hidden" name="attr_reaction-hitbonus-accessory" value="0" />
+                    <input type="hidden" name="attr_reaction-abimod" value="0" />
+                    <input type="hidden" name="attr_reaction-flatdamage"  value="0" />
+                    <input type="hidden" name="attr_reaction-critflat" value="0" />
                 </div>
             </div>
         </fieldset>
@@ -1456,7 +1549,7 @@
                 <th>{{ name }}</th>
             </tr>
             <tr>
-                <td class="subheader">{{ Range }} ♦ {{Targets}}</td>
+                <td class="subheader">{{ range }} ♦ {{targets}}</td>
             </tr>
             <tr class="arrow-container">
                 <td>

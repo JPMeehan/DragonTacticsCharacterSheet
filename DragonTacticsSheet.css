@@ -548,18 +548,11 @@ POWERS
 
 /* Show and Hide Switcheroo */
 
-
-
+div.sheet-powerconfig,
+div.sheet-powershow,
 div.sheet-powerhide {
     display: none;
-}
-
-div.sheet-powershow {
-    display: none;
-}
-
-div.sheet-powerconfig {
-    display: none;
+    margin-bottom: 3px;
 }
 
 input.sheet-powerdisplay[value="hide"]~div.sheet-powerhide {
@@ -640,29 +633,50 @@ select.sheet-powerdisplay {
 
 div.sheet-powershow .sheet-powerbody {
     background-color: white;
-    padding-top: 5px;
 }
 div.sheet-powershow .sheet-powerbody .sheet-powershow-row {
     padding: 3px 5px;
+    font-size: 15px;
+    overflow-wrap: break-word;
 }
 
 div.sheet-powershow .sheet-powerbody .sheet-powershow-row:nth-child(2n) {
     background-color: lightgray;
 }
 
+span.sheet-trigger {
+    font-style: italic;
+}
+
+div.sheet-rangetargets {
+    display: inline-block;
+    max-width: calc(100% - 65px);
+}
+
 label.sheet-ready { 
     float: right;
-    width: 90px;
+    width: 62px;
     margin: 0;
     padding: 0;
+    font-size: inherit;
+}
+
+label.sheet-ready input {
+    vertical-align: initial;
 }
 
 input.sheet-usage[value="atwill"]~div.sheet-powershow label.sheet-ready {
     display: none;
 }
 
-
 div.sheet-powershow .sheet-powerbody .sheet-powershow-row button[type="roll"] {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+}
+
+span.sheet-powertext {
+    font-size: 12px;
     font-style: italic;
 }
 
@@ -682,6 +696,12 @@ div.sheet-powerconfig .sheet-powerbody select {
     width: 90px;
 }
 
+input.sheet-action,
+input.sheet-trigger {
+    width: 100%;
+    margin-bottom: 3px;
+}
+
 label.sheet-numblock.sheet-diceinput,
 label.sheet-numblock.sheet-miscbonus {
     width: calc(50% - 2px);
@@ -694,7 +714,6 @@ select.sheet-attselect {
 .sheet-defselect select {
     width: 80px;
 }
-
 
 select.sheet-accesoryselect {
     width: 120px;
@@ -915,6 +934,8 @@ FEATURES & COMPETENCIES
 ROLL TEMPLATES
 
 *****/
+
+.sheet-rolltemplate-attack table,
 .sheet-rolltemplate-attack table,
 .sheet-rolltemplate-damage table,
 .sheet-rolltemplate-skillcheck table,
