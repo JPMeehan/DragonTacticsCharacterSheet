@@ -544,13 +544,100 @@ POWERS
 
 ******/
 
-input.sheet-powername[type="text"] {
-    width: calc(100% - 16px);
+/* Show and Hide Switcheroo */
+
+
+
+div.sheet-powerhide {
+    display: none;
 }
+
+div.sheet-powershow {
+    display: none;
+}
+
+div.sheet-powerconfig {
+    display: none;
+}
+
+input.sheet-powerdisplay[value="hide"]~div.sheet-powerhide {
+    display: block;
+}
+
+input.sheet-powerdisplay[value="show"]~div.sheet-powershow {
+    display: block;
+}
+
+input.sheet-powerdisplay[value="config"]~div.sheet-powerconfig {
+    display: block;
+}
+
+/* Header */
+
+
+input.sheet-usage[value="atwill"]~div.sheet-powerhide div.sheet-powerheader,
+input.sheet-usage[value="atwill"]~div.sheet-powershow div.sheet-powerheader,
+input.sheet-usage[value="atwill"]~div.sheet-powerconfig div.sheet-powerheader {
+    background-color: green;
+}
+
+input.sheet-usage[value="encounter"]~div.sheet-powerhide div.sheet-powerheader,
+input.sheet-usage[value="encounter"]~div.sheet-powershow div.sheet-powerheader,
+input.sheet-usage[value="encounter"]~div.sheet-powerconfig div.sheet-powerheader {
+    background-color: red;
+}
+
+input.sheet-usage[value="daily"]~div.sheet-powerhide div.sheet-powerheader,
+input.sheet-usage[value="daily"]~div.sheet-powershow div.sheet-powerheader,
+input.sheet-usage[value="daily"]~div.sheet-powerconfig div.sheet-powerheader {
+    background-color: black;
+}
+
+div.sheet-powerheader {
+    border: 1px solid black;
+}
+
+div.sheet-powerhide div.sheet-powerheader {
+    border-radius: 5px;
+}
+
+div.sheet-powershow div.sheet-powerheader,
+div.sheet-powerconfig div.sheet-powerheader {
+    border-radius: 5px 5px 0 0;
+}
+
+
+input.sheet-powername[type="text"] {
+    width: calc(100% - 75px);
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+input.sheet-powername[type="text"]::placeholder {
+    color: white;
+}
+
+select.sheet-powerdisplay {
+    width: 65px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin: 0;
+}
+
+/* Show */
+
+
+/* Config */
 
 .sheet-usage {
     width: 90px;
 }
+
+
+
+/*  */
 
 .sheet-action {
     width: 150px;
@@ -577,8 +664,6 @@ input.sheet-rangetargets[type="text"] {
 .sheet-attackroll {
     font-size: 140%;
 }
-
-
 
 button[type=roll].sheet-combatroll {
     height: 28px;

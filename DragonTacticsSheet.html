@@ -605,96 +605,43 @@
     <div class="standard section">
         <h2>Standard Actions</h2>
         <fieldset class="repeating_standard">
-            <input type="text" name="attr_standard-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_standard-display" class="toggle"
-                title="Show Details" />
-            <div class="body">
-                <label class="inline">
-                    Recharge
+            <input type="hidden" name="attr_standard-display" class="powerdisplay" value="hide"/>
+            <input type="hidden" name="attr_standard-usage" class="usage"  value="atwill"/>
+            <div class="powerhide">
+                <div class="powerheader">
+                    <input type="text" name="attr_standard-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_standard-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+            </div>
+            <div class="powershow">
+                <div class="powerheader">
+                    <input type="text" name="attr_standard-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_standard-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+            </div>
+            <div class="powerconfig">
+                <div class="powerheader">
+                    <input type="text" name="attr_standard-name" placeholder="Power Name" class="powername" />
+                    <select name="attr_standard-display" class="powerdisplay">
+                        <option value="hide" selected>Hide</option>
+                        <option value="show">Show</option>
+                        <option value="config">Config</option>
+                    </select>
+                </div>
+                <div class="powerbody">
                     <select name="attr_standard-usage" class="usage">
-                        <option value="At-Will">At-Will</option>
-                        <option value="Encounter">Encounter</option>
-                        <option value="Daily">Daily</option>
+                        <option value="atwill" selected>At-Will</option>
+                        <option value="encounter">Encounter</option>
+                        <option value="daily">Daily</option>
                     </select>
-                </label>
-                <label title="Range and Targets">
-                    Range and Targets
-                    <input type="text" name="attr_standard-rangetargets" class="rangetargets" placeholder="Melee One Creature" />
-                </label>
-                <button type="roll" class="combatroll" name="roll_standard-textout"
-                    value="&{template:powertext} {{name=@{standard-name}}} {{powertext=@{standard-power-text}}}">
-                    Power Text
-                </button>
-                <textarea name="attr_standard-power-text" placeholder="Effect: Create a zone"></textarea>
-                <div class="attackroll">
-                    <input type="hidden" name="attr_standard-hitbonus" value="+0" />
-                    <button type="roll" class="combatroll" name="roll_standard-attack"
-                        value="&{template:attack} {{name=@{standard-name}}} {{RangeTargets=@{standard-rangetargets}}} {{attack=[[1d20 @{standard-hitbonus}]]}} {{attackadv=[[1d20 @{standard-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{standard-defselect}}}"><span
-                            name="attr_standard-hitbonus" value="+0">+0</span>
-                        vs.
-                        <span name="attr_standard-defselect">AC</span></button>
-                </div>
-                <div class="damageroll">
-                    <input type="hidden" name="attr_standard-flatdamage" />
-                    <button type="roll" class="combatroll" name="roll_standard-damage"
-                        value="&{template:damage} {{name=@{standard-name}}} {{damage=[[@{standard-damagedice} @{standard-flatdamage}]]}} {{dmgcrit=[[@{standard-critdice} + @{standard-critflat} @{standard-flatdamage}]]}} {{dmgtype=@{standard-damagetype}}}"><span
-                            name="attr_standard-damagedice" value="1d4">1d4</span><span value="0"
-                            name="attr_standard-flatdamage" value="\+0">+0</span>
-                        <span name="attr_standard-damagetype" value="Fire">Fire</span>
-                        damage</button>
-                </div>
-                Setup
-                <input type="checkbox" value="1" checked="true" name="attr_standard-setup-display" class="toggle"
-                    title="Show Details" />
-                <div class="body">
-                    <select name="attr_standard-accessory" class="accesoryselect">
-                        <option value="imp1"> Implement 1 </option>
-                        <option value="imp2"> Implement 2 </option>
-                        <option value="wep1"> Weapon 1 </option>
-                        <option value="wep2"> Weapon 2 </option>
-                        <option value="wep3"> Weapon 3 </option>
-                    </select>
-                    <br />
-                    <select class="attselect" name="attr_standard-ability">
-                        <option value="strmod" selected>Strength</option>
-                        <option value="conmod">Constitution</option>
-                        <option value="dexmod">Dexterity</option>
-                        <option value="intmod">Intelligence</option>
-                        <option value="wismod">Wisdom</option>
-                        <option value="chamod">Charisma</option>
-                    </select>
-                    vs.
-                    <span class="defselect">
-                        <select name="attr_standard-defselect">
-                            <option value="AC">AC</option>
-                            <option value="Fort">Fortitude</option>
-                            <option value="Ref">Reflex</option>
-                            <option value="Will">Will</option>
-                        </select>
-                    </span>
-                    <label title="Damage Dice">
-                        Damage Dice
-                        <input type="text" name="attr_standard-damagedice" class="diceinput" value="1d4" /></label>
-                    <label title="Damage Type">
-                        Damage Type
-                        <input type="text" name="attr_standard-damagetype" class="diceinput" value="Fire" /></label>
-                    <label title="Crit dice">
-                        Crit Dice
-                        <input type="text" value="1d4" class="diceinput" name="attr_standard-critdice" /></label>
-                    <label title="Misc. Bonus to hit">
-                        Misc Bonus to Hit
-                        <input type="number" value="0" name="attr_standard-miscattackbonus" /></label>
-                    <label title="Other damage bonuses, such as from feats">
-                        Misc Flat Damage
-                        <input type="number" name="attr_standard-miscdamage" value="0" />
-                    </label>
-                    <label title="For basic attacks that don't add the ability modifier to the damage roll">
-                        Abi mod to damage
-                        <input type="checkbox" name="attr_standard-abidamage" checked value=1 />
-                    </label>
-                    <input type="hidden" value="0" name="attr_standard-hitbonus-accessory" />
-                    <input type="hidden" value="0" name="attr_standard-abimod" />
-                    <input type="hidden" value="0" name="attr_standard-critflat" />
                 </div>
             </div>
         </fieldset>
