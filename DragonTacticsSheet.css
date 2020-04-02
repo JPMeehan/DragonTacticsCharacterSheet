@@ -228,6 +228,7 @@ label.sheet-inline {
 
 label {
     vertical-align: middle;
+    width: auto;
 }
 
 select {
