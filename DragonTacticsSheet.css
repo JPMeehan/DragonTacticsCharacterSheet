@@ -141,11 +141,11 @@ DROPDOWN AREAS
  
 ********/
 
-input.sheet-arrow:not(:checked)~div.sheet-body {
+input.sheet-toggle:not(:checked)~div.sheet-body {
     display: none;
 }
 
-.sheet-body {
+div.sheet-body {
     position: relative;
     background: #faf7ea;
     -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
@@ -246,6 +246,7 @@ label.sheet-right {
 
 /* NUMBLOCKS */
 
+/* Basic with Span for content */
 
 div.sheet-numblock {
     display: inline-block;
@@ -269,6 +270,13 @@ div.sheet-numblock span {
     margin-top: 2px;
 }
 
+div.sheet-numblock:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Label numblock */
+
 label.sheet-numblock-container {
     text-align: center;
     padding: 0;
@@ -290,11 +298,6 @@ label.sheet-numblock {
     overflow: hidden;
 }
 
-div.sheet-numblock:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
 label.sheet-3col {
     width: 32%;
 }
@@ -303,6 +306,31 @@ label.sheet-numblock input[type=number] {
     width: 100%;
     text-align: center;
     border-radius: 0;
+}
+
+/* Button Numblock */
+
+button.sheet-numblock[type="roll"] {
+    display: inline-block;
+    font-size: large;
+    font-weight: 450;
+    border: 1px black solid;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 2px 0 0 0;
+    margin: 0;
+}
+
+button.sheet-numblock span.sheet-numblock-mod {
+    display: block;
+    font-size: x-large;
+    background-color: #faf7ea;
+    color: black;
+    height: 50%;
+    padding: 5px;
+    margin-top: 2px;
 }
 
 /******
@@ -360,12 +388,102 @@ ABILITIES
 
 ******/
 
+div.sheet-attributebox {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
 
-button[type=roll].sheet-skillcheckroll {
-    font-size: 18.2px;
-    height: 28px;
-    margin: 0px;
-    padding: 0px;
+input.sheet-skillradio {
+    display: none;
+}
+
+div.sheet-ability {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+div.sheet-ability label.sheet-ability {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin: 2px 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+div.sheet-ability input[type="number"] {
+    width: 100%;
+    text-align: center;
+    border-radius: none;
+    font-size: 22px;
+}
+
+button.sheet-abilitycheck.sheet-numblock[type="roll"] {
+    width: 86%;
+    margin: 3px 7%;
+}
+
+div.sheet-skillbox {
+    width: 58%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.sheet-skill-group {
+    display: none;
+}
+
+input.sheet-skilldisplay[value="Strength"]~div.sheet-skill-group.sheet-strength {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Constitution"]~div.sheet-skill-group.sheet-constitution {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Dexterity"]~div.sheet-skill-group.sheet-dexterity {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Intelligence"]~div.sheet-skill-group.sheet-intelligence {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Wisdom"]~div.sheet-skill-group.sheet-wisdom {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Charisma"]~div.sheet-skill-group.sheet-charisma {
+    display: block;
+}
+
+label.sheet-skillconfig {
+    text-align: right;
+}
+
+input.sheet-skillconfig:not([value="true"])~div.sheet-skill-group div.sheet-skillconfig {
+    display: none;
+}
+
+input.sheet-skillconfig:not([value="true"])~div.sheet-skill-group div.sheet-skilldisplay {
+    display: block;
+}
+
+input.sheet-skillconfig[value="true"]~div.sheet-skill-group div.sheet-skillconfig {
+    display: block;
+}
+
+input.sheet-skillconfig[value="true"]~div.sheet-skill-group div.sheet-skilldisplay {
+    display: none;
+}
+
+
+button.sheet-skillcheckroll.sheet-numblock[type="roll"] {
+    width: 86%;
+    margin: 3px 7%;
+    word-break: keep-all;
 }
 
 
@@ -382,7 +500,7 @@ EFFECTS
 
 
 input.sheet-speed {
-    width: 97%;
+    width: 100%;
 }
 
 div.sheet-bonusdice,
@@ -408,7 +526,7 @@ button[type=roll].sheet-bonusdice-roll {
 }
 
 input.sheet-healing-name {
-    width: 93%;
+    width: calc(100% - 16px);
     margin-top: 5px;
 }
 
@@ -427,7 +545,7 @@ POWERS
 ******/
 
 input.sheet-powername[type="text"] {
-    width: 93%;
+    width: calc(100% - 16px);
 }
 
 .sheet-usage {
@@ -625,7 +743,7 @@ label.sheet-hicrit{
 }
 
 .sheet-item {
-    width: 93%;
+    width: calc(100% - 16px);
 }
 
 .sheet-repeatingitemslabels {
@@ -667,7 +785,7 @@ FEATURES & COMPETENCIES
 ******/
 
 .sheet-features input[type=text] {
-    width: 94%;
+    width: calc(100% - 16px);
 }
 
 .sheet-competencies input[type=text] {

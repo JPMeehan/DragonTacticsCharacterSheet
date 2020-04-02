@@ -1,4 +1,4 @@
-<input type="hidden" name="attr_version" value="3.5.0" />
+<input type="hidden" name="attr_version" value="3.6.0" />
 <div class="main">
     <div class="header section">
         <h1>Dragon Tactics Character Sheet</h1>
@@ -8,7 +8,7 @@
         <h2>Basic Info</h2>
         <input type="text" name="attr_gender" placeholder="Gender" class="gender" />
         <input type="text" name="attr_race" placeholder="Race" class="race" />
-        <input type="checkbox" class="arrow" title="More qualities" />
+        <input type="checkbox" class="toggle" title="More qualities" />
         <div class="body">
             <input type="text" name="attr_height" placeholder="Height" class="bio" />
             <input type="text" name="attr_weight" placeholder="Weight" class="bio" />
@@ -24,82 +24,124 @@
     </div>
     <div class="abilities section">
         <h2>Attributes</h2>
-        <div class="ability">
-            <input type="number" name="attr_strength" value="10" />
-            <input name="attr_strmod" type="hidden" value="0" />
-            <button type="roll" class="skillcheckroll"
-                value="&{template:skillcheck} {{name=Strength Check}} {{check=[[1d20 + @{strmod} + @{quest}]]}} {{checkadv=[[1d20 + @{strmod} + @{quest}]]}}"
-                name="roll_strengthcheck">Strength</button>
-            <input type="checkbox" value="1" name="attr_strskilldrop" class="arrow" title="Show Details" />
-            <div class="body">
-                <span name="attr_athletics" value="+0" style="font-size:140%;"></span>
-                <button type="roll" class="skillcheckroll"
-                    value="&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{athletics-trained}}} {{check=[[1d20 @{athletics}]]}} {{checkadv=[[1d20 @{athletics}]]}}"
-                    name="roll_athleticscheck">Athletics</button>
-                <input type="checkbox" value="1" name="attr_athdets" checked="true" class="arrow"
-                    title="Show Details" />
-                <div class="skill" class="body">
-                    <select name="attr_athletics-train" class="training">
-                        <option value="0" selected>Untrained</option>
-                        <option value="2">Adept</option>
-                        <option value="4">Trained</option>
-                        <option value="6">Experienced</option>
-                        <option value="8">Expert</option>
-                        <option value="10">Master</option>
-                    </select>
-                    <label>
-                        Misc. Bonus
-                        <input type="number" name="attr_athletics-miscbonus" value="0" /></label>
-                    <input name="Athletics-Trained" type="hidden" value="Untrained" />
-                </div>
+        <div class="attributebox">
+            <div class="ability strength numblock">
+                <label class="ability">
+                    Strength
+                    <input type="radio" value="Strength" name="attr_skilldisplay" class="skillradio" />
+                </label>
+                <input type="number" name="attr_strength" value="10" />
+                <input name="attr_strmod" type="hidden" value="0" />
+            </div>
+            <div class="ability constitution numblock">
+                <label class="ability">
+                    Constitution
+                    <input type="radio" value="Constitution" name="attr_skilldisplay" class="skillradio" />
+                </label>
+                <input type="number" name="attr_constitution" value="10" />
+                <input name="attr_conmod" type="hidden" value="0" />
+            </div>
+            <div class="ability dexterity numblock">
+                <label class="ability">
+                    Dexterity
+                    <input type="radio" value="Dexterity" name="attr_skilldisplay" class="skillradio" />
+                </label>
+                <input type="number" name="attr_dexterity" value="10" />
+                <input name="attr_dexmod" type="hidden" value="0" />
+            </div>
+            <div class="ability intelligence numblock">
+                <label class="ability">
+                    Intelligence
+                    <input type="radio" value="Intelligence" name="attr_skilldisplay" class="skillradio" />
+                </label>
+                <input type="number" name="attr_intelligence" value="10" />
+                <input name="attr_intmod" type="hidden" value="0" />
+            </div>
+            <div class="ability wisdom numblock">
+                <label class="ability">
+                    Wisdom
+                    <input type="radio" value="Wisdom" name="attr_skilldisplay" class="skillradio" />
+                </label>
+                <input type="number" name="attr_wisdom" value="10" />
+                <input name="attr_wismod" type="hidden" value="0" />
+            </div>
+            <div class="ability charisma numblock">
+                <label class="ability">
+                    Charisma
+                    <input type="radio" value="Charisma" name="attr_skilldisplay" class="skillradio" />
+                </label>
+                <input type="number" name="attr_charisma" value="10" />
+                <input name="attr_chamod" type="hidden" value="0" />
             </div>
         </div>
-        <div class="ability">
-            <input type="number" name="attr_constitution" value="10" />
-            <input name="attr_conmod" type="hidden" value="0" />
-            <button type="roll" class="skillcheckroll"
-                value="&{template:skillcheck} {{name=Constitution Check}} {{check=[[1d20 + @{conmod} + @{quest}]]}} {{checkadv=[[1d20 + @{conmod} + @{quest}]]}}"
-                name="roll_constitutioncheck">Constitution</button>
-            <input type="checkbox" value="1" name="attr_conskilldrop" class="arrow" title="Show Details" />
-            <div class="body">
-                <span name="attr_endurance" value="+0" style="font-size:140%;"></span>
-                <button type="roll" class="skillcheckroll"
-                    value="&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{endurance-trained}}} {{check=[[1d20 @{endurance}]]}} {{checkadv=[[1d20 @{endurance}]]}}"
-                    name="roll_endurancecheck">Endurance</button>
-                <input type="checkbox" value="1" name="attr_enddets" checked="true" class="arrow"
-                    title="Show Details" />
-                <div class="skill" class="body">
-                    <select name="attr_endurance-train" class="training">
-                        <option value="0" selected>Untrained</option>
-                        <option value="2">Adept</option>
-                        <option value="4">Trained</option>
-                        <option value="6">Experienced</option>
-                        <option value="8">Expert</option>
-                        <option value="10">Master</option>
-                    </select>
-                    <label>
-                        Misc. Bonus
-                        <input type="number" name="attr_endurance-miscbonus" value="0" /></label>
-                    <input name="Endurance-Trained" type="hidden" value="Untrained" />
-                </div>
-            </div>
-        </div>
-        <div class="ability">
-            <input type="number" name="attr_dexterity" value="10" />
-            <input name="attr_dexmod" type="hidden" value="0" />
-            <button type="roll" class="skillcheckroll"
-                value="&{template:skillcheck} {{name=Dexterity Check}} {{check=[[1d20 + @{dexmod} + @{quest}]]}} {{checkadv=[[1d20 + @{dexmod} + @{quest}]]}}"
-                name="roll_dexteritycheck">Dexterity</button>
-            <input type="checkbox" value="1" name="attr_dexskilldrop" class="arrow" title="Show Details" />
-            <div class="body">
+        <div class="skillbox">
+            <button type="roll"
+                value="&{template:skillcheck} {{name=@{skilldisplay} Check}} {{check=[[1d20 @{abimod}]]}} {{checkadv=[[1d20 @{abimod}]]}}"
+                class="abilitycheck numblock" name="roll_abilitycheck">
+                <span name="attr_skilldisplay">Strength</span>
+                <span name="attr_abimod" value="0" class="numblock-mod">0</span>
+            </button>
+            <input type="hidden" name="attr_skilldisplay" value="Strength" class="skilldisplay" />
+            <input type="hidden" name="attr_skillconfig" class="skillconfig" />
+            <div class="skill-group strength">
                 <div class="skill">
-                    <span name="attr_acrobatics" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{acrobatics-trained}}} {{check=[[1d20 @{acrobatics}]]}} {{checkadv=[[1d20 @{acrobatics}]]}}"
-                        name="roll_acrobaticscheck">Acrobatics</button>
-                    <input type="checkbox" name="attr_acrdets" value="1" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Athletics Check}} {{Trained=@{athletics-trained}}} {{check=[[1d20 @{athletics}]]}} {{checkadv=[[1d20 @{athletics}]]}}"
+                            name="roll_athleticscheck"> Athletics
+                        <span name="attr_athletics" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Athletics</h4>
+                        <select name="attr_athletics-train" class="training">
+                            <option value="0" selected>Untrained</option>
+                            <option value="2">Adept</option>
+                            <option value="4">Trained</option>
+                            <option value="6">Experienced</option>
+                            <option value="8">Expert</option>
+                            <option value="10">Master</option>
+                        </select>
+                        <input type="number" name="attr_athletics-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_athletics-trained" type="hidden" value="Untrained" />
+                    </div>
+                </div>
+            </div>
+            <div class="skill-group constitution">
+                <div class="skill">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Endurance Check}} {{Trained=@{endurance-trained}}} {{check=[[1d20 @{endurance}]]}} {{checkadv=[[1d20 @{endurance}]]}}"
+                            name="roll_endurancecheck"> Endurance
+                        <span name="attr_endurance" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Endurance</h4>
+                        <select name="attr_endurance-train" class="training">
+                            <option value="0" selected>Untrained</option>
+                            <option value="2">Adept</option>
+                            <option value="4">Trained</option>
+                            <option value="6">Experienced</option>
+                            <option value="8">Expert</option>
+                            <option value="10">Master</option>
+                        </select>
+                        <input type="number" name="attr_endurance-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_endurance-trained" type="hidden" value="Untrained" />
+                    </div>
+                </div>
+            </div>
+            <div class="skill-group dexterity">
+                <div class="skill">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Acrobatics Check}} {{Trained=@{acrobatics-trained}}} {{check=[[1d20 @{acrobatics}]]}} {{checkadv=[[1d20 @{acrobatics}]]}}"
+                            name="roll_acrobaticscheck"> Acrobatics
+                        <span name="attr_acrobatics" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Acrobatics</h4>
                         <select name="attr_acrobatics-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -108,20 +150,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_acrobatics-miscbonus" value="0" /></label>
-                        <input name="Acrobatics-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_acrobatics-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_acrobatics-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_stealth" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{stealth-trained}}} {{check=[[1d20 @{stealth}]]}} {{checkadv=[[1d20 @{stealth}]]}}"
-                        name="roll_stealthcheck">Stealth</button>
-                    <input type="checkbox" value="1" name="attr_stedets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Stealth Check}} {{Trained=@{stealth-trained}}} {{check=[[1d20 @{stealth}]]}} {{checkadv=[[1d20 @{stealth}]]}}"
+                            name="roll_stealthcheck"> Stealth
+                        <span name="attr_stealth" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Stealth</h4>
                         <select name="attr_stealth-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -130,20 +172,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_stealth-miscbonus" value="0" /></label>
-                        <input name="Stealth-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_stealth-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_stealth-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_sleightofhand" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{sleightofhand-trained}}} {{check=[[1d20 @{sleightofhand}]]}} {{checkadv=[[1d20 @{sleightofhand}]]}}"
-                        name="roll_sleightofhandcheck">Sleight of Hand</button>
-                    <input type="checkbox" name="attr_sledets" value="1" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Sleight of Hand Check}} {{Trained=@{sleightofhand-trained}}} {{check=[[1d20 @{sleightofhand}]]}} {{checkadv=[[1d20 @{sleightofhand}]]}}"
+                            name="roll_sleightofhandcheck"> Sleight of<br>Hand
+                        <span name="attr_sleightofhand" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Sleight of Hand</h4>
                         <select name="attr_sleightofhand-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -152,30 +194,22 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_sleightofhand-miscbonus" value="0" /></label>
-                        <input name="SleightofHand-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_sleightofhand-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_sleightofhand-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="ability">
-            <input type="number" name="attr_intelligence" value="10" />
-            <input name="attr_intmod" type="hidden" value="0" />
-            <button type="roll" class="skillcheckroll"
-                value="&{template:skillcheck} {{name=Intelligence Check}} {{check=[[1d20 + @{intmod} + @{quest}]]}} {{checkadv=[[1d20 + @{intmod} + @{quest}]]}}"
-                name="roll_intelligencecheck">Intelligence</button>
-            <input type="checkbox" value="1" name="attr_intskilldrop" class="arrow" title="Show Details" />
-            <div class="body">
+            <div class="skill-group intelligence">
                 <div class="skill">
-                    <span name="attr_arcana" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{arcana-trained}}} {{check=[[1d20 @{arcana}]]}} {{checkadv=[[1d20 @{arcana}]]}}"
-                        name="roll_arcanacheck">Arcana</button>
-                    <input type="checkbox" value="1" name="attr_arcdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Arcana Check}} {{Trained=@{arcana-trained}}} {{check=[[1d20 @{arcana}]]}} {{checkadv=[[1d20 @{arcana}]]}}"
+                            name="roll_arcanacheck"> Arcana
+                        <span name="attr_arcana" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Arcana</h4>
                         <select name="attr_arcana-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -184,20 +218,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_arcana-miscbonus" value="0" /></label>
-                        <input name="Arcana-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_arcana-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_arcana-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_debate" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Debate Check}} {{Trained=@{debate-trained}}} {{check=[[1d20 @{debate}]]}} {{checkadv=[[1d20 @{debate}]]}}"
-                        name="roll_debatecheck">Debate</button>
-                    <input type="checkbox" value="1" name="attr_debdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Debate Check}} {{Trained=@{debate-trained}}} {{check=[[1d20 @{debate}]]}} {{checkadv=[[1d20 @{debate}]]}}"
+                            name="roll_debatecheck"> Debate
+                        <span name="attr_debate" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Debate</h4>
                         <select name="attr_debate-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -206,20 +240,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_debate-miscbonus" value="0" /></label>
-                        <input name="Debate-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_debate-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_debate-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_repair" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Repair Check}} {{Trained=@{repair-trained}}} {{check=[[1d20 @{repair}]]}} {{checkadv=[[1d20 @{repair}]]}}"
-                        name="roll_repaircheck">Repair</button>
-                    <input type="checkbox" value="1" name="attr_repdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Repair Check}} {{Trained=@{repair-trained}}} {{check=[[1d20 @{repair}]]}} {{checkadv=[[1d20 @{repair}]]}}"
+                            name="roll_repaircheck"> Repair
+                        <span name="attr_repair" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Repair</h4>
                         <select name="attr_repair-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -228,20 +262,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_repair-miscbonus" value="0" /></label>
-                        <input name="Repair-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_repair-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_repair-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_research" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Research Check}} {{Trained=@{research-trained}}} {{check=[[1d20 @{research}]]}} {{checkadv=[[1d20 @{research}]]}}"
-                        name="roll_researchcheck">Research</button>
-                    <input type="checkbox" value="1" name="attr_resdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Research Check}} {{Trained=@{research-trained}}} {{check=[[1d20 @{research}]]}} {{checkadv=[[1d20 @{research}]]}}"
+                            name="roll_researchcheck"> Research
+                        <span name="attr_research" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Research</h4>
                         <select name="attr_research-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -250,30 +284,22 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_research-miscbonus" value="0" /></label>
-                        <input name="Research-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_research-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_research-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="ability">
-            <input type="number" name="attr_wisdom" value="10" />
-            <input name="attr_wismod" type="hidden" value="0" />
-            <button type="roll" class="skillcheckroll"
-                value="&{template:skillcheck} {{name=Wisdom Check}} {{check=[[1d20 + @{wismod} + @{quest}]]}} {{checkadv=[[1d20 + @{wismod} + @{quest}]]}}"
-                name="roll_wisdomcheck">Wisdom</button>
-            <input type="checkbox" value="1" name="attr_wisskilldrop" class="arrow" title="Show Details" />
-            <div class="body">
+            <div class="skill-group wisdom">
                 <div class="skill">
-                    <span name="attr_handleanimal" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{handleanimal-trained}}} {{check=[[1d20 @{handleanimal}]]}} {{checkadv=[[1d20 @{handleanimal}]]}}"
-                        name="roll_handleanimalcheck">Handle Animal</button>
-                    <input type="checkbox" name="attr_handets" value="1" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Handle Animal Check}} {{Trained=@{handleanimal-trained}}} {{check=[[1d20 @{handleanimal}]]}} {{checkadv=[[1d20 @{handleanimal}]]}}"
+                            name="roll_handleanimalcheck"> Handle<br>Animal
+                        <span name="attr_handleanimal" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Handle Animal</h4>
                         <select name="attr_handleanimal-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -282,20 +308,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_handleanimal-miscbonus" value="0" /></label>
-                        <input name="HandleAnimal-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_handleanimal-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_handleanimal-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_insight" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Insight Check}} {{Trained=@{insight-trained}}} {{check=[[1d20 @{insight}]]}} {{checkadv=[[1d20 @{insight}]]}}"
-                        name="roll_insightcheck">Insight</button>
-                    <input type="checkbox" value="1" name="attr_insdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Insight Check}} {{Trained=@{insight-trained}}} {{check=[[1d20 @{insight}]]}} {{checkadv=[[1d20 @{insight}]]}}"
+                            name="roll_insightcheck"> Insight
+                        <span name="attr_insight" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Insight</h4>
                         <select name="attr_insight-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -304,20 +330,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_insight-miscbonus" value="0" /></label>
-                        <input name="Insight-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_insight-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_insight-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_medicine" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{medicine-trained}}} {{check=[[1d20 @{medicine}]]}} {{checkadv=[[1d20 @{medicine}]]}}"
-                        name="roll_medicinecheck">Medicine</button>
-                    <input type="checkbox" value="1" name="attr_meddets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Medicine Check}} {{Trained=@{medicine-trained}}} {{check=[[1d20 @{medicine}]]}} {{checkadv=[[1d20 @{medicine}]]}}"
+                            name="roll_medicinecheck"> Medicine
+                        <span name="attr_medicine" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Medicine</h4>
                         <select name="attr_medicine-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -326,20 +352,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_medicine-miscbonus" value="0" /></label>
-                        <input name="Medicine-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_medicine-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_medicine-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_perception" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Perception Check}} {{Trained=@{perception-trained}}} {{check=[[1d20 @{perception}]]}} {{checkadv=[[1d20 @{perception}]]}}"
-                        name="roll_perceptioncheck">Perception</button>
-                    <input type="checkbox" name="attr_perdets" value="1" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Perception Check}} {{Trained=@{perception-trained}}} {{check=[[1d20 @{perception}]]}} {{checkadv=[[1d20 @{perception}]]}}"
+                            name="roll_perceptioncheck"> Perception
+                        <span name="attr_perception" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Perception</h4>
                         <select name="attr_perception-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -348,20 +374,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_perception-miscbonus" value="0" /></label>
-                        <input name="Perception-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_perception-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_perception-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_survival" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Survival Check}} {{Trained=@{survival-trained}}} {{check=[[1d20 @{survival}]]}} {{checkadv=[[1d20 @{survival}]]}}"
-                        name="roll_survivalcheck">Survival</button>
-                    <input type="checkbox" value="1" name="attr_surdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Survival Check}} {{Trained=@{survival-trained}}} {{check=[[1d20 @{survival}]]}} {{checkadv=[[1d20 @{survival}]]}}"
+                            name="roll_survivalcheck"> Survival
+                        <span name="attr_survival" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Survival</h4>
                         <select name="attr_survival-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -370,30 +396,22 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_survival-miscbonus" value="0" /></label>
-                        <input name="Survival-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_survival-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_survival-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="ability">
-            <input type="number" name="attr_charisma" value="10" />
-            <input name="attr_chamod" type="hidden" value="0" />
-            <button type="roll" class="skillcheckroll"
-                value="&{template:skillcheck} {{name=Charisma Check}} {{check=[[1d20 + @{chamod} + @{quest}]]}} {{checkadv=[[1d20 + @{chamod} + @{quest}]]}}"
-                name="roll_charismacheck">Charisma</button>
-            <input type="checkbox" value="1" name="attr_chaskilldrop" class="arrow" title="Show Details" />
-            <div class="body">
+            <div class="skill-group charisma">
                 <div class="skill">
-                    <span name="attr_appeal" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{appeal-trained}}} {{check=[[1d20 @{appeal}]]}} {{checkadv=[[1d20 @{appeal}]]}}"
-                        name="roll_appealcheck">Appeal</button>
-                    <input type="checkbox" value="1" name="attr_appdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Appeal Check}} {{Trained=@{appeal-trained}}} {{check=[[1d20 @{appeal}]]}} {{checkadv=[[1d20 @{appeal}]]}}"
+                            name="roll_appealcheck"> Appeal
+                        <span name="attr_appeal" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Appeal</h4>
                         <select name="attr_appeal-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -402,20 +420,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_appeal-miscbonus" value="0" /></label>
-                        <input name="Appeal-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_appeal-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_appeal-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_impress" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Impress Check}} {{Trained=@{impress-trained}}} {{check=[[1d20 @{impress}]]}} {{checkadv=[[1d20 @{impress}]]}}"
-                        name="roll_impresscheck">Impress</button>
-                    <input type="checkbox" value="1" name="attr_impdets" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Impress Check}} {{Trained=@{impress-trained}}} {{check=[[1d20 @{impress}]]}} {{checkadv=[[1d20 @{impress}]]}}"
+                            name="roll_impresscheck"> Impress
+                        <span name="attr_impress" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Impress</h4>
                         <select name="attr_impress-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -424,20 +442,20 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_impress-miscbonus" value="0" /></label>
-                        <input name="Impress-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_impress-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_impress-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
                 <div class="skill">
-                    <span name="attr_socialize" value="+0" style="font-size:140%;"></span>
-                    <button type="roll" class="skillcheckroll"
-                        value="&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{socialize-trained}}} {{check=[[1d20 @{socialize}]]}} {{checkadv=[[1d20 @{socialize}]]}}"
-                        name="roll_socializecheck">Socialize</button>
-                    <input type="checkbox" name="attr_socdets" value="1" checked="true" class="arrow"
-                        title="Show Details" />
-                    <div class="body">
+                    <div class="skilldisplay">
+                        <button type="roll" class="skillcheckroll numblock"
+                            value="&{template:skillcheck} {{name=Socialize Check}} {{Trained=@{socialize-trained}}} {{check=[[1d20 @{socialize}]]}} {{checkadv=[[1d20 @{socialize}]]}}"
+                            name="roll_socializecheck"> Socialize
+                        <span name="attr_socialize" value="+0" class="numblock-mod">+0</span>
+                        </button>
+                    </div>
+                    <div class="skillconfig">
+                        <h4>Socialize</h4>
                         <select name="attr_socialize-train" class="training">
                             <option value="0" selected>Untrained</option>
                             <option value="2">Adept</option>
@@ -446,13 +464,15 @@
                             <option value="8">Expert</option>
                             <option value="10">Master</option>
                         </select>
-                        <label>
-                            Misc. Bonus
-                            <input type="number" name="attr_socialize-miscbonus" value="0" /></label>
-                        <input name="Socialize-Trained" type="hidden" value="Untrained" />
+                        <input type="number" name="attr_socialize-miscbonus" value="0" title="Misc. Bonus for things like youor Armor Check penalty"/>
+                        <input name="attr_socialize-trained" type="hidden" value="Untrained" />
                     </div>
                 </div>
             </div>
+            <label class="skillconfig">
+                Skill Config
+                <input type="checkbox" name="attr_skillconfig" value="true" />
+            </label>
         </div>
     </div>
     <div class="competencies section">
@@ -470,7 +490,7 @@
                     Max
                     <span name="attr_hp_max" value="20">20</span>
                 </div>
-                <input type="checkbox" class="arrow hidden"/>
+                <input type="checkbox" class="toggle hidden"/>
                 <div class="body">
                     <label class="numblock 3col">
                         Base
@@ -501,7 +521,7 @@
                     Armor Class
                     <span name="attr_ac" value="10" class="defense">10</span>
                 </div>
-                <input type="checkbox" class="arrow hidden" title="Show Details">
+                <input type="checkbox" class="toggle hidden" title="Show Details">
                 <div class="body">
                     <label class="miscbonus" title="Miscellaneous AC bonuses">
                         Bonus <input type="number" name="attr_ac-misc" value="0" />
@@ -513,7 +533,7 @@
                     Fortitude
                     <span name="attr_fort" value="10" class="defense" >10</span>
                 </div>
-                <input type="checkbox" class="arrow hidden" title="Show Details">
+                <input type="checkbox" class="toggle hidden" title="Show Details">
                 <div class="body">
                     <label class="miscbonus" title="Miscellaneous Fortitude bonuses, like from your class">
                         Bonus
@@ -526,7 +546,7 @@
                     Reflex
                     <span name="attr_ref" value="10" class="defense" >10</span>
                 </div>
-                <input type="checkbox" class="arrow hidden" title="Show Details">
+                <input type="checkbox" class="toggle hidden" title="Show Details">
                 <div class="body">
                     <label class="miscbonus" title="Miscellaneous Reflex bonuses, like from your class">
                         Bonus
@@ -539,7 +559,7 @@
                     Will
                     <span name="attr_will" value="10" class="defense" >10</span>
                 </div>
-                <input type="checkbox" class="arrow hidden" title="Show Details">
+                <input type="checkbox" class="toggle hidden" title="Show Details">
                 <div class="body">
                     <label class="miscbonus" title="Miscellaneous Will bonuses, like from your class">
                         Bonus
@@ -570,7 +590,7 @@
             <h3>Healing</h3>
             <button type="roll" value="&{template:healing} {{name=Second Wind}} {{name=Name}} {{surge=[[@{hp-surgevalue}]]}} {{powertext=You spend a healing surge and gain a +2 bonus to all defenses until the end of the next round.}}">Second Wind</button>
             <input type="text" name="attr_healing-name" placeholder="Healing Power Name" class="healing-name"/>
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="toggle"/>
             <div class="body">
                 <button type="roll" value="&{template:healing} {{name=@{healing-name}}} {{dice=[[@{healing-dice}]]}} {{surge=[[@{target|hp-surgevalue}]]}} {{powertext=@{healing-description}}}">Heal Target</button>
                 <input type="text" name="attr_healing-dice" placeholder="Healing Dice" value="1d6" class="healing-dice"/>
@@ -586,7 +606,7 @@
         <h2>Standard Actions</h2>
         <fieldset class="repeating_standard">
             <input type="text" name="attr_standard-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_standard-display" class="arrow"
+            <input type="checkbox" value="1" checked="true" name="attr_standard-display" class="toggle"
                 title="Show Details" />
             <div class="body">
                 <label class="inline">
@@ -624,7 +644,7 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_standard-setup-display" class="arrow"
+                <input type="checkbox" value="1" checked="true" name="attr_standard-setup-display" class="toggle"
                     title="Show Details" />
                 <div class="body">
                     <select name="attr_standard-accessory" class="accesoryselect">
@@ -683,7 +703,7 @@
         <h2>Move Actions</h2>
         <fieldset class="repeating_move">
             <input type="text" name="attr_move-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_move-display" class="arrow"
+            <input type="checkbox" value="1" checked="true" name="attr_move-display" class="toggle"
                 title="Show Details" />
             <div class="body">
                 <label class="inline">
@@ -721,7 +741,7 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_move-setup-display" class="arrow"
+                <input type="checkbox" value="1" checked="true" name="attr_move-setup-display" class="toggle"
                     title="Show Details" />
                 <div class="body">
                     <select name="attr_move-accessory" class="accesoryselect">
@@ -780,7 +800,7 @@
         <h2>Minor Actions</h2>
         <fieldset class="repeating_minor">
             <input type="text" name="attr_minor-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_minor-display" class="arrow"
+            <input type="checkbox" value="1" checked="true" name="attr_minor-display" class="toggle"
                 title="Show Details" />
             <div class="body">
                 <label class="inline">
@@ -818,7 +838,7 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_minor-setup-display" class="arrow"
+                <input type="checkbox" value="1" checked="true" name="attr_minor-setup-display" class="toggle"
                     title="Show Details" />
                 <div class="body">
                     <select name="attr_minor-accessory" class="accesoryselect">
@@ -877,7 +897,7 @@
         <h2>Immediate Actions</h2>
         <fieldset class="repeating_reaction">
             <input type="text" name="attr_reaction-name" placeholder="Power Name" class="powername" />
-            <input type="checkbox" value="1" checked="true" name="attr_reaction-display" class="arrow"
+            <input type="checkbox" value="1" checked="true" name="attr_reaction-display" class="toggle"
                 title="Show Details" />
             <div class="body">
                 <label class="inline">
@@ -927,7 +947,7 @@
                         damage</button>
                 </div>
                 Setup
-                <input type="checkbox" value="1" checked="true" name="attr_reaction-setup-display" class="arrow"
+                <input type="checkbox" value="1" checked="true" name="attr_reaction-setup-display" class="toggle"
                     title="Show Details" />
                 <div class="body">
                     <select name="attr_reaction-accessory" class="accesoryselect">
@@ -987,14 +1007,14 @@
         <h3>Race Features</h3>
         <fieldset class="repeating_racefeatures">
             <input type="text" name="attr_racefeature-name" placeholder="Darkvision" /> <input type="checkbox"
-                class="arrow" title="Show Details">
+                class="toggle" title="Show Details">
             <div class="body">
                 <textarea name="attr_racefeature-description" placeholder="Item Description"></textarea>
             </div>
         </fieldset>
         <h3>Class Features</h3>
         <fieldset class="repeating_classfeatures">
-            <input type="text" name="attr_classfeature-name" placeholder="Magic" /> <input type="checkbox" class="arrow"
+            <input type="text" name="attr_classfeature-name" placeholder="Magic" /> <input type="checkbox" class="toggle"
                 title="Show Details">
             <div class="body">
                 <textarea name="attr_classfeature-description" placeholder="Item Description"></textarea>
@@ -1002,7 +1022,7 @@
         </fieldset>
         <h3>Feats</h3>
         <fieldset class="repeating_feats">
-            <input type="text" name="attr_feat-name" placeholder="Toughness" /> <input type="checkbox" class="arrow"
+            <input type="text" name="attr_feat-name" placeholder="Toughness" /> <input type="checkbox" class="toggle"
                 title="Show Details">
             <div class="body">
                 <textarea name="attr_feat-description" placeholder="Item Description"></textarea>
@@ -1011,7 +1031,7 @@
         <h3>Flaws and Longterm Conditions</h3>
         <fieldset class="repeating_flaws_longtermconditions">
             <input type="text" name="attr_flaws_longtermcondition-name" placeholder="Mummy Rot" /> <input
-                type="checkbox" class="arrow" title="Show Details">
+                type="checkbox" class="toggle" title="Show Details">
             <div class="body">
                 <textarea name="attr_flaws_longtermcondition-description" placeholder="Item Description"></textarea>
             </div>
@@ -1022,7 +1042,7 @@
         <div class="weapon">
             <h3>Weapon 1</h3>
             <input type="text" name="attr_wep1-name" class="item" placeholder="Longsword" />
-            <input type="checkbox" class="arrow" />
+            <input type="checkbox" class="toggle" />
             <div class="body">
                 <div class="weapon-left">
                     <button type="roll" class="weaponba"
@@ -1105,7 +1125,7 @@
         <div class="weapon">
             <h3>Weapon 2</h3>
             <input type="text" name="attr_wep2-name" class="item" placeholder="Dagger" />
-            <input type="checkbox" class="arrow" />
+            <input type="checkbox" class="toggle" />
             <div class="body">
                 <div class="weapon-left">
                     <button type="roll" class="weaponba"
@@ -1186,7 +1206,7 @@
         <div class="weapon">
             <h3>Weapon 3</h3>
             <input type="text" name="attr_wep3-name" class="item" placeholder="Crossbow" />
-            <input type="checkbox" class="arrow" />
+            <input type="checkbox" class="toggle" />
             <div class="body">
                 <div class="weapon-left">
                     <button type="roll" class="weaponba"
@@ -1267,7 +1287,7 @@
         <div class="implement">
             <h3>Implement 1</h3>
             <input type="text" name="attr_imp1-name" class="item" placeholder="Staff" />
-            <input type="checkbox" class="arrow" />
+            <input type="checkbox" class="toggle" />
             <div class="body">
                 <label class="small implement"><input type="number" name="attr_imp1-prof" value="0" /> Attack
                     Bonus</label>
@@ -1278,7 +1298,7 @@
         <div class="implement">
             <h3>Implement 2</h3>
             <input type="text" name="attr_imp2-name" class="item" placeholder="Wand" />
-            <input type="checkbox" class="arrow" />
+            <input type="checkbox" class="toggle" />
             <div class="body">
                 <label class="small implement"><input type="number" name="attr_imp2-prof" value="0" /> Attack
                     Bonus</label>
@@ -1289,7 +1309,7 @@
         <div class="armor">
             <h3>Armor</h3>
             <input type="text" name="attr_armoritem-name" value="Cloth" class="item" placeholder="Studded Leather" />
-            <input type="checkbox" class="arrow"/>
+            <input type="checkbox" class="toggle"/>
             <div class="body">
                 <label class="small attselect-ac"><select name="attr_ac-att">
                         <option value="0" selected>None (Heavy Armor)</option>
@@ -1310,21 +1330,21 @@
             <h3>Other Equipment</h3>
             <div class="worn-other">
                 <input type="text" name="attr_headitem-name" placeholder="Head" class="item" />
-                <input type="checkbox" class="arrow"/>
+                <input type="checkbox" class="toggle"/>
                 <div class="body">
                     <textarea name="attr_headitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
             <div class="worn-other">
                 <input type="text" name="attr_neckitem-name" placeholder="Neck" class="item" />
-                <input type="checkbox" class="arrow" />
+                <input type="checkbox" class="toggle" />
                 <div class="body">
                     <textarea name="attr_neckitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
             <div class="worn-other">
                 <input type="text" name="attr_armsitem-name" placeholder="Arms" class="item" />
-                <input type="checkbox" class="arrow" />
+                <input type="checkbox" class="toggle" />
                 <div class="body">
                     <label class="numblock shield">
                         Shield Bonus <input type="number" name="attr_shield" value="0" min="0"/>
@@ -1334,21 +1354,21 @@
             </div>
             <div class="worn-other">
                 <input type="text" name="attr_handsitem-name" placeholder="Hands" class="item" />
-                <input type="checkbox" class="arrow" />
+                <input type="checkbox" class="toggle" />
                 <div class="body">
                     <textarea name="attr_handsitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
             <div class="worn-other">
                 <input type="text" name="attr_waistitem-name" placeholder="Waist" class="item" />
-                <input type="checkbox" class="arrow" />
+                <input type="checkbox" class="toggle" />
                 <div class="body">
                     <textarea name="attr_waistitem-description" placeholder="Item Description"></textarea>
                 </div>
             </div>
             <div class="worn-other">
                 <input type="text" name="attr_feetitem-name" placeholder="Feet" class="item" />
-                <input type="checkbox" class="arrow" />
+                <input type="checkbox" class="toggle" />
                 <div class="body">
                     <textarea name="attr_feetitem-description" placeholder="Item Description"></textarea>
                 </div>
@@ -1372,7 +1392,7 @@
         <fieldset class="repeating_onpersonitems">
             <input type="text" name="attr_onpersonitem" class="item_repeat" placeholder="A day's rations" />
             <input type="number" name="attr_onpersonitem-quantity" value="0" min="0">
-            <input type="checkbox" name="attr_onperson-toggle" class="arrow" title="Show Details">
+            <input type="checkbox" name="attr_onperson-toggle" class="toggle" title="Show Details">
             <div class="body">
                 <label><input type="number" name="attr_onpersonitem-space" value="0" step="0.25" /> Space (per)</label>
                 <label>
@@ -1386,7 +1406,7 @@
         <fieldset class="repeating_homeitems">
             <input type="text" name="attr_homeitem" class="item_repeat" placeholder="A mystery chest" />
             <input type="number" name="attr_homeitem-quantity" value="0" min="0">
-            <input type="checkbox" name="attr_home-toggle" class="arrow" title="Show Details">
+            <input type="checkbox" name="attr_home-toggle" class="toggle" title="Show Details">
             <div class="body">
                 <label><input type="number" name="attr_homeitem-space" value="0" step="0.25" /> Space (per)</label>
                 <label>
