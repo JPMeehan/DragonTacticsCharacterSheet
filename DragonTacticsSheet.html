@@ -627,22 +627,34 @@
                     </select>
                 </div>
                 <div class="powerbody">
-                    <span name="attr_standard-range" value="Melee">Melee</span> ♦ <span name="attr_standard-targets" value="One Creature">One Creature</span><br>
-                    <button type="roll" class="combatroll" name="roll_standard-attack"
-                        value="&{template:attack} {{name=@{standard-name}}} {{RangeTargets=@{standard-rangetargets}}} {{attack=[[1d20 @{standard-hitbonus}]]}} {{attackadv=[[1d20 @{standard-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{standard-defselect}}}">
-                            <span name="attr_standard-hitbonus" value="+0">+0</span> vs. <span name="attr_standard-defselect">AC</span>
-                    </button>
-                    <button type="roll" class="combatroll" name="roll_standard-damage"
-                        value="&{template:damage} {{name=@{standard-name}}} {{damage=[[@{standard-damagedice} @{standard-flatdamage}]]}} {{dmgcrit=[[@{standard-critdice} + @{standard-critflat} @{standard-flatdamage}]]}} {{dmgtype=@{standard-damagetype}}}">
-                        <span name="attr_standard-damagedice" value="1d4">1d4</span>
-                        <span value="0" name="attr_standard-flatdamage" value="+0">+0</span>
-                        <span name="attr_standard-damagetype" value="Fire">Fire</span>
-                        damage
-                    </button>
-                    <button type="roll" class="combatroll" name="roll_standard-textout"
-                        value="&{template:powertext} {{name=@{standard-name}}} {{powertext=@{standard-power-text}}}">
-                        Power Text
-                    </button>
+                    <div class="powershow-row">
+                        <span name="attr_standard-range" value="Melee">Melee</span> ♦ <span name="attr_standard-targets" value="One Creature">One Creature</span>
+                        <label class="ready">
+                            Available
+                            <input type="checkbox" name="attr_standard-ready" />
+                        </label>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_standard-attack"
+                            value="&{template:attack} {{name=@{standard-name}}} {{RangeTargets=@{standard-rangetargets}}} {{attack=[[1d20 @{standard-hitbonus}]]}} {{attackadv=[[1d20 @{standard-hitbonus}]]}} {{edge=[[1d4]]}} {{defense=@{standard-defselect}}}">
+                                <span name="attr_standard-hitbonus" value="+0">+0</span> vs. <span name="attr_standard-defselect">AC</span>
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_standard-damage"
+                            value="&{template:damage} {{name=@{standard-name}}} {{damage=[[@{standard-damagedice} @{standard-flatdamage}]]}} {{dmgcrit=[[@{standard-critdice} + @{standard-critflat} @{standard-flatdamage}]]}} {{dmgtype=@{standard-damagetype}}}">
+                            <span name="attr_standard-damagedice" value="1d4">1d4</span>
+                            <span value="0" name="attr_standard-flatdamage" value="+0">+0</span>
+                            <span name="attr_standard-damagetype" value="Fire">Fire</span>
+                            damage
+                        </button>
+                    </div>
+                    <div class="powershow-row">
+                        <button type="roll" class="combatroll" name="roll_standard-textout"
+                            value="&{template:powertext} {{name=@{standard-name}}} {{powertext=@{standard-power-text}}}">
+                            <span name="attr_standard-power-text"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="powerconfig">
@@ -667,7 +679,8 @@
                         <option value="wep2"> Weapon 2 </option>
                         <option value="wep3"> Weapon 3 </option>
                     </select>
-                    <input type="text" name="attr_standard-rangetargets" class="rangetargets" placeholder="Range and Targets" />
+                    <input type="text" name="attr_standard-range" class="range" placeholder="Range" value="Melee"/>
+                    <input type="text" name="attr_standard-targets" class="targets" placeholder="Targets" value="One Target"/>
                     <select class="attselect" name="attr_standard-ability">
                         <option value="strmod" selected>Strength</option>
                         <option value="conmod">Constitution</option>
@@ -685,28 +698,29 @@
                             <option value="Will">Will</option>
                         </select>
                     </span>
-                    <label title="Damage Dice">
+                    <label title="Damage Dice" class="numblock diceinput">
                         Damage Dice
                         <input type="text" name="attr_standard-damagedice" class="diceinput" value="1d4" /></label>
-                    <label title="Damage Type">
+                    <label title="Damage Type" class="numblock diceinput">
                         Damage Type
                         <input type="text" name="attr_standard-damagetype" class="diceinput" value="Fire" /></label>
-                    <label title="Crit dice">
+                    <label title="Crit dice" class="numblock diceinput">
                         Crit Dice
                         <input type="text" value="1d4" class="diceinput" name="attr_standard-critdice" /></label>
-                    <label title="Misc. Bonus to hit">
-                        Misc Bonus to Hit
-                        <input type="number" value="0" name="attr_standard-miscattackbonus" /></label>
-                    <label title="Other damage bonuses, such as from feats">
-                        Misc Flat Damage
-                        <input type="number" name="attr_standard-miscdamage" value="0" />
-                    </label>
-                    <label title="For basic attacks that don't add the ability modifier to the damage roll">
-                        Abi mod to damage
+                    <label title="For basic attacks that don't add the ability modifier to the damage roll" class="numblock diceinput">
+                        Abi mod to damage<br>
                         <input type="checkbox" name="attr_standard-abidamage" checked value=1 />
                     </label>
+                    <h4>Misc Bonuses</h4>
+                    <label title="Misc. Bonus to hit" class="numblock miscbonus">
+                        To Hit
+                        <input type="number" value="0" name="attr_standard-miscattackbonus" /></label>
+                    <label title="Other damage bonuses, such as from feats" class="numblock miscbonus">
+                        Damage
+                        <input type="number" name="attr_standard-miscdamage" value="0" />
+                    </label>
     
-                    <textarea name="attr_standard-power-text" placeholder="Effect: Create a zone"></textarea>
+                    <textarea name="attr_standard-power-text" value="Just Damage" placeholder="Put any key text you need - hit, miss, effects, etc.">Just Damage</textarea>
                     <input type="hidden" name="attr_standard-hitbonus" value="+0" />
                     <input type="hidden" name="attr_standard-hitbonus-accessory" value="0" />
                     <input type="hidden" name="attr_standard-abimod" value="0" />
@@ -1026,7 +1040,7 @@
             <input type="text" name="attr_racefeature-name" placeholder="Darkvision" /> <input type="checkbox"
                 class="toggle" title="Show Details">
             <div class="body">
-                <textarea name="attr_racefeature-description" placeholder="Item Description"></textarea>
+                <textarea name="attr_racefeature-description" placeholder="Feature Description"></textarea>
             </div>
         </fieldset>
         <h3>Class Features</h3>
@@ -1034,7 +1048,7 @@
             <input type="text" name="attr_classfeature-name" placeholder="Magic" /> <input type="checkbox" class="toggle"
                 title="Show Details">
             <div class="body">
-                <textarea name="attr_classfeature-description" placeholder="Item Description"></textarea>
+                <textarea name="attr_classfeature-description" placeholder="Feature Description"></textarea>
             </div>
         </fieldset>
         <h3>Feats</h3>
@@ -1042,7 +1056,7 @@
             <input type="text" name="attr_feat-name" placeholder="Toughness" /> <input type="checkbox" class="toggle"
                 title="Show Details">
             <div class="body">
-                <textarea name="attr_feat-description" placeholder="Item Description"></textarea>
+                <textarea name="attr_feat-description" placeholder="Feat Description"></textarea>
             </div>
         </fieldset>
         <h3>Flaws and Longterm Conditions</h3>
@@ -1050,7 +1064,7 @@
             <input type="text" name="attr_flaws_longtermcondition-name" placeholder="Mummy Rot" /> <input
                 type="checkbox" class="toggle" title="Show Details">
             <div class="body">
-                <textarea name="attr_flaws_longtermcondition-description" placeholder="Item Description"></textarea>
+                <textarea name="attr_flaws_longtermcondition-description" placeholder="Flaw or Condition Description"></textarea>
             </div>
         </fieldset>
     </div>
