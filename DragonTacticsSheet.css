@@ -464,6 +464,7 @@ input.sheet-skilldisplay[value="Charisma"]~div.sheet-skill-group.sheet-charisma 
 
 label.sheet-skillconfig {
     text-align: right;
+    width: 100%;
 }
 
 input.sheet-skillconfig:not([value="true"])~div.sheet-skill-group div.sheet-skillconfig {
