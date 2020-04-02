@@ -96,6 +96,36 @@ on("change:charisma", function () {
     });
 });
 
+on("change:skilldisplay change:strmod change:conmod change:dexmod change:intmod change:wismod change:chamod change:quest", function() {
+    getAttrs(["skilldisplay", "strmod", "conmod", "dexmod", "intmod", "wismod", "chamod", "quest"], function(values) {
+        var abimod = parseInt(values["quest"]);
+        switch (values["skilldisplay"]) {
+            case "Strength":
+                abimod += parseInt(values["strmod"]);
+                break;
+            case "Constitution":
+                abimod += parseInt(values["conmod"]);
+                break;
+            case "Dexterity":
+                abimod += parseInt(values["dexmod"]);
+                break;
+            case "Intelligence":
+                abimod += parseInt(values["intmod"]);
+                break;
+            case "Wisdom":
+                abimod += parseInt(values["wismod"]);
+                break;
+            case "Charisma":
+                abimod += parseInt(values["chamod"]);
+                break;
+        }
+        if (abimod >= 0) {abimod = "+" + String(abimod)}
+        setAttrs({
+            "abimod": abimod
+        })
+    })
+})
+
 /********
 
 DEFENSES
