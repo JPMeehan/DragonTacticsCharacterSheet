@@ -147,7 +147,7 @@ input.sheet-toggle:not(:checked)~div.sheet-body {
 
 div.sheet-body {
     position: relative;
-    background: #faf7ea;
+    background-color: #faf7ea;
     -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
     box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
     margin: .5rem 0em;
@@ -626,10 +626,26 @@ select.sheet-powerdisplay {
     margin: 0;
 }
 
+.sheet-powerbody {
+    border: 1px black;
+    border-style: none solid solid;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    padding: 5px;
+}
+
 /* Show */
+
+div.sheet-powershow .sheet-powerbody {
+    background-color: white;
+}
 
 
 /* Config */
+
+div.sheet-powerconfig .sheet-powerbody {
+    background-color: #faf7ea;
+}
 
 .sheet-usage {
     width: 90px;
