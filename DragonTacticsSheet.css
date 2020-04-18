@@ -29,6 +29,7 @@ PHB STYLING
     font-size: .458cm
 }
 
+
 /********
 
 GRID
@@ -37,8 +38,8 @@ GRID
 
 .sheet-main {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 50px 210px 250px auto auto auto auto auto auto;
+    grid-template-columns: 275px 280px 285px;
+    grid-template-rows: 50px auto auto auto auto auto auto auto auto;
     grid-gap: 4px;
     grid-template-areas: "header header header"
         "common     defense     features"
@@ -49,27 +50,10 @@ GRID
         "mve        backpack    worn"
         "minor      backpack    worn"
         "minor      money       worn";
-    min-width: 9in;
+    min-width: 8.5in;
+    max-width: 11in;
 }
 
-input.sheet-arrow:not(:checked)~div.sheet-body {
-    display: none;
-}
-
-.sheet-body { /* Dropdown areas */
-    position: relative;
-    background: #faf7ea;
-    -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-    box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
-    margin: 1rem 0em;
-    padding: 1em 1em;
-    border-radius: 0.28571429rem;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-}
-
-.charsheet textarea {
-    width: 95%;
-}
 
 .sheet-section {
     padding: 5px;
@@ -96,6 +80,10 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
     grid-area: common;
 }
 
+.sheet-common label {
+    text-align: right;
+}
+
 
 .sheet-abilities {
     grid-area: abilities;
@@ -107,7 +95,7 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
 
 .sheet-defense {
     grid-area: defense;
-    
+
 }
 
 .sheet-effects {
@@ -146,69 +134,801 @@ input.sheet-arrow:not(:checked)~div.sheet-body {
     grid-area: money;
 }
 
-/******
 
-MISC
+/********
+ 
+DROPDOWN AREAS
+ 
+********/
 
-******/
-
-.sheet-BasicInfo input[type=text] {
-	width: 200px
+input.sheet-toggle:not(:checked)~div.sheet-body {
+    display: none;
 }
 
-.sheet-inlineLabel {
-    display: inline;
+div.sheet-body {
+    position: relative;
+    background-color: #faf7ea;
+    -webkit-box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+    box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+    margin: .5rem 0em;
+    padding: 1em 1em;
+    border-radius: 0.28571429rem;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    max-width: 480px;
 }
 
 
-.sheet-AttSelect-AC select {
-    width: 160px;
+/********
+ 
+INPUT FIELDS
+ 
+********/
+
+textarea {
+    width: 97%;
+    resize: vertical;
+    margin-right: 0;
+    margin-bottom: 0;
+    height: 3.5em;
+    min-height: 1em;
 }
 
-.sheet-speedIn {
-    width: 160px;
+
+textarea,
+input {
+    outline: none;
+    box-shadow: none;
 }
 
-.sheet-diceInput {
+textarea:not(:focus) {
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+
+
+input[type=text]:not(:focus) {
+    background: #faf7ea;
+    font-weight: bold;
+}
+
+input[type=number]:not(:focus) {
+    background: #faf7ea;
+}
+
+.sheet-diceinput {
     width: 140px;
 }
 
-.sheet-wepDamSelect {
-    width: 70px;
+
+button[type=roll] {
+    background-color: inherit;
+    background-image: none;
+    border: none;
 }
 
-.sheet-Item {
-    width: 150px;
+button[type=roll]:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.sheet-Usage {
+/******
+
+LABELS AND DIVS
+
+******/
+
+input.sheet-hidden {
+    display: none;
+}
+
+div.sheet-inline,
+label.sheet-inline {
+    display: inline;
+}
+
+label {
+    vertical-align: middle;
+    width: auto;
+}
+
+select {
+    background-color: #faf7ea;
+}
+
+label.sheet-small {
+    display: inline;
+    font-size: 1em;
+}
+
+label.sheet-right {
+    text-align: right;
+}
+
+
+/* NUMBLOCKS */
+
+/* Basic with Span for content */
+
+div.sheet-numblock {
+    display: inline-block;
+    font-size: large;
+    font-weight: bold;
+    border: 1px black solid;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 2px 0 0 0;
+}
+
+div.sheet-numblock span {
+    display: block;
+    font-size: x-large;
+    background-color: #faf7ea;
+    color: black;
+    height: 50%;
+    padding: 5px;
+    margin-top: 2px;
+}
+
+div.sheet-numblock:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+label.sheet-numblock input[type=number],
+label.sheet-numblock input[type=text] {
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+}
+
+/* Label numblock */
+
+label.sheet-numblock-container {
+    text-align: center;
+    padding: 0;
+}
+
+label.sheet-numblock-container div.sheet-body {
+    padding: 4px;
+}
+
+label.sheet-numblock {
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 0;
+    text-align: center;
+    font-size: 11px;
+    display: inline-block;
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+
+label.sheet-3col {
+    width: 32%;
+}
+
+
+/* Button Numblock */
+
+button.sheet-numblock[type="roll"] {
+    display: inline-block;
+    font-size: large;
+    font-weight: 450;
+    border: 1px black solid;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding: 2px 0 0 0;
+    margin: 0;
+}
+
+button.sheet-numblock span.sheet-numblock-mod {
+    display: block;
+    font-size: x-large;
+    background-color: #faf7ea;
+    color: black;
+    height: 50%;
+    padding: 5px;
+    margin-top: 2px;
+}
+
+/******
+
+COMMON AND HEADER
+
+******/
+
+.sheet-header h1 {
+    width: 55%;
+    display: inline-block;
+}
+
+.sheet-header input[type=text] {
+    background-color: inherit;
+    border: none;
+    text-align: right;
+    float: right;
+    font-size: 24px;
+    width: 45%;
+}
+
+
+.sheet-common input {
+    margin-bottom: 7px;
+}
+
+.sheet-common input[type=text].sheet-gender {
+    width: 60px;
+}
+
+.sheet-common input[type=text].sheet-race {
+    width: 175px;
+}
+
+.sheet-common input[type=text].sheet-class {
+    width: 220px;
+}
+
+.sheet-common input[type=number] {
+    width: 40px;
+}
+
+.sheet-common input[type=text].sheet-bio {
+    width: 49%;
+}
+
+
+
+
+/******
+
+ABILITIES
+- Attributes & Skills
+
+******/
+
+div.sheet-attributebox {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+input.sheet-skillradio {
+    display: none;
+}
+
+div.sheet-ability {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+div.sheet-ability label.sheet-ability {
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin: 2px 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+div.sheet-ability input[type="number"] {
+    width: 100%;
+    text-align: center;
+    border-radius: none;
+    font-size: 22px;
+}
+
+button.sheet-abilitycheck.sheet-numblock[type="roll"] {
+    width: 86%;
+    margin: 3px 7%;
+}
+
+div.sheet-skillbox {
+    width: 58%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.sheet-skill-group {
+    display: none;
+}
+
+input.sheet-skilldisplay[value="Strength"]~div.sheet-skill-group.sheet-strength {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Constitution"]~div.sheet-skill-group.sheet-constitution {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Dexterity"]~div.sheet-skill-group.sheet-dexterity {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Intelligence"]~div.sheet-skill-group.sheet-intelligence {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Wisdom"]~div.sheet-skill-group.sheet-wisdom {
+    display: block;
+}
+
+input.sheet-skilldisplay[value="Charisma"]~div.sheet-skill-group.sheet-charisma {
+    display: block;
+}
+
+label.sheet-skillconfig {
+    text-align: right;
+    width: 100%;
+}
+
+input.sheet-skillconfig:not([value="true"])~div.sheet-skill-group div.sheet-skillconfig {
+    display: none;
+}
+
+input.sheet-skillconfig:not([value="true"])~div.sheet-skill-group div.sheet-skilldisplay {
+    display: block;
+}
+
+input.sheet-skillconfig[value="true"]~div.sheet-skill-group div.sheet-skillconfig {
+    display: block;
+}
+
+input.sheet-skillconfig[value="true"]~div.sheet-skill-group div.sheet-skilldisplay {
+    display: none;
+}
+
+
+button.sheet-skillcheckroll.sheet-numblock[type="roll"] {
+    width: 86%;
+    margin: 3px 7%;
+    word-break: keep-all;
+}
+
+
+.sheet-training {
     width: 100px;
 }
 
-.sheet-Action {
-    width: 150px;
+/******
+
+EFFECTS
+- Bonus Dice, Power Points, Persistent Effects
+
+******/
+
+
+input.sheet-speed {
+    width: 100%;
 }
 
-.sheet-AttSelect select {
+div.sheet-bonusdice,
+div.sheet-powerpoints {
+    width: 47%;
+    display: inline-block;
+}
+
+div.sheet-bonusdice input[type=text] {
+    width: 100%;
+}
+
+button[type=roll].sheet-bonusdice-roll {
+    font-size: .529cm;
+    border-bottom: 2px solid #c9ad6a;
+    margin: 4px 0;
+    font-family: MrJeeves;
+    font-weight: 800;
+    color: #58180D;
+    height: 28px;
+    padding: 0px;
+    border-radius: inherit;
+}
+
+input.sheet-healing-name {
+    width: calc(100% - 16px);
+    margin-top: 5px;
+}
+
+input.sheet-healing-dice {
+    width: 50%;
+}
+
+/******
+
+POWERS 
+- Standard
+- Mve
+- Minor
+- Reaction
+
+******/
+
+/* Show and Hide Switcheroo */
+
+div.sheet-powerconfig,
+div.sheet-powershow,
+div.sheet-powerhide {
+    display: none;
+    margin-bottom: 3px;
+}
+
+input.sheet-powerdisplay[value="hide"]~div.sheet-powerhide {
+    display: block;
+}
+
+input.sheet-powerdisplay[value="show"]~div.sheet-powershow {
+    display: block;
+}
+
+input.sheet-powerdisplay[value="config"]~div.sheet-powerconfig {
+    display: block;
+}
+
+/* Header */
+
+
+input.sheet-usage[value="atwill"]~div.sheet-powerhide div.sheet-powerheader,
+input.sheet-usage[value="atwill"]~div.sheet-powershow div.sheet-powerheader,
+input.sheet-usage[value="atwill"]~div.sheet-powerconfig div.sheet-powerheader {
+    background-color: green;
+}
+
+input.sheet-usage[value="encounter"]~div.sheet-powerhide div.sheet-powerheader,
+input.sheet-usage[value="encounter"]~div.sheet-powershow div.sheet-powerheader,
+input.sheet-usage[value="encounter"]~div.sheet-powerconfig div.sheet-powerheader {
+    background-color: red;
+}
+
+input.sheet-usage[value="daily"]~div.sheet-powerhide div.sheet-powerheader,
+input.sheet-usage[value="daily"]~div.sheet-powershow div.sheet-powerheader,
+input.sheet-usage[value="daily"]~div.sheet-powerconfig div.sheet-powerheader {
+    background-color: black;
+}
+
+div.sheet-powerheader {
+    border: 1px solid black;
+}
+
+div.sheet-powerhide div.sheet-powerheader {
+    border-radius: 5px;
+}
+
+div.sheet-powershow div.sheet-powerheader,
+div.sheet-powerconfig div.sheet-powerheader {
+    border-radius: 5px 5px 0 0;
+    border-style: solid solid none;
+}
+
+
+input.sheet-powername[type="text"] {
+    width: calc(100% - 75px);
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+input.sheet-powername[type="text"]::placeholder {
+    color: white;
+}
+
+select.sheet-powerdisplay {
+    width: 65px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin: 0;
+}
+
+.sheet-powerbody {
+    border: 1px black;
+    border-style: none solid solid;
+    border-radius: 0 0 5px 5px;
+    overflow: hidden;
+}
+
+/* Show */
+
+div.sheet-powershow .sheet-powerbody {
+    background-color: white;
+}
+div.sheet-powershow .sheet-powerbody .sheet-powershow-row {
+    padding: 3px 5px;
+    font-size: 15px;
+    overflow-wrap: break-word;
+}
+
+div.sheet-powershow .sheet-powerbody .sheet-powershow-row:nth-child(2n) {
+    background-color: lightgray;
+}
+
+span.sheet-trigger {
+    font-style: italic;
+}
+
+div.sheet-rangetargets {
+    display: inline-block;
+    max-width: calc(100% - 65px);
+}
+
+label.sheet-ready { 
+    float: right;
+    width: 62px;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+}
+
+label.sheet-ready input {
+    vertical-align: initial;
+}
+
+input.sheet-usage[value="atwill"]~div.sheet-powershow label.sheet-ready {
+    display: none;
+}
+
+div.sheet-powershow .sheet-powerbody .sheet-powershow-row button[type="roll"] {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+}
+
+span.sheet-powertext {
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Config */
+
+div.sheet-powerconfig .sheet-powerbody {
+    background-color: #faf7ea;
+    padding: 5px;
+}
+
+div.sheet-powerconfig .sheet-powerbody select {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.sheet-usage {
+    width: 90px;
+}
+
+input.sheet-action,
+input.sheet-trigger {
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+label.sheet-numblock.sheet-diceinput,
+label.sheet-numblock.sheet-miscbonus {
+    width: calc(50% - 2px);
+}
+
+select.sheet-attselect {
     width: 100px;
 }
 
-.sheet-DefSelect select {
-    width: 85px;
+.sheet-defselect select {
+    width: 80px;
 }
 
-
-select.sheet-AccesorySelect {
+select.sheet-accesoryselect {
     width: 120px;
 }
 
-.sheet-DamageRoll,
-.sheet-AttackRoll {
-    font-size: 140%;
+input.sheet-range[type="text"],
+input.sheet-targets[type="text"] {
+    width: calc(50% - 2px);
 }
 
-.sheet-Training {
-    width: 100px;
+
+/******
+
+DEFENSE
+
+******/
+
+label.sheet-hp-setup {
+    display: block;
+    width: 100%;
+}
+
+
+div.sheet-hp-max {
+    width: 40%;
+    height: 50px;
+    border-radius: 30px;
+}
+
+
+
+div.sheet-hp,
+div.sheet-armor {
+    text-align: center;
+}
+
+div.sheet-hp h3,
+div.sheet-armor h3 {
+    text-align: left;
+}
+
+
+
+label.sheet-miscbonus {
+    font-size: 1em;
+    margin-bottom: 5px;
+    text-align: center;
+    padding: 0;
+}
+
+label.sheet-AC {
+    width: 29.5%;
+}
+
+label.sheet-NAD {
+    width: 21.5%;
+}
+
+label.sheet-AC,
+label.sheet-NAD {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* label.sheet-AC div.sheet-body,
+label.sheet-NAD div.sheet-body {
+    margin-top: -15px;
+} */
+
+
+
+div.sheet-defense-block {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+/******
+
+ITEMS
+- Backpack
+- Money
+- Worn
+
+******/
+
+
+div.sheet-weapon div.sheet-body input[type=text],
+div.sheet-weapon div.sheet-body select,
+div.sheet-weapon div.sheet-body button {
+    margin-bottom: 5px;
+}
+
+
+div.sheet-weapon-left {
+    width: 50%;
+    float: left;
+}
+
+
+input.sheet-weaponrange {
+    width: 100%;
+}
+
+select.sheet-weapon {
+    width: 100%;
+}
+
+label.sheet-versatile {
+    text-align: left;
+}
+
+label.sheet-proficiency,
+label.sheet-versatile,
+label.sheet-implement {
+    padding: 0;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+label.sheet-proficiency input[type=number] {
+    width: 2.5em;
+}
+
+
+div.sheet-weapon-right {
+    width: 45%;
+    float: right;
+    text-align: left;
+}
+
+
+.sheet-wepdamselect {
+    width: 70px;
+    margin-left: 10px;
+}
+
+label.sheet-brutal {
+    padding-right: 0;
+}
+
+div.sheet-worn-other {
+    margin: 4px 0;
+}
+
+label.sheet-shield {
+    width: 50%;
+}
+
+/* 
+div.sheet-brutal {
+    margin: 3px 0;
+}
+
+
+label.sheet-hicrit{
+    margin-left: 10px;
+} */
+
+
+.sheet-attselect-ac select {
+    width: 160px;
+}
+
+.sheet-item {
+    width: calc(100% - 16px);
+}
+
+.sheet-repeatingitemslabels {
+    font-weight: bold;
+}
+
+span.sheet-right {
+    float: right;
+    margin-right: 18px;
+}
+
+div.sheet-right {
+    float: right;
+}
+
+div.sheet-left {
+    float: left;
+}
+
+.sheet-item_repeat {
+    width: 190px;
+}
+
+
+input.sheet-space:not(:focus) {
+    font-weight: inherit;
+    font-size: inherit;
+    border: none;
+    background: inherit;
+    color: inherit;
+    padding: 0;
+    height: 28px;
+}
+
+/******
+
+FEATURES & COMPETENCIES
+
+******/
+
+.sheet-features input[type=text] {
+    width: calc(100% - 16px);
+}
+
+.sheet-competencies input[type=text] {
+    width: 100%;
 }
 
 /*****
@@ -217,205 +937,95 @@ ROLL TEMPLATES
 
 *****/
 
-.sheet-rolltemplate-attack table {
+.sheet-rolltemplate-attack table,
+.sheet-rolltemplate-attack table,
+.sheet-rolltemplate-damage table,
+.sheet-rolltemplate-skillcheck table,
+.sheet-rolltemplate-powertext table,
+.sheet-rolltemplate-healing table {
     width: 189px;
     padding: 2px;
     border: 1px solid;
-    background-color: #ffffff;
+    background-color: #fff
 }
 
-.sheet-rolltemplate-attack th {
-    color: rgb(126, 45, 64);
+.sheet-rolltemplate-attack th,
+.sheet-rolltemplate-damage th,
+.sheet-rolltemplate-skillcheck th,
+.sheet-rolltemplate-powertext th,
+.sheet-rolltemplate-healing th {
+    color: #7e2d40;
     padding-left: 5px;
     line-height: 1.6em;
     font-size: 1.2em;
     text-align: left;
     font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
+    font-variant: small-caps
 }
 
-.sheet-rolltemplate-attack .sheet-subheader {
-    color: #000;
-    font-size: 1em;
-    font-style: italic;
-}
-
-.sheet-rolltemplate-attack .sheet-arrow-right {
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-left: 180px solid rgb(126, 45, 64);
-}
-
-.sheet-rolltemplate-attack .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-attack td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-attack .inlinerollresult {
-    background-color: #ffffff;
-    border: none;
-}
-
-.sheet-rolltemplate-attack .inlinerollresult.fullcrit {
-    color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-attack .inlinerollresult.fullfail {
-    color: #B31515;
-    border: none;
-}
-
-/* damage */
-.sheet-rolltemplate-attack,
-.sheet-rolltemplate-damage table {
-    width: 189px;
-    padding: 2px;
-    border: 1px solid;
-    background-color: #ffffff;
-}
-
-.sheet-rolltemplate-damage th {
-    color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-}
-
-.sheet-rolltemplate-damage .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-damage td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult {
-    background-color: #ffffff;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.importantroll {
-    color: #4A57ED;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.fullcrit {
-    color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.fullfail {
-    color: #B31515;
-    border: none;
-}
-
-.sheet-rolltemplate-damage .inlinerollresult.importantroll {
-    color: #4A57ED;
-    border: none;
-}
-
-/* skillcheck */
-
-.sheet-rolltemplate-skillcheck table {
-    width: 189px;
-    padding: 2px;
-    border: 1px solid;
-    background-color: #ffffff;
-}
-
-.sheet-rolltemplate-skillcheck th {
-    color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-}
-
-.sheet-rolltemplate-skillcheck .sheet-subheader {
-    color: #000;
-    font-size: 1em;
-    font-style: italic;
-}
-
-.sheet-rolltemplate-skillcheck .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-skillcheck td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-skillcheck .sheet-arrow-right {
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-left: 180px solid rgb(126, 45, 64);
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult {
-    background-color: #ffffff;
-    border: none;
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult.fullcrit {
-    color: #3FB315;
-    border: none;
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult.fullfail {
-    color: #B31515;
-    border: none;
-}
-
-.sheet-rolltemplate-skillcheck .inlinerollresult.importantroll {
-    color: #4A57ED;
-    border: none;
-}
-
-/* Power Text */
-
-
-.sheet-rolltemplate-powertext table {
-    width: 189px;
-    padding: 2px;
-    border: 1px solid;
-    background-color: #ffffff;
-}
-
-.sheet-rolltemplate-powertext th {
-    color: rgb(126, 45, 64);
-    padding-left: 5px;
-    line-height: 1.6em;
-    font-size: 1.2em;
-    text-align: left;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-}
-
+.sheet-rolltemplate-attack .sheet-subheader,
+.sheet-rolltemplate-skillcheck .sheet-subheader,
 .sheet-rolltemplate-powertext .sheet-subheader {
     color: #000;
     font-size: 1em;
-    font-style: italic;
+    font-style: italic
 }
 
-.sheet-rolltemplate-powertext .sheet-tcat {
-    font-style: italic;
-}
-
-.sheet-rolltemplate-powertext td {
-    padding-left: 5px;
-}
-
-.sheet-rolltemplate-powertext .sheet-arrow-right {
+.sheet-rolltemplate-attack .sheet-arrow-right,
+.sheet-rolltemplate-damage .sheet-arrow-right,
+.sheet-rolltemplate-powertext .sheet-arrow-right,
+.sheet-rolltemplate-skillcheck .sheet-arrow-right,
+.sheet-rolltemplate-healing .sheet-arrow-right {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
-    border-left: 180px solid rgb(126, 45, 64);
+    border-left: 180px solid #7e2d40
+}
+
+.sheet-rolltemplate-attack td,
+.sheet-rolltemplate-damage td,
+.sheet-rolltemplate-powertext td,
+.sheet-rolltemplate-skillcheck td,
+.sheet-rolltemplate-healing td {
+    padding-left: 5px
+}
+
+.sheet-rolltemplate-attack .inlinerollresult,
+.sheet-rolltemplate-damage .inlinerollresult,
+.sheet-rolltemplate-skillcheck .inlinerollresult,
+.sheet-rolltemplate-healing .inlinerollresult {
+    background-color: #fff;
+    border: none
+}
+
+.sheet-rolltemplate-attack .inlinerollresult.importantroll,
+.sheet-rolltemplate-damage .inlinerollresult.importantroll,
+.sheet-rolltemplate-skillcheck .inlinerollresult.importantroll,
+.sheet-rolltemplate-healing .inlinerollresult.importantroll {
+    color: #4A57ED;
+    border: none
+}
+
+.sheet-rolltemplate-attack .inlinerollresult.fullcrit,
+.sheet-rolltemplate-damage .inlinerollresult.fullcrit,
+.sheet-rolltemplate-skillcheck .inlinerollresult.fullcrit,
+.sheet-rolltemplate-healing .inlinerollresult.fullcrit  {
+    color: #3FB315;
+    border: none
+}
+
+.sheet-rolltemplate-attack .inlinerollresult.fullfail,
+.sheet-rolltemplate-damage .inlinerollresult.fullfail,
+.sheet-rolltemplate-skillcheck .inlinerollresult.fullfail,
+.sheet-rolltemplate-healing .inlinerollresult.fullfail {
+    color: #B31515;
+    border: none
+}
+
+
+.sheet-rolltemplate-attack span.sheet-italic,
+.sheet-rolltemplate-damage span.sheet-italic,
+.sheet-rolltemplate-powertext span.sheet-italic,
+.sheet-rolltemplate-skillcheck span.sheet-italic,
+.sheet-rolltemplate-healing span.sheet-italic {
+    font-style: italic;
 }
